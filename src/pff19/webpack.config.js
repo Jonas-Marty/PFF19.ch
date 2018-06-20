@@ -6,6 +6,7 @@ const bundleOutputDir = './wwwroot/dist';
 module.exports = (env) => {
     const isDevBuild = !(env && env.prod);
     return [{
+        watch: env,
         stats: { modules: false },
         entry: { 'main': './ClientApp/boot-app.js' },
         resolve: {
@@ -27,7 +28,7 @@ module.exports = (env) => {
             rules: [
                 { test: /\.vue$/, include: /ClientApp/, use: 'vue-loader' },
                 { test: /\.js$/, include: /ClientApp/, use: 'babel-loader' },
-                { test: /\.css$/, use: isDevBuild ? ['style-loader', 'css-loader'] : ExtractTextPlugin.extract({ use: 'css-loader' }) },
+                { test: /\.scss$/, use: isDevBuild ? ['style-loader', 'css-loader', 'sass-loader'] : ExtractTextPlugin.extract({ use: 'css-loader' }) },
                 { test: /\.(png|jpg|jpeg|gif|svg)$/, use: 'url-loader?limit=25000' }
             ]
         },
@@ -45,7 +46,7 @@ module.exports = (env) => {
         ] : [
                 // Plugins that apply in production builds only
                 new webpack.optimize.UglifyJsPlugin(),
-                new ExtractTextPlugin('site.css')
+                new ExtractTextPlugin('site.scss')
             ])
     }];
 };
