@@ -1,5 +1,6 @@
 <template>
     <div>
+        <app-slideshow> </app-slideshow>
         <h1>Hello, world!</h1>
         <p>Welcome to your new single-page application, built with:</p>
         <ul>
@@ -37,6 +38,11 @@
 </template>
 
 <script>
+import Vue from 'vue';
+import Slideshow from './Slideshow';
+
+Vue.component('app-slideshow', Slideshow);
+
 export default {
     data() {
         return {
