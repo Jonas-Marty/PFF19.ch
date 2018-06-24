@@ -2,6 +2,7 @@
     <div id="app">
         <nav-menu params="route: route"></nav-menu>
         <router-view></router-view>
+        <app-footer></app-footer>
     </div>
 
 </template>
@@ -18,6 +19,7 @@ Vue.component('counter-example', CounterExample);
 Vue.component('fetch-data', FetchData);
 Vue.component('home-page', HomePage);
 Vue.component('nav-menu', NavMenu);
+Vue.component('app-footer', Footer);
 
 export default {
     data() {
