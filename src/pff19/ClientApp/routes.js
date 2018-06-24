@@ -1,6 +1,6 @@
 import CounterExample from 'components/counter-example'
 import FetchData from 'components/fetch-data'
-import HomePage from 'components/home/home-page'
+import HomePage from 'components/home/Home'
 
 export const routes = [
     { path: '/', component: HomePage, display: 'Home', style: 'glyphicon glyphicon-home' },

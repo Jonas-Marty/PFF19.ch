@@ -11,7 +11,7 @@
 import Vue from 'vue'
 import CounterExample from './counter-example'
 import FetchData from './fetch-data'
-import HomePage from './home/home-page'
+import HomePage from './home/Home'
 import NavMenu from './partials/Header'
 import Footer from './partials/Footer'
 
