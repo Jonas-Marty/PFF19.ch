@@ -11,7 +11,7 @@
 
 <script>
 import Vue from 'vue';
-import Slideshow from './Slideshow';
+import Slideshow from './slideshow/Slideshow';
 import NewsList from './news/NewsList.vue';
 import SocialMedia from './SocialMedia.vue';
 import Sponsor from './Sponsor';

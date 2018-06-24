@@ -1,5 +1,5 @@
 <template>
-    <div class="news col-md-4">
+    <div class="news col-md">
         <div class="card">
             <img class="card-img-top" :src="imagePath" alt="Card image">
             <div class="card-body">
@@ -20,7 +20,7 @@ export default {
 
     computed: {
         imagePath () {
-            return require("../../../assets/" + this.news.image + ".jpg");
+            return require("../../../assets/images/" + this.news.image + ".jpg");
         }
     }
 
@@ -30,5 +30,8 @@ export default {
 <style lang="scss" scoped>
     .news {
         margin-bottom: 20px;
+    }
+    .card-title {
+        font-family: "Glacial Indifference Bold"
     }
 </style>

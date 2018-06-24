@@ -56,6 +56,18 @@ export default {
 
 <style lang="scss" scoped>
     .news-list {
-        margin-top: -180px;
+        margin-top: -250px;
+    }
+
+    @media (min-width: 400px) { 
+        .news-list {
+            margin-top: 0px;
+        }
+    }
+
+    @media (min-width: 768px) { 
+    .news-list {
+        margin-top: -250px;
+        }
     }
 </style>
