@@ -1,3 +1,14 @@
+@import "mixins";
+@include font-face("Glacial Indifference", "glacialindifference-regular-webfont", "../assets/fonts/glacial-indifference/", normal, normal);
+@include font-face("Glacial Indifference Bold", "glacialindifference-bold-webfont", "../assets/fonts/glacial-indifference/", normal, bold);
+
 @import "variables";
 @import "~bootstrap/scss/bootstrap";
 @import "adjustments";
+
+
+strong {
+    font-family: "Glacial Indifference Bold";
+    font-weight: normal;
+    font-size: normal;
+}

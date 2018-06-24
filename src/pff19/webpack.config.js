@@ -29,7 +29,17 @@ module.exports = (env) => {
                 { test: /\.vue$/, include: /ClientApp/, use: 'vue-loader' },
                 { test: /\.js$/, include: /ClientApp/, use: 'babel-loader' },
                 { test: /\.scss$/, use: isDevBuild ? ['style-loader', 'css-loader', 'sass-loader'] : ExtractTextPlugin.extract({ use: 'css-loader' }) },
-                { test: /\.(png|jpg|jpeg|gif|svg)$/, use: 'url-loader?limit=25000' }
+                { test: /\.(png|jpg|jpeg|gif|svg)$/, use: 'url-loader?limit=25000' },
+                {
+                    test: /\.(woff(2)?|ttf|eot)(\?v=\d+\.\d+\.\d+)?$/,
+                    use: [{
+                        loader: 'file-loader',
+                        options: {
+                            name: '[name].[ext]',
+                            outputPath: 'fonts/'
+                        }
+                    }]
+                }
             ]
         },
         plugins: [
