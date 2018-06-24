@@ -61,7 +61,7 @@ export default {
 
     @media (min-width: 400px) { 
         .news-list {
-            margin-top: 0px;
+            margin-top: 30px;
         }
     }
 
