@@ -5,6 +5,8 @@
 @import "variables";
 @import "~bootstrap/scss/bootstrap";
 @import "adjustments";
+$fa-font-path: "~font-awesome/fonts";
+@import "~font-awesome/scss/font-awesome";
 
 
 strong {
