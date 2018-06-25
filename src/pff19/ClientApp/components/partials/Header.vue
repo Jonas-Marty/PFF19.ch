@@ -1,10 +1,21 @@
 ﻿<template>
     <transition name="bounce">  
-        <nav class="navbar navbar-inverse position-fixed shadow-sm" :class="{background: background}">
+        <nav class="navbar navbar-expand-md navbar-inverse position-fixed shadow-sm" :class="{background: active}">
             <a class="navbar-brand" href="#" >
-                <img  v-if="background" src="../../assets/images/black_green_small_logo.png" height="30" class="d-inline-block align-top" alt="">
+                <img  :class="{}" src="../../assets/images/black_green_small_logo.png" height="30" class="d-inline-block align-top" alt="">
             </a>
-            {{ background }}
+            {{ active }}
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="fa fa-navicon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav">
+                    <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
+                    <a class="nav-item nav-link" href="#">Features</a>
+                    <a class="nav-item nav-link" href="#">Pricing</a>
+                    <a class="nav-item nav-link disabled" href="#">Disabled</a>
+                </div>
+            </div>
         </nav>
     </transition>
 </template>
@@ -17,7 +28,7 @@ export default {
         return {
             routes,
             collapsed : true,
-            background: false
+            active: false
         }
     },
     methods: {
@@ -26,9 +37,9 @@ export default {
         },
         navbarBackgroundController () {
             if(window.scrollY > 0){
-                this.background = true;
+                this.active = true;
             }else{
-                this.background = false;
+                this.active = false;
             }
         }
     },
