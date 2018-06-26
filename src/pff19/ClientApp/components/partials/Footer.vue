@@ -7,6 +7,7 @@
                     <div class="col-md-3 col-sm-6 links footer-block">
                         <router-link
                                 v-for="route in routes" :key="route.display"
+                                v-if="route.important"
                                 :to="route.path"
                                 class="list-item footer-heading"
                             > {{ route.display }}</router-link>
