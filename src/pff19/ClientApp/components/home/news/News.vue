@@ -20,7 +20,7 @@ export default {
 
     computed: {
         imagePath () {
-            return require("../../../assets/images/" + this.news.image + ".jpg");
+            return require("assets/news/" + this.news.image + ".jpg");
         }
     }
 
