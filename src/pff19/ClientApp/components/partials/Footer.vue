@@ -55,15 +55,13 @@
         <div class="sub-footer">
                 <div class="container">
                     <div class="row">
-                        <div class="col-4">
+                        <div class="col-6">
                             info@pff19.ch
                         </div>
                         <div class="col-6">
-                            {{ helperRoutes.impressum.path }}
                             <router-link
-                                :to="helperRoutes.impressum.path"
-                                class="list-item footer-heading"
-                            > {{ helperRoutes.display }}</router-link>
+                            :to="{name: 'impressum'}"
+                        > Impressum</router-link>
                         </div>
                     </div>
                 </div>
@@ -98,7 +96,7 @@ export default {
         color: white;
     }
 
-    .main-footer a {
+    .main-footer a, .sub-footer a {
         color: white;
     }
 

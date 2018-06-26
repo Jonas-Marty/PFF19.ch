@@ -12,10 +12,19 @@
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav ml-auto" >
                         <router-link
-                            v-for="route in routes" :key="route.display"
-                            :to="route.path"
+                            :to="{name: 'home'}"
                             class="nav-item nav-link"
-                        > {{ route.display }}</router-link>
+                        > Home</router-link>
+
+                        <router-link
+                            :to="{name: 'counter'}"
+                            class="nav-item nav-link"
+                        > Counter</router-link>
+
+                        <router-link
+                            :to="{name: 'sponsors'}"
+                            class="nav-item nav-link"
+                        > Sponsoren</router-link>
                      
                 </div>
             </div>
