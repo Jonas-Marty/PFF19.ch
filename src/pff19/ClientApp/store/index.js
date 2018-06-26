@@ -3,30 +3,32 @@ import Vuex from 'vuex'
 
 Vue.use(Vuex)
 
-// TYPES
-const MAIN_SET_COUNTER = 'MAIN_SET_COUNTER'
+export const store = new Vuex.Store({
+    state: {
+        isHome: false
+    },
 
-// STATE
-const state = {
-    counter: 0
-}
+    getters: {
+        isHome: state => {
+            return state.isHome;
+        }
+    },
 
-// MUTATIONS
-const mutations = {
-    [MAIN_SET_COUNTER](state, obj) {
-        state.counter = obj.counter
+    mutations: {
+        enterHome: state => {
+            state.isHome = true;
+        },
+        leaveHome: state => {
+            state.isHome = false;
+        }
+    },
+
+    actions: {
+        enterHome: ({commit}) => {
+            commit('enterHome');
+        },
+        leaveHome: ({commit}) => {
+            commit('leaveHome');
+        }
     }
-}
-
-// ACTIONS
-const actions = ({
-    setCounter({ commit }, obj) {
-        commit(MAIN_SET_COUNTER, obj)
-    }
-})
-
-export default new Vuex.Store({
-    state,
-    mutations,
-    actions
 });

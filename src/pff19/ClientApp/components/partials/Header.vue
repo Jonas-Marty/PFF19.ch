@@ -1,34 +1,44 @@
 ﻿<template>
     <transition name="bounce">  
-        <nav class="navbar navbar-expand-md navbar-inverse position-fixed shadow-sm" :class="{background: active}">
+        <nav class="navbar navbar-expand-md navbar-inverse position-fixed shadow-sm" :class="{embedded: embedded && isHome}">
+
             <a class="navbar-brand" href="#" >
-                <img  :class="{}" src="../../assets/images/black_green_small_logo.png" height="30" class="d-inline-block align-top" alt="">
+                <img  :class="{}" src="../../assets/images/black_green_small_logo.png" height="40" class="d-inline-block align-top" alt="">
             </a>
-            {{ active }}
+
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="fa fa-navicon"></span>
+                <span class="fa fa-navicon" style="color: white"></span>
             </button>
+
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-                <div class="navbar-nav">
-                    <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
-                    <a class="nav-item nav-link" href="#">Features</a>
-                    <a class="nav-item nav-link" href="#">Pricing</a>
-                    <a class="nav-item nav-link disabled" href="#">Disabled</a>
+                <div class="navbar-nav ml-auto" >
+                        <router-link
+                            v-for="route in routes" :key="route.display"
+                            :to="route.name"
+                            class="nav-item nav-link"
+                        > {{ route.display }}</router-link>
+                     
                 </div>
             </div>
+
         </nav>
     </transition>
 </template>
 
 <script>
-import { routes } from '../../routes'
+import { routes } from '../../routes';
 
 export default {
     data() {
         return {
             routes,
             collapsed : true,
-            active: false
+            embedded: true
+        }
+    },
+    computed: {
+        isHome() {
+            return this.$store.getters.isHome;
         }
     },
     methods: {
@@ -37,23 +47,26 @@ export default {
         },
         navbarBackgroundController () {
             if(window.scrollY > 0){
-                this.active = true;
+                this.embedded = false;
             }else{
-                this.active = false;
+                this.embedded = true;
             }
         }
     },
     created () {
         window.addEventListener('scroll', this.navbarBackgroundController);
-    }
+    },
 }
 </script>
 
 <style lang="scss" scoped>
 .navbar {
-    color: white;
+    color: black;
+    background: white;
     width: 100%;
     z-index: 999;
+    font-family: "Glacial Indifference Bold";
+    text-transform: uppercase;
 }
 
 .navbar, .shadow-sm {
@@ -63,9 +76,18 @@ export default {
     -o-transition:all 0.500s ease;
 }
 
-.background {
-    color: black;
-    background: white;
+.embedded {
+    color: white;
+    background: none;
+    box-shadow: none !important;
+}
+
+.embedded .navbar-brand {
+    visibility: hidden;
+}
+
+.embedded .nav-item {
+    color: white;
 }
 
 </style>

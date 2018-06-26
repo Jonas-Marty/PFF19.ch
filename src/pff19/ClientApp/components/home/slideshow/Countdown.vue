@@ -34,7 +34,6 @@ export default {
             const distance = (new Date("Aug 30, 2019 17:00:00").getTime() - new Date().getTime()); 
             const days = Math.floor(distance / (1000 * 60 * 60 * 24)).toString().split("");
             const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)).toString().split("");
-            console.log({days, hours});
             return {days, hours};
         }
     }

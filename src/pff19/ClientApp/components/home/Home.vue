@@ -15,6 +15,7 @@ import Slideshow from './slideshow/Slideshow';
 import NewsList from './news/NewsList.vue';
 import SocialMedia from './SocialMedia.vue';
 import Sponsor from './Sponsor';
+import { mapActions } from 'vuex';
 
 Vue.component('app-slideshow', Slideshow);
 Vue.component('app-news-list', NewsList);
@@ -26,6 +27,20 @@ export default {
         return {
         }
     },
+
+    methods: {
+        ...mapActions([
+            'enterHome',
+            'leaveHome'
+        ])
+    },
+
+    mounted () {
+        this.enterHome();
+    },
+    beforeDestroy () {
+        this.leaveHome();
+    }
 }
 </script>
 
