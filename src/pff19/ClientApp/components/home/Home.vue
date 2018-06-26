@@ -1,9 +1,7 @@
 <template>
     <div>
         <app-slideshow> </app-slideshow>
-        <div class="container">
-            <app-news-list></app-news-list>
-        </div>
+        <app-news-list></app-news-list>
         <app-social-media></app-social-media>
         <app-sponsors></app-sponsors>
     </div>

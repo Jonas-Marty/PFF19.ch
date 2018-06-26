@@ -1,15 +1,19 @@
 <template>
-    <div class="sponsors">
-        <div class="container">
-            <h2>Sponsoren</h2>
-            <div class="sponsor-logos">
-                <div 
-                    class="sponsor-logo col-md-4"
-                    v-for="sponsor in sponsors"
-                    :key="sponsor.id"
-                >
-                    <img :src="require('assets/sponsors/' + sponsor.logo)"  :alt="sponsor.name">
-                </div>
+    <div class="sponsors container">
+        <h2>Sponsoren</h2>
+        
+        <div class="row">
+            <div class="sponsor col-md-4"
+                v-for="sponsor in sponsors"
+                :key="sponsor.id"
+            >   
+                <div class="card">
+                    <div class="card-body">
+                        <a :href="sponsor.link">
+                        <img :src="require('assets/sponsors/' + sponsor.logo)">
+                        </a>
+                    </div> 
+                </div> 
             </div>
         </div>
     </div>
@@ -23,28 +27,29 @@ export default {
                 {
                     id: 1,
                     name: "Test Dummy",
-                    logo: "logo.png"
+                    logo: "logo.png",
+                    link: "https://vuejs.org/"
                 },
                 {
-                    id: 1,
-                    name: "Test Dummy",
-                    logo: "logo.png"
+                    id: 2,
+                    name: "Test sdfDummy",
+                    logo: "logo.png",
+                    link: "https://vuejs.org/"
                 },
                 {
-                    id: 1,
-                    name: "Test Dummy",
-                    logo: "logo.png"
+                    id: 3,
+                    name: "Test Daummy",
+                    logo: "logo.png",
+                    link: "https://vuejs.org/"
                 },
                 {
-                    id: 1,
-                    name: "Test Dummy",
-                    logo: "logo.png"
+                    id: 4,
+                    name: "Test Dumasdfmy",
+                    logo: "logo.png",
+                    link: "https://vuejs.org/"
                 }
             ]
         }
-    },
-    compputed: {
-        
     }
 
 }
@@ -52,7 +57,15 @@ export default {
 
 <style lang="scss" scoped>
     .sponsors {
-        height: 400px;
+        height: 500px;
+        width: 100%;
+    }
+
+    .sponsor {
+        margin-bottom: 20px;
+    }
+
+    .sponsors img {
         width: 100%;
     }
 
