@@ -4,7 +4,10 @@
             <app-news v-for="news in newsList" :key="news.id" :news="news"> </app-news>
         </div>
             <div class="float-right">
-                weitere News
+                <router-link
+                    :to="{name: 'news_overview'}"
+                    class=""
+                > weitere News</router-link>
             </div>
     </div>
 </template>

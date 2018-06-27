@@ -4,6 +4,7 @@ import Sponsors from 'components/sponsors/SponsorList';
 import FAQ from 'components/faq/FAQ';
 import Organisation from 'components/Organisation';
 import Helfer from 'components/helper/Helfer';
+import NewsOverview from 'components/news/NewsOverview';
 
 export const routes = [
     { name: 'home', path: '/', component: HomePage, display: 'Home', important: true},
@@ -14,5 +15,5 @@ export const routes = [
 
 
     { name: 'impressum', path: '/impressum', component: Impressum, display: 'Impressum'},
-    { name: 'news', path: '/news', component: Impressum, display: 'Impressum'}
+    { name: 'news_overview', path: '/news', component: NewsOverview, display: 'NewsOverview'}
 ];

@@ -72,13 +72,12 @@
 </template>
 
 <script>
-import { routes, helperRoutes } from '../../routes';
+import { routes } from '../../routes';
 
 export default {
     data () {
         return {
-            routes,
-            helperRoutes
+            routes
         }
     }
 
