@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.26228.4
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "pff19", "pff19\pff19.csproj", "{0ECC071E-696D-460A-8DE8-11BD41C90775}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "pff.DataAccess", "pff.DataAccess\pff.DataAccess.csproj", "{C556A9D8-4FDD-4FBB-BB8E-C78D26CDBB1F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,8 +17,15 @@ Global
 		{0ECC071E-696D-460A-8DE8-11BD41C90775}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0ECC071E-696D-460A-8DE8-11BD41C90775}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0ECC071E-696D-460A-8DE8-11BD41C90775}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C556A9D8-4FDD-4FBB-BB8E-C78D26CDBB1F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C556A9D8-4FDD-4FBB-BB8E-C78D26CDBB1F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C556A9D8-4FDD-4FBB-BB8E-C78D26CDBB1F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C556A9D8-4FDD-4FBB-BB8E-C78D26CDBB1F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A17BBEE7-85DA-4486-9433-97F7DFD391C9}
 	EndGlobalSection
 EndGlobal

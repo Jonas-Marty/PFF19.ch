@@ -21,7 +21,7 @@ export default {
                     id: 1, 
                     date: "Thu Jun 21 20:53:17 2018 UTC", 
                     title: "Der Aufbau beginnt", 
-                    short: "Bacon ipsum dolor amet porchetta meatloaf prosciutto,\
+                    content: "Bacon ipsum dolor amet porchetta meatloaf prosciutto,\
                     kevin rump turducken jerky picanha jowl doner tenderloin shank\
                     frankfurter. Ground round burgdoggen venison ham biltong",
                     image: "beer_sunset"
@@ -30,7 +30,7 @@ export default {
                     id: 2, 
                     date: "Thu Jun 21 20:53:17 2018 UTC", 
                     title: "1000 Tickets wurden verkauft", 
-                    short: "Bacon ipsum dolor amet porchetta meatloaf prosciutto,\
+                    content: "Bacon ipsum dolor amet porchetta meatloaf prosciutto,\
                     kevin rump turducken jerky picanha jowl doner tenderloin shank\
                     frankfurter. Ground round burgdoggen venison ham biltong",
                     image: "beer_sunset"
@@ -39,7 +39,7 @@ export default {
                     id: 3, 
                     date: "Thu Jun 21 20:53:17 2018 UTC", 
                     title: "Alle Bands wurden bereits Gefunden",
-                    short: "Bacon ipsum dolor amet porchetta meatloaf prosciutto,\
+                    content: "Bacon ipsum dolor amet porchetta meatloaf prosciutto,\
                     kevin rump turducken jerky picanha jowl doner tenderloin shank\
                     frankfurter. Ground round burgdoggen venison ham biltong",
                     image: "beer_sunset"
