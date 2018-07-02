@@ -13,6 +13,9 @@ export const store = new Vuex.Store({
     getters: {
         isHome: state => {
             return state.isHome;
+        },
+        language: state => {
+            return state.language;
         }
     },
 

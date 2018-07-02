@@ -11,7 +11,7 @@ export const routes = [
     { name: 'sponsors', path: '/sponsors', component: Sponsors, display: 'Sponsoren', important: true},
     { name: 'faq', path: '/faq', component: FAQ, display: 'FAQ', important: true},
     { name: 'organisation', path: '/organisation', component: Organisation, display: 'Organisation', important: true},
-    { name: 'helfer', path: '/helfer', component: Helfer, display: 'Helfer', important: true},
+    { name: 'helper', path: '/helfer', component: Helfer, display: 'Helfer', important: true},
 
 
     { name: 'impressum', path: '/impressum', component: Impressum, display: 'Impressum'},

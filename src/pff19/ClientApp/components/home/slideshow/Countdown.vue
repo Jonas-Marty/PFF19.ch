@@ -8,7 +8,7 @@
                 </div>
             </div>
             <div class="countdown-text">
-                <strong>TAGE</strong>
+                <strong>{{ $t('lang.components.home.slideshow.countdown.days') | uppercase}}</strong>
             </div>
         </div>
         <div class="hours col-md-12 col-12">
@@ -18,7 +18,7 @@
                 </div>
             </div>
             <div class="countdown-text justify-content-md-end ">
-                <strong>STUNDEN</strong>
+                <strong>{{ $t('lang.components.home.slideshow.countdown.hours') | uppercase}}</strong>
             </div>
         </div>
     </div>

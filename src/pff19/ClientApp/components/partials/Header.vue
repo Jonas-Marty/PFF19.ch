@@ -6,8 +6,8 @@
             </a>
 
             <div class="nav-item mr-auto">
-            <a class="" href="#" @click="changeLang('de')">de</a> |
-            <a class="" href="#" @click="changeLang('fr')">fr</a>
+            <a class="btn" @click="changeLang('de')">de</a> |
+            <a class="btn" @click="changeLang('fr')">fr</a>
             </div>
 
 
@@ -22,7 +22,7 @@
                                 v-if="route.important"
                                 :to="route.path"
                                 class="nav-item nav-link"
-                        > {{ route.display }}</router-link>
+                        > {{ $t(`lang.navigation.${route.name}`) }}</router-link>
 
                      
                 </div>

@@ -6,21 +6,21 @@
 
                     <div class="col-md-3 col-sm-6 links footer-block">
                         <router-link
-                                v-for="route in routes" :key="route.display"
+                                v-for="route in routes" :key="route.name"
                                 v-if="route.important"
                                 :to="route.path"
                                 class="list-item footer-heading"
-                            > {{ route.display }}</router-link>
+                            > {{ $t(`lang.navigation.${route.name}`) }}</router-link>
                     </div>
 
                     <div class="col-md-4 col-sm-6 footer-block">
                         <!-- Begin MailChimp Signup Form -->
                         <div class="newsletter">
                             <form action="https://pff2019.us12.list-manage.com/subscribe/post?u=49efe2269ccc4a7227ef08f59&amp;id=067179a941" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
-                            <span class="footer-heading">KEINE NEWS VERPASSEN</span>
+                            <span class="footer-heading">{{ $t('lang.components.footer.dont_miss_news') | uppercase}}</span>
                             <div class="footer-content">
                                 <div class="form-group">
-                                    <input type="email" value="" name="EMAIL" placeholder="beispiel@mail.com" class="form-control" id="mce-EMAIL">
+                                    <input type="email" value="" name="EMAIL" :placeholder="$t('lang.components.footer.example') + '@mail.com'" class="form-control" id="mce-EMAIL">
                                 </div>
                             <div id="mce-responses" class="clear">
                                 <div class="response" id="mce-error-response" style="display:none"></div>
@@ -30,7 +30,7 @@
                             <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_49efe2269ccc4a7227ef08f59_067179a941" tabindex="-1" value=""></div>
                             <div class="clear">
                                 <div class="form-group ">
-                                <input type="submit" value="Anmeldung Newsletter" name="subscribe"  class="btn btn-danger "></div>
+                                <input type="submit" :value="$t('lang.components.footer.register_newsletter') | uppercase" name="subscribe"  class="btn btn-danger "></div>
                                 </div>
                             </div>
                             </form>
@@ -39,7 +39,7 @@
                     </div>
 
                     <div class="col-md-2 col-sm-6 footer-block">
-                        <span class="footer-heading">FOLGE UNS</span>
+                        <span class="footer-heading">{{ $t('lang.components.footer.follow_us') | uppercase }}</span>
                         <div class="social-media footer-content">
                             <img :src="require('assets/images/001-facebook.svg')" alt="facebook">
                             <img :src="require('assets/images/003-instagram.svg')" alt="facebook">
@@ -62,7 +62,7 @@
                         <div class="col-6">
                             <router-link
                             :to="{name: 'impressum'}"
-                        > Impressum</router-link>
+                        > {{ $t('lang.navigation.impressum') }}</router-link>
                         </div>
                     </div>
                 </div>

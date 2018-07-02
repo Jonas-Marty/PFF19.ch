@@ -1,19 +1,33 @@
 {
-	"pages": {
-		"global": {
-			"text1": "Test1"
-		},
-		"signin": {
-			"text": "SignIn"
-		}
+	"navigation": {
+		"home": "Home",
+		"sponsors": "Sponsors",
+		"faq": "FAQ",
+		"organisation": "Organisation",
+		"helper": "bénévoles",
+		"impressum": "mentions légales",
+		"news_overview": "news aperçu"
 	},
 	"components": {
-		"input": {
-			"placeholder": [
-				{ "username": "Username" },
-				{ "email": "name@example.com" },
-				{ "password": "Password" }
-			]
+		"footer": {
+			"dont_miss_news": "ne manquez aucune news",
+			"example": "exemple",
+			"register_newsletter": "inscription Newsletter",
+			"follow_us": "suivez-nous"
+		},
+		"home": {
+			"slideshow": {
+				"countdown": {
+					"days": "jours",
+					"hours": "heures"
+				}
+			},
+			"news": {
+				"further_news" : "plus news"
+			},
+			"sponsors": {
+				"sponsors": "Sponsors"
+			}
 		},
 		"button": [
 			{ "submit": "Submit" },

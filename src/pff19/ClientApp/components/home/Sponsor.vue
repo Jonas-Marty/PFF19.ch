@@ -1,6 +1,6 @@
 <template>
     <div class="sponsors container">
-        <h2>Sponsoren</h2>
+        <h2>{{ $t('lang.components.home.sponsors.sponsors') }}</h2>
         
         <div class="row">
             <div class="sponsor col-md-4"

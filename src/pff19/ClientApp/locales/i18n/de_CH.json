@@ -1,20 +1,35 @@
 {
-	"pages": {
-		"global": {
-			"text1": "Test1"
-		},
-		"signin": {
-			"text": "会员登入"
-		}
+	"navigation": {
+		"home": "Home",
+		"sponsors": "Sponsoren",
+		"faq": "FAQ",
+		"organisation": "Organisation",
+		"helper": "Helfer",
+		"impressum": "Impressum",
+		"news_overview": "News Übersicht"
 	},
 	"components": {
-		"input": {
-			"placeholder": [
-				{ "username": "使用者名称" },
-				{ "email": "name@example.com" },
-				{ "password": "密码" }
-			]
+		"footer": {
+			"dont_miss_news": "Keine News verpassen",
+			"example": "beispiel",
+			"register_newsletter": "Anmeldung Newsletter",
+			"follow_us": "Folge uns"
 		},
+		"home": {
+			"slideshow": {
+				"countdown": {
+					"days": "Tage",
+					"hours": "Stunden"
+				}
+			},
+			"news": {
+				"further_news" : "weitere News"
+			},
+			"sponsors": {
+				"sponsors": "Sponsoren"
+			}
+		},
+		
 		"button": [
 			{ "submit": "提交" },
 			{ "signin": "登入" },
