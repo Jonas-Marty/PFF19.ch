@@ -5,6 +5,6 @@ import 'core-js/es6/array'
 window.$ = window.jQuery = require('jquery');
 require('bootstrap');
 
-import { app } from './app'
+import { app } from './App'
 
 app.$mount('#app')

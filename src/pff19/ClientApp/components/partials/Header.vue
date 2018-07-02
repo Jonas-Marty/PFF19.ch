@@ -5,6 +5,12 @@
                 <img  :class="{}" src="../../assets/images/black_green_small_logo.png" height="40" class="d-inline-block align-top" alt="">
             </a>
 
+            <div class="nav-item mr-auto">
+            <a class="" href="#" @click="changeLang('de')">de</a> |
+            <a class="" href="#" @click="changeLang('fr')">fr</a>
+            </div>
+
+
             <button class="navbar-toggler" @click="navToggle = !navToggle" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="fa fa-navicon"></span>
             </button>
@@ -17,6 +23,7 @@
                                 :to="route.path"
                                 class="nav-item nav-link"
                         > {{ route.display }}</router-link>
+
                      
                 </div>
             </div>
@@ -27,6 +34,8 @@
 
 <script>
 import { routes } from '../../routes';
+import i18n from '../../locales';
+import { mapActions } from 'vuex';
 
 export default {
     data() {
@@ -43,7 +52,11 @@ export default {
         }
     },
     methods: {
-        toggleCollapsed: function(event){
+        ...mapActions([
+            'switchI18n',
+        ]),
+
+        toggleCollapsed (event) {
             this.collapsed = !this.collapsed;
         },
         navbarBackgroundController () {
@@ -51,6 +64,12 @@ export default {
                 this.embedded = false;
             }else{
                 this.embedded = true;
+            }
+        },
+        changeLang (lang) {
+            console.log("lang changing");
+            if(this.$store.getters.language !== lang){
+                this.switchI18n(lang);
             }
         }
     },

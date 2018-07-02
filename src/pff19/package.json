@@ -11,6 +11,7 @@
     "axios": "^0.15.3",
     "core-js": "^2.5.3",
     "vue": "^2.5.16",
+    "vue-i18n": "^8.0.0",
     "vue-router": "^2.8.1",
     "vue-server-renderer": "^2.5.16",
     "vue-template-compiler": "^2.5.16",
@@ -46,5 +47,3 @@
     "webpack-hot-middleware": "^2.21.2"
   }
 }
-
-
