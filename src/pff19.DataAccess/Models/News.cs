@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace pff.DataAccess.Models
+namespace pff19.DataAccess.Models
 {
     public class News
     {

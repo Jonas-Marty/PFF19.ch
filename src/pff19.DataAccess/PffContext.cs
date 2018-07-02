@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using Microsoft.EntityFrameworkCore;
-using pff.DataAccess.Models;
+﻿using Microsoft.EntityFrameworkCore;
+using pff19.DataAccess.Models;
 
-namespace pff.DataAccess
+namespace pff19.DataAccess
 {
     public class PffContext : DbContext
     {

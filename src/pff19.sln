@@ -5,7 +5,7 @@ VisualStudioVersion = 15.0.26228.4
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "pff19", "pff19\pff19.csproj", "{0ECC071E-696D-460A-8DE8-11BD41C90775}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "pff.DataAccess", "pff.DataAccess\pff.DataAccess.csproj", "{C556A9D8-4FDD-4FBB-BB8E-C78D26CDBB1F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "pff19.DataAccess", "pff19.DataAccess\pff19.DataAccess.csproj", "{C556A9D8-4FDD-4FBB-BB8E-C78D26CDBB1F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

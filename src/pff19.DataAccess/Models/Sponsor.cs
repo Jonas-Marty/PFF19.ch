@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace pff.DataAccess.Models
+namespace pff19.DataAccess.Models
 {
     public class Sponsor
     {
@@ -10,5 +10,6 @@ namespace pff.DataAccess.Models
         public string Name { get; set; }
         public string Logo { get; set; }
         public string Link { get; set; }
+        public Status Status { get; set; }
     }
 }
