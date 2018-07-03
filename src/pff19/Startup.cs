@@ -1,13 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.SpaServices.Webpack;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using pff19.DataAccess;
+using pff19.DataAccess.Repositories;
 
 namespace pff19
 {
@@ -30,6 +29,10 @@ namespace pff19
         {
             // Add framework services.
             services.AddMvc();
+
+            services.AddDbContext<PffContext>(options => options.UseSqlServer(Configuration.GetConnectionString("Dev")));
+            services.AddScoped<NewsRepository, NewsRepository>();
+            services.AddScoped<SponsorRepository, SponsorRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -52,7 +55,7 @@ namespace pff19
             }
 
             app.UseStaticFiles();
-
+            
             app.UseMvc(routes =>
             {
                 routes.MapRoute(
