@@ -13,6 +13,7 @@ namespace pff19.DataAccess.Repositories
         {
             _context = context;
         }
+
         public IEnumerable<News> GetAll()
         {
             return _context.News;
