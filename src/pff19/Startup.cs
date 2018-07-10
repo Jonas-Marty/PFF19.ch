@@ -1,3 +1,4 @@
+using System;
 using System.Text;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
@@ -10,6 +11,7 @@ using Microsoft.Extensions.Logging;
 using Microsoft.IdentityModel.Tokens;
 using pff19.DataAccess;
 using pff19.DataAccess.Repositories;
+using Pomelo.EntityFrameworkCore.MySql.Infrastructure;
 
 namespace pff19
 {
@@ -48,7 +50,23 @@ namespace pff19
             // Add framework services.
             services.AddMvc();
 
-            services.AddDbContext<PffContext>(options => options.UseSqlServer(Configuration.GetConnectionString("Dev")));
+            if (Configuration.GetValue<bool>("UseMySql"))
+            {
+                services.AddDbContextPool<PffContext>( // replace "YourDbContext" with the class name of your DbContext
+                    options => options.UseMySql(
+                        Configuration.GetConnectionString("Dev_MySql"), // replace with your Connection String
+                        mysqlOptions =>
+                        {
+                            mysqlOptions.ServerVersion(new Version(5, 7, 17),
+                                ServerType.MySql); // replace with your Server Version and Type
+                        }
+                    ));
+            }
+            else
+            {
+                services.AddDbContext<PffContext>(options => options.UseSqlServer(Configuration.GetConnectionString("Dev")));
+            }
+            
             services.AddScoped<NewsRepository, NewsRepository>();
             services.AddScoped<SponsorRepository, SponsorRepository>();
             services.AddScoped<BandRepository, BandRepository>();
