@@ -5,6 +5,7 @@ import FAQ from 'components/faq/FAQ';
 import Organisation from 'components/Organisation';
 import Helfer from 'components/helper/Helfer';
 import NewsOverview from 'components/news/NewsOverview';
+import News from 'components/news/News';
 
 export const routes = [
     { name: 'home', path: '/', component: HomePage, display: 'Home', important: true},
@@ -15,5 +16,6 @@ export const routes = [
 
 
     { name: 'impressum', path: '/impressum', component: Impressum, display: 'Impressum'},
-    { name: 'news_overview', path: '/news', component: NewsOverview, display: 'NewsOverview'}
+    { name: 'news_overview', path: '/news', component: NewsOverview, display: 'NewsOverview'},
+    { name: 'news', path: '/news/:id', component: News, display: 'News'}
 ];
