@@ -20,36 +20,23 @@
 </template>
 
 <script>
+import axios from 'axios';
+
 export default {
     data () {
         return {
-            sponsors: [
-                {
-                    id: 1,
-                    name: "Test Dummy",
-                    logo: "logo.png",
-                    link: "https://vuejs.org/"
-                },
-                {
-                    id: 2,
-                    name: "Test sdfDummy",
-                    logo: "logo.png",
-                    link: "https://vuejs.org/"
-                },
-                {
-                    id: 3,
-                    name: "Test Daummy",
-                    logo: "logo.png",
-                    link: "https://vuejs.org/"
-                },
-                {
-                    id: 4,
-                    name: "Test Dumasdfmy",
-                    logo: "logo.png",
-                    link: "https://vuejs.org/"
-                }
-            ]
+            sponsors: []
         }
+    },
+
+    created() {
+        axios.get('/api/sponsors')
+        .then(response => {
+            this.sponsors = response.data;
+            console.log(response.data);
+        }).catch(e => {
+            this.errors.push(e)
+        });
     }
 
 }
