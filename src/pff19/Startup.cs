@@ -57,7 +57,7 @@ namespace pff19
                         Configuration.GetConnectionString("Dev_MySql"), // replace with your Connection String
                         mysqlOptions =>
                         {
-                            mysqlOptions.ServerVersion(new Version(5, 7, 17),
+                            mysqlOptions.ServerVersion(new Version(5, 7, 22),
                                 ServerType.MySql); // replace with your Server Version and Type
                         }
                     ));
