@@ -1,6 +1,5 @@
 <template>
     <div class="news-list container">
-        {{ currentLang }}
         <div class="row">
             <app-news v-for="news in newsList" :key="news.id" :news="news"> </app-news>
         </div>
