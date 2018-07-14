@@ -6,7 +6,7 @@ const bundleOutputDir = './wwwroot/dist';
 module.exports = (env) => {
     const isDevBuild = env;
     return [{
-        watch: isDevBuild,
+        watch: false,
         stats: { modules: false },
         entry: { 'main': './ClientApp/boot-app.js' },
         resolve: {
