@@ -33,7 +33,6 @@ export default {
         axios.get('/api/sponsors')
         .then(response => {
             this.sponsors = response.data;
-            console.log(response.data);
         }).catch(e => {
             this.errors.push(e)
         });
