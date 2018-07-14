@@ -3,10 +3,9 @@ const webpack = require('webpack');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const bundleOutputDir = './wwwroot/dist';
 
-module.exports = (env) => {
-    const isDevBuild = env;
+module.exports = env => {
+    const isDevBuild = env === 'dev' || 'development' ? true : false;
     return [{
-        watch: false,
         stats: { modules: false },
         entry: { 'main': './ClientApp/boot-app.js' },
         resolve: {
@@ -29,9 +28,7 @@ module.exports = (env) => {
             rules: [
                 { test: /\.vue$/, include: /ClientApp/, use: 'vue-loader' },
                 { test: /\.js$/, include: /ClientApp/, use: 'babel-loader' },
-                { test: /\.scss$/, use: isDevBuild ? ['style-loader', 'css-loader', 'sass-loader']: 
-                    ExtractTextPlugin.extract({ 
-                        fallback: 'style-loader',
+                { test: /\.scss$/, use: isDevBuild ? ['style-loader', 'css-loader', 'sass-loader']: ExtractTextPlugin.extract({ 
                         use: ['css-loader', 'sass-loader'] 
                     }) 
                 },
