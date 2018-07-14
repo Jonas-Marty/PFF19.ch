@@ -28,7 +28,6 @@ export default {
         axios.get('/api/news')
         .then(response => {
             this.newsList = response.data;
-            console.log(response.data);
         }).catch(e => {
             this.errors.push(e)
         });

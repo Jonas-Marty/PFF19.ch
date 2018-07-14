@@ -1,6 +1,7 @@
 ﻿import Vue from 'vue'
 import Vuex from 'vuex'
 import i18n from '../locales'
+import { news } from './news'
 
 Vue.use(Vuex)
 
@@ -44,7 +45,10 @@ export const store = new Vuex.Store({
         switchI18n({ commit }, context) {
             commit('changeLang', context);
         }
-        
-        
+            
+    },
+
+    modules: {
+        news
     }
 });
