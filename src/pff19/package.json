@@ -3,7 +3,7 @@
   "description": "ASP.NET Core & VueJS Starter project",
   "author": "Mark Pieszak",
   "scripts": {
-    "dev": "cross-env ASPNETCORE_ENVIRONMENT=Development NODE_ENV=development dotnet run",
+    "dev": "ASPNETCORE_ENVIRONMENT=Development NODE_ENV=development dotnet run webpack --env=development",
     "build": "cross-env NODE_ENV=production webpack --progress --hide-modules",
     "install": "webpack --config webpack.config.vendor.js"
   },
