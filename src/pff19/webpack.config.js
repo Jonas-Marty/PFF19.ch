@@ -4,7 +4,7 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const bundleOutputDir = './wwwroot/dist';
 
 module.exports = env => {
-    const isDevBuild = env === 'dev' || 'development' ? true : false;
+    const isDevBuild = env === 'dev' || env === 'development' ? true : false;
     return [{
         stats: { modules: false },
         entry: { 'main': './ClientApp/boot-app.js' },
