@@ -4,8 +4,12 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const bundleOutputDir = './wwwroot/dist';
 
 module.exports = env => {
+<<<<<<< HEAD
     console.log(process.env.NODE_ENV);
     const isDevBuild = env === 'dev' || 'development' ? true : false;
+=======
+    const isDevBuild = env === 'dev' || env === 'development' ? true : false;
+>>>>>>> 5c422672a9f0d09afb842d60cfe6d46fbc3eee5a
     return [{
         stats: { modules: false },
         entry: { 'main': './ClientApp/boot-app.js' },
