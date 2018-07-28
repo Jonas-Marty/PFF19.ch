@@ -9,6 +9,11 @@ export const news = {
     getters: {
         all: state =>  {
             return state.news;
+        },
+        get: state => {
+            return id => state.news.find(elem => {
+                return elem.id === id;
+            });
         }
     },
 
