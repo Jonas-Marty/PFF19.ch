@@ -2,12 +2,12 @@
     <transition name="bounce">  
         <nav class="navbar navbar-expand-md navbar-inverse position-fixed shadow-sm" :class="{embedded: embedded && isHome && !navToggle}">
             <router-link class="navbar-brand" :to="{name: 'home'}">
-                <img  :class="{}" src="../../assets/images/black_green_small_logo.png" height="40" class="d-inline-block align-top" alt="">
+                <img  :class="{}" src="../../assets/images/black_green_small_logo.png" height="40" class="d-inline-block align-top" alt="logo_pff19">
             </router-link>
 
-            <div class="nav-item mr-auto">
-            <a class="btn" @click="changeLang('de')">de</a> |
-            <a class="btn" @click="changeLang('fr')">fr</a>
+            <div class="nav-item mr-auto nav-link">
+                <a href="#" class="" @click="changeLang('de')">de</a> |
+                <a href="#" class="" @click="changeLang('fr')">fr</a>
             </div>
 
 
