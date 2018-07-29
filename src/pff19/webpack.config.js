@@ -4,7 +4,6 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const bundleOutputDir = './wwwroot/dist';
 
 module.exports = env => {
-    console.log(process.env.NODE_ENV);
     const isDevBuild = env === 'dev' || env === 'development' ? true : false;
     return [{
         stats: { modules: false },
@@ -29,9 +28,10 @@ module.exports = env => {
             rules: [
                 { test: /\.vue$/, include: /ClientApp/, use: 'vue-loader' },
                 { test: /\.js$/, include: /ClientApp/, use: 'babel-loader' },
-                { test: /\.scss$/, use: isDevBuild ? ['style-loader', 'css-loader', 'sass-loader']: ExtractTextPlugin.extract({ 
-                        use: ['css-loader', 'sass-loader'] 
-                    }) 
+                { test: /\.scss$/, use: isDevBuild ? ['style-loader', 'css-loader', 'sass-loader'] : ExtractTextPlugin.extract({
+                        fallback: 'style-loader',
+                        use: ['css-loader', 'sass-loader']
+                    })
                 },
                 { test: /\.(png|jpg|jpeg|gif|svg)$/, use: 'url-loader?limit=25000' },
                 {
@@ -60,7 +60,7 @@ module.exports = env => {
         ] : [
                 // Plugins that apply in production builds only
                 new webpack.optimize.UglifyJsPlugin(),
-                new ExtractTextPlugin('site.scss')
+                new ExtractTextPlugin('site.css')
             ])
     }];
 };
