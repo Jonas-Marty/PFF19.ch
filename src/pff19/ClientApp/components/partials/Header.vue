@@ -1,9 +1,9 @@
 ﻿<template>
     <transition name="bounce">  
         <nav class="navbar navbar-expand-md navbar-inverse position-fixed shadow-sm" :class="{embedded: embedded && isHome && !navToggle}">
-            <a class="navbar-brand" href="#" >
+            <router-link class="navbar-brand" :to="{name: 'home'}">
                 <img  :class="{}" src="../../assets/images/black_green_small_logo.png" height="40" class="d-inline-block align-top" alt="">
-            </a>
+            </router-link>
 
             <div class="nav-item mr-auto">
             <a class="btn" @click="changeLang('de')">de</a> |
