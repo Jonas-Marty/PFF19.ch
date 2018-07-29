@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using pff19.DataAccess.Models;
 using pff19.DataAccess.Repositories;
@@ -32,15 +33,17 @@ namespace pff19.Controllers
             return _userRepository.Get(id);
         }
 
-        // POST: api/News
+        // POST: api/Users
+        [Authorize]
         [HttpPost]
-        public IActionResult Post(User user)
+        public IActionResult Post(User user, string password)
         {
-            _userRepository.Add(user);
+            _userRepository.Add(user, password);
             return CreatedAtRoute(GetUserRoutName, new { id = user.Id }, user);
         }
 
-        // PUT: api/News/5
+        // PUT: api/Users/5
+        [Authorize]
         [HttpPut("{id}")]
         public IActionResult Put(int id, User user)
         {
@@ -63,6 +66,7 @@ namespace pff19.Controllers
         }
 
         // DELETE: api/news/5
+        [Authorize]
         [HttpDelete("{id}")]
         public IActionResult Delete(int id)
         {

@@ -23,11 +23,11 @@ namespace pff19.DataAccess.Repositories
             return _context.Bands.Find(id);
         }
 
-        public Band Add(Band news)
+        public Band Add(Band band)
         {
-            _context.Bands.Add(news);
+            _context.Bands.Add(band);
             _context.SaveChanges();
-            return news;
+            return band;
         }
 
         public void Update(Band existingBand)

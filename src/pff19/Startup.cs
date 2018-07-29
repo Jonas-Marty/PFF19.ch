@@ -71,6 +71,7 @@ namespace pff19
             services.AddScoped<SponsorRepository, SponsorRepository>();
             services.AddScoped<BandRepository, BandRepository>();
             services.AddScoped<UsersRepository, UsersRepository>();
+            services.AddScoped<AssistantRepository, AssistantRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

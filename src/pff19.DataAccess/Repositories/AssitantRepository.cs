@@ -13,32 +13,32 @@ namespace pff19.DataAccess.Repositories
         {
             _context = context;
         }
-        public IEnumerable<Band> GetAll()
+        public IEnumerable<Assistant> GetAll()
         {
-            return _context.Bands;
+            return _context.Assistants;
         }
 
-        public Band Get(int id)
+        public Assistant Get(int id)
         {
-            return _context.Bands.Find(id);
+            return _context.Assistants.Find(id);
         }
 
-        public Band Add(Band news)
+        public Assistant Add(Assistant assistant)
         {
-            _context.Bands.Add(news);
+            _context.Assistants.Add(assistant);
             _context.SaveChanges();
-            return news;
+            return assistant;
         }
 
-        public void Update(Band existingBand)
+        public void Update(Assistant existingAssistant)
         {
-            _context.Bands.Update(existingBand);
+            _context.Assistants.Update(existingAssistant);
             _context.SaveChanges();
         }
 
-        public void Delete(Band bandToDelete)
+        public void Delete(Assistant assistantToDelete)
         {
-            _context.Bands.Remove(bandToDelete);
+            _context.Assistants.Remove(assistantToDelete);
             _context.SaveChanges();
         }
     }
