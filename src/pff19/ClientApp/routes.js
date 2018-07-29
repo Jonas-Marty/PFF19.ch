@@ -9,7 +9,7 @@ import News from 'components/news/News';
 
 export const routes = [
     { name: 'home', path: '/', component: HomePage, display: 'Home', important: true},
-    { name: 'sponsors', path: '/sponsors', component: Sponsors, display: 'Sponsoren', important: true},
+    { name: 'sponsors', path: '/sponsors', component: Sponsors, display: 'Sponsoren', important: false},
     { name: 'faq', path: '/faq', component: FAQ, display: 'FAQ', important: true},
     { name: 'organisation', path: '/organisation', component: Organisation, display: 'Organisation', important: true},
     { name: 'helper', path: '/helfer', component: Helfer, display: 'Helfer', important: true},
