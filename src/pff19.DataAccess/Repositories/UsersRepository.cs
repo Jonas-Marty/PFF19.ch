@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using pff19.DataAccess.Models;
+using pff19.DataAccess.Utils;
 
 namespace pff19.DataAccess.Repositories
 {
@@ -24,11 +25,14 @@ namespace pff19.DataAccess.Repositories
             return _context.Users.Find(id);
         }
 
-        public User Add(User sponsor)
+        public User Add(User user, string password)
         {
-            _context.Users.Add(sponsor);
+            user.Salt = PasswordHelper.GenerateUserSalt();
+            user.PasswordHash = PasswordHelper.GeneratePasswordHash(password, user.Salt);
+
+            _context.Users.Add(user);
             _context.SaveChanges();
-            return sponsor;
+            return user;
         }
 
         public void Update(User existingUser)

@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using pff19.DataAccess.Models;
 using pff19.DataAccess.Repositories;
@@ -33,11 +34,12 @@ namespace pff19.Controllers
         }
 
         // POST: api/Bands
+        [Authorize]
         [HttpPost]
-        public IActionResult Post(Band news)
+        public IActionResult Post(Band band)
         {
-            _bandRepository.Add(news);
-            return CreatedAtRoute(GetBandRouteName, new { id = news.Id }, news);
+            _bandRepository.Add(band);
+            return CreatedAtRoute(GetBandRouteName, new { id = band.Id }, band);
         }
 
         // PUT: api/Bands/5
@@ -65,13 +67,13 @@ namespace pff19.Controllers
         [HttpDelete("{id}")]
         public IActionResult Delete(int id)
         {
-            var existingNews = _bandRepository.Get(id);
-            if (existingNews == null)
+            var existingBand = _bandRepository.Get(id);
+            if (existingBand == null)
             {
                 return NotFound();
             }
 
-            _bandRepository.Delete(existingNews);
+            _bandRepository.Delete(existingBand);
 
             return NoContent();
         }

@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using pff19.DataAccess.Models;
 using pff19.DataAccess.Repositories;
@@ -30,6 +31,7 @@ namespace pff19.Controllers
             return _sponsorRepository.Get(id);
         }
 
+        [Authorize]
         [HttpPost]
         public IActionResult Create(Sponsor sponsor)
         {
@@ -37,6 +39,7 @@ namespace pff19.Controllers
             return CreatedAtRoute("GetSponsor", new {id = sponsor.Id}, sponsor);
         }
 
+        [Authorize]
         [HttpPut("{id}")]
         public IActionResult Put(int id, Sponsor sponsor)
         {
@@ -56,6 +59,7 @@ namespace pff19.Controllers
             return NoContent();
         }
 
+        [Authorize]
         [HttpDelete]
         public IActionResult Delete(int id)
         {

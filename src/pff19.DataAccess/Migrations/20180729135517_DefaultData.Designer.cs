@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using pff19.DataAccess;
 
 namespace pff19.DataAccess.Migrations
 {
     [DbContext(typeof(PffContext))]
-    partial class PffContextModelSnapshot : ModelSnapshot
+    [Migration("20180729135517_DefaultData")]
+    partial class DefaultData
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -72,10 +74,6 @@ namespace pff19.DataAccess.Migrations
                     b.Property<DateTime>("Date");
 
                     b.Property<string>("Image");
-
-                    b.Property<string>("PreviewDe");
-
-                    b.Property<string>("PreviewFr");
 
                     b.Property<string>("TitleDe");
 

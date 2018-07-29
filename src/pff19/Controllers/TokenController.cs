@@ -11,6 +11,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 using pff19.DataAccess.Models;
 using pff19.DataAccess.Repositories;
+using pff19.DataAccess.Utils;
 
 namespace pff19.Controllers
 {
@@ -58,11 +59,9 @@ namespace pff19.Controllers
 
         private User Authenticate(LoginModel login)
         {
-            var sha512 = SHA512.Create();
-
             var user = _usersRepository.GetAll().FirstOrDefault(u => string.Equals(login.Mail, u.Mail, StringComparison.InvariantCultureIgnoreCase));
 
-            if (user != null && user.PasswordHash.SequenceEqual(sha512.ComputeHash(Encoding.UTF8.GetBytes(login.Password).Concat(user.Salt).ToArray())))
+            if (user != null && PasswordHelper.ValidatePassword(login.Password, user))
             {
                 return user;
             }

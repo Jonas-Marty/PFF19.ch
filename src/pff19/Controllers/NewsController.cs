@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using pff19.DataAccess.Models;
 using pff19.DataAccess.Repositories;
@@ -33,6 +34,7 @@ namespace pff19.Controllers
         }
 
         // POST: api/News
+        [Authorize]
         [HttpPost]
         public IActionResult Post(News news)
         {
@@ -41,6 +43,7 @@ namespace pff19.Controllers
         }
 
         // PUT: api/News/5
+        [Authorize]
         [HttpPut("{id}")]
         public IActionResult Put(int id, News news)
         {
@@ -63,6 +66,7 @@ namespace pff19.Controllers
         }
 
         // DELETE: api/news/5
+        [Authorize]
         [HttpDelete("{id}")]
         public IActionResult Delete(int id)
         {
