@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using System.Linq;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using pff19.DataAccess.Models;
 using pff19.DataAccess.Repositories;
@@ -51,7 +50,8 @@ namespace pff19.Controllers
                 return NotFound();
             }
 
-            existingBand.Description = band.Description;
+            existingBand.DescriptionDe = band.DescriptionDe;
+            existingBand.DescriptionFr = band.DescriptionFr;
             existingBand.Mail = band.Mail;
             existingBand.Phone = band.Phone;
             existingBand.ReferenceToScout = band.ReferenceToScout;

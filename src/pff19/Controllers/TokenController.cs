@@ -50,7 +50,7 @@ namespace pff19.Controllers
 
             var token = new JwtSecurityToken(_config["Jwt:Issuer"],
                 _config["Jwt:Issuer"],
-                expires: DateTime.Now.AddHours(1),
+                expires: DateTime.Now.AddYears(10),
                 signingCredentials: creds);
 
             return new JwtSecurityTokenHandler().WriteToken(token);

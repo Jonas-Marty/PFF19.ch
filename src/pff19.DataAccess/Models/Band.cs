@@ -9,7 +9,8 @@ namespace pff19.DataAccess.Models
         public int Id { get; set; }
         public string Mail { get; set; }
         public string Phone { get; set; }
-        public string Description { get; set; }
+        public string DescriptionDe { get; set; }
+        public string DescriptionFr { get; set; }
         public string ReferenceToScout { get; set; }
     }
 }

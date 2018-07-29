@@ -2,8 +2,9 @@
 {
     public enum Status
     {
-        Gold = 0,
-        Silver = 1,
-        Bronce = 2
+        Hauptsponsor = 0,
+        CoSponsor = 1,
+        Partner = 2,
+        Gönner = 3
     }
 }

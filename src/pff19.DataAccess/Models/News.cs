@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace pff19.DataAccess.Models
 {
@@ -8,8 +6,10 @@ namespace pff19.DataAccess.Models
     {
         public int Id { get; set; }
         public DateTime Date { get; set; }
-        public string Title { get; set; }
-        public string Content { get; set; }
+        public string TitleDe { get; set; }
+        public string TitleFr { get; set; }
+        public string ContentDe { get; set; }
+        public string ContentFr { get; set; }
         public string Image { get; set; }
     }
 }

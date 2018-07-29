@@ -50,10 +50,12 @@ namespace pff19.Controllers
                 return NotFound();
             }
 
-            existingNews.Content = news.Content;
+            existingNews.ContentDe = news.ContentDe;
+            existingNews.ContentFr = news.ContentFr;
             existingNews.Date = news.Date;
             existingNews.Image = news.Image;
-            existingNews.Title = news.Title;
+            existingNews.TitleDe = news.TitleDe;
+            existingNews.TitleFr = news.TitleFr;
 
             _newsRepository.Update(existingNews);
 

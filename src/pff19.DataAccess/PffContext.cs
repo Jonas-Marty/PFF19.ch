@@ -14,5 +14,6 @@ namespace pff19.DataAccess
         public DbSet<News> News { get; set; }
         public DbSet<Band> Bands { get; set; }
         public DbSet<User> Users { get; set; }
+        public DbSet<Assistant> Assistants { get; set; }
     }
 }

@@ -1,5 +1,8 @@
 #own ignores
-appsettings.json
+
+
+
+
 
 .DS_Store
 node_modules/
