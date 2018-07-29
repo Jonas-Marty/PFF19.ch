@@ -65,3 +65,30 @@ INSERT INTO News (Id, Date, TitleFr, TitleDe, Image, ContentDe, ContentFr, Previ
     "Dank unseren grossartigen Informatikern Maimu und Wiwo ist ein erster Teil der Website bereits fertiggestellt. Die Website wird kontinuierlich erweitert, bietet aber bereits jetzt erste Informationen zum",
     "Grâce à nos excellents informaticiens Maimu et Wiwo, une première partie du site a déjà été complétée. Le site Web est continuellement étendu, mais il fournit déjà des informations initiales"
 );
+
+
+INSERT INTO News (Id, Date, TitleFr, TitleDe, Image, ContentDe, ContentFr, PreviewDe, PreviewFr) VALUES (
+    4,
+    '2018-08-17',
+    'Random Fr',
+    'Random De',
+    'beer_sunset.jpg',
+    "
+    <p>
+        Dank unseren grossartigen Informatikern Maimu und Wiwo ist ein erster Teil der Website bereits fertiggestellt. Die Website wird kontinuierlich erweitert, bietet aber bereits jetzt erste Informationen zum PFF FFS 19 MOSAIK. Eins vorweg: Der Ticketvorverkauf startet voraussichtlich im Januar 2019. 
+    </p>
+    <p>
+        Kleiner Tipp: Durch das Eintragen in unseren Newsletter gehörst du zu den Ersten, welche über den Verkaufsstart der heissbegehrten Early-Bird-Tickets informiert werden. 
+    </p>
+    ",
+    "
+     <p>
+        Grâce à nos excellents informaticiens Maimu et Wiwo, une première partie du site a déjà été complétée. Le site Web est continuellement étendu, mais il fournit déjà des informations initiales sur le PFF FFS 19 MOSAIK. Une chose à l'avance: les ventes de billets devraient commencer en janvier 2019.
+    </p>
+    <p>
+        Un petit conseil: en vous inscrivant à notre newsletter, vous êtes l'un des premiers à être informés du lancement commercial des tickets early bird très recherchés.
+    </p>
+    ",
+    "Dank unseren grossartigen Informatikern Maimu und Wiwo ist ein erster Teil der Website bereits fertiggestellt. Die Website wird kontinuierlich erweitert, bietet aber bereits jetzt erste Informationen zum",
+    "Grâce à nos excellents informaticiens Maimu et Wiwo, une première partie du site a déjà été complétée. Le site Web est continuellement étendu, mais il fournit déjà des informations initiales"
+);

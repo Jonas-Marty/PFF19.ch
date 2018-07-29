@@ -4,16 +4,15 @@
             <div class="col-lg-8">
                 <div class="row back">
                     <div class="col">
-                        <router-link class="btn btn-outline-primary" to="/news"> Übersicht</router-link>
+                        <router-link class="btn btn-outline-primary" to="/news">Alle News</router-link>
                     </div>
                 </div>
-                <h1>{{ news.title }}</h1>
+                <h1>{{ newsTitle }}</h1>
                 <div class="img" :style="'background-image: url(' + imagePath +')'" alt="Card image"></div>
 
                 <div class="date">{{ news.date | formateDate }}</div>
 
-                <div class="text-content">
-                    {{ news.content }}
+                <div class="text-content" v-html="newsContent">
                 </div>
             </div>
         </div>
@@ -43,8 +42,14 @@ export default {
 
     computed: {
         imagePath () {
-            return require("../../assets/news/" + this.news.image);
+            return require("../../../assets/news/images/" + this.news.image);
         },
+        newsTitle () {
+            return   this.$store.getters.language === 'de' ? this.news.titleDe : this.news.titleFr;
+        },
+        newsContent () {
+            return   this.$store.getters.language === 'de' ? this.news.contentDe : this.news.contentFr;
+        }
         
     }
 }

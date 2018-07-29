@@ -1,7 +1,7 @@
 <template>
     <div class="news-list container">
         <div class="row">
-            <app-news v-for="news in newsList" :key="news.id" :news="news"> </app-news>
+            <app-news v-for="news in firstThreeNews" :key="news.id" :news="news"> </app-news>
         </div>
             <div class="float-right">
                 <router-link
@@ -31,6 +31,12 @@ export default {
         }).catch(e => {
             this.errors.push(e)
         });
+    },
+
+    computed: {
+        firstThreeNews () {
+            return this.newsList.slice(0,3);
+        } 
     },
 
     components: {

@@ -1,5 +1,5 @@
 <template>
-    <div class="news col-md">
+    <div class="news col-md-4">
         <div class="card">
             <div class="card-img-top" :style="'background-image: url(' + imagePath +')'" alt="Card image"></div>
             <div class="card-body">
@@ -7,11 +7,11 @@
                     <router-link
                     :to="{name: 'news', params: {id: news.id}}"
                     >
-                    {{ news.title }}
+                    {{ newsTitle }}
                     </router-link>
                 </div>
                 <div class="card-text">
-                    {{ news.content | shorten(150)}}
+                    {{ newsPreview | shorten(150)}}
                 </div>
             </div>
         </div>
@@ -24,7 +24,13 @@ export default {
 
     computed: {
         imagePath () {
-            return require("assets/news/" + this.news.image);
+            return require("../../../assets/news/thumpnails/" + this.news.image);
+        },
+        newsPreview () {
+            return   this.$store.getters.language === 'de' ? this.news.previewDe : this.news.previewFr;
+        },
+        newsTitle () {
+            return   this.$store.getters.language === 'de' ? this.news.titleDe : this.news.titleFr;
         }
     }
 
