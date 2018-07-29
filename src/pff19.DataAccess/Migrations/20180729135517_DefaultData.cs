@@ -30,7 +30,7 @@ namespace pff19.DataAccess.Migrations
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
-
+            migrationBuilder.DeleteData("Users", "Mail", "info@pff.ch");
         }
     }
 }
