@@ -1,13 +1,22 @@
 <template>
     <div class="container">
-        <div class="row back">
-            <div class="col">
-                <router-link class="btn btn-outline-primary" to="/news"> Übersicht</router-link>
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="row back">
+                    <div class="col">
+                        <router-link class="btn btn-outline-primary" to="/news"> Übersicht</router-link>
+                    </div>
+                </div>
+                <h1>{{ news.title }}</h1>
+                <div class="img" :style="'background-image: url(' + imagePath +')'" alt="Card image"></div>
+
+                <div class="date">{{ news.date | formateDate }}</div>
+
+                <div class="text-content">
+                    {{ news.content }}
+                </div>
             </div>
         </div>
-        <h1>{{ news.title }}</h1>
-        <div class="card-img-top" :style="'background-image: url(' + imagePath +')'" alt="Card image"></div>
-        {{ news.content }}
     </div>
 </template>
 
@@ -35,7 +44,8 @@ export default {
     computed: {
         imagePath () {
             return require("../../assets/news/" + this.news.image);
-        }
+        },
+        
     }
 }
 </script>
@@ -48,14 +58,18 @@ export default {
         padding-top: 100px; 
     }
 
-    .card-img-top {
+    .img {
         height: 500px;
         background-size: cover;
-        margin-bottom: 50px;
+        margin-bottom: 20px;
+    }
+
+    .date {
+        margin-bottom: 30px;
     }
 
     .back {
-        margin-bottom: 40px;
+        margin-bottom: 30px;
     }
 </style>
 

@@ -4,7 +4,11 @@
             <div class="card-img-top" :style="'background-image: url(' + imagePath +')'" alt="Card image"></div>
             <div class="card-body">
                 <div class="card-title">
+                    <router-link
+                    :to="{name: 'news', params: {id: news.id}}"
+                    >
                     {{ news.title }}
+                    </router-link>
                 </div>
                 <div class="card-text">
                     {{ news.content | shorten(150)}}
