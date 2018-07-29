@@ -27,6 +27,10 @@
 			},
 			"sponsors": {
 				"sponsors": "Sponsors"
+			},
+
+			"bands": {
+				"registration": "Bands inscription"
 			}
 		},
 		"button": [
