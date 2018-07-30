@@ -15,5 +15,6 @@ namespace pff19.DataAccess
         public DbSet<Band> Bands { get; set; }
         public DbSet<User> Users { get; set; }
         public DbSet<Assistant> Assistants { get; set; }
+        public DbSet<Faq> Faqs { get; set; }
     }
 }

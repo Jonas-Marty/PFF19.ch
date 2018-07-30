@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
+using System.Security.Claims;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
@@ -52,7 +53,8 @@ namespace pff19.Controllers
             var token = new JwtSecurityToken(_config["Jwt:Issuer"],
                 _config["Jwt:Issuer"],
                 expires: DateTime.Now.AddYears(10),
-                signingCredentials: creds);
+                signingCredentials: creds,
+                claims: new[] { new Claim("userId", user.Id.ToString()) });
 
             return new JwtSecurityTokenHandler().WriteToken(token);
         }

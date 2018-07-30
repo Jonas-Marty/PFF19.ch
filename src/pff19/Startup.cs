@@ -41,8 +41,8 @@ namespace pff19
                         //ValidateAudience = true,
                         ValidateLifetime = true,
                         ValidateIssuerSigningKey = true,
-                        //ValidIssuer = Configuration["Jwt:Issuer"],
-                        //ValidAudience = Configuration["Jwt:Issuer"],
+                        ValidIssuer = Configuration["Jwt:Issuer"],
+                        ValidAudience = Configuration["Jwt:Issuer"],
                         IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration["Jwt:Key"]))
                     };
                 });
@@ -72,6 +72,7 @@ namespace pff19
             services.AddScoped<BandRepository, BandRepository>();
             services.AddScoped<UsersRepository, UsersRepository>();
             services.AddScoped<AssistantRepository, AssistantRepository>();
+            services.AddScoped<FaqsRepository, FaqsRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

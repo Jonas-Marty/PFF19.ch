@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using Microsoft.AspNetCore.Authorization;
@@ -24,6 +25,13 @@ namespace pff19.Controllers
         public ActionResult<IEnumerable<News>> Get()
         {
             return _newsRepository.GetAll().ToList();
+        }
+
+        // GET: api/News
+        [HttpGet("top")]
+        public ActionResult<IEnumerable<News>> Top()
+        {
+            return _newsRepository.GetTop3News().ToArray();
         }
 
         // GET: api/News/5

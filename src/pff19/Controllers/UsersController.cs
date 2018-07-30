@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using pff19.DataAccess.Models;
 using pff19.DataAccess.Repositories;
+using pff19.Models;
 
 namespace pff19.Controllers
 {
@@ -20,6 +21,7 @@ namespace pff19.Controllers
         }
 
         // GET: api/User
+        [Authorize]
         [HttpGet]
         public ActionResult<IEnumerable<User>> Get()
         {
@@ -27,6 +29,7 @@ namespace pff19.Controllers
         }
 
         // GET: api/User/5
+        [Authorize]
         [HttpGet("{id}", Name = GetUserRoutName)]
         public User Get(int id)
         {
@@ -36,9 +39,18 @@ namespace pff19.Controllers
         // POST: api/Users
         [Authorize]
         [HttpPost]
-        public IActionResult Post(User user, string password)
+        public IActionResult Post(CreateUserModel createUserModel)
         {
-            _userRepository.Add(user, password);
+            User user = new User
+            {
+                FirstName = createUserModel.FirstName,
+                IsAdmin = createUserModel.IsAdmin,
+                Mail = createUserModel.Mail,
+                Name = createUserModel.Name,
+                Ressort = createUserModel.Ressort,
+                ScoutName = createUserModel.ScoutName
+            };
+            _userRepository.Add(user, createUserModel.Password);
             return CreatedAtRoute(GetUserRoutName, new { id = user.Id }, user);
         }
 

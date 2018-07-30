@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
+using System.Linq;
 using pff19.DataAccess.Models;
 
 namespace pff19.DataAccess.Repositories
@@ -17,6 +17,14 @@ namespace pff19.DataAccess.Repositories
         public IEnumerable<News> GetAll()
         {
             return _context.News;
+        }
+
+        public IEnumerable<News> GetTop3News()
+        {
+            return _context.News
+                .Where(n => n.Date <= DateTime.Now)
+                .OrderByDescending(n => n.Date)
+                .Take(3);
         }
 
         public News Get(int id)
