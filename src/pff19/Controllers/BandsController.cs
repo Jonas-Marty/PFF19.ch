@@ -9,7 +9,7 @@ namespace pff19.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class BandsController : ControllerBase
+    public class BandsController : ApiControllerBase
     {
         private const string GetBandRouteName = "GetBands";
         private readonly BandRepository _bandRepository;

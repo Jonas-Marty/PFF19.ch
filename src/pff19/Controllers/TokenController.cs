@@ -13,12 +13,13 @@ using Microsoft.IdentityModel.Tokens;
 using pff19.DataAccess.Models;
 using pff19.DataAccess.Repositories;
 using pff19.DataAccess.Utils;
+using pff19.Utiles;
 
 namespace pff19.Controllers
 {
 
     [Route("api/[controller]")]
-    public class TokenController : Controller
+    public class TokenController : ApiControllerBase
     {
         private readonly IConfiguration _config;
         private readonly UsersRepository _usersRepository;
@@ -54,7 +55,7 @@ namespace pff19.Controllers
                 _config["Jwt:Issuer"],
                 expires: DateTime.Now.AddYears(10),
                 signingCredentials: creds,
-                claims: new[] { new Claim("userId", user.Id.ToString()) });
+                claims: new[] { new Claim(Constants.UserIdClameType, user.Id.ToString()) });
 
             return new JwtSecurityTokenHandler().WriteToken(token);
         }

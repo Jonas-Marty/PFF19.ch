@@ -10,7 +10,7 @@ namespace pff19.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class UsersController : ControllerBase
+    public class UsersController : ApiControllerBase
     {
         private const string GetUserRoutName = "GetUser";
         private readonly UsersRepository _userRepository;
@@ -41,6 +41,8 @@ namespace pff19.Controllers
         [HttpPost]
         public IActionResult Post(CreateUserModel createUserModel)
         {
+            var currentUser = _userRepository.Get(GetUserId());
+
             User user = new User
             {
                 FirstName = createUserModel.FirstName,

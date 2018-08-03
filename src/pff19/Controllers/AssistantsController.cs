@@ -12,7 +12,7 @@ namespace pff19.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class AssistantsController : ControllerBase
+    public class AssistantsController : ApiControllerBase
     {
         private const string GetAssistantRouteName = "GetAssistants";
         private readonly AssistantRepository _assistantsRepository;

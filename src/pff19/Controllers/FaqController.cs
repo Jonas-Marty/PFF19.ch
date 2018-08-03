@@ -10,7 +10,7 @@ namespace pff19.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class FaqController : ControllerBase
+    public class FaqController : ApiControllerBase
     {
         private const string GetFaqsRoutName = "GetFaqs";
         private readonly FaqsRepository _faqRepository;
