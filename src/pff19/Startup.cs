@@ -3,6 +3,7 @@ using System.Text;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.SpaServices.Webpack;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -11,6 +12,7 @@ using Microsoft.Extensions.Logging;
 using Microsoft.IdentityModel.Tokens;
 using pff19.DataAccess;
 using pff19.DataAccess.Repositories;
+using pff19.Utiles;
 using Pomelo.EntityFrameworkCore.MySql.Infrastructure;
 
 namespace pff19
@@ -48,7 +50,7 @@ namespace pff19
                 });
 
             // Add framework services.
-            services.AddMvc();
+            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Latest);
 
             if (Configuration.GetValue<bool>("UseMySql"))
             {
@@ -73,6 +75,7 @@ namespace pff19
             services.AddScoped<UsersRepository, UsersRepository>();
             services.AddScoped<AssistantRepository, AssistantRepository>();
             services.AddScoped<FaqsRepository, FaqsRepository>();
+            services.AddScoped<FileUtility, FileUtility>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -92,6 +95,7 @@ namespace pff19
             else
             {
                 app.UseExceptionHandler("/Home/Error");
+                app.UseHsts();
             }
 
             app.UseStaticFiles();

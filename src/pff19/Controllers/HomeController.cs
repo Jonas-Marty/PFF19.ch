@@ -2,7 +2,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace pff19.Controllers
 {
-    public class HomeController : ApiControllerBase
+    public class HomeController : Controller
     {
         public IActionResult Index()
         {

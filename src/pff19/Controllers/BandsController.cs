@@ -34,7 +34,6 @@ namespace pff19.Controllers
         }
 
         // POST: api/Bands
-        [Authorize]
         [HttpPost]
         public IActionResult Post(Band band)
         {
@@ -43,7 +42,7 @@ namespace pff19.Controllers
         }
 
         // PUT: api/Bands/5
-        [HttpPut("{id}")]
+        [HttpPut("{id}"), Authorize]
         public IActionResult Put(int id, Band band)
         {
             var existingBand = _bandRepository.Get(id);
@@ -64,7 +63,7 @@ namespace pff19.Controllers
         }
 
         // DELETE: api/Bands/5
-        [HttpDelete("{id}")]
+        [HttpDelete("{id}"), Authorize]
         public IActionResult Delete(int id)
         {
             var existingBand = _bandRepository.Get(id);

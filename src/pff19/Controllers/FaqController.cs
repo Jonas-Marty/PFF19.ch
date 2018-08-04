@@ -21,7 +21,7 @@ namespace pff19.Controllers
         }
 
         // GET: api/Faqs
-        [HttpGet("top")]
+        [HttpGet]
         public ActionResult<IEnumerable<Faq>> Get()
         {
             return _faqRepository.GetAll().ToList();
@@ -35,8 +35,7 @@ namespace pff19.Controllers
         }
 
         // POST: api/Faqs
-        [Authorize]
-        [HttpPost]
+        [HttpPost, Authorize]
         public IActionResult Post(Faq faqs)
         {
             _faqRepository.Add(faqs);
@@ -44,8 +43,7 @@ namespace pff19.Controllers
         }
 
         // PUT: api/News/5
-        [Authorize]
-        [HttpPut("{id}")]
+        [HttpPut("{id}"), Authorize]
         public IActionResult Put(int id, Faq faq)
         {
             var existingFaq = _faqRepository.Get(id);
@@ -67,8 +65,7 @@ namespace pff19.Controllers
         }
 
         // DELETE: api/faq/5
-        [Authorize]
-        [HttpDelete("{id}")]
+        [HttpDelete("{id}"), Authorize]
         public IActionResult Delete(int id)
         {
             var existingFaq = _faqRepository.Get(id);

@@ -27,12 +27,22 @@ namespace pff19.DataAccess.Repositories
 
         public User Add(User user, string password)
         {
-            user.Salt = PasswordHelper.GenerateUserSalt();
-            user.PasswordHash = PasswordHelper.GeneratePasswordHash(password, user.Salt);
+            SetPasswordAndSalt(user, password);
 
             _context.Users.Add(user);
             _context.SaveChanges();
             return user;
+        }
+
+        private static void SetPasswordAndSalt(User user, string password)
+        {
+            user.Salt = PasswordHelper.GenerateUserSalt();
+            user.PasswordHash = PasswordHelper.GeneratePasswordHash(password, user.Salt);
+        }
+
+        public void ChangePassword(User user, string newPassword)
+        {
+            SetPasswordAndSalt(user, newPassword);
         }
 
         public void Update(User existingUser)

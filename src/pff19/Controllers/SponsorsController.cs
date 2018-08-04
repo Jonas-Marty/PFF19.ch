@@ -1,22 +1,35 @@
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Net;
+using System.Net.Http;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Configuration;
 using pff19.DataAccess.Models;
 using pff19.DataAccess.Repositories;
+using pff19.Models;
+using pff19.Utiles;
+using SixLabors.Primitives;
 
 namespace pff19.Controllers
 {
     [Produces("application/json")]
     [Route("api/[controller]")]
     [ApiController]
-    public class SponsorsController : Controller
+    public class SponsorsController : ApiControllerBase
     {
         private readonly SponsorRepository _sponsorRepository;
+        private readonly FileUtility _fileUtility;
+        private readonly IConfiguration _configuration;
 
-        public SponsorsController(SponsorRepository sponsorRepository)
+        public SponsorsController(SponsorRepository sponsorRepository, FileUtility fileUtility, IConfiguration configuration)
         {
             _sponsorRepository = sponsorRepository;
+            _fileUtility = fileUtility;
+            _configuration = configuration;
         }
 
         [HttpGet]
@@ -31,17 +44,29 @@ namespace pff19.Controllers
             return _sponsorRepository.Get(id);
         }
 
-        [Authorize]
-        [HttpPost]
-        public IActionResult Create(Sponsor sponsor)
+        [HttpPost, Authorize, DisableRequestSizeLimit]
+        public IActionResult Create([FromForm] SponsorViewModel model)
         {
-            _sponsorRepository.Add(sponsor);
-            return CreatedAtRoute("GetSponsor", new {id = sponsor.Id}, sponsor);
+            if (!ModelState.IsValid)
+            {
+                BadRequest(ModelState);
+            }
+
+            Sponsor newSponsor = new Sponsor
+            {
+                Name = model.Name,
+                Link = model.Link,
+                Status = model.Status
+            };
+
+            SafeSponsorImage(model, new Sponsor());
+
+            _sponsorRepository.Add(newSponsor);
+            return CreatedAtRoute("GetSponsor", new { id = newSponsor.Id }, newSponsor);
         }
 
-        [Authorize]
-        [HttpPut("{id}")]
-        public IActionResult Put(int id, Sponsor sponsor)
+        [HttpPut("{id}"), Authorize]
+        public IActionResult Put(int id, [FromForm]SponsorViewModel model)
         {
             var existingSponsor = _sponsorRepository.Get(id);
             if (existingSponsor == null)
@@ -49,18 +74,17 @@ namespace pff19.Controllers
                 return NotFound();
             }
 
-            existingSponsor.Status = sponsor.Status;
-            existingSponsor.Link = sponsor.Link;
-            existingSponsor.Logo = sponsor.Logo;
-            existingSponsor.Name = sponsor.Name;
+            SafeSponsorImage(model, existingSponsor);
+
+            existingSponsor.Status = model.Status;
+            existingSponsor.Name = model.Name;
 
             _sponsorRepository.Update(existingSponsor);
 
             return NoContent();
         }
 
-        [Authorize]
-        [HttpDelete]
+        [HttpDelete, Authorize]
         public IActionResult Delete(int id)
         {
             var existingSponsor = _sponsorRepository.Get(id);
@@ -72,6 +96,21 @@ namespace pff19.Controllers
             _sponsorRepository.Delete(existingSponsor);
 
             return NoContent();
+        }
+
+        private void SafeSponsorImage(SponsorViewModel model, Sponsor existingSponsor)
+        {
+            if (model.UploadImage != null)
+            {
+                string filename = model.Name + Path.GetExtension(model.UploadImage.FileName);
+                Size thumbnailSize = new Size(_configuration.GetValue<int>("Images:ThumbnailSize:Sponsors:X"), _configuration.GetValue<int>("Images:ThumbnailSize:Sponsors:Y"));
+                _fileUtility.SaveImage(model.UploadImage, "sponsors", filename, thumbnailSize);
+                existingSponsor.Logo = filename;
+            }
+            else
+            {
+                existingSponsor.Logo = null;
+            }
         }
     }
 }

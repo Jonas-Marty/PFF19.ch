@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using pff19.DataAccess.Models;
 using pff19.DataAccess.Repositories;
+using pff19.DataAccess.Utils;
 using pff19.Models;
 
 namespace pff19.Controllers
@@ -42,6 +43,10 @@ namespace pff19.Controllers
         public IActionResult Post(CreateUserModel createUserModel)
         {
             var currentUser = _userRepository.Get(GetUserId());
+            if (!currentUser.IsAdmin)
+            {
+                Unauthorized();
+            }
 
             User user = new User
             {
@@ -58,7 +63,7 @@ namespace pff19.Controllers
 
         // PUT: api/Users/5
         [Authorize]
-        [HttpPut("{id}")]
+        [HttpPut("{id:int}")]
         public IActionResult Put(int id, User user)
         {
             var existingUser = _userRepository.Get(id);
@@ -79,11 +84,35 @@ namespace pff19.Controllers
             return NoContent();
         }
 
+        [Authorize]
+        [HttpPut("changepw")]
+        public IActionResult ChangePassword(ChangePasswordModel model)
+        {
+            var currentUser = _userRepository.Get(GetUserId());
+
+            if (!PasswordHelper.ValidatePassword(model.OldPassword, currentUser))
+            {
+                Unauthorized();
+            }
+
+            _userRepository.ChangePassword(currentUser, model.NewPassword);
+
+            _userRepository.Update(currentUser);
+
+            return NoContent();
+        }
+
         // DELETE: api/news/5
         [Authorize]
         [HttpDelete("{id}")]
         public IActionResult Delete(int id)
         {
+            var currentUser = _userRepository.Get(GetUserId());
+            if (!currentUser.IsAdmin)
+            {
+                Unauthorized();
+            }
+
             var existingUser = _userRepository.Get(id);
             if (existingUser == null)
             {

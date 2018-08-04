@@ -13,7 +13,6 @@ namespace pff19.Controllers
         {
             var userIdClaim = HttpContext.User.FindFirst(c => c.Type == Constants.UserIdClameType);
             return int.Parse(userIdClaim.Value);
-            View
         }
     }
 }

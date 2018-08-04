@@ -37,8 +37,7 @@ namespace pff19.Controllers
         }
 
         // POST: api/Assistants
-        [Authorize]
-        [HttpPost]
+        [HttpPost, Authorize]
         public IActionResult Post(Assistant assistant)
         {
             _assistantsRepository.Add(assistant);
@@ -46,8 +45,7 @@ namespace pff19.Controllers
         }
 
         // PUT: api/Assistants/5
-        [Authorize]
-        [HttpPut("{id}")]
+        [HttpPut("{id}"), Authorize]
         public IActionResult Put(int id, Assistant assistant)
         {
             var existingAssistant = _assistantsRepository.Get(id);
@@ -67,8 +65,7 @@ namespace pff19.Controllers
         }
 
         // DELETE: api/ApiWithActions/5
-        [Authorize]
-        [HttpDelete("{id}")]
+        [HttpDelete("{id}"), Authorize]
         public IActionResult Delete(int id)
         {
             var existingAssistant = _assistantsRepository.Get(id);
