@@ -1,9 +1,9 @@
 {
-  "name": "aspnetcore-vuejs",
-  "description": "ASP.NET Core & VueJS Starter project",
-  "author": "Mark Pieszak",
+  "name": "pff19",
+  "description": "website for pff19.ch",
+  "author": "Jonas Marty / Wiwo and Lars Barmettler / Maimu",
   "scripts": {
-    "dev": "ASPNETCORE_ENVIRONMENT=Development NODE_ENV=development dotnet run webpack --env=development",
+    "dev": "dotnet run webpack --env=development",
     "build": "cross-env NODE_ENV=production webpack --progress --hide-modules",
     "install": "webpack --config webpack.config.vendor.js"
   },
