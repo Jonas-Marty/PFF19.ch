@@ -6,6 +6,9 @@ import { sync } from 'vuex-router-sync'
 import App from 'components/app-root'
 import i18n from './locales'
 import "./filters"
+import Vuelidate from 'vuelidate'
+
+Vue.use(Vuelidate)
  
 Vue.prototype.$http = axios;
 

@@ -5,9 +5,9 @@
                 <img  :class="{}" src="../../assets/images/black_green_small_logo.png" height="40" class="d-inline-block align-top" alt="logo_pff19">
             </router-link>
 
-            <div class="nav-item mr-auto nav-link">
-                <a href="#" class="" @click="changeLang('de')">de</a> |
-                <a href="#" class="" @click="changeLang('fr')">fr</a>
+            <div class="mr-auto nav-link">
+                <a href="#" class="nav-item" @click="changeLang('de')">de</a> <span class="nav-item">|</span>
+                <a href="#" class="nav-item" @click="changeLang('fr')">fr</a>
             </div>
 
 

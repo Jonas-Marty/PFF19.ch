@@ -7,20 +7,19 @@
                         <router-link class="btn btn-outline-primary" to="/news">Alle News</router-link>
                     </div>
                 </div>
+                
                 <h1>{{ newsTitle }}</h1>
-                <div class="img" :style="'background-image: url(' + imagePath +')'" alt="Card image"></div>
-
+                <div class="img" :style="'background-image: url(' + imagePath + ')'" alt="Card image"></div>
                 <div class="date">{{ news.date | formateDate }}</div>
+                
 
-                <div class="text-content" v-html="newsContent">
-                </div>
+                <div class="text-content" v-html="newsContent"></div>
             </div>
         </div>
     </div>
 </template>
 
 <script>
-import { mapActions, mapGetters } from 'vuex';
 import axios from 'axios';
 
 
@@ -31,7 +30,7 @@ export default {
         }
     },
 
-    created(){
+    beforeCreate(){
         axios.get('/api/news/' + this.$route.params.id) 
             .then(response => {
                 this.news = response.data;
@@ -45,10 +44,10 @@ export default {
             return require("../../../assets/news/images/" + this.news.image);
         },
         newsTitle () {
-            return   this.$store.getters.language === 'de' ? this.news.titleDe : this.news.titleFr;
+            return this.$store.getters.language === 'de' ? this.news.titleDe : this.news.titleFr;
         },
         newsContent () {
-            return   this.$store.getters.language === 'de' ? this.news.contentDe : this.news.contentFr;
+            return this.$store.getters.language === 'de' ? this.news.contentDe : this.news.contentFr;
         }
         
     }

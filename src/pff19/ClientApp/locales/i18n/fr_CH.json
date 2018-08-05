@@ -33,27 +33,25 @@
 				"registration": "Bands inscription"
 			}
 		},
-		"button": [
-			{ "submit": "Submit" },
-			{ "signin": "Sign In" },
-			{ "signout": "Sign Out" },
-			{ "reset": "Reset" }
-		],
-		"checkbox": {
-			"label": [
-				{ "langSwitch": "International" }
-			]
-		},
-		"popup": [
-			{
-				"expired": {
-					"title": "Warning",
-					"desc": "Token Expired, Please login again",
-					"confirm": "Yes",
-					"cancel": "No"
-				}
-			}
-		]
+		"helper": {
+			"helper": "Bénévoles",
+			"firstname": "prénom",
+			"lastname": "nom de famille",
+			"scoutname": "nom de scout",
+			"email": "email",
+			"wishes": "vœux",
+			"submit": "envoyer",
+
+			"errors": {
+				"too-few-letters": "Zu wenig Zeichen.",
+				"too-many-letter": "Zu viel Zeichen.",
+				
+				"missing-email": "Veuillez entrer votre adresse e-mail.",
+				"incorrect-email": "Votre adresse email est incorrecte.",
+				"missing-firstname": "Bitte gebe deinen Vornamen an.",
+				"missing-lastname": "Bitte gebe deinen Nachnamen an."
+			} 
+		}
 	},
 	"errors": [
 		{

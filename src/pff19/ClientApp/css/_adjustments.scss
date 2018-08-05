@@ -2,3 +2,12 @@
     border-radius: 0;
     padding: 4px;
 }
+
+.invalid-form .form-control{
+    border: 1px solid $red;
+}
+
+.invalid-form .error-messages {
+    font-size: $font-size-sm;
+    color: $red;
+}

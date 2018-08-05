@@ -16,7 +16,8 @@ module.exports = env => {
                 'views': path.resolve(__dirname, './ClientApp/views'),
                 'utils': path.resolve(__dirname, './ClientApp/utils'),
                 'api': path.resolve(__dirname, './ClientApp/store/api'),
-                'assets': path.resolve(__dirname, './ClientApp/assets')
+                'assets': path.resolve(__dirname, './ClientApp/assets'),
+                'global_assets': path.resolve(__dirname, './assets')
             }
         },
         output: {

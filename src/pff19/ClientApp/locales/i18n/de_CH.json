@@ -32,28 +32,26 @@
 				"registration": "Bands Anmeldung"
 			}
 		},
-		
-		"button": [
-			{ "submit": "提交" },
-			{ "signin": "登入" },
-			{ "signout": "登出" },
-			{ "reset": "重设" }
-		],
-		"checkbox": {
-			"label": [
-				{ "langSwitch": "国际语系" }
-			]
-		},
-		"popup": [
-			{
-				"expired": {
-					"title": "警告",
-					"desc": "凭证无效或过期, 请重新登入",
-					"confirm": "确定",
-					"cancel": "取消"
-				}
-			}
-		]
+		"helper": {
+			"helper": "Helfer",
+			"firstname": "Vorname",
+			"lastname": "Nachname",
+			"scoutname": "Pfadiname",
+			"email": "Email",
+			"wishes": "Wünsche",
+			"submit": "Absenden",
+
+			"errors": {
+				"too-few-letters": "Zu wenig Zeichen.",
+				"too-many-letter": "Zu viel Zeichen.",
+
+				"missing-email": "Bitte gebe deine Email Adresse an.",
+				"incorrect-email": "Deine Email Adresse ist nicht korrekt.",
+				"missing-firstname": "Bitte gebe deinen Vornamen an.",
+				"missing-lastname": "Bitte gebe deinen Nachnamen an."
+			} 
+		}
+
 	},
 	"errors": [
 		{
