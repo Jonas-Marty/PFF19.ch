@@ -20,6 +20,9 @@
     <Content Remove="ClientApp\**" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="wwwroot\favicon.ico" />
+  </ItemGroup>
+  <ItemGroup>
     <ProjectReference Include="..\pff19.DataAccess\pff19.DataAccess.csproj" />
   </ItemGroup>
   <Target Name="RunWebpack" AfterTargets="ComputeFilesToPublish">
