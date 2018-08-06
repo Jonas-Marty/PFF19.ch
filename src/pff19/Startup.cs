@@ -84,6 +84,8 @@ namespace pff19
             loggerFactory.AddConsole(Configuration.GetSection("Logging"));
             loggerFactory.AddDebug();
 
+            Console.WriteLine("Environmentname for ASP.NET CORE is: " + env.EnvironmentName);
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
