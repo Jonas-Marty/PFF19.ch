@@ -91,11 +91,13 @@ namespace pff19
                 {
                     HotModuleReplacement = true
                 });
+                Console.WriteLine("!!!!!!!!!!!!!Started in Development mode!!!!!!!!!!!!!");
             }
             else
             {
                 app.UseExceptionHandler("/Home/Error");
                 app.UseHsts();
+                Console.WriteLine("*************Started in production mode**************");
             }
 
             app.UseStaticFiles();
