@@ -12,7 +12,7 @@
             </div>
         </div>
         <div class="hours col-md-12 col-12">
-            <div class="row justify-content-md-end justify-content-center">
+            <div class="row justify-content-md-end">
                 <div class="hour" v-for="(hour, index) in time.hours" :key="index">
                     {{ hour }}
                 </div>
