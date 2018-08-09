@@ -54,7 +54,11 @@
 				"incorrect-email": "Votre adresse email est incorrecte.",
 				"missing-firstname": "Bitte gebe deinen Vornamen an.",
 				"missing-lastname": "Bitte gebe deinen Nachnamen an."
-			} 
+			},
+			 
+			"success": {
+				"thx-for-register": "Vielen Dank für die Anmeldung!"
+			}
 		}
 	},
 	"errors": [

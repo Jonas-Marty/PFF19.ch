@@ -85,10 +85,12 @@
                         <textarea rows="4" cols="50" class="form-control" id="wishes" placeholder="bar, catering ..." v-model="wishes"></textarea>
                     </div>
 
-                    {{ $v.$error && $.dirty }}
-
-                    <button type="submit" @click="onSubmit()" :disabled="$v.$error && $.dirty" class="btn btn-primary" >{{ $t('lang.components.helper.submit') }}</button>
+                    <button type="submit" class="btn btn-primary" >{{ $t('lang.components.helper.submit') }}</button>
                 </form>
+
+                <div v-if="isSubmitted">
+                    <span class="success-message">{{ $t('lang.components.helper.success.thx-for-register') }}</span>
+                </div>
             </div>
         </div>
     </div>
@@ -96,6 +98,8 @@
 
 <script>
 import i18n from '../../locales';
+import axios from 'axios';
+
  import { required, email, between, numeric, minValue, maxLength, minLength, sameAs, requiredUnless } from 'vuelidate/lib/validators';
 
 
@@ -134,16 +138,27 @@ export default {
     },
 
     methods: {
-        onSubmit () {
-        this.$v.$touch();
-        const formData = {
-            firstname: this.firstname,
-            lastname: this.lastname,
-            scoutname: this.scoutname,
-            email: this.email,
-            wishes: this.wishes
-        }
-        //console.log(formData)
+        submit () {
+            this.$v.$touch();
+            if(!this.$v.$invalid){
+
+                const formData = {
+                    name: this.firstname,
+                    vorname: this.lastname,
+                    email: this.email,
+                    pfadiname: this.scoutname,
+                    wishes: this.wishes
+                }
+
+                axios.post('/api/Assistants', formData)
+                .then(response => {
+                    console.log(response);
+                    this.isSubmitted = true;
+                }).catch(e => {
+                    this.errors.push(e)
+                });
+
+            }
         //this.$store.dispatch('signup', formData)
       }
     }
@@ -154,6 +169,12 @@ export default {
 <style lang="scss" scoped>
     .container {
         padding-top: 100px;
+        min-height: 700px;
+    }
+
+    .success-message {
+        font-size: 3rem;
+        margin: 50px 0 0 0;
     }
 
 </style>
