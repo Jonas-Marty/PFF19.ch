@@ -56,6 +56,7 @@ namespace pff19.Controllers
 
             existingAssistant.Name = assistant.Name;
             existingAssistant.Pfadiname = assistant.Pfadiname;
+            existingAssistant.Email = assistant.Email;
             existingAssistant.Vorname = assistant.Vorname;
             existingAssistant.Wishes = assistant.Wishes;
 
