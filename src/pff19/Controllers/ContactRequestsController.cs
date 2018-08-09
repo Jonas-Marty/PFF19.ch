@@ -20,14 +20,14 @@ namespace pff19.Controllers
         }
 
         // GET: api/ContactRequests
-        [HttpGet]
+        [HttpGet, Authorize]
         public ActionResult<IEnumerable<ContactRequest>> Get()
         {
             return _contactRequestRepository.GetAll().ToList();
         }
 
         // GET: api/ContactRequests/5
-        [HttpGet("{id}", Name = GetContactRequestRouteName)]
+        [HttpGet("{id}", Name = GetContactRequestRouteName), Authorize]
         public ContactRequest Get(int id)
         {
             return _contactRequestRepository.Get(id);

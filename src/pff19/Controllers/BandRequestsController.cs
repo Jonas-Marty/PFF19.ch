@@ -20,14 +20,14 @@ namespace pff19.Controllers
         }
 
         // GET: api/BandRequests
-        [HttpGet]
+        [HttpGet, Authorize]
         public ActionResult<IEnumerable<BandRequest>> Get()
         {
             return _bandRequestRepository.GetAll().ToList();
         }
 
         // GET: api/BandRequests/5
-        [HttpGet("{id}", Name = GetBandRequestRouteName)]
+        [HttpGet("{id}", Name = GetBandRequestRouteName), Authorize]
         public BandRequest Get(int id)
         {
             return _bandRequestRepository.Get(id);
