@@ -23,14 +23,14 @@ namespace pff19.Controllers
         }
 
         // GET: api/Assistants
-        [HttpGet]
+        [HttpGet, Authorize]
         public IEnumerable<Assistant> Get()
         {
             return _assistantsRepository.GetAll().ToList();
         }
 
         // GET: api/Assistants/5
-        [HttpGet("{id}", Name = GetAssistantRouteName)]
+        [HttpGet("{id}", Name = GetAssistantRouteName), Authorize]
         public Assistant Get(int id)
         {
             return _assistantsRepository.Get(id);
