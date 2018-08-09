@@ -25,7 +25,7 @@
         Helfer bekommen für ihren Einsatz ein vergünstigtes Ticket. Je nach Einsatzbereitschaft ist das Ticket sogar gratis. Falls du Interesse hast, melde dich als Helfer. Damit gehörst du zu den Ersten, welche über die Aufschaltung des Helfertools informiert werden und kannst danach direkt deine Schichten auswählen.
         Falls du weitere Fragen hast, melde dich direkt unter info@pff19.ch
         <ul>
-            <li>Melde dich als Helfer: <span style="color: red"> Verlinkung auf https://pff19.ch/helfer </span></li>
+            <li>Melde dich als Helfer: <router-link :to="{name: 'helper'}">Helfer Anmeldung</router-link> </li>
         </ul>
 
         <h3>Lageplan</h3>
@@ -41,7 +41,7 @@
         Falls du Interesse hast, melde dich als Helfer. Damit gehörst du zu den Ersten, welche über die Aufschaltung des Helfertools informiert werden und kannst danach direkt deine Schichten auswählen.
         Falls du weitere Fragen hast, melde dich direkt unter info@pff19.ch
         <ul>
-            <li>Melde dich als Helfer: <span style="color: red"> Verlinkung auf https://pff19.ch/helfer </span></li>
+            <li>Melde dich als Helfer: <router-link :to="{name: 'helper'}">Helfer Anmeldung</router-link></li>
         </ul>
 
         <h3>Zeltplatz</h3>
@@ -49,7 +49,9 @@
         
         <div class="col">
             <div class="row">
+                <router-link :to="{name: 'contact'}">
                 <div class="btn btn-primary"> Andere Fragen</div>
+                </router-link>
             </div>
         </div>
     </div>

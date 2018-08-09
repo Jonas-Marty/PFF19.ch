@@ -33,6 +33,10 @@
 				"registration": "Bands inscription"
 			}
 		},
+		"faq": {
+			"contact-us": "Contactez nous!",
+			"message": "Votre message"
+		},
 		"helper": {
 			"helper": "Bénévoles",
 			"firstname": "prénom",

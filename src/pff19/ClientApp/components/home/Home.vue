@@ -3,7 +3,7 @@
         <app-slideshow> </app-slideshow>
         <app-news-list></app-news-list>
         <app-social-media></app-social-media>
-        <app-bands></app-bands>
+
     </div>
 </template>
 

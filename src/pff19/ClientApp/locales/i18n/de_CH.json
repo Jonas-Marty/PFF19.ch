@@ -32,6 +32,10 @@
 				"registration": "Bands Anmeldung"
 			}
 		},
+		"faq": {
+			"contact-us": "Kontaktiere uns!",
+			"message": "Deine Nachricht"
+		},
 		"helper": {
 			"helper": "Helfer",
 			"firstname": "Vorname",

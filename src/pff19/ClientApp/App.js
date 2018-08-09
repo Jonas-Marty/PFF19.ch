@@ -7,6 +7,11 @@ import App from 'components/app-root'
 import i18n from './locales'
 import "./filters"
 import Vuelidate from 'vuelidate'
+import VueAnalytics from 'vue-analytics'
+
+Vue.use(VueAnalytics, {
+    id: 'UA-123742823-1'
+  })
 
 Vue.use(Vuelidate)
  
