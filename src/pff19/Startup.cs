@@ -84,6 +84,8 @@ namespace pff19
             loggerFactory.AddConsole(Configuration.GetSection("Logging"));
             loggerFactory.AddDebug();
 
+            Console.WriteLine("Environmentname for ASP.NET CORE is: " + env.EnvironmentName);
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
@@ -91,11 +93,13 @@ namespace pff19
                 {
                     HotModuleReplacement = true
                 });
+                Console.WriteLine("!!!!!!!!!!!!!Started in Development mode!!!!!!!!!!!!!");
             }
             else
             {
                 app.UseExceptionHandler("/Home/Error");
                 app.UseHsts();
+                Console.WriteLine("*************Started in production mode**************");
             }
 
             app.UseStaticFiles();
