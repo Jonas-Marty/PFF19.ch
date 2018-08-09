@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
 using pff19.DataAccess.Models;
 
 namespace pff19.DataAccess.Repositories
