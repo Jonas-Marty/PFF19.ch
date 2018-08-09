@@ -37,7 +37,7 @@ namespace pff19.Controllers
         }
 
         // POST: api/Assistants
-        [HttpPost, Authorize]
+        [HttpPost]
         public IActionResult Post(Assistant assistant)
         {
             _assistantsRepository.Add(assistant);

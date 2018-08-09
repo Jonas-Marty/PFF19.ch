@@ -1,4 +1,4 @@
-﻿import Vue from 'vue'
+import Vue from 'vue'
 import axios from 'axios'
 import router from './router'
 import { store } from './store'
@@ -21,7 +21,7 @@ sync(store, router);
 
 const lang = store.state.language
 if (lang) {
-	i18n.locale = lang
+    i18n.locale = lang
 }
 
 //filters 
