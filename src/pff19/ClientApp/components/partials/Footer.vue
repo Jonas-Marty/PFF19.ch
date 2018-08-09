@@ -61,6 +61,7 @@
                         </div>
                         <div class="col-6">
                             <router-link
+                            class="float-right"
                             :to="{name: 'impressum'}"
                         > {{ $t('lang.navigation.impressum') }}</router-link>
                         </div>
@@ -94,6 +95,7 @@ export default {
         padding: 40px 0 10px 0;
         background: #202020;
         color: white;
+        border: 1px solid #202020;
     }
 
     .main-footer a, .sub-footer a {
