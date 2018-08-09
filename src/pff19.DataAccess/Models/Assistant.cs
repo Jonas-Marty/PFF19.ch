@@ -14,6 +14,8 @@ namespace pff19.DataAccess.Models
 
         public string Pfadiname { get; set; }
 
+        public string Email { get; set; }
+
         public string Wishes { get; set; }
     }
 }
