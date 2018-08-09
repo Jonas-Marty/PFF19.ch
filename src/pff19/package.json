@@ -3,14 +3,19 @@
   "description": "website for pff19.ch",
   "author": "Jonas Marty / Wiwo and Lars Barmettler / Maimu",
   "scripts": {
-    "dev": "dotnet run webpack --env=development",
-    "build": "cross-env NODE_ENV=production webpack --progress --hide-modules",
-    "install": "webpack --config webpack.config.vendor.js"
+    "dev": "cross-env ASPNETCORE_ENVIRONMENT=Development NODE_ENV=development dotnet run",
+    "build": "npm run build-vendor:prod && npm run build:prod",
+    "build:prod": "cross-env NODE_ENV=production webpack --progress --hide-modules",
+    "build-vendor:prod": "cross-env NODE_ENV=production webpack --config webpack.config.vendor.js --progress",
+    "build-vendor:dev": "cross-env NODE_ENV=development webpack --config webpack.config.vendor.js --progress",
+    "lint": "eslint -c ./.eslintrc.js ClientApp/**/*.js  ClientApp/**/*.vue  ClientApp/**/*.json webpack*.js",
+    "install": "npm run build-vendor:dev"
   },
   "dependencies": {
     "axios": "^0.15.3",
     "core-js": "^2.5.3",
     "vue": "^2.5.16",
+    "vue-analytics": "^5.12.3",
     "vue-i18n": "^8.0.0",
     "vue-router": "^2.8.1",
     "vue-server-renderer": "^2.5.16",
