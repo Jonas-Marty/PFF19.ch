@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace pff19.DataAccess.Models
+﻿namespace pff19.DataAccess.Models
 {
     public class Sponsor
     {

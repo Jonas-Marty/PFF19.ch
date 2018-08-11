@@ -1,9 +1,6 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using pff19.DataAccess.Models;
 using pff19.DataAccess.Repositories;
@@ -23,14 +20,14 @@ namespace pff19.Controllers
         }
 
         // GET: api/Assistants
-        [HttpGet]
+        [HttpGet, Authorize]
         public IEnumerable<Assistant> Get()
         {
             return _assistantsRepository.GetAll().ToList();
         }
 
         // GET: api/Assistants/5
-        [HttpGet("{id}", Name = GetAssistantRouteName)]
+        [HttpGet("{id}", Name = GetAssistantRouteName), Authorize]
         public Assistant Get(int id)
         {
             return _assistantsRepository.Get(id);

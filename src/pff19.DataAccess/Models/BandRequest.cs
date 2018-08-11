@@ -2,16 +2,20 @@
 
 namespace pff19.DataAccess.Models
 {
-    public class Band
+    public class BandRequest
     {
         [Key]
         public int Id { get; set; }
 
         [Required]
         public string Name { get; set; }
+
         [Required]
-        public string DescriptionDe { get; set; }
+        public string Email { get; set; }
+
         [Required]
-        public string DescriptionFr { get; set; }
+        public string Phone { get; set; }
+
+        public string ReferenceToScout { get; set; }
     }
 }

@@ -51,11 +51,10 @@ namespace pff19.Controllers
                 return NotFound();
             }
 
+            existingBand.Name = band.Name;
             existingBand.DescriptionDe = band.DescriptionDe;
             existingBand.DescriptionFr = band.DescriptionFr;
-            existingBand.Mail = band.Mail;
-            existingBand.Phone = band.Phone;
-            existingBand.ReferenceToScout = band.ReferenceToScout;
+
 
             _bandRepository.Update(existingBand);
 
