@@ -12,7 +12,7 @@
             </div>
         </div>
         <div class="hours col-md-12 col-12">
-            <div class="row justify-content-md-end">
+            <div class="row justify-content-md-end justify-content-center">
                 <div class="hour" v-for="(hour, index) in time.hours" :key="index">
                     {{ hour }}
                 </div>
@@ -44,11 +44,12 @@ export default {
 <style lang="scss" scoped>
     .day, .hour {
         background: #F4D82B;
-        text-align: center;
+        padding: 3px;
         font-size: 2.5rem;
         font-weight: bold;
         margin-right: 5px;
         width: 50px;
+        text-align: center;
     }
 
     .days, .hours {

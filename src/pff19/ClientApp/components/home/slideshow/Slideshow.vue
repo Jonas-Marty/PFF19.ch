@@ -35,11 +35,13 @@ export default {
         background-size: cover;
         background-position: center;
         position: relative;
+        overflow: hidden;
     }
 
     .slideshow-overlay {
         position: absolute;
         bottom: -1px;
+        right: -3px;
     }
 
     .logo {
@@ -59,6 +61,7 @@ export default {
         .logo {
             margin: auto;
             margin-bottom: 30px;
+            margin-top: 20px;
         }
      }
 
