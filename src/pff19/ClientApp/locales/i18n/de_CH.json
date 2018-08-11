@@ -33,51 +33,38 @@
 			}
 		},
 		"faq": {
-			"contact-us": "Kontaktiere uns!",
-			"message": "Deine Nachricht"
+			"contact-us": "Kontaktiere uns!"
 		},
+		
 		"helper": {
-			"helper": "Helfer",
-			"firstname": "Vorname",
-			"lastname": "Nachname",
-			"scoutname": "Pfadiname",
-			"email": "Email",
-			"wishes": "Wünsche",
-			"submit": "Absenden",
-
-			"errors": {
-				"too-few-letters": "Zu wenig Zeichen.",
-				"too-many-letter": "Zu viel Zeichen.",
-
-				"missing-email": "Bitte gebe deine Email Adresse an.",
-				"incorrect-email": "Deine Email Adresse ist nicht korrekt.",
-				"missing-firstname": "Bitte gebe deinen Vornamen an.",
-				"missing-lastname": "Bitte gebe deinen Nachnamen an."
-			}, 
-
-			"success": {
-				"thx-for-register": "Vielen Dank für die Anmeldung!"
-			}
+			"helper": "Helfer"
 		}
 
 	},
-	"errors": [
-		{
-			"code": "ER-0001",
-			"desc": "系统发生错误",
-			"fix": "请联络系统管理员"
+	"forms": {
+		"firstname": "Vorname",
+		"lastname": "Nachname",
+		"scoutname": "Pfadiname",
+		"email": "Email",
+		"wishes": "Wünsche",
+		"message": "Deine Nachricht",
+		"submit": "Absenden",
+
+		"errors": {
+			"too-few-letters": "Zu wenig Zeichen.",
+			"too-many-letter": "Zu viel Zeichen.",
+
+			"missing-email": "Bitte gebe deine Email Adresse an.",
+			"incorrect-email": "Deine Email Adresse ist nicht korrekt.",
+			"missing-firstname": "Bitte gebe deinen Vornamen an.",
+			"missing-lastname": "Bitte gebe deinen Nachnamen an.",
+			"missing-message": "Bitte gebe deine Nachricht ein."
 		},
-		{
-			"code": "ER-0002",
-			"desc": "伺服器发生错误",
-			"fix": "服务器遇到内部错误"
-		},
-		{
-			"code": "ER-0003",
-			"desc": "网路发生错误",
-			"fix": "软件导致连接中止"
+
+		"success": {
+			"thx-for-register": "Vielen Dank für die Anmeldung!"
 		}
-	],
+	},
 	"network": {
 		"error": [
 			{

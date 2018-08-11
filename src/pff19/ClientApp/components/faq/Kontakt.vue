@@ -7,7 +7,7 @@
                 <form @submit.prevent="submit" v-if="!isSubmitted">
 
                     <div class="form-group" :class="{'invalid-form': $v.firstname.$error}">
-                        <label for="firstname">{{ $t('lang.components.helper.firstname') }}*</label>
+                        <label for="firstname">{{ $t('lang.forms.firstname') }}*</label>
                         <input 
                             type="text" 
                             @blur="$v.firstname.$touch()" 
@@ -17,14 +17,14 @@
                             v-model="firstname"
                         >
                         <div class="error-messages">
-                            <p v-if="!$v.firstname.required && $v.firstname.$dirty">{{ $t('lang.components.helper.errors.missing-firstname') }}</p>
-                            <p v-if="!$v.firstname.minLength && $v.firstname.$dirty">{{ $t('lang.components.helper.errors.too-few-letters') }}</p>
-                            <p v-if="!$v.firstname.maxLength && $v.firstname.$dirty">{{ $t('lang.components.helper.errors.too-many-letters') }}</p>
+                            <p v-if="!$v.firstname.required && $v.firstname.$dirty">{{ $t('lang.forms.errors.missing-firstname') }}</p>
+                            <p v-if="!$v.firstname.minLength && $v.firstname.$dirty">{{ $t('lang.forms.errors.too-few-letters') }}</p>
+                            <p v-if="!$v.firstname.maxLength && $v.firstname.$dirty">{{ $t('lang.forms.errors.too-many-letters') }}</p>
                         </div>
                     </div>
 
                     <div class="form-group" :class="{'invalid-form': $v.lastname.$error}">
-                        <label for="lastname">{{ $t('lang.components.helper.lastname') }}*</label>
+                        <label for="lastname">{{ $t('lang.forms.lastname') }}*</label>
                         <input 
                             type="text" 
                             @blur="$v.lastname.$touch()" 
@@ -35,14 +35,14 @@
                             v-model="lastname"
                         >
                         <div class="error-messages">
-                            <p v-if="!$v.lastname.required && $v.lastname.$dirty">{{ $t('lang.components.helper.errors.missing-lastname') }}</p>
-                            <p v-if="!$v.lastname.minLength && $v.lastname.$dirty">{{ $t('lang.components.helper.errors.too-few-letters') }}</p>
-                            <p v-if="!$v.lastname.maxLength && $v.lastname.$dirty">{{ $t('lang.components.helper.errors.too-many-letters') }}</p>
+                            <p v-if="!$v.lastname.required && $v.lastname.$dirty">{{ $t('lang.forms.errors.missing-lastname') }}</p>
+                            <p v-if="!$v.lastname.minLength && $v.lastname.$dirty">{{ $t('lang.forms.errors.too-few-letters') }}</p>
+                            <p v-if="!$v.lastname.maxLength && $v.lastname.$dirty">{{ $t('lang.forms.errors.too-many-letters') }}</p>
                         </div>
                     </div>
 
                     <div class="form-group" :class="{'invalid-form': $v.email.$error}">
-                        <label for="email">{{ $t('lang.components.helper.email') }}*</label>
+                        <label for="email">{{ $t('lang.forms.email') }}*</label>
                         <input 
                             type="email" 
                             class="form-control" 
@@ -52,20 +52,25 @@
                             v-model="email"
                         >
                         <div class="error-messages"> 
-                            <p v-if="!$v.email.required && $v.email.$dirty">{{ $t('lang.components.helper.errors.missing-email') }}</p>
-                            <p v-if="!$v.email.email && $v.email.$dirty">{{ $t('lang.components.helper.errors.incorrect-email') }}</p>
+                            <p v-if="!$v.email.required && $v.email.$dirty">{{ $t('lang.forms.errors.missing-email') }}</p>
+                            <p v-if="!$v.email.email && $v.email.$dirty">{{ $t('lang.forms.errors.incorrect-email') }}</p>
                         </div>
                     </div>
 
-                    <div class="form-group" >
-                        <label for="contact-text">{{ $t('lang.components.faq.message') }}</label>
+                    <div class="form-group" :class="{'invalid-form': $v.contactText.$error}">
+                        <label for="contact-text">{{ $t('lang.forms.message') }}</label>
                         <textarea rows="4" cols="50" 
+                            @blur="$v.contactText.$touch()" 
                             class="form-control" 
                             id="contact-text"  
                             v-model="contactText"></textarea>
+
+                        <div class="error-messages"> 
+                            <p v-if="!$v.contactText.required && $v.email.$dirty">{{ $t('lang.forms.errors.missing-message') }}</p>
+                        </div>
                     </div>
 
-                    <button type="submit" class="btn btn-primary" >{{ $t('lang.components.helper.submit') }}</button>
+                    <button type="submit" class="btn btn-primary" >{{ $t('lang.forms.submit') }}</button>
                 </form>
             </div>
         </div>
@@ -84,7 +89,6 @@ export default {
             firstname: '',
             lastname: '',
             email: '',
-            scoutname: '',
             contactText: ''
 
         }
@@ -106,9 +110,9 @@ export default {
             email
         },
         contactText: {
-            required,
-            minLength: minLength(3)
+            required        
         }
+
 
 
     },
@@ -129,8 +133,8 @@ export default {
 
 <style lang="scss" scoped>
     .container {
-        padding-top: 100px;
-        min-height: 700px;
+        padding-top: 150px;
+        min-height: 750px;
     }
 
 </style>

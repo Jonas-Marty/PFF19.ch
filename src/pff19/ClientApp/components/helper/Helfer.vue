@@ -14,7 +14,7 @@
                 <form @submit.prevent="submit" v-if="!isSubmitted">
 
                     <div class="form-group" :class="{'invalid-form': $v.firstname.$error}">
-                        <label for="firstname">{{ $t('lang.components.helper.firstname') }}*</label>
+                        <label for="firstname">{{ $t('lang.forms.firstname') }}*</label>
                         <input 
                             type="text" 
                             @blur="$v.firstname.$touch()" 
@@ -24,14 +24,14 @@
                             v-model="firstname"
                         >
                         <div class="error-messages">
-                            <p v-if="!$v.firstname.required && $v.firstname.$dirty">{{ $t('lang.components.helper.errors.missing-firstname') }}</p>
-                            <p v-if="!$v.firstname.minLength && $v.firstname.$dirty">{{ $t('lang.components.helper.errors.too-few-letters') }}</p>
-                            <p v-if="!$v.firstname.maxLength && $v.firstname.$dirty">{{ $t('lang.components.helper.errors.too-many-letters') }}</p>
+                            <p v-if="!$v.firstname.required && $v.firstname.$dirty">{{ $t('lang.forms.errors.missing-firstname') }}</p>
+                            <p v-if="!$v.firstname.minLength && $v.firstname.$dirty">{{ $t('lang.forms.errors.too-few-letters') }}</p>
+                            <p v-if="!$v.firstname.maxLength && $v.firstname.$dirty">{{ $t('lang.forms.errors.too-many-letters') }}</p>
                         </div>
                     </div>
 
                     <div class="form-group" :class="{'invalid-form': $v.lastname.$error}">
-                        <label for="lastname">{{ $t('lang.components.helper.lastname') }}*</label>
+                        <label for="lastname">{{ $t('lang.forms.lastname') }}*</label>
                         <input 
                             type="text" 
                             @blur="$v.lastname.$touch()" 
@@ -42,14 +42,14 @@
                             v-model="lastname"
                         >
                         <div class="error-messages">
-                            <p v-if="!$v.lastname.required && $v.lastname.$dirty">{{ $t('lang.components.helper.errors.missing-lastname') }}</p>
-                            <p v-if="!$v.lastname.minLength && $v.lastname.$dirty">{{ $t('lang.components.helper.errors.too-few-letters') }}</p>
-                            <p v-if="!$v.lastname.maxLength && $v.lastname.$dirty">{{ $t('lang.components.helper.errors.too-many-letters') }}</p>
+                            <p v-if="!$v.lastname.required && $v.lastname.$dirty">{{ $t('lang.forms.errors.missing-lastname') }}</p>
+                            <p v-if="!$v.lastname.minLength && $v.lastname.$dirty">{{ $t('lang.forms.errors.too-few-letters') }}</p>
+                            <p v-if="!$v.lastname.maxLength && $v.lastname.$dirty">{{ $t('lang.forms.errors.too-many-letters') }}</p>
                         </div>
                     </div>
 
                     <div class="form-group" :class="{'invalid-form': $v.scoutname.$error}">
-                        <label for="scoutname">{{ $t('lang.components.helper.scoutname') }}</label>
+                        <label for="scoutname">{{ $t('lang.forms.scoutname') }}</label>
                         <input 
                             type="text" 
                             @blur="$v.scoutname.$touch()" 
@@ -59,13 +59,13 @@
                             v-model="scoutname"
                         >
                         <div class="error-messages"> 
-                            <p v-if="!$v.scoutname.minLength && $v.scoutname.$dirty">{{ $t('lang.components.helper.errors.too-few-letters') }}</p>
-                            <p v-if="!$v.scoutname.maxLength && $v.scoutname.$dirty">{{ $t('lang.components.helper.errors.too-many-letters') }}</p>
+                            <p v-if="!$v.scoutname.minLength && $v.scoutname.$dirty">{{ $t('lang.forms.errors.too-few-letters') }}</p>
+                            <p v-if="!$v.scoutname.maxLength && $v.scoutname.$dirty">{{ $t('lang.forms.errors.too-many-letters') }}</p>
                         </div>
                     </div>
 
                     <div class="form-group" :class="{'invalid-form': $v.email.$error}">
-                        <label for="email">{{ $t('lang.components.helper.email') }}*</label>
+                        <label for="email">{{ $t('lang.forms.email') }}*</label>
                         <input 
                             type="email" 
                             class="form-control" 
@@ -75,21 +75,21 @@
                             v-model="email"
                         >
                         <div class="error-messages"> 
-                            <p v-if="!$v.email.required && $v.email.$dirty">{{ $t('lang.components.helper.errors.missing-email') }}</p>
-                            <p v-if="!$v.email.email && $v.email.$dirty">{{ $t('lang.components.helper.errors.incorrect-email') }}</p>
+                            <p v-if="!$v.email.required && $v.email.$dirty">{{ $t('lang.forms.errors.missing-email') }}</p>
+                            <p v-if="!$v.email.email && $v.email.$dirty">{{ $t('lang.forms.errors.incorrect-email') }}</p>
                         </div>
                     </div>
 
                     <div class="form-group" >
-                        <label for="wishes">{{ $t('lang.components.helper.wishes') }}</label>
+                        <label for="wishes">{{ $t('lang.forms.wishes') }}</label>
                         <textarea rows="4" cols="50" class="form-control" id="wishes" placeholder="bar, catering ..." v-model="wishes"></textarea>
                     </div>
 
-                    <button type="submit" class="btn btn-primary" >{{ $t('lang.components.helper.submit') }}</button>
+                    <button type="submit" class="btn btn-primary" >{{ $t('lang.forms.submit') }}</button>
                 </form>
 
                 <div v-if="isSubmitted">
-                    <span class="success-message">{{ $t('lang.components.helper.success.thx-for-register') }}</span>
+                    <span class="success-message">{{ $t('lang.forms.success.thx-for-register') }}</span>
                 </div>
             </div>
         </div>
