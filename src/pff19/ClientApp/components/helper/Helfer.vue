@@ -152,7 +152,6 @@ export default {
 
                 axios.post('/api/Assistants', formData)
                 .then(response => {
-                    console.log(response);
                     this.isSubmitted = true;
                 }).catch(e => {
                     this.errors.push(e)
@@ -170,11 +169,6 @@ export default {
     .container {
         padding-top: 100px;
         min-height: 700px;
-    }
-
-    .success-message {
-        font-size: 3rem;
-        margin: 50px 0 0 0;
     }
 
 </style>
