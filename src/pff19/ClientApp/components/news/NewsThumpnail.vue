@@ -1,7 +1,7 @@
 <template>
     <div class="news col-md-4">
         <div class="card">
-            <div class="card-img-top" :style="'background-image: url(' + imagePath +')'" alt="Card image"></div>
+            <div class="card-img-top" :style="imagePath" alt="Card image"></div>
             <div class="card-body">
                 <div class="card-title">
                     <router-link
@@ -24,7 +24,7 @@ export default {
 
     computed: {
         imagePath () {
-            return require("../../../assets/news/thumbnails/" + this.news.image);
+            return 'background-image: url("/assets/news/thumbnail/' + this.news.image + '")';
         },
         newsPreview () {
             return   this.$store.getters.language === 'de' ? this.news.previewDe : this.news.previewFr;
