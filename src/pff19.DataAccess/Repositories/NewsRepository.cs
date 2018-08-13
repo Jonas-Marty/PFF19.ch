@@ -16,7 +16,7 @@ namespace pff19.DataAccess.Repositories
 
         public IEnumerable<News> GetAll()
         {
-            return _context.News;
+            return _context.News.OrderByDescending(n => n.Date);
         }
 
         public IEnumerable<News> GetTop3News()
