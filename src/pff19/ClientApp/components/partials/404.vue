@@ -1,7 +1,9 @@
 <template>
 <div class="container">
     <div class="row justify-content-center">
-         <img class="error-image" src="../../assets/images/404.png">
+
+            <img src="../../assets/images/404.png" class=".img-fluid. error-image">
+
     </div>
 </div>
     
@@ -9,6 +11,12 @@
 
 <script>
 export default {
+    data () {
+
+        return {
+            image: require("../../assets/images/404.png")
+        }
+    }
 
 }
 </script>
@@ -16,11 +24,13 @@ export default {
 <style scoped>
     .container {
         padding-top: 100px;
-        min-height: 700px;
+        min-height: 750px;
     }
 
     .error-image{
         margin-top: 100px;
+        max-width: 100%;
+        height: auto;
     }
 </style>
 

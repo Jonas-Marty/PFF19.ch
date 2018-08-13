@@ -25,7 +25,7 @@ export default {
 
     computed: {
         imagePath () {
-            return require("../../../../assets/news/thumbnails/" + this.news.image);
+            return require("../../../assets/news/thumbnail/" + this.news.image);
         },
 
         newsPreview () {
