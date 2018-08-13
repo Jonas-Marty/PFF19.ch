@@ -1,5 +1,5 @@
 <template>
-    <div class="news col-md">
+    <div class="news col-md-8 offset-md-2 col-lg-4 offset-lg-0">
         <div class="card">
             <div class="card-img-top" :style="'background-image: url(' + imagePath +')'" alt="Card image"></div>
             <div class="card-body">

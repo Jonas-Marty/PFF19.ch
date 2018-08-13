@@ -1,6 +1,6 @@
 <template>
 <div class="app-countdown">
-    <div class="row col-12">
+    <div class="row">
         <div class="days col-md-12 col-12">
             <div class="row justify-content-md-end justify-content-center">
                 <div class="day" v-for="(day, index) in time.days" :key="index">

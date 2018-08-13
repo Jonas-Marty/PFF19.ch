@@ -56,15 +56,10 @@ export default {
         min-height: 300px;
     }
 
-    @media (min-width: 400px) { 
+    @media (max-width: 768px) { 
         .news-list {
-            margin-top: 30px;
+            margin-top: -150px;
         }
     }
 
-    @media (min-width: 768px) { 
-    .news-list {
-        margin-top: -250px;
-        }
-    }
 </style>
