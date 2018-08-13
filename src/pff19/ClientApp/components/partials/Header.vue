@@ -1,6 +1,6 @@
 ﻿<template>
     <transition name="bounce">  
-        <nav class="navbar navbar-expand-md navbar-inverse position-fixed shadow-sm" :class="{embedded: embedded && isHome && !navToggle}">
+        <nav class="navbar navbar-expand-md navbar-inverse position-fixed shadow-sm" :class="{embedded: embedded && isHome && !collapse}">
             <router-link class="navbar-brand" :to="{name: 'home'}">
                 <img  :class="{}" src="../../assets/images/black_green_small_logo.png" height="40" class="d-inline-block align-top" alt="logo_pff19">
             </router-link>
@@ -11,11 +11,11 @@
             </div>
 
 
-            <button class="navbar-toggler" @click="navToggle = !navToggle" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" @click="collapse = !collapse" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="fa fa-navicon"></span>
             </button>
 
-            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="collapse navbar-collapse" :class="{show: collapse}" id="navbarNavAltMarkup">
                 <div class="navbar-nav ml-auto" >
                         <router-link
                                 v-for="route in routes" :key="route.display"
@@ -41,9 +41,8 @@ export default {
     data() {
         return {
             routes,
-            collapsed : true,
             embedded: true,
-            navToggle: false
+            collapse: false
         }
     },
     computed: {
@@ -57,6 +56,7 @@ export default {
         ]),
 
         toggleCollapsed (event) {
+            console.log("hei");
             this.collapsed = !this.collapsed;
         },
         navbarBackgroundController () {
@@ -75,6 +75,16 @@ export default {
     },
     created () {
         window.addEventListener('scroll', this.navbarBackgroundController);
+
+        let self = this;
+
+        window.addEventListener('click', function(e){
+
+            // close dropdown when clicked outside
+            if (!self.$el.contains(e.target) || self.$el.contains(e.target) && e.target.tagName === 'A'){
+            self.collapse = false
+            } 
+        })
     },
 }
 </script>
