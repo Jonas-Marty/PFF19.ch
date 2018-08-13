@@ -4,6 +4,8 @@
             <div class="col-md-8">
                 <h1>{{ $t('lang.components.faq.contact-us') }}</h1>
 
+                <p> {{ $t('lang.components.faq.contact-text') }}</p>
+
                 <form @submit.prevent="submit" v-if="!isSubmitted">
 
                     <div class="form-group" :class="{'invalid-form': $v.firstname.$error}">
@@ -66,12 +68,16 @@
                             v-model="contactText"></textarea>
 
                         <div class="error-messages"> 
-                            <p v-if="!$v.contactText.required && $v.email.$dirty">{{ $t('lang.forms.errors.missing-message') }}</p>
+                            <p v-if="!$v.contactText.required && $v.contactText.$dirty">{{ $t('lang.forms.errors.missing-message') }}</p>
                         </div>
                     </div>
 
                     <button type="submit" class="btn btn-primary" >{{ $t('lang.forms.submit') }}</button>
                 </form>
+
+                <div v-if="isSubmitted">
+                        <span class="success-message">{{ $t('lang.forms.success.contact-confirm') }}</span>
+                </div>
             </div>
         </div>
     </div>
@@ -79,6 +85,8 @@
 
 <script>
 import i18n from '../../locales';
+import axios from 'axios';
+
  import { required, email, between, numeric, minValue, maxLength, minLength, sameAs, requiredUnless } from 'vuelidate/lib/validators';
 
 
@@ -121,9 +129,24 @@ export default {
         submit () {
             this.$v.$touch();
             if(!this.$v.$invalid){
-                console.log('form ok');
-                this.isSubmitted = true;
+
+                const formData = {
+                    firstname: this.firstname,
+                    lastname: this.lastname,
+                    mail: this.email,
+                    text: this.contactText
+                }
+
+                axios.post('/api/ContactRequests', formData)
+                .then(response => {
+                    this.isSubmitted = true;
+                }).catch(e => {
+                    this.errors.push(e)
+                });
+
             }
+
+            
         //this.$store.dispatch('signup', formData)
       }
     }

@@ -33,9 +33,10 @@
 			}
 		},
 		"faq": {
-			"contact-us": "Kontaktiere uns!"
+			"contact-us": "Kontaktiere uns!",
+			"contact-text": "Oder unter info@pff19.ch"
 		},
-		
+
 		"helper": {
 			"helper": "Helfer"
 		}
@@ -62,7 +63,8 @@
 		},
 
 		"success": {
-			"thx-for-register": "Vielen Dank für die Anmeldung!"
+			"thx-for-register": "Vielen Dank für die Anmeldung!",
+			"contact-confirm": "Ihre Kontaktanfrage wurde abgeschickt."
 		}
 	},
 	"network": {

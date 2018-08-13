@@ -34,7 +34,8 @@
 			}
 		},
 		"faq": {
-			"contact-us": "Contactez nous!"
+			"contact-us": "Contactez nous!",
+			"contact-text": "Ou sous info@pff19.ch"
 		},
 		"helper": {
 			"helper": "Bénévoles"
@@ -62,7 +63,8 @@
 			},
 
 			"success": {
-				"thx-for-register": "Merci pour votre inscription!"
+				"thx-for-register": "Merci pour votre inscription!",
+				"contact-confirm": "Votre demande de contact a été envoyée."
 			}
 	
 	
