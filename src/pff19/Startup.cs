@@ -10,6 +10,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.IdentityModel.Tokens;
+using NLog.Web;
 using pff19.DataAccess;
 using pff19.DataAccess.Repositories;
 using pff19.Utiles;
