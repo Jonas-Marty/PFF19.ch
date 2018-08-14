@@ -26,6 +26,7 @@ export default {
 
         imagePath () {
             return "background-image: url(/assets/news/thumbnail/" + this.news.image + ")";
+
         },
         newsPreview () {
             return   this.$store.getters.language === 'de' ? this.news.previewDe : this.news.previewFr;
