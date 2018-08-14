@@ -158,7 +158,6 @@ export default {
                 });
 
             }
-        //this.$store.dispatch('signup', formData)
       }
     }
 
