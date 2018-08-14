@@ -17,7 +17,7 @@
                     {{ hour }}
                 </div>
             </div>
-            <div class="countdown-text justify-content-md-end ">
+            <div class="countdown-text justify-content-md-end justify-content-center">
                 <strong>{{ $t('lang.components.home.slideshow.countdown.hours') | uppercase}}</strong>
             </div>
         </div>
