@@ -9,7 +9,7 @@
                 </div>
                 
                 <h1>{{ newsTitle }}</h1>
-                <div class="img" :style="'background-image: url(' + imagePath + ')'" alt="Card image"></div>
+                <div class="img" :style="imagePath" alt="Card image"></div>
                 <div class="date">{{ news.date | formateDate }}</div>
                 
 
@@ -41,7 +41,7 @@ export default {
 
     computed: {
         imagePath () {
-            return require("../../../assets/news/images/" + this.news.image);
+            return "background-image: url(/assets/news/images/" + this.news.image + ")";
         },
         newsTitle () {
             return this.$store.getters.language === 'de' ? this.news.titleDe : this.news.titleFr;
