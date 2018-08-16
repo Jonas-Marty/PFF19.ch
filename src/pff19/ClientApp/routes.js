@@ -13,7 +13,7 @@ import Contact from 'components/faq/Kontakt';
 export const routes = [
     { name: 'home', path: '/', component: HomePage, display: 'Home', important: true},
     { name: 'sponsors', path: '/sponsors', component: Sponsors, display: 'Sponsoren', important: false},
-    { name: 'faq', path: '/faq', component: FAQ, display: 'FAQ', important: true},
+    { name: 'faq', path: '/faq', component: FAQ, display: 'FAQ', important: false},
     { name: 'organisation', path: '/organisation', component: Organisation, display: 'Organisation', important: true},
     { name: 'helper', path: '/helfer', component: Helfer, display: 'Helfer', important: true},
 
@@ -21,7 +21,7 @@ export const routes = [
     { name: 'impressum', path: '/impressum', component: Impressum, display: 'Impressum'},
     { name: 'news_overview', path: '/news', component: NewsOverview, display: 'NewsOverview'},
     { name: 'news', path: '/news/:id', component: News, display: 'News'},
-    { name: 'contact', path: '/contact', component: Contact, display: 'Kontakt'},
+    { name: 'contact', path: '/contact', component: Contact, display: 'Kontakt', important: true},
 
 
 

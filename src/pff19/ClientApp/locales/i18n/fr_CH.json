@@ -6,7 +6,8 @@
 		"organisation": "Organisation",
 		"helper": "bénévoles",
 		"impressum": "mentions légales",
-		"news_overview": "news aperçu"
+		"news_overview": "news aperçu",
+		"contact": "contact"
 	},
 	"components": {
 		"footer": {

@@ -6,7 +6,8 @@
 		"organisation": "Organisation",
 		"helper": "Helfer",
 		"impressum": "Impressum",
-		"news_overview": "News Übersicht"
+		"news_overview": "News Übersicht",
+		"contact": "Kontakt"
 	},
 	"components": {
 		"footer": {
