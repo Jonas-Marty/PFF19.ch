@@ -24,6 +24,8 @@ if (lang) {
     i18n.locale = lang
 }
 
+axios.defaults.headers.get['Accepts'] = 'application/json'
+
 //filters 
 Vue.filter('capitalize', function (value) {
     if (!value) return '';

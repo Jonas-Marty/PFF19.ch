@@ -18,7 +18,7 @@
             <div class="collapse navbar-collapse" :class="{show: collapse}" id="navbarNavAltMarkup">
                 <div class="navbar-nav ml-auto" >
                         <router-link
-                                v-for="route in routes" :key="route.display"
+                                v-for="route in getDefaultRoutes" :key="route.display"
                                 v-if="route.important"
                                 :to="route.path"
                                 class="nav-item nav-link"
@@ -48,6 +48,10 @@ export default {
     computed: {
         isHome() {
             return this.$store.getters.isHome;
+        },
+
+        getDefaultRoutes(){
+            return this.routes.find(route => route.name === 'default').children
         }
     },
     methods: {
@@ -56,7 +60,6 @@ export default {
         ]),
 
         toggleCollapsed (event) {
-            console.log("hei");
             this.collapsed = !this.collapsed;
         },
         navbarBackgroundController () {
@@ -67,11 +70,10 @@ export default {
             }
         },
         changeLang (lang) {
-            console.log("lang changing");
             if(this.$store.getters.language !== lang){
                 this.switchI18n(lang);
             }
-        }
+        },
     },
     created () {
         window.addEventListener('scroll', this.navbarBackgroundController);

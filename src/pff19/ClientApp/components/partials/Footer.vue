@@ -6,7 +6,7 @@
 
                     <div class="col-md-3 col-sm-6 links footer-block">
                         <router-link
-                                v-for="route in routes" :key="route.name"
+                                v-for="route in getDefaultRoutes" :key="route.name"
                                 v-if="route.important"
                                 :to="route.path"
                                 class="list-item footer-heading"
@@ -79,6 +79,12 @@ export default {
     data () {
         return {
             routes
+        }
+    },
+
+    computed: {
+        getDefaultRoutes(){
+            return this.routes.find(route => route.name === 'default').children
         }
     }
 
