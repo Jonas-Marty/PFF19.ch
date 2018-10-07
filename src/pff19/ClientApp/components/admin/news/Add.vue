@@ -1,6 +1,6 @@
 <template>
                 <div>
-                    <h2>Neue News hinzufügen</h2>
+                    <h2 class="title">Neue News hinzufügen</h2>
                    <form @submit.prevent="submit" v-if="!isSubmitted">
                     
                     <div class="form-group">
@@ -132,10 +132,10 @@ export default {
             PreviewFr: '',
             ContentDe: '',
             ContentFr: '',
-            Image: [],
+            Image: {},
 
             dropzoneOptions: {
-                url: '/',
+                url: '/api',
                 thumbnailWidth: 150,
                 maxFilesize: 0.5,
                 destroyDropzone: true,
@@ -187,27 +187,21 @@ export default {
             if(!this.$v.$invalid){
 
                 const formData = {
-                    firstname: this.firstname,
-                    lastname: this.lastname,
-                    mail: this.email,
-                    text: this.contactText
+                    TitleDe: this.TitleDe,
+                    TitleDe: this.TitleDe,
+                    PreviewDe: this.PreviewDe,
+                    PreviewFr: this.PreviewFr,
+                    ContentDe: this.ContentDe,
+                    Image: this.Image
                 }
-
-                axios.post('/api/ContactRequests', formData)
-                .then(response => {
-                    this.isSubmitted = true;
-                }).catch(e => {
-                    this.errors.push(e)
-                });
-
+                console.log(formData)
             }
 
-            
-        //this.$store.dispatch('signup', formData)
       },
 
-      sendingEvent (file, xhr, formData) {
-          this.Image.push(file)
+      sendingEvent (file, xhr) {
+          this.Image = file
+          console.log(this.Image)
       }
 
       
@@ -219,5 +213,9 @@ export default {
 <style lang="scss" scoped>
     #dropzone {
         margin-bottom: 50px;
+    }
+
+    .title {
+        margin-bottom: 20px;
     }
 </style>
