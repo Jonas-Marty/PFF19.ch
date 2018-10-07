@@ -16,7 +16,7 @@ import Login from 'components/admin/Login.vue'
 import Sponsoring from 'components/admin/sponsoring/Sponsoring.vue'
 import AdminNews from 'components/admin/news/News.vue'
 import AdminNewsAdd from 'components/admin/news/Add.vue'
-
+import { store } from './store/index'
 
 
 export const routes = [
@@ -36,13 +36,14 @@ export const routes = [
     ]
   },
 
-  {name: 'admin', component: AdminLayout, path: '/admin', //beforeEnter: beforeEnter,
+  {name: 'admin', component: AdminLayout, path: '/admin', beforeEnter: beforeEnter,
       children: [
-        {name: 'adminSponsoring', path: 'sponsoring', component: Sponsoring, display: 'Sponsoring'},
-        {name: 'adminNews', path: 'news/', component: AdminNews, display: 'News'},
+        {name: 'adminSponsoring', path: 'sponsoring', component: Sponsoring, display: 'Sponsoring', important: true},
+        {name: 'adminNews', path: 'news/', component: AdminNews, display: 'News', important: true},
           {name: 'adminNewsAdd', path: 'news/add', component: AdminNewsAdd, display: 'add'},
-        {name: 'adminHelperList', path: 'helper', component: Dashboard, display: 'Helfer'},
-        {name: 'adminDashboard', path: '', component: Dashboard, display: 'Dashboard'},
+          {name: 'adminNewsEdit', path: 'news/:id/edit', component: AdminNewsAdd, display: 'edit'},
+        {name: 'adminHelperList', path: 'helper', component: Dashboard, display: 'Helfer', important: true},
+        {name: 'adminDashboard', path: '', component: Dashboard, display: 'Dashboard', important: true},
       ]
     },
   {name: 'login', path: '/admin/login', component: Login, display: 'Login' },
@@ -53,9 +54,11 @@ export const routes = [
 
 
 function beforeEnter (to, from, next) {
-    if (store.state.api.idToken) {
+  store.dispatch('api/tryAutoLogin').then(() => {
+    if (store.getters['api/isAuthenticated']) {
       next()
     } else {
       next({name: 'login'})
     }
+  })
   }

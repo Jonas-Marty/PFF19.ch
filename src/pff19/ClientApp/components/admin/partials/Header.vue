@@ -13,15 +13,17 @@
                 <div class="navbar-nav ml-auto" >
                         <router-link
                                 v-for="route in getAdminRoutes" :key="route.display"
+                                v-if="route.important"
                                 :to="{name: route.name}"
                                 class="nav-item nav-link"
                         > {{ route.display }} </router-link>
-                        <router-link
-                        to="/admin/login"
+                        <a
+                        href="#"
                         class="nav-item nav-link"
+                        @click="logout"
                         >
                             Log out
-                        </router-link>
+                        </a>
                      
                 </div>
             </div>
@@ -50,6 +52,10 @@ export default {
         }
     },
     methods: {
+        ...mapActions('api', [
+            'logout'
+        ]),
+
         toggleCollapsed (event) {
             this.collapsed = !this.collapsed;
         },
@@ -76,8 +82,6 @@ export default {
     -moz-transition:all 0.500s ease;
     -o-transition:all 0.500s ease;
 }
-
-
 
 
 </style>

@@ -1,4 +1,6 @@
 import axios from 'axios'
+import jwtDecode from 'jwt-decode'
+import router from '../router'
 
 export const api = {
     namespaced: true,
@@ -24,27 +26,28 @@ export const api = {
         setLogoutTimer ({commit}, expirationTime) {
           setTimeout(() => {
             commit('clearAuthData')
-          }, expirationTime * 1000)
+          }, expirationTime)
         },
         login ({commit, dispatch}, authData) {
-            console.log('in action', authData)
           axios.post('/api/token', {
-            email: authData.email,
+            Mail: authData.email,
             password: authData.password,
             returnSecureToken: true
           })
             .then(res => {
-              console.log(res)
+              const token = jwtDecode(res.data.token)
+              const expirationDate = new Date(token.exp * 1000)
               const now = new Date()
-              const expirationDate = new Date(now.getTime() + res.data.expiresIn * 1000)
-              localStorage.setItem('token', res.data.idToken)
-              localStorage.setItem('userId', res.data.localId)
+              const expiresIn = expirationDate.getTime() - now.getTime()
+              localStorage.setItem('token', res.data.token)
+              localStorage.setItem('userId', token.userId)
               localStorage.setItem('expirationDate', expirationDate)
               commit('authUser', {
-                token: res.data.idToken,
-                userId: res.data.localId
+                token: res.data.token,
+                userId: token.userId
               })
-              dispatch('setLogoutTimer', res.data.expiresIn)
+              router.push({ name: 'adminDashboard'})
+              dispatch('setLogoutTimer', token.exp)
             })
             .catch(error => console.log(error))
         },
@@ -69,7 +72,7 @@ export const api = {
           localStorage.removeItem('expirationDate')
           localStorage.removeItem('token')
           localStorage.removeItem('userId')
-          router.replace('/signin')
+          router.replace({name: 'login'})
         },
         storeUser ({commit, state}, userData) {
           if (!state.idToken) {
