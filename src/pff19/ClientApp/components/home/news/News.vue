@@ -1,13 +1,18 @@
 <template>
-    <div class="news col-md-4">
+    <div class="news col-md-8 offset-md-2 col-lg-4 offset-lg-0">
         <div class="card">
-            <img class="card-img-top" :src="imagePath" alt="Card image">
+            <div class="card-img-top" :style="imagePath" alt="Card image"></div>
             <div class="card-body">
                 <div class="card-title">
-                    {{ news.title }}
+                    <router-link
+                    :to="{name: 'news', params: {id: news.id}}"
+                    >
+                    {{ newsTitle }}
+                   
+                    </router-link>
                 </div>
                 <div class="card-text">
-                    {{ news.short }}
+                    {{ newsPreview | shorten(160) }}
                 </div>
             </div>
         </div>
@@ -20,7 +25,15 @@ export default {
 
     computed: {
         imagePath () {
-            return require("../../../assets/" + this.news.image + ".jpg");
+            return "background-image: url(/assets/news/thumbnail/" + this.news.image + ")";
+
+        },
+
+        newsPreview () {
+            return   this.$store.getters.language === 'de' ? this.news.previewDe : this.news.previewFr;
+        },
+        newsTitle () {
+            return   this.$store.getters.language === 'de' ? this.news.titleDe : this.news.titleFr;
         }
     }
 
@@ -30,5 +43,17 @@ export default {
 <style lang="scss" scoped>
     .news {
         margin-bottom: 20px;
+    }
+
+    .card {
+        padding: 2px;
+    }
+
+    .card-title {
+        font-family: "Glacial Indifference Bold"
+    }
+    .card-img-top {
+        height: 220px;
+        background-size: cover;
     }
 </style>

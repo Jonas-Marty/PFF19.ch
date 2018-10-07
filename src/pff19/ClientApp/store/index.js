@@ -1,32 +1,56 @@
 ﻿import Vue from 'vue'
 import Vuex from 'vuex'
+import i18n from '../locales'
+import { news } from './news'
+import { api } from './api'
 
 Vue.use(Vuex)
 
-// TYPES
-const MAIN_SET_COUNTER = 'MAIN_SET_COUNTER'
+export const store = new Vuex.Store({
+    state: {
+        isHome: false,
+        language: localStorage.getItem('language') || ''
+    },
 
-// STATE
-const state = {
-    counter: 0
-}
+    getters: {
+        isHome: state => {
+            return state.isHome;
+        },
+        language: state => {
+            return state.language;
+        }
+    },
 
-// MUTATIONS
-const mutations = {
-    [MAIN_SET_COUNTER](state, obj) {
-        state.counter = obj.counter
+    mutations: {
+        enterHome: state => {
+            state.isHome = true;
+        },
+        leaveHome: state => {
+            state.isHome = false;
+        },
+        changeLang: (state, data) => {
+            i18n.locale = data;
+            state.language = data;
+            localStorage.setItem('language', data);
+        }
+    
+    },
+
+    actions: {
+        enterHome: ({commit}) => {
+            commit('enterHome');
+        },
+        leaveHome: ({commit}) => {
+            commit('leaveHome');
+        },
+        switchI18n({ commit }, context) {
+            commit('changeLang', context);
+        }
+            
+    },
+
+    modules: {
+        news,
+        api
     }
-}
-
-// ACTIONS
-const actions = ({
-    setCounter({ commit }, obj) {
-        commit(MAIN_SET_COUNTER, obj)
-    }
-})
-
-export default new Vuex.Store({
-    state,
-    mutations,
-    actions
 });

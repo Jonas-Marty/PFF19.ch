@@ -1,10 +1,13 @@
 <template>
-    <div class="news-list">
+    <div class="news-list container">
         <div class="row">
-            <app-news v-for="news in newsList" :key="news.id" :news="news"> </app-news>
+            <app-news v-for="news in firstThreeNews" :key="news.id" :news="news"> </app-news>
         </div>
             <div class="float-right">
-                weitere News
+                <router-link
+                    :to="{name: 'news_overview'}"
+                    class=""
+                > {{ $t('lang.components.home.news.further_news') }}</router-link>
             </div>
     </div>
 </template>
@@ -12,50 +15,51 @@
 <script>
 import Vue from 'vue';
 import News from './News';
+import axios from 'axios';
 
 export default {
     data () {
         return {
-            newsList: [
-                {
-                    id: 1, 
-                    date: "Thu Jun 21 20:53:17 2018 UTC", 
-                    title: "Der Aufbau beginnt", 
-                    short: "Bacon ipsum dolor amet porchetta meatloaf prosciutto,\
-                    kevin rump turducken jerky picanha jowl doner tenderloin shank\
-                    frankfurter. Ground round burgdoggen venison ham biltong",
-                    image: "beer_sunset"
-                },
-                {
-                    id: 2, 
-                    date: "Thu Jun 21 20:53:17 2018 UTC", 
-                    title: "1000 Tickets wurden verkauft", 
-                    short: "Bacon ipsum dolor amet porchetta meatloaf prosciutto,\
-                    kevin rump turducken jerky picanha jowl doner tenderloin shank\
-                    frankfurter. Ground round burgdoggen venison ham biltong",
-                    image: "beer_sunset"
-                },
-                {
-                    id: 3, 
-                    date: "Thu Jun 21 20:53:17 2018 UTC", 
-                    title: "Alle Bands wurden bereits Gefunden",
-                    short: "Bacon ipsum dolor amet porchetta meatloaf prosciutto,\
-                    kevin rump turducken jerky picanha jowl doner tenderloin shank\
-                    frankfurter. Ground round burgdoggen venison ham biltong",
-                    image: "beer_sunset"
-                }
-            ]
+            newsList: []
         }
+    },
+
+    created() {
+        axios.get('/api/news')
+        .then(response => {
+            this.newsList = response.data;
+        }).catch(e => {
+            this.errors.push(e)
+        });
+    },
+
+    computed: {
+        firstThreeNews () {
+            return this.newsList.slice(0,3);
+        } 
     },
 
     components: {
         'app-news': News
+    },
+
+    beforeUpdate () {
+        return this.newsList[this.$store.getters.language];
     }
+
 }
 </script>
 
 <style lang="scss" scoped>
     .news-list {
-        margin-top: -180px;
+        margin-top: -250px;
+        min-height: 300px;
     }
+
+    @media (max-width: 768px) { 
+        .news-list {
+            margin-top: -150px;
+        }
+    }
+
 </style>

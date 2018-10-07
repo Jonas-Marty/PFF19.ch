@@ -1,0 +1,107 @@
+{
+	"navigation": {
+		"home": "Home",
+		"sponsors": "Sponsors",
+		"faq": "FAQ",
+		"organisation": "Organisation",
+		"helper": "bénévoles",
+		"impressum": "mentions légales",
+		"news_overview": "news aperçu",
+		"contact": "contact"
+	},
+	"components": {
+		"footer": {
+			"dont_miss_news": "ne manquez aucune news",
+			"example": "exemple",
+			"register_newsletter": "inscription Newsletter",
+			"follow_us": "suivez-nous"
+		},
+		"home": {
+			"slideshow": {
+				"countdown": {
+					"days": "jours",
+					"hours": "heures"
+				}
+			},
+			"news": {
+				"further_news" : "plus news"
+			},
+			"sponsors": {
+				"sponsors": "Sponsors"
+			},
+
+			"bands": {
+				"registration": "Bands inscription"
+			}
+		},
+		"faq": {
+			"contact-us": "Contactez nous!",
+			"contact-text": "Ou sous info@pff19.ch"
+		},
+		"helper": {
+			"helper": "Bénévoles"
+		}
+	},
+	"forms": {
+			"firstname": "prénom",
+			"lastname": "nom de famille",
+			"scoutname": "nom de scout",
+			"email": "email",
+			"wishes": "vœux",
+			"message": "Votre message",
+			"submit": "envoyer",
+
+			"errors": {
+				"too-few-letters": "Zu wenig Zeichen.",
+				"too-many-letter": "Zu viel Zeichen.",
+				
+				"missing-email": "Veuillez entrer votre adresse e-mail.",
+				"incorrect-email": "Votre adresse email est incorrecte.",
+				"missing-firstname": "Veuillez entrer votre prénom.",
+				"missing-lastname": "Veuillez entrer votre nom de famille.",
+
+				"missing-message": "Veuillez entrer votre message"
+			},
+
+			"success": {
+				"thx-for-register": "Merci pour votre inscription!",
+				"contact-confirm": "Votre demande de contact a été envoyée."
+			}
+	
+	
+	},
+	"network": {
+		"error": [
+			{
+				"status": "Error 400",
+				"type": "Bad Request",
+				"desc": "Your browser sent a request that this server could not understand"
+			},
+			{
+				"status": "Error 401",
+				"type": "Unauthorized",
+				"desc": "Access is denied due to invalid credentials"
+			},
+			{
+				"status": "Error 403",
+				"type": "Forbideen",
+				"desc": "You don't have permission to access"
+			},
+			{
+				"status": "Error 404",
+				"type": "Not Found",
+				"desc": "The page you are looking for does not exist"
+			},
+			{
+				"status": "Error 500",
+				"type": "Server Error",
+				"desc": "Http error 500 Internal Server Error"
+			},
+			{
+				"status": "Error 503",
+				"type": "Service Unavailable",
+				"desc": "Service temporarily unavailable"
+			}
+		]
+	}
+}
