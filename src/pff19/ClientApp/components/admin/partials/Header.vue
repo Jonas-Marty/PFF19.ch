@@ -12,10 +12,16 @@
             <div class="collapse navbar-collapse" :class="{show: collapse}" id="navbarNavAltMarkup">
                 <div class="navbar-nav ml-auto" >
                         <router-link
-                                :to="{name: 'sponsoring'}"
+                                v-for="route in getAdminRoutes" :key="route.display"
+                                :to="{name: route.name}"
                                 class="nav-item nav-link"
-                        > Sponsoring</router-link>
-
+                        > {{ route.display }} </router-link>
+                        <router-link
+                        to="/admin/login"
+                        class="nav-item nav-link"
+                        >
+                            Log out
+                        </router-link>
                      
                 </div>
             </div>
@@ -36,6 +42,9 @@ export default {
         }
     },
     computed: {
+        getAdminRoutes() {
+            return routes.find(route => route.name === 'admin').children;
+        },
         isHome() {
             return this.$store.getters.isHome;
         }
@@ -44,7 +53,8 @@ export default {
         toggleCollapsed (event) {
             this.collapsed = !this.collapsed;
         },
-    }
+    },
+
 }
 </script>
 

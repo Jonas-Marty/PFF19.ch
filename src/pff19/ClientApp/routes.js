@@ -14,7 +14,8 @@ import AdminLayout from './layouts/Admin.vue'
 import Dashboard from 'components/admin/Dashboard.vue'
 import Login from 'components/admin/Login.vue'
 import Sponsoring from 'components/admin/sponsoring/Sponsoring.vue'
-import { store } from './store/index'
+import AdminNews from 'components/admin/news/News.vue'
+import AdminNewsAdd from 'components/admin/news/Add.vue'
 
 
 
@@ -35,13 +36,13 @@ export const routes = [
     ]
   },
 
-  {name: '/admin', component: AdminLayout, path: '/admin', //beforeEnter: beforeEnter,
+  {name: 'admin', component: AdminLayout, path: '/admin', //beforeEnter: beforeEnter,
       children: [
-        {name: 'sponsoring', path: 'sponsoring', component: Sponsoring, display: 'Sponsoring'},
-        {name: 'newsManager', path: 'news', component: Dashboard, display: 'Dashboard'},
-        {name: 'helperList', path: 'helper', component: Dashboard, display: 'Dashboard'},
-        {name: 'adminHelper', path: 'helper', component: Dashboard, display: 'Dashboard'},
-        {name: 'dashboard', path: '', component: Dashboard, display: 'Dashboard'},
+        {name: 'adminSponsoring', path: 'sponsoring', component: Sponsoring, display: 'Sponsoring'},
+        {name: 'adminNews', path: 'news/', component: AdminNews, display: 'News'},
+          {name: 'adminNewsAdd', path: 'news/add', component: AdminNewsAdd, display: 'add'},
+        {name: 'adminHelperList', path: 'helper', component: Dashboard, display: 'Helfer'},
+        {name: 'adminDashboard', path: '', component: Dashboard, display: 'Dashboard'},
       ]
     },
   {name: 'login', path: '/admin/login', component: Login, display: 'Login' },
