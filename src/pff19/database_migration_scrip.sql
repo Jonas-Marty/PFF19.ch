@@ -54,9 +54,9 @@ CREATE TABLE `Users` (
 INSERT INTO `__EFMigrationsHistory` (`MigrationId`, `ProductVersion`)
 VALUES ('20180709212713_BandsAndBasicUser', '2.1.1-rtm-30846');
 
-ALTER TABLE `News` CHANGE `Title` `TitleFr` longtext NULL
-ALTER TABLE `News` CHANGE `Content` `TitleDe` longtext NULL
-ALTER TABLE `Bands` CHANGE `Description` `DescriptionFr` longtext NULL
+ALTER TABLE `News` CHANGE `Title` `TitleFr` longtext NULL;
+ALTER TABLE `News` CHANGE `Content` `TitleDe` longtext NULL;
+ALTER TABLE `Bands` CHANGE `Description` `DescriptionFr` longtext NULL;
 ALTER TABLE `News` ADD `ContentDe` longtext NULL;
 
 ALTER TABLE `News` ADD `ContentFr` longtext NULL;
@@ -126,7 +126,7 @@ ALTER TABLE `Bands` MODIFY COLUMN `DescriptionFr` longtext NOT NULL;
 
 ALTER TABLE `Bands` MODIFY COLUMN `DescriptionDe` longtext NOT NULL;
 
-ALTER TABLE `Bands` ADD `Name` longtext NOT NULL DEFAULT '';
+ALTER TABLE `Bands` ADD `Name` longtext NOT NULL;
 
 CREATE TABLE `BandRequests` (
     `Id` int NOT NULL AUTO_INCREMENT,
