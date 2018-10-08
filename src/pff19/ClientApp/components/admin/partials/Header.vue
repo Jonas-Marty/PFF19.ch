@@ -1,8 +1,8 @@
 <template>
     <transition name="bounce">  
         <nav class="navbar navbar-expand-md navbar-inverse position-fixed shadow-sm">
-            <router-link class="navbar-brand" :to="{name: 'dashboard'}">
-                <img  :class="{}" src="../../../assets/images/black_green_small_logo.png" height="40" class="d-inline-block align-top" alt="logo_pff19">
+            <router-link class="navbar-brand" :to="{name: 'adminDashboard'}">
+                <img  :class="{}" src="../../../assets/images/black_red_small_logo.png" height="40" class="d-inline-block align-top" alt="logo_pff19">
             </router-link>
 
             <button class="navbar-toggler" @click="collapse = !collapse" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">

@@ -108,6 +108,9 @@ export const api = {
         },
         isAuthenticated (state) {
           return state.idToken !== null
+        },
+        getToken(state) {
+          return state.idToken
         }
       }
     }
