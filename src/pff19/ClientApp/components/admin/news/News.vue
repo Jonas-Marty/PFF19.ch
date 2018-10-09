@@ -7,8 +7,11 @@
             hinzufügen
         </router-link>
         <div class="list-group">
-            <div class="list-group-item" v-for="news in all" :key="news.id">
+            <div class="list-group-item d-flex justify-content-between align-items-center" v-for="news in all" :key="news.id">
                 {{ news.titleDe }}
+                <div><router-link 
+                :to="{ name: 'adminNewsEdit', params: {id: news.id }}"
+                >edit</router-link></div>
             </div>
         </div>
     </div>
@@ -33,10 +36,9 @@ export default {
     },
 
     created() {
-        if(!(this.all.length > 0)){
-            this.load();
-        }
+        this.load();
     },
+    
     
 }
 </script>

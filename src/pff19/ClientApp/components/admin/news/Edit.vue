@@ -1,6 +1,12 @@
 <template>
                 <div>
-                    <h2 class="title">Neue News hinzufügen</h2>
+                    <h2 class="title">News editieren</h2>
+                    <div v-if="isSubmitted">
+                        <p>Deine News wurde editiert!</p>
+                        <router-link
+                        :to="{name: 'adminNews'}"
+                        >Zurück</router-link>
+                    </div>
                    <form @submit.prevent="submit" v-if="!isSubmitted">
                     
                     <div class="form-group">
@@ -12,15 +18,19 @@
                             </div>    
                         </vue-dropzone>   
                     </div>
+                    <div class="form-group">
+                        <label for="select_date">Date</label>
+                        <datepicker @selected="updateDate" :value="date" bootstrap-styling></datepicker>
+                    </div>
 
                     <div class="form-group" :class="{'invalid-form': $v.TitleDe.$error}">
-                        <label for="title_de">Titel Deutsch</label>
+                        <label for="title_de">Titel in Deutsch</label>
                         <input 
                             type="text" 
-                            @blur="$v.TitleFr.$touch()" 
+                            @blur="$v.TitleDe.$touch()" 
                             class="form-control" 
                             id="title_de" 
-                            placeholder="Dein Title" 
+                            placeholder="Dein Title in Deutsch" 
                             v-model="TitleDe"
                         >
                         <div class="error-messages">
@@ -37,7 +47,7 @@
                             @blur="$v.TitleFr.$touch()" 
                             class="form-control" 
                             id="title_fr" 
-                            placeholder="Dein Title in Deutsch" 
+                            placeholder="Dein Title in Französisch" 
                             v-model="TitleFr"
                         >
                         <div class="error-messages">
@@ -85,11 +95,7 @@
 
                     <div class="form-group" :class="{'invalid-form': $v.ContentDe.$error}">
                         <label for="content_de">Inhalt Deutsch</label>
-                        <textarea rows="4" cols="50" 
-                            @blur="$v.ContentDe.$touch()" 
-                            class="form-control" 
-                            id="content_de"  
-                            v-model="ContentDe"></textarea>
+                        <vue-editor class="html-editor" @blur="$v.ContentDe.$touch()" id="contentd_de"  v-model="ContentDe"></vue-editor>
 
                         <div class="error-messages"> 
                             <p v-if="!$v.ContentDe.required && $v.ContentDe.$dirty">Es brauch einen Inhalt für deine News</p>
@@ -98,11 +104,7 @@
 
                     <div class="form-group" :class="{'invalid-form': $v.ContentFr.$error}">
                         <label for="content_fr">Inhalt Französisch</label>
-                        <textarea rows="4" cols="50" 
-                            @blur="$v.ContentFr.$touch()" 
-                            class="form-control" 
-                            id="content_fr"  
-                            v-model="ContentFr"></textarea>
+                        <vue-editor class="html-editor" @blur="$v.ContentFr.$touch()" id="contentd_fr"  v-model="ContentFr"></vue-editor>
 
                         <div class="error-messages"> 
                             <p v-if="!$v.ContentFr.required && $v.ContentFr.$dirty">Es brauch einen Inhalt für deine News</p>
@@ -116,15 +118,18 @@
 </template>
 
 <script>
-import axios from 'axios';
+import auth from '../../../auth.js'
 import vue2Dropzone from 'vue2-dropzone'
+import { VueEditor } from "vue2-editor"
+import Datepicker from 'vuejs-datepicker'
 import 'vue2-dropzone/dist/vue2Dropzone.min.css'
-import { required, email, between, numeric, minValue, maxLength, minLength, sameAs, requiredUnless } from 'vuelidate/lib/validators';
+import { required, email, between, numeric, minValue, maxLength, minLength, sameAs, requiredUnless } from 'vuelidate/lib/validators'
 
 
 export default {
     data () {
         return {
+            errors: [],
             isSubmitted: false,
             TitleDe: '',
             TitleFr: '',
@@ -133,6 +138,7 @@ export default {
             ContentDe: '',
             ContentFr: '',
             Image: {},
+            date: new Date(),
 
             dropzoneOptions: {
                 url: '/api',
@@ -146,7 +152,9 @@ export default {
     },
 
     components: {
-        vueDropzone: vue2Dropzone
+        vueDropzone: vue2Dropzone,
+        VueEditor,
+        Datepicker
     },
 
     validations: {
@@ -183,19 +191,32 @@ export default {
 
     methods: {
         submit () {
-            console.log('hei')
             this.$v.$touch();
             if(!this.$v.$invalid){
 
                 const formData = {
+                    Date: this.date.toLocaleString(),
                     TitleDe: this.TitleDe,
-                    TitleDe: this.TitleDe,
+                    TitleFr: this.TitleFr,
+                    ContentDe: this.ContentDe,
+                    ContentFr: this.ContentDe,
                     PreviewDe: this.PreviewDe,
                     PreviewFr: this.PreviewFr,
-                    ContentDe: this.ContentDe,
-                    Image: this.Image
+                    UploadImage: this.Image
                 }
-                console.log(formData)
+
+                let form_data = new FormData()
+
+                for ( var key in formData ) {
+                    form_data.append(key, formData[key])
+                }
+
+                auth.put(`News/${this.$route.params.id}`, form_data)
+                .then(response => {
+                    this.isSubmitted = true;
+                }).catch(e => {
+                    this.errors.push(e)
+                })
             }
 
       },
@@ -203,9 +224,29 @@ export default {
       sendingEvent (file, xhr) {
           this.Image = file
           console.log(this.Image)
-      }
+      },
 
-      
+      updateDate (date) {
+          this.date = date;
+      },
+    },
+    
+    mounted() {
+        auth.get(`News/${this.$route.params.id}`)
+            .then(response => {
+                this.TitleDe = response.data.titleDe
+                this.TitleFr = response.data.titleFr
+                this.PreviewDe = response.data.previewDe
+                this.PreviewFr = response.data.previewFr
+                this.ContentDe = response.data.contentDe
+                this.ContentFr = response.data.contentFr
+                this.Image =  response.data.image
+            }).catch(e => {
+                this.errors.push(e)
+            })
+        //var file = { size: 123, name: "Icon" };
+        //var url = "https://myvizo.com/img/logo_sm.png";
+        //this.$refs.myVueDropzone.manuallyAddFile(file, url);
     }
 
 }
@@ -218,5 +259,9 @@ export default {
 
     .title {
         margin-bottom: 20px;
+    }
+
+    .html-editor{
+        background-color: white;
     }
 </style>
