@@ -37,9 +37,9 @@ export const api = {
         .then(res => {
           const token = jwtDecode(res.data.token)
           const expirationDate = new Date(token.exp * 1000)
-          localStorage.setItem('token', res.data.token)
-          localStorage.setItem('userId', token.userId)
-          localStorage.setItem('expirationDate', expirationDate)
+          window.localStorage.setItem('token', res.data.token)
+          window.localStorage.setItem('userId', token.userId)
+          window.localStorage.setItem('expirationDate', expirationDate)
           commit('authUser', {
             token: res.data.token,
             userId: token.userId
@@ -50,16 +50,16 @@ export const api = {
         .catch(error => console.log(error))
     },
     tryAutoLogin ({commit}) {
-      const token = localStorage.getItem('token')
+      const token = window.localStorage.getItem('token')
       if (!token) {
         return
       }
-      const expirationDate = localStorage.getItem('expirationDate')
+      const expirationDate = window.localStorage.getItem('expirationDate')
       const now = new Date()
       if (now >= expirationDate) {
         return
       }
-      const userId = localStorage.getItem('userId')
+      const userId = window.localStorage.getItem('userId')
       commit('authUser', {
         token: token,
         userId: userId
@@ -67,16 +67,16 @@ export const api = {
     },
     logout ({commit}) {
       commit('clearAuthData')
-      localStorage.removeItem('expirationDate')
-      localStorage.removeItem('token')
-      localStorage.removeItem('userId')
+      window.localStorage.removeItem('expirationDate')
+      window.localStorage.removeItem('token')
+      window.localStorage.removeItem('userId')
       router.replace({name: 'login'})
     },
     storeUser ({commit, state}, userData) {
       if (!state.idToken) {
         return
       }
-      globalAxios.post('/users.json' + '?auth=' + state.idToken, userData)
+      window.globalAxios.post('/users.json' + '?auth=' + state.idToken, userData)
         .then(res => console.log(res))
         .catch(error => console.log(error))
     },
@@ -84,7 +84,7 @@ export const api = {
       if (!state.idToken) {
         return
       }
-      globalAxios.get('/users.json' + '?auth=' + state.idToken)
+      window.globalAxios.get('/users.json' + '?auth=' + state.idToken)
         .then(res => {
           console.log(res)
           const data = res.data

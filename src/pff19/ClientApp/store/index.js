@@ -9,7 +9,7 @@ Vue.use(Vuex)
 export const store = new Vuex.Store({
   state: {
     isHome: false,
-    language: localStorage.getItem('language') || ''
+    language: window.localStorage.getItem('language') || ''
   },
 
   getters: {
@@ -31,7 +31,7 @@ export const store = new Vuex.Store({
     changeLang: (state, data) => {
       i18n.locale = data
       state.language = data
-      localStorage.setItem('language', data)
+      window.localStorage.setItem('language', data)
     }
 
   },

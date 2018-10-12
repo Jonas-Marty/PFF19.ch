@@ -9,7 +9,6 @@ export const news = {
 
   getters: {
     all: state => {
-      console.log(state.news)
       return state.news
     },
     get: state => {
@@ -35,7 +34,6 @@ export const news = {
         .then(response => {
           commit('load', response.data)
         }).catch(e => {
-          console.log(e)
         })
     },
 
@@ -44,7 +42,6 @@ export const news = {
         .then(response => {
           commit('remove', payload)
         }).catch(e => {
-          console.log(e)
         })
     }
   }
