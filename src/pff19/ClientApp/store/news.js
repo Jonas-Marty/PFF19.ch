@@ -1,4 +1,5 @@
 import axios from 'axios'
+import auth from '../auth'
 
 export const news = {
   namespaced: true,
@@ -8,6 +9,7 @@ export const news = {
 
   getters: {
     all: state => {
+      console.log(state.news)
       return state.news
     },
     get: state => {
@@ -18,19 +20,32 @@ export const news = {
   },
 
   mutations: {
-    load: (state) => {
-      axios.get('/api/news')
-        .then(response => {
-          state.news = response.data
-        }).catch(e => {
-          this.errors.push(e)
-        })
+    load: (state, payload) => {
+      state.news = payload
+    },
+
+    remove: (state, id) => {
+      state.news = state.news.filter(el => el.id !== id)
     }
   },
 
   actions: {
     load: ({commit}) => {
-      commit('load')
+      axios.get('/api/news')
+        .then(response => {
+          commit('load', response.data)
+        }).catch(e => {
+          console.log(e)
+        })
+    },
+
+    remove: ({commit}, payload) => {
+      auth.delete(`/news/${payload}`)
+        .then(response => {
+          commit('remove', payload)
+        }).catch(e => {
+          console.log(e)
+        })
     }
   }
 }

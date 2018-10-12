@@ -4,14 +4,20 @@
         <router-link
             to="news/add"
             >
-            hinzufügen
+            <i class="fa fa-add fa-1x pull-right"></i>hinzufügen
         </router-link>
         <div class="list-group">
-            <div class="list-group-item d-flex justify-content-between align-items-center" v-for="news in all" :key="news.id">
+            <div class="list-group-item d-flex justify-content-between align-items-right" v-for="news in all" :key="news.id">
+            <div>
+                {{ news.id }} | 
                 {{ news.titleDe }}
-                <div><router-link 
-                :to="{ name: 'adminNewsEdit', params: {id: news.id }}"
-                >edit</router-link></div>
+            </div>
+                <div class="row">
+                    <router-link 
+                    :to="{ name: 'adminNewsEdit', params: {id: news.id }}"
+                    ><i class="fa fa-edit fa-1x pull-right"></i></router-link>
+                    <i class="fa fa-remove fa-1x pull-right" @click="remove(news.id)"></i>
+            </div>
             </div>
         </div>
     </div>
@@ -25,7 +31,8 @@ export default {
 
     methods: {
         ...mapActions('news', [
-            'load'
+            'load',
+            'remove'
         ]),
     }, 
 
@@ -43,3 +50,12 @@ export default {
 }
 </script>
 
+<style lang="scss" scoped>
+.fa-remove {
+    cursor: pointer;
+}
+
+.fa-edit{
+    margin-right: 5px
+}
+</style>
