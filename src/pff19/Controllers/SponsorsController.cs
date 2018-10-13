@@ -55,9 +55,10 @@ namespace pff19.Controllers
                 Status = model.Status
             };
 
-            SafeSponsorImage(model, new Sponsor());
+            SafeSponsorImage(model, newSponsor);
 
-            _sponsorRepository.Add(newSponsor);
+            _sponsorRepository.Update(newSponsor);
+            
             return CreatedAtRoute("GetSponsor", new { id = newSponsor.Id }, newSponsor);
         }
 

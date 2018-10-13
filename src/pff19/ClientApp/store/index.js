@@ -3,6 +3,7 @@ import Vuex from 'vuex'
 import i18n from '../locales'
 import { news } from './news'
 import { api } from './api'
+import { sponsors } from './sponsors'
 
 Vue.use(Vuex)
 
@@ -51,6 +52,7 @@ export const store = new Vuex.Store({
 
   modules: {
     news,
-    api
+    api,
+    sponsors
   }
 })
