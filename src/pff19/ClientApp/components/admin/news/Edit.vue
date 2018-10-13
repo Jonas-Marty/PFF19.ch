@@ -144,6 +144,7 @@ export default {
                 url: '/api',
                 thumbnailWidth: 150,
                 maxFilesize: 0.5,
+                maxFiles: 1,
                 destroyDropzone: true,
                 addRemoveLinks: true,
             }

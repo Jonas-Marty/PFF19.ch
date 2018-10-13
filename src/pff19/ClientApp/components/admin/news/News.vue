@@ -9,14 +9,16 @@
         <div class="list-group">
             <div class="list-group-item d-flex justify-content-between align-items-right" v-for="news in all" :key="news.id">
             <div>
-                {{ news.id }} | 
+                {{ news.id }}
+            </div>
+            <div>                
                 {{ news.titleDe }}
             </div>
-                <div class="row">
+                <div >
+                    <i class="fa fa-remove fa-1x pull-right" @click="remove(news.id)"></i>
                     <router-link 
                     :to="{ name: 'adminNewsEdit', params: {id: news.id }}"
                     ><i class="fa fa-edit fa-1x pull-right"></i></router-link>
-                    <i class="fa fa-remove fa-1x pull-right" @click="remove(news.id)"></i>
             </div>
             </div>
         </div>

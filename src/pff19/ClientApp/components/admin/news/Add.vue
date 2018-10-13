@@ -144,6 +144,7 @@ export default {
                 url: '/api',
                 thumbnailWidth: 150,
                 maxFilesize: 0.5,
+                maxFiles: 1,
                 destroyDropzone: true,
                 addRemoveLinks: true,
             }
@@ -213,7 +214,6 @@ export default {
 
                 auth.post('News', form_data)
                 .then(response => {
-                    console.log(response.data)
                     this.isSubmitted = true;
                 }).catch(e => {
                     this.errors.push(e)
@@ -224,7 +224,6 @@ export default {
 
       sendingEvent (file, xhr) {
           this.Image = file
-          console.log(this.Image)
       },
 
       updateDate (date) {
