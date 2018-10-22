@@ -2,9 +2,11 @@
 import 'core-js/es6/promise'
 import 'core-js/es6/array'
 
-window.$ = window.jQuery = require('jquery');
-require('bootstrap');
-
 import { app } from './App'
 
-app.$mount('#app')
+window.$ = window.jQuery = require('jquery')
+require('bootstrap')
+
+document.addEventListener('DOMContentLoaded', function () {
+  app.$mount('#app')
+})
