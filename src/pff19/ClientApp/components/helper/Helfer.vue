@@ -10,7 +10,7 @@
                 Beachte bitte, dass dies keine definitive Anmeldung als Helfer ist. Bei allgemeinen Fragen wende dich
                 bitte an <a href="mailto:info@pff19.ch">info@pff19.ch</a>.
                 </p>
-
+            </div>
         </div>
     </div>
 </template>
