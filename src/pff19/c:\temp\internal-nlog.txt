@@ -1,0 +1,22 @@
+2018-10-22 20:34:02.1978 Info Logger closing down...
+2018-10-22 20:34:02.2013 Info Closing old configuration.
+2018-10-22 20:34:02.2133 Info Logger has been closed down.
+2018-10-22 20:34:02.2133 Info Shutting down logging...
+2018-10-22 20:34:02.2166 Info Logger has been shut down.
+2018-10-22 20:34:06.0978 Info Message Template Auto Format enabled
+2018-10-22 20:34:06.1102 Info Loading assembly: NLog.Web.AspNetCore
+2018-10-22 20:34:06.1856 Info Adding target File Target[allfile]
+2018-10-22 20:34:06.1888 Info Adding target File Target[ownFile-web]
+2018-10-22 20:34:06.1992 Info Configured from an XML element in /home/themaimu/scout/pff19/PFF19.ch/src/pff19/bin/Debug/netcoreapp2.1/nlog.config...
+2018-10-22 20:34:06.2238 Info Found 45 configuration items
+2018-10-22 20:34:14.0785 Info Logger closing down...
+2018-10-22 20:34:14.0807 Info Closing old configuration.
+2018-10-22 20:34:14.0913 Info Logger has been closed down.
+2018-10-22 20:34:14.0913 Info Shutting down logging...
+2018-10-22 20:34:14.0947 Info Logger has been shut down.
+2018-10-22 20:34:20.1949 Info Message Template Auto Format enabled
+2018-10-22 20:34:20.2040 Info Loading assembly: NLog.Web.AspNetCore
+2018-10-22 20:34:20.2655 Info Adding target File Target[allfile]
+2018-10-22 20:34:20.2696 Info Adding target File Target[ownFile-web]
+2018-10-22 20:34:20.2787 Info Configured from an XML element in /home/themaimu/scout/pff19/PFF19.ch/src/pff19/bin/Debug/netcoreapp2.1/nlog.config...
+2018-10-22 20:34:20.2984 Info Found 45 configuration items
