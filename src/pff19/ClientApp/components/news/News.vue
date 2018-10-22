@@ -42,7 +42,6 @@ export default {
     computed: {
         imagePath () {
             return "background-image: url(/assets/news/images/" + this.news.image + ")";
-
         },
         newsTitle () {
             return this.$store.getters.language === 'de' ? this.news.titleDe : this.news.titleFr;

@@ -95,7 +95,7 @@
 
                     <div class="form-group" :class="{'invalid-form': $v.ContentDe.$error}">
                         <label for="content_de">Inhalt Deutsch</label>
-                        <vue-editor class="html-editor" @blur="$v.ContentDe.$touch()" id="contentd_de"  v-model="ContentDe"></vue-editor>
+                        <vue-editor class="html-editor" @blur="$v.ContentDe.$touch()" id="contentd_de" :editorToolbar="customToolbar" v-model="ContentDe"></vue-editor>
 
                         <div class="error-messages"> 
                             <p v-if="!$v.ContentDe.required && $v.ContentDe.$dirty">Es brauch einen Inhalt für deine News</p>
@@ -104,7 +104,7 @@
 
                     <div class="form-group" :class="{'invalid-form': $v.ContentFr.$error}">
                         <label for="content_fr">Inhalt Französisch</label>
-                        <vue-editor class="html-editor" @blur="$v.ContentFr.$touch()" id="contentd_fr"  v-model="ContentFr"></vue-editor>
+                        <vue-editor class="html-editor" @blur="$v.ContentFr.$touch()" id="contentd_fr" :editorToolbar="customToolbar" v-model="ContentFr"></vue-editor>
 
                         <div class="error-messages"> 
                             <p v-if="!$v.ContentFr.required && $v.ContentFr.$dirty">Es brauch einen Inhalt für deine News</p>
@@ -140,10 +140,17 @@ export default {
             Image: {},
             date: new Date(),
 
+            customToolbar: [
+                ['bold', 'italic', 'underline'],
+                [{ 'list': 'ordered'}, { 'list': 'bullet' }],
+                [, 'code-block']
+            ],
+
             dropzoneOptions: {
                 url: '/api',
                 thumbnailWidth: 150,
                 maxFilesize: 0.5,
+                maxFiles: 1,
                 destroyDropzone: true,
                 addRemoveLinks: true,
             }
@@ -213,7 +220,6 @@ export default {
 
                 auth.post('News', form_data)
                 .then(response => {
-                    console.log(response.data)
                     this.isSubmitted = true;
                 }).catch(e => {
                     this.errors.push(e)
@@ -224,7 +230,6 @@ export default {
 
       sendingEvent (file, xhr) {
           this.Image = file
-          console.log(this.Image)
       },
 
       updateDate (date) {

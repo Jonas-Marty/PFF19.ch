@@ -1,18 +1,17 @@
-import axios from 'axios'
 import auth from '../auth'
 
-export const news = {
+export const helfer = {
   namespaced: true,
   state: {
-    news: []
+    helfer: []
   },
 
   getters: {
     all: state => {
-      return state.news
+      return state.helfer
     },
     get: state => {
-      return id => state.news.find(elem => {
+      return id => state.helfer.find(elem => {
         return elem.id === id
       })
     }
@@ -20,29 +19,27 @@ export const news = {
 
   mutations: {
     load: (state, payload) => {
-      state.news = payload
+      state.helfer = payload
     },
 
     remove: (state, id) => {
-      state.news = state.news.filter(el => el.id !== id)
+      state.helfer = state.helfer.filter(el => el.id !== id)
     }
   },
 
   actions: {
     load: ({commit}) => {
-      axios.get('/api/news')
+      auth.get('Assistants')
         .then(response => {
           commit('load', response.data)
-        }).catch(e => {
-        })
+        }).catch(e => console.log(e))
     },
 
     remove: ({commit}, payload) => {
-      auth.delete(`/news/${payload}`)
+      auth.delete(`/Assistants/${payload}`)
         .then(response => {
           commit('remove', payload)
-        }).catch(e => {
-        })
+        }).catch(e => console.log(e))
     }
   }
 }

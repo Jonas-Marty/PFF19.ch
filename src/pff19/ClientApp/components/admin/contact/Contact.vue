@@ -1,6 +1,6 @@
 <template>
     <div>
-        <h1>Alle News</h1>
+        <h1>Alle Kontakte</h1>
         <router-link
             to="news/add"
             >
