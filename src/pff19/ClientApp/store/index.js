@@ -5,6 +5,7 @@ import { news } from './news'
 import { api } from './api'
 import { sponsors } from './sponsors'
 import { helfer } from './helfer'
+import { contact } from './contact'
 
 Vue.use(Vuex)
 
@@ -55,6 +56,7 @@ export const store = new Vuex.Store({
     news,
     api,
     sponsors,
-    helfer
+    helfer,
+    contact
   }
 })

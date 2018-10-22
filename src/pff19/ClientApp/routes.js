@@ -20,6 +20,7 @@ import AdminNews from 'components/admin/news/News.vue'
 import AdminNewsAdd from 'components/admin/news/Add.vue'
 import AdminNewsEdit from 'components/admin/news/Edit.vue'
 import AdminHelfer from 'components/admin/helper/Helfer.vue'
+import AdminContact from 'components/admin/contact/Contact.vue'
 import { store } from './store/index'
 
 export const routes = [
@@ -52,6 +53,7 @@ export const routes = [
       {name: 'adminNewsAdd', path: 'news/add', component: AdminNewsAdd, display: 'ADD'},
       {name: 'adminNewsEdit', path: 'news/:id/edit', component: AdminNewsEdit, display: 'EDIT'},
       {name: 'adminHelperList', path: 'helper', component: AdminHelfer, display: 'Helfer', important: true},
+      {name: 'adminContact', path: 'contact/', component: AdminContact, display: 'Contact', important: true},
       {name: 'adminDashboard', path: '', component: Dashboard, display: 'Dashboard', important: true}
     ]
   },
