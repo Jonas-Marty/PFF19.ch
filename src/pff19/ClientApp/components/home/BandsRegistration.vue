@@ -1,7 +1,6 @@
 <template>
     <div class="sponsors container">
         <h2>{{ $t('lang.components.home.bands.registration') }}</h2>
-        
     </div>
 </template>
 
