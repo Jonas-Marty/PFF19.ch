@@ -2,6 +2,7 @@
     <div>
         <app-slideshow> </app-slideshow>
         <app-news-list></app-news-list>
+        <app-description></app-description>
         <app-social-media></app-social-media>
 
     </div>
@@ -15,6 +16,7 @@ import NewsList from './news/NewsList.vue';
 import SocialMedia from './SocialMedia.vue';
 import Sponsor from './Sponsor';
 import Bands from './BandsRegistration'
+import Description from './Description.vue'
 
 import { mapActions } from 'vuex';
 
@@ -44,7 +46,8 @@ export default {
         'app-news-list': NewsList,
         'app-social-media': SocialMedia,
         'app-sponsors': Sponsor,
-        'app-bands': Bands
+        'app-bands': Bands,
+        'app-description': Description
     }
 }
 </script>
