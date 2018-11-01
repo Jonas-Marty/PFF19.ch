@@ -135,8 +135,6 @@ export default {
                     UploadImage: this.Image,
                 }
 
-                console.log(formData)
-
                 let form_data = new FormData()
 
                 for ( var key in formData ) {

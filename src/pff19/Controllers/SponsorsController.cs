@@ -81,7 +81,7 @@ namespace pff19.Controllers
             return NoContent();
         }
 
-        [HttpDelete, Authorize]
+        [HttpDelete("{id}"), Authorize]
         public IActionResult Delete(int id)
         {
             var existingSponsor = _sponsorRepository.Get(id);
