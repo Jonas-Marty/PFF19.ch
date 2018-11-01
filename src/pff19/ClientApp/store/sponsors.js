@@ -12,7 +12,16 @@ export const sponsors = {
       return state.sponsors
     },
     mainSponsors: state => {
+      return state.sponsors.filter(el => el.status === 0)
+    },
+    coSponsors: state => {
       return state.sponsors.filter(el => el.status === 1)
+    },
+    partner: state => {
+      return state.sponsors.filter(el => el.status === 2)
+    },
+    patron: state => {
+      return state.sponsors.filter(el => el.status === 3)
     },
     get: state => {
       return id => state.sponsors.find(elem => {
