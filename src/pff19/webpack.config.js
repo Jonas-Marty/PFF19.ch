@@ -16,14 +16,8 @@ module.exports = () => {
     entry: { 'main': './ClientApp/boot-app.js' },
     resolve: {
       extensions: ['.js', '.vue'],
-      alias: isDevBuild ? {
+      alias: {
         'vue$': 'vue/dist/vue',
-        'components': path.resolve(__dirname, './ClientApp/components'),
-        'views': path.resolve(__dirname, './ClientApp/views'),
-        'utils': path.resolve(__dirname, './ClientApp/utils'),
-        'api': path.resolve(__dirname, './ClientApp/store/api'),
-        'assets': path.resolve(__dirname, './ClientApp/assets')
-      } : {
         'components': path.resolve(__dirname, './ClientApp/components'),
         'views': path.resolve(__dirname, './ClientApp/views'),
         'utils': path.resolve(__dirname, './ClientApp/utils'),
