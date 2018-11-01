@@ -33,7 +33,6 @@ export default {
 
     created() {
         this.load();
-        console.log(this.mainSponsors())
     },
 
     components: {
