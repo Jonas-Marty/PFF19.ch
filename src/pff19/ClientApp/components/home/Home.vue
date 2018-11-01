@@ -4,6 +4,7 @@
         <app-news-list></app-news-list>
         <app-description></app-description>
         <app-social-media></app-social-media>
+        <app-sponsors></app-sponsors>
 
     </div>
 </template>
@@ -14,7 +15,7 @@ import Vue from 'vue';
 import Slideshow from './slideshow/Slideshow';
 import NewsList from './news/NewsList.vue';
 import SocialMedia from './SocialMedia.vue';
-import Sponsor from './Sponsor';
+import Sponsor from './sponsors/SponsorList.vue';
 import Bands from './BandsRegistration'
 import Description from './Description.vue'
 
