@@ -44,11 +44,10 @@ export default {
 <style lang="scss" scoped>
     .day, .hour {
         background: #F4D82B;
-        padding: 3px;
+        padding: 3px 15px 3px 15px;
         font-size: 2.5rem;
         font-weight: bold;
         margin-right: 5px;
-        width: 50px;
         text-align: center;
     }
 
