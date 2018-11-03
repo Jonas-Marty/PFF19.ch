@@ -10,7 +10,10 @@ import Vuelidate from 'vuelidate'
 import VueAnalytics from 'vue-analytics'
 
 Vue.use(VueAnalytics, {
-  id: 'UA-123742823-1'
+  id: 'UA-123742823-1',
+  autoTracking: {
+    screenview: true
+  }
 })
 
 Vue.use(Vuelidate)
