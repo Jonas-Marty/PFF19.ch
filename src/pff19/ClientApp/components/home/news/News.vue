@@ -26,7 +26,6 @@ export default {
     computed: {
         imagePath () {
             return "background-image: url(/assets/news/thumbnail/" + this.news.image + ")";
-
         },
 
         newsPreview () {

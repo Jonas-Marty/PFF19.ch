@@ -59,10 +59,10 @@
                         class="form-control"
                         v-model="typ"
                         >
-                            <option  value="4">Gönner</option>
-                            <option value="3">Partner</option>
-                            <option value="2">Co-Sponsor</option>
-                            <option value="1">Hauptsponsor</option>
+                            <option  value="3">Gönner</option>
+                            <option value="2">Partner</option>
+                            <option value="1">Co-Sponsor</option>
+                            <option value="0">Hauptsponsor</option>
                         </select>
                     </div>
 
@@ -87,7 +87,7 @@ export default {
             isSubmitted: false,
             name: '',
             link: '',
-            typ: '4',
+            typ: '3',
             Image: {},
 
             dropzoneOptions: {
@@ -134,8 +134,6 @@ export default {
                     Status : this.typ,
                     UploadImage: this.Image,
                 }
-
-                console.log(formData)
 
                 let form_data = new FormData()
 

@@ -57,7 +57,7 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-6">
-                            info@pff19.ch
+                            <a href="mailto:info@pff19.ch">info@pff19.ch</a>
                         </div>
                         <div class="col-6">
                             <router-link

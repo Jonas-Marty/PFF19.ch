@@ -12,6 +12,10 @@ export default {
         }
     },
 
+    methods: {
+        
+    }
+
 }
 </script>
 

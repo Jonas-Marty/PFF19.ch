@@ -12,7 +12,16 @@ export const sponsors = {
       return state.sponsors
     },
     mainSponsors: state => {
+      return state.sponsors.filter(el => el.status === 0)
+    },
+    coSponsors: state => {
       return state.sponsors.filter(el => el.status === 1)
+    },
+    partner: state => {
+      return state.sponsors.filter(el => el.status === 2)
+    },
+    patron: state => {
+      return state.sponsors.filter(el => el.status === 3)
     },
     get: state => {
       return id => state.sponsors.find(elem => {
@@ -40,8 +49,11 @@ export const sponsors = {
     },
 
     remove: ({commit}, payload) => {
-      auth.delete(`/sponsors/${payload}`)
-        .then(r => commit('remove', payload)).catch(e => console.log(e))
+      auth.delete(`sponsors/${payload}`)
+        .then(r => {
+          console.log(r)
+          commit('remove', payload)
+        }).catch(e => console.log(e))
     }
   }
 }

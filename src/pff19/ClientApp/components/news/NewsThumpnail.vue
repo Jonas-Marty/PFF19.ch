@@ -23,7 +23,6 @@ export default {
     props: ['news'],
 
     computed: {
-
         imagePath () {
             return "background-image: url(/assets/news/thumbnail/" + this.news.image + ")";
 

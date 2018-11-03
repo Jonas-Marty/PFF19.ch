@@ -27,7 +27,11 @@
 				"further_news" : "plus news"
 			},
 			"sponsors": {
-				"sponsors": "Sponsors"
+				"sponsors": "Sponsoren",
+				"main_sponsors": "Sponsors principaux",
+				"co_sponsors": "Co-Sponsors",
+				"partner": "Partenaire",
+				"patron": "Patron" 
 			},
 
 			"bands": {

@@ -33,10 +33,10 @@ export default {
     data (){
         return {
             status: {
-                1: 'Hauptsponsor',
-                2: 'Co-Sponsor',
-                3: 'Partner',
-                4: 'Gönner',
+                0: 'Hauptsponsor',
+                1: 'Co-Sponsor',
+                2: 'Partner',
+                3: 'Gönner',
             }
         }
     },

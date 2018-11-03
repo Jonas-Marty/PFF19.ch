@@ -59,10 +59,10 @@
                         class="form-control"
                         v-model="typ"
                         >
-                            <option  value="4">Gönner</option>
-                            <option value="3">Partner</option>
-                            <option value="2">Co-Sponsor</option>
-                            <option value="1">Hauptsponsor</option>
+                            <option  value="3">Gönner</option>
+                            <option value="2">Partner</option>
+                            <option value="1">Co-Sponsor</option>
+                            <option value="0">Hauptsponsor</option>
                         </select>
                     </div>
 
@@ -146,7 +146,7 @@ export default {
         }
 
         auth
-          .post("Sponsors", form_data)
+          .put(`Sponsors/${this.$route.params.id}`, form_data)
           .then(response => {
             this.isSubmitted = true;
           })

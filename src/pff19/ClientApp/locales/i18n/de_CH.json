@@ -27,7 +27,11 @@
 				"further_news" : "weitere News"
 			},
 			"sponsors": {
-				"sponsors": "Sponsoren"
+				"sponsors": "Sponsoren",
+				"main_sponsors": "Hauptsponsoren",
+				"co_sponsors": "Co-Sponsoren",
+				"partner": "Partner",
+				"patron": "Gönner" 
 			},
 			"bands": {
 				"registration": "Bands Anmeldung"
