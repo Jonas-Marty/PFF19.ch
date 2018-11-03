@@ -2,50 +2,48 @@
     <div class="container">
         <h1>FAQ's</h1>
         
-        Im Anschluss findest du Antworten auf deine wichtigsten Fragen. Die FAQs werden laufend aktualisiert.
-
-        <h3>Alle</h3>
-        Das PFF ist für alle – ob Alt oder Jung, ob Pfadfinder oder nicht, ob von Nah oder von Fern. Du bist herzlich willkommen!
+        <h3>Was ist ein PFF?</h3>
+        <p>Das PFF FFS 19 MOSAIK ist die Fortführung einer langjährigen, schweizweiten Tradition – dem Pfadi
+        Folk Fest. Nach der <a href="https://www.pff18.ch/">Ausgabe im Sommer 2018 in Liestal</a> findet das
+        PFF im Sommer 2019 im Kanton Zürich statt.
+        Vom 30. August – 01. September 2019 versammeln sich in Stäfa zahlreiche Pfadis und ihre Freunde
+        unter dem Motto «MOSAIK», um ein unvergessliches Festival der etwas anderen Art zu geniessen.</p>
     
-        <h3>Alter</h3>
-        Das PFF FFS 19 MOSAIK richtet sich primär an Rover und ihre Freunde aus der ganzen Schweiz, Deutschland und Frankreich. Aus rechtlichen und sicherheitstechnischen Gründen liegt die Alterslimite am Freitag- und Samstagabend bei 16 Jahren.
-        Am Familientag am Sonntag sind auch alle Jüngeren und Kinder herzlich willkommen.
-    
-        <h3>Anreise</h3>
-        Mit dem ÖV Die Anreise mit dem Zug ist empfehlenswert. Vom Bahnhof Stäfa aus verkehren regelmässige Shuttlebusse zum Festgelände. 
-        Mit dem Auto Wenn du dich trotz allem nicht davon abbringen lässt, mit dem Auto anzureisen, findest du das Festgelände problemlos mit jeglichen Navis. Das Angebot an Parkplätzen ist sehr stark begrenzt.  Ein Parkticket für 50 Franken kannst du nur im Voraus erwerben und die Zufahrt zum Festivalgelände ist nur mit einem Parkticket möglich. Es enthält die Zufahrt zum Parkplatz sowie die Parkgebühr bis am Sonntag.
-        Eine Ausschilderung im Dorf wird dich zu den Parkplätzen führen.
-    
-        <h3>Essenspauschale</h3>
-        Wir bieten unsere Tickets MIT oder OHNE Essenspauschale an. Damit du auch ohne Pauschale kulinarisch auf deine Kosten kommst, bieten wir dir diverse Foodstände auf dem Gelände. 
-        Die Essenspauschale enthält vier Mahlzeiten: Abendessen am Freitag und Samstag, Frühstück am Samstag und Sonntag.
-        Bitte bring dein eigenes Essgeschirr mit!
-
-        <h3>Helfereinsatz</h3>
-        Helfer bekommen für ihren Einsatz ein vergünstigtes Ticket. Je nach Einsatzbereitschaft ist das Ticket sogar gratis. Falls du Interesse hast, melde dich als Helfer. Damit gehörst du zu den Ersten, welche über die Aufschaltung des Helfertools informiert werden und kannst danach direkt deine Schichten auswählen.
-        Falls du weitere Fragen hast, melde dich direkt unter info@pff19.ch
-        <ul>
-            <li>Melde dich als Helfer: <router-link :to="{name: 'helper'}">Helfer Anmeldung</router-link> </li>
-        </ul>
-
-        <h3>Lageplan</h3>
-        Das PFF FFS 19 MOSAIK findet auf der Torlenebene in Stäfa im Kanton Zürich statt. 
-        Eine Übersicht über das Gelände findest du in Kürze hier. 
-
+       
+        <h3>Moment… «MOSAIK»?</h3>
+        <p>Jeder Teilnehmende bringt als Mosaikstein seine Ecken und Kanten ans PFF FFS 19 MOSAIK mit. 
+            Während dem ganzen Festival und den Konzerten bilden sich durch diese vielen verschiedenen 
+            anwesenden Mosaiksteinchen immer wieder neue Muster, Formen und Figuren. So erwarten wir im 
+            Sommer 2019 unzählig viele verschiedene Mosaikteilchen auf dem Festgelände, alle unterschiedlich 
+            und einzigartig. Sie vermischen sich, verändern sich gegenseitig und gehen mit neuen 
+            Erfahrungen und Eindrücken wieder auseinander. Ganz so, wie es in der Pfadi üblich ist. </p>
+        
         <h3>Tickets</h3>
-        Der Ticketvorverkauf startet im Januar 2019. Trage dich bereits jetzt in den Newsletter ein, und gehöre zu den ersten welche über den Verkaufsstart der heissbegehrten Early-Bird-Tickets informiert wird.
-        Trage dich bereits jetzt in den Newsletter ein: Verlinkung zu Newsletter-Formular
-    
-        <h3>Ticket günstiger?</h3>
-        Helfer können für ihren Einsatz ein vergünstigtes Ticket beziehen. Je nach Einsatzbereitschaft wird das Ticket günstiger oder sogar gratis. 
-        Falls du Interesse hast, melde dich als Helfer. Damit gehörst du zu den Ersten, welche über die Aufschaltung des Helfertools informiert werden und kannst danach direkt deine Schichten auswählen.
-        Falls du weitere Fragen hast, melde dich direkt unter info@pff19.ch
-        <ul>
-            <li>Melde dich als Helfer: <router-link :to="{name: 'helper'}">Helfer Anmeldung</router-link></li>
-        </ul>
+        <p>Der Ticketvorverkauf startet im Januar 2019. Erfahre als Erster vom Vorverkaufsstart 
+            und erhöhe deine Chance auf ein heissbegehrtes und limitiertes Early-Bird-Ticket: 
+            Jetzt in <a href="https://pff2019.us12.list-manage.com/subscribe/post?u=49efe2269ccc4a7227ef08f59&id=067179a941">Newsletter</a> eintragen </p>
 
-        <h3>Zeltplatz</h3>
-        Übernachten kannst du auf dem Zeltplatz direkt neben dem Festivalgelände. Der Zeltplatz ist im 3-Tagespass inbegriffen.
+        <h3>Helfer</h3>
+        <p>Nicht genügend Geld für´s Ticket? Komm doch als Helfer ans PFF! Schreibe dich jetzt 
+            <router-link :to="{name: 'helper'}">hier</router-link>  als Helfer ein, 
+            um als Erste/r aus den Schichten auswählen zu können, sobald diese aufgeschaltet werden. </p>
+
+        <h3>Sponsoren</h3>
+        <p>Ein Grossanlass wie das PFF kommt trotz unzähligen Freiwilligenstunden nicht ohne 
+            finanzielle Unterstützung aus. Falls Du uns unterstützen, eine Partnerschaft mit 
+            uns eingehen möchtest oder ein Angebot für ein «Sachsponsoring» hast, melde Dich mit 
+            Deiner Anfrage direkt bei <a href="mailto:sponsoring@pff19.ch">sponsoring@pff19.ch</a></p>
+
+        <p>Das OK und 47´000 Pfadis aus der ganzen Schweiz danken Dir bereits jetzt für Deine Unterstützung!</p>
+
+        <h3>Bands</h3>
+        <p>Auch wenn bereits Gerüchte kursieren, ist das Line-Up noch nicht bekannt. Sobald wir Neuigkeiten 
+            haben, werden wir sie via Newsletter (Verlinkung auf Newsletterformular), auf <a href="https://www.facebook.com/pff19mosaik/">Facebook</a>
+             und <a href="https://www.instagram.com/pff_19_mosaik/">Instagram</a> bekanntgeben.</p>
+        
+        <p>Das PFF bietet die optimale Bühne für kleine, aber feine Bands. Falls du dich mit deiner Band als 
+            «Pfadiband» bewerben möchtest, melde dich direkt bei <a href="mailto:bands@pff19.ch">bands@pff19.ch</a></p>
+
         
         <div class="col">
             <div class="row">
