@@ -1,16 +1,24 @@
 <template>
     <div class="container description">
-        <h2>Bacon ipsum dolor amet</h2>
+        <h2>PFF FFS 19 Mosaik</h2>
         <p>
-            Bacon ipsum dolor amet sausage shank frankfurter short ribs flank pastrami. Bacon t-bone picanha short ribs
-             fatback. Sirloin rump meatball, boudin bacon shank cow prosciutto landjaeger ground round pancetta. Ham beef 
-             ribs sausage leberkas.
+            Das PFF FFS 19 MOSAIK ist die Fortführung einer langjährigen, schweizweiten
+            Tradition – dem Pfadi Folk Fest. Nach 26 Jahren findet das «PFF» erstmals wieder
+            im Kanton Zürich statt. Vom <b>30. August – 01. September 2019</b> versammeln sich in
+            Stäfa zahlreiche Pfadis und ihre Freunde unter dem Motto <b>«MOSAIK»</b>, um ein
+            unvergessliches Festival der etwas anderen Art zu geniessen.
+            Jeder Teilnehmende bringt als Mosaikstein seine Ecken und Kanten ans PFF FFS 19
+            MOSAIK mit. Während dem ganzen Festival und den Konzerten bilden sich durch
+            diese vielen verschiedenen anwesenden Mosaiksteinchen immer wieder neue
+            Muster, Formen und Figuren. So erwarten wir im Sommer 2019 unzählig viele
+            verschiedene Mosaikteilchen auf dem Festivalgelände - alle unterschiedlich und
+            einzigartig. Sie vermischen sich, verändern sich gegenseitig und gehen mit neuen
+            Erfahrungen und Eindrücken wieder auseinander.
         </p>
+
         <p>
-            Swine shank flank bresaola landjaeger jowl salami. Burgdoggen shankle pork belly beef ribs strip steak meatball 
-            t-bone fatback, turducken corned beef capicola jerky tenderloin tongue venison. Capicola tail bacon, brisket 
-            shankle spare ribs fatback picanha shoulder jowl short loin. T-bone frankfurter short loin turducken cow.
-            picanha shoulder jowl short loin. T-bone frankfurter short loin turducken cow.
+            Der Ticketvorverkauf startet voraussichtlich im Januar. Auf <a href="https://www.instagram.com/pff_19_mosaik/">«Instagram» </a>
+             und <a href="https://www.facebook.com/pff19mosaik/">«Facebook»</a> halten wir euch über den Planungsfortschritt auf dem Laufenden.
         </p>
 
     </div>

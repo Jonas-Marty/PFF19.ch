@@ -1,19 +1,14 @@
 <template>
     <div class="container">
         <h1>Organisation</h1>
-        
         <p>
-            Das PFF FFS 19 MOSAIK ist die Fortführung einer langjährigen, schweizweiten Tradition – dem Pfadi Folk Fest. 
-            Nach der Ausgabe im Sommer 2018 in Liestal findet das PFF im Sommer 2019 im Kanton Zürich statt. Vom 30. 
-            August – 01. September 2019  versammeln sich in Stäfa zahlreiche Pfadis und ihre Freunde unter dem Motto «MOSAIK», 
-            um ein unvergessliches Festival der etwas anderen Art zu geniessen. 
+            Unser Team setzt sich aus vielen, unterschiedlichen Mosaiksteinen zusammen.
+            Egal ob Zimmermann, Studentin, Informatiker oder Lehrerin – für die
+            Organisation des PFF 19 bringt jeder seine individuellen Stärken ins Team ein.
+            Gemeinsam gestalten wir ein unvergessliche Pfadi Folk Fest.
         </p>
         <p>
-            Jeder Teilnehmende bringt als Mosaikstein seine Ecken und Kanten ans PFF FFS 19 MOSAIK mit. Während dem ganzen 
-            Festival und den Konzerten bilden sich durch diese vielen verschiedenen anwesenden Mosaiksteinchen immer wieder 
-            neue Muster, Formen und Figuren. So erwarten wir im Sommer 2019 unzählig viele verschiedene Mosaikteilchen auf 
-            dem Festivalgelände, alle unterschiedlich und einzigartig. Sie vermischen sich, verändern sich gegenseitig und 
-            gehen mit neuen Erfahrungen und Eindrücken wieder auseinander.
+            Möchtest du etwas loswerden? Kontaktiere uns <a href="mailto:info@pff19.ch">hier</a>
         </p>
         <div class="team">
             <h2>Das Team</h2>
@@ -22,8 +17,10 @@
                     <div class="card">
                         <img class="card-img-top" :src="require(`../assets/images/portraits/${image.scoutName}-min.jpg`)" :alt="image.scoutName">
                         <div class="card-body">
-                            <p class="card-text"><b>{{image.scoutName}}</b>, {{image.name}}</p>
-                            <p class="card-text">{{image.email}}</p>
+                            <p class="card-text"><b>{{image.scoutName}}</b>, {{image.name}}<br>{{image.ressort}}<br></p>
+                            <blockquote class="blockquote mb-0">
+                                <footer class="blockquote-footer">{{image.email}}</footer>
+                            </blockquote>
                         </div>
                     </div>
                 </div>
@@ -38,174 +35,115 @@ export default {
     data () {
         return {
             images: [
-                {   
-                    name: "Max Muster",
-                    scoutName: 'Aponi',
-                    ressort: 'Kommunikation',
-                    email: 'info@pff19.ch'
+                {
+                    name: "David Bernet",
+                    scoutName: 'Echo',
+                    ressort: 'Co-Präsident',
+                    email: 'echo@pff19.ch'
                 },
                 {
-                    name: "Max Muster",
-                    scoutName: 'Auriga',
-                    ressort: 'Kommunikation',
-                    email: 'info@pff19.ch'
+                    name: "Fabio Di Rocco",
+                    scoutName: 'Wum',
+                    ressort: 'Co-Präsident',
+                    email: 'wum@pff19.ch'
+                },
+                {   
+                    name: "Viviane Lott",
+                    scoutName: 'Aviera',
+                    ressort: 'Sekretariat',
+                    email: 'aviera@pff19.ch'
+                },
+                {
+                    name: "Josias Zeller",
+                    scoutName: 'Fuego',
+                    ressort: 'Sekretariat',
+                    email: 'fuego@pff19.ch'
+                },
+                {
+                    name: "Thomas Bauknecht",
+                    scoutName: 'Snoopy',
+                    ressort: 'Finanzen',
+                    email: 'snoopy@pff19.ch'
                     
                 },
                 {
-                    name: "Max Muster",
-                    scoutName: 'Baghira',
-                    ressort: 'Kommunikation',
+                    name: "Desirée Blass",
+                    scoutName: 'Soraya',
+                    ressort: 'Finanzen',
                     email: 'info@pff19.ch'
                 },
                 {
-                    name: "Max Muster",
-                    scoutName: 'Bifidus',
-                    ressort: 'Kommunikation',
-                    email: 'info@pff19.ch'
-                },
-                {
-                    name: "Max Muster",
-                    scoutName: 'Dwalin',
-                    ressort: 'Kommunikation',
-                    email: 'info@pff19.ch'
-                },
-                {
-                    name: "Max Muster",
-                    scoutName: 'Fuego',
-                    ressort: 'Kommunikation',
-                    email: 'info@pff19.ch'
-                },
-                {
-                    name: "Max Muster",
-                    scoutName: 'Goofy',
-                    ressort: 'Kommunikation',
-                    email: 'info@pff19.ch'
-                },
-                {
-                    name: "Max Muster",
-                    scoutName: 'Hew',
-                    ressort: 'Kommunikation',
-                    email: 'info@pff19.ch'
-                },
-                {
-                    name: "Max Muster",
-                    scoutName: 'Joya',
-                    ressort: 'Kommunikation',
-                    email: 'info@pff19.ch'
-                },
-                {
-                    name: "Max Muster",
-                    scoutName: 'Karibu',
-                    ressort: 'Kommunikation',
-                    email: 'info@pff19.ch'
-                },
-                {
-                    name: "Lars Barmettler",
-                    scoutName: 'Maimu',
-                    ressort: 'Kommunikation',
-                    email: 'maimu@pff19.ch'
-                },
-                {
-                    name: "Max Muster",
-                    scoutName: 'Martin',
-                    ressort: 'Kommunikation',
-                    email: 'info@pff19.ch'
-                },
-                {
-                    name: "Max Muster",
-                    scoutName: 'Momo',
-                    ressort: 'Kommunikation',
-                    email: 'info@pff19.ch'
-                },
-                {
-                    name: "Max Muster",
-                    scoutName: 'Moneypenny',
-                    ressort: 'Kommunikation',
-                    email: 'info@pff19.ch'
-                },
-                {
-                    name: "Max Muster",
-                    scoutName: 'Orisha',
-                    ressort: 'Kommunikation',
-                    email: 'info@pff19.ch'
-                },
-                {
-                    name: "Max Muster",
-                    scoutName: 'Piccolo',
-                    ressort: 'Kommunikation',
-                    email: 'info@pff19.ch'
-                },
-                {
-                    name: "Max Muster",
-                    scoutName: 'Pipistrella',
-                    ressort: 'Kommunikation',
-                    email: 'info@pff19.ch'
-                },
-                {
-                    name: "Max Muster",
-                    scoutName: 'Pixel',
-                    ressort: 'Kommunikation',
-                    email: 'info@pff19.ch'
-                },
-                {
-                    name: "Max Muster",
+                    name: "Oliver Bernet",
                     scoutName: 'Pluto',
                     ressort: 'Kommunikation',
-                    email: 'info@pff19.ch'
-                },{
-                    name: "Max Muster",
-                    scoutName: 'Rajko',
-                    ressort: 'Kommunikation',
-                    email: 'info@pff19.ch'
+                    email: 'pluto@pff19.ch'
                 },
                 {
-                    name: "Max Muster",
-                    scoutName: 'Ramon',
-                    ressort: 'Kommunikation',
-                    email: 'info@pff19.ch'
-                },
-                {
-                    name: "Max Muster",
-                    scoutName: 'Snoopy',
-                    ressort: 'Kommunikation',
-                    email: 'info@pff19.ch'
-                },
-                {
-                    name: "Max Muster",
-                    scoutName: 'Soraya',
-                    ressort: 'Kommunikation',
-                    email: 'info@pff19.ch'
-                },
-                {
-                    name: "Max Muster",
+                    name: "Tobias Oechslin",
                     scoutName: 'Splash',
-                    ressort: 'Kommunikation',
-                    email: 'info@pff19.ch'
+                    ressort: 'Sponsoring',
+                    email: 'splash@pff19.ch'
                 },
                 {
-                    name: "Max Muster",
-                    scoutName: 'Strupf',
-                    ressort: 'Kommunikation',
-                    email: 'info@pff19.ch'
+                    name: "Larissa Meister",
+                    scoutName: 'Rajko',
+                    ressort: 'Programm',
+                    email: 'rajko@pff19.ch'
                 },
                 {
-                    name: "Max Muster",
+                    name: "Stefan Messmer",
+                    scoutName: 'Pixel',
+                    ressort: 'Programm',
+                    email: 'pixel@pff19.ch'
+                },
+                {
+                    name: "Jelena Hess",
                     scoutName: 'Varuna',
-                    ressort: 'Kommunikation',
-                    email: 'info@pff19.ch'
+                    ressort: 'Bands',
+                    email: 'varuna@pff19.ch'
                 },
                 {
-                    name: "Max Muster",
-                    scoutName: 'Wum',
+                    name: "Matthias Rothmayr",
+                    scoutName: 'Piccolo',
                     ressort: 'Kommunikation',
-                    email: 'info@pff19.ch'
+                    email: 'piccolo@pff19.ch'
                 },
                 {
-                    name: "Max Muster",
-                    scoutName: 'Zirkel',
-                    ressort: 'Kommunikation',
-                    email: 'info@pff19.ch'
-                }
+                    name: "Meret Tuor",
+                    scoutName: 'Baghira',
+                    ressort: 'Food & Beverage',
+                    email: 'baghira@pff19.ch'
+                },
+                {
+                    name: "Simon Flückiger",
+                    scoutName: 'Dwalin',
+                    ressort: 'Food & Beverage',
+                    email: 'dwalin@pff19.ch'
+                },
+                {
+                    name: "Flurina Mäder",
+                    scoutName: 'Karibu',
+                    ressort: 'Staff',
+                    email: 'karibu@pff19.ch'
+                },
+                {
+                    name: "Simone Scherberger",
+                    scoutName: 'Momo',
+                    ressort: 'Staff',
+                    email: 'momo@pff19.ch'
+                },
+                {
+                    name: "Davina Biella",
+                    scoutName: 'Joya',
+                    ressort: 'Staff',
+                    email: 'joya@pff19.ch'
+                },
+                {
+                    name: "Anna Rusch",
+                    scoutName: 'Moneypenny',
+                    ressort: 'Sicherheit',
+                    email: 'moneypenny@pff19.ch'
+                },
             ]
         }
     }
