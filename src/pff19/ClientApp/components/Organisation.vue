@@ -30,7 +30,6 @@
 </template>
 
 <script>
-
 export default {
     data () {
         return {
@@ -105,7 +104,7 @@ export default {
                 {
                     name: "Matthias Rothmayr",
                     scoutName: 'Piccolo',
-                    ressort: 'Kommunikation',
+                    ressort: 'Infrastruktur',
                     email: 'piccolo@pff19.ch'
                 },
                 {
