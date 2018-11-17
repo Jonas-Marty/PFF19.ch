@@ -53,6 +53,9 @@ namespace pff19
             // Add framework services.
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Latest);
 
+            // In production, the Angular files will be served from this directory
+            services.AddSpaStaticFiles(configuration => configuration.RootPath = "ClientApp/dist");
+
             if (Configuration.GetValue<bool>("UseMySql"))
             {
                 services.AddDbContextPool<PffContext>( // replace "YourDbContext" with the class name of your DbContext
@@ -107,17 +110,15 @@ namespace pff19
             }
 
             app.UseStaticFiles();
+            app.UseSpaStaticFiles();
             app.UseAuthentication();
 
-            app.UseMvc(routes =>
+            app.UseSpa(spa =>
             {
-                routes.MapRoute(
-                    name: "default",
-                    template: "{controller=Home}/{action=Index}/{id?}");
+                // To learn more about options for serving an Angular SPA from ASP.NET Core,
+                // see https://go.microsoft.com/fwlink/?linkid=864501
 
-                routes.MapSpaFallbackRoute(
-                    name: "spa-fallback",
-                    defaults: new { controller = "Home", action = "Index" });
+                spa.Options.SourcePath = "ClientApp";
             });
         }
     }
