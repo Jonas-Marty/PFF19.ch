@@ -127,10 +127,6 @@ namespace pff19.Controllers
                 _fileUtility.SaveImage(model.UploadImage, "news", filename, thumbnailSize);
                 existingNews.Image = filename;
             }
-            else
-            {
-                existingNews.Image = null;
-            }
         }
     }
 }
