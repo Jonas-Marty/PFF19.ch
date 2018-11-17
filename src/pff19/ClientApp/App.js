@@ -8,6 +8,7 @@ import i18n from './locales'
 import './filters'
 import Vuelidate from 'vuelidate'
 import VueAnalytics from 'vue-analytics'
+import Polygon from 'components/partials/Polygon.vue'
 
 Vue.use(VueAnalytics, {
   id: 'UA-123742823-1',
@@ -35,6 +36,8 @@ Vue.filter('capitalize', function (value) {
   value = value.toString()
   return value.toUpperCase()
 })
+
+Vue.component('app-polygon', Polygon) // component name should be in camel-case
 
 const app = new Vue({
   store,
