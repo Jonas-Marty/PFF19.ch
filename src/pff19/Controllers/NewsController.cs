@@ -124,7 +124,7 @@ namespace pff19.Controllers
             {
                 string filename = existingNews.Id + Path.GetExtension(model.UploadImage.FileName);
                 Size thumbnailSize = new Size(_configuration.GetValue<int>("Images:ThumbnailSize:News:X"), _configuration.GetValue<int>("Images:ThumbnailSize:News:Y"));
-                _fileUtility.SaveImage(model.UploadImage, "news", filename, thumbnailSize);
+                _fileUtility.SaveImageWithThumbnail(model.UploadImage, "news", filename, thumbnailSize);
                 existingNews.Image = filename;
             }
         }

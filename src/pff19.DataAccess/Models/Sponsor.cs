@@ -1,4 +1,6 @@
-﻿namespace pff19.DataAccess.Models
+﻿using System;
+
+namespace pff19.DataAccess.Models
 {
     public class Sponsor
     {
@@ -7,5 +9,6 @@
         public string Logo { get; set; }
         public string Link { get; set; }
         public Status Status { get; set; }
+        public DateTime CreatedAt { get; set; }
     }
 }

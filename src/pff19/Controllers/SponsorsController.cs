@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -52,7 +53,8 @@ namespace pff19.Controllers
             {
                 Name = model.Name,
                 Link = model.Link,
-                Status = model.Status
+                Status = model.Status,
+                CreatedAt = DateTime.Now
             };
 
             SafeSponsorImage(model, newSponsor);
@@ -99,14 +101,11 @@ namespace pff19.Controllers
         {
             if (model.UploadImage != null)
             {
-                string filename = model.Name + Path.GetExtension(model.UploadImage.FileName);
-                Size thumbnailSize = new Size(_configuration.GetValue<int>("Images:ThumbnailSize:Sponsors:X"), _configuration.GetValue<int>("Images:ThumbnailSize:Sponsors:Y"));
-                _fileUtility.SaveImage(model.UploadImage, "sponsors", filename, thumbnailSize);
+                string filename = existingSponsor.Id + Path.GetExtension(model.UploadImage.FileName);
+                _fileUtility.SaveImage(model.UploadImage, "news", filename,
+                    new Size(_configuration.GetValue<int>("Images:Sponsors:X"),
+                        _configuration.GetValue<int>("Images:Sponsors:Y")));
                 existingSponsor.Logo = filename;
-            }
-            else
-            {
-                existingSponsor.Logo = null;
             }
         }
     }
