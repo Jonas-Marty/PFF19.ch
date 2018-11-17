@@ -14,6 +14,8 @@ namespace pff19.Models
         public string PreviewFr { get; set; }
         public string ContentDe { get; set; }
         public string ContentFr { get; set; }
-        public IFormFile UploadImage { get; set; }
+        public string LinkFacebook { get; set; }
+        public string LinkInstagram { get; set; }
+        public IFormFile[] UploadImages { get; set; }
     }
 }

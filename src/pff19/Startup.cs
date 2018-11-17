@@ -70,7 +70,10 @@ namespace pff19
             }
             else
             {
-                services.AddDbContext<PffContext>(options => options.UseSqlServer(Configuration.GetConnectionString("Dev")));
+                services.AddDbContext<PffContext>(options =>
+                {
+                    options.UseSqlServer(Configuration.GetConnectionString("Dev"), b => b.MigrationsAssembly("pff19.DataAccess"));
+                });
             }
             
             services.AddScoped<NewsRepository, NewsRepository>();

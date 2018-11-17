@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -66,12 +67,15 @@ namespace pff19.Controllers
                 PreviewDe = model.PreviewDe,
                 PreviewFr = model.PreviewFr,
                 TitleDe = model.TitleDe,
-                TitleFr = model.TitleFr
+                TitleFr = model.TitleFr,
+                LinkFacebook =  model.LinkFacebook,
+                LinkInstagram =  model.LinkInstagram,
+                DateCreated =  DateTime.Now
             };
 
             _newsRepository.Add(news);
 
-            SafeNewsImage(model, news);
+            SafeNewsImages(model, news);
 
             _newsRepository.Update(news);
 
@@ -95,8 +99,10 @@ namespace pff19.Controllers
             existingNews.TitleFr = model.TitleFr;
             existingNews.PreviewFr = model.PreviewFr;
             existingNews.PreviewDe = model.PreviewDe;
+            existingNews.LinkFacebook = model.LinkFacebook;
+            existingNews.LinkInstagram = model.LinkInstagram;
 
-            SafeNewsImage(model, existingNews);
+            SafeNewsImages(model, existingNews);
 
             _newsRepository.Update(existingNews);
 
@@ -118,14 +124,24 @@ namespace pff19.Controllers
             return NoContent();
         }
 
-        private void SafeNewsImage(NewsViewModel model, News existingNews)
+        private void SafeNewsImages(NewsViewModel model, News existingNews)
         {
-            if (model.UploadImage != null)
+            if (model.UploadImages != null && model.UploadImages.Length > 0)
             {
-                string filename = existingNews.Id + Path.GetExtension(model.UploadImage.FileName);
-                Size thumbnailSize = new Size(_configuration.GetValue<int>("Images:ThumbnailSize:News:X"), _configuration.GetValue<int>("Images:ThumbnailSize:News:Y"));
-                _fileUtility.SaveImageWithThumbnail(model.UploadImage, "news", filename, thumbnailSize);
-                existingNews.Image = filename;
+                var fileNames = new List<string>();
+                for (var i = 0; i < model.UploadImages.Length; i++)
+                {
+                    var uploadedImage = model.UploadImages[i];
+                    var filename = existingNews.Id + "_" + i + "_" + Path.GetExtension(uploadedImage.FileName);
+                    var thumbnailSize = new Size(_configuration.GetValue<int>("Images:ThumbnailSize:News:X"),
+                        _configuration.GetValue<int>("Images:ThumbnailSize:News:Y"));
+                    var imageSize = new Size(_configuration.GetValue<int>("Images:News:X"),
+                        _configuration.GetValue<int>("Images:News:Y"));
+                    _fileUtility.SaveImageWithThumbnail(uploadedImage, "news", filename, imageSize, thumbnailSize);
+                    fileNames.Add(filename);
+                }
+
+                existingNews.Images = string.Join(';', fileNames);
             }
         }
     }
