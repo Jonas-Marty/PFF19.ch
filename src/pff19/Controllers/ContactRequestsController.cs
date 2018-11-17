@@ -1,9 +1,11 @@
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using pff19.DataAccess.Models;
 using pff19.DataAccess.Repositories;
+using pff19.Interfaces;
 
 namespace pff19.Controllers
 {
@@ -13,10 +15,12 @@ namespace pff19.Controllers
     {
         private const string GetContactRequestRouteName = "GetContactRequests";
         private readonly ContactRequestRepository _contactRequestRepository;
+        private readonly IInformer _informer;
 
-        public ContactRequestsController(ContactRequestRepository contactRequestRepository)
+        public ContactRequestsController(ContactRequestRepository contactRequestRepository, IInformer informer)
         {
             _contactRequestRepository = contactRequestRepository;
+            _informer = informer;
         }
 
         // GET: api/ContactRequests
@@ -38,6 +42,7 @@ namespace pff19.Controllers
         public IActionResult Post(ContactRequest contactRequest)
         {
             _contactRequestRepository.Add(contactRequest);
+            Task.Run(() => _informer.InformAboutContactRequest(contactRequest, $"https://pff19.ch/contactrequest/{contactRequest.Id}"));
             return CreatedAtRoute(GetContactRequestRouteName, new { id = contactRequest.Id }, contactRequest);
         }
 
