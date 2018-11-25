@@ -107,10 +107,11 @@ namespace pff19
             }
             else
             {
-                app.UseExceptionHandler("/Home/Error");
                 app.UseHsts();
                 Console.WriteLine("*************Started in production mode**************");
             }
+
+            app.UseMvc();
 
             app.UseStaticFiles();
             app.UseSpaStaticFiles();
