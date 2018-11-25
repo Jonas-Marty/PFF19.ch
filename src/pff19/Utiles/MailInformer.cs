@@ -59,9 +59,9 @@ namespace pff19.Utiles
             {
                 client.Send(mail);
             }
-            catch (Exception e)
+            catch (Exception ex)
             {
-                _logger.LogWarning($"Failed to send email to '{to}' with subject '{subject}'");
+                _logger.LogWarning(ex, $"Failed to send email to '{to}' with subject '{subject}'.");
             }
         }
     }
