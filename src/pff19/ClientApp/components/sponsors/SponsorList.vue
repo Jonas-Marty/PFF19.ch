@@ -39,12 +39,12 @@
         <div class="sponsors" v-if="patron && patron.length > 0">
             <h2>{{ $t('lang.components.home.sponsors.patron') }}</h2>
             <div class="row">
-                <app-sponsor
+                <goenner
                     v-for="sponsor in patron"
                     :key="sponsor.id"
                     :sponsor="sponsor"
                 >   
-                </app-sponsor>
+                </goenner>
                 </div>
         </div>
     </div>
@@ -53,7 +53,8 @@
 <script>
 import axios from 'axios'
 import { mapActions, mapGetters } from 'vuex'
-import Sponsor from './Sponsor.vue'
+import Sponsor from './Sponsor'
+import Goenner from './Goenner'
 
 
 export default {
@@ -77,7 +78,8 @@ export default {
     },
 
     components: {
-        'app-sponsor': Sponsor
+        'app-sponsor': Sponsor,
+        Goenner
     }
 
 }

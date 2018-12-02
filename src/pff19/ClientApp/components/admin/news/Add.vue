@@ -138,7 +138,7 @@ export default {
             PreviewFr: '',
             ContentDe: '',
             ContentFr: '',
-            UploadImages: [],
+            Images: [],
             date: new Date(),
 
             customToolbar: [
@@ -211,7 +211,6 @@ export default {
                     ContentFr: this.ContentDe,
                     PreviewDe: this.PreviewDe,
                     PreviewFr: this.PreviewFr,
-                    UploadImages: this.UploadImages
                 }
 
                 let form_data = new FormData()
@@ -219,6 +218,14 @@ export default {
                 for ( var key in formData ) {
                     form_data.append(key, formData[key])
                 }
+
+                for( let i = 0; i < this.Images.length; i++){
+                    form_data.append("Images[]", this.Images[i])
+                }
+
+                this.Images.forEach(image => {
+                    form_data.append("Images[]", image)
+                })
 
                 auth.post('News', form_data)
                 .then(response => {
@@ -231,8 +238,7 @@ export default {
       },
 
       sendingEvent (file, xhr) {
-            console.log("adding file")
-            this.UploadImages.push(file)
+            this.Images.push(file)
       },
 
       updateDate (date) {

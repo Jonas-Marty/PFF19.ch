@@ -11,7 +11,7 @@
                     
                     <div class="form-group">
                         <label for="dropzone">Logo upload (für Gönner braucht es kein Bild)</label>
-                        <vue-dropzone ref="myVueDropzone" id="dropzone" :options="dropzoneOptions" v-on:vdropzone-sending="sendingEvent">
+                        <vue-dropzone ref="myVueDropzone" id="dropzone" :options="dropzoneOptions" v-on:vdropzone-file-added="sendingEvent">
                             <div class="dropzone-custom-content">
                                 <h3 class="dropzone-custom-title">Drag and drop to upload content!</h3>
                                 <div class="subtitle">...or click to select a file from your computer</div>
