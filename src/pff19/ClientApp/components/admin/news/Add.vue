@@ -11,7 +11,7 @@
                     
                     <div class="form-group">
                         <label for="title_de">Image upload</label>
-                        <vue-dropzone ref="myVueDropzone" id="dropzone" :options="dropzoneOptions" v-on:vdropzone-sending="sendingEvent">
+                        <vue-dropzone ref="myVueDropzone" id="dropzone" :options="dropzoneOptions" v-on:vdropzone-file-added="sendingEvent">
                             <div class="dropzone-custom-content">
                                 <h3 class="dropzone-custom-title">Drag and drop to upload content!</h3>
                                 <div class="subtitle">...or click to select a file from your computer</div>
@@ -148,6 +148,7 @@ export default {
 
             dropzoneOptions: {
                 url: '/api',
+                autoProcessQueue: false,
                 thumbnailWidth: 150,
                 maxFilesize: 0.5,
                 maxFiles: 1,
@@ -229,6 +230,7 @@ export default {
       },
 
       sendingEvent (file, xhr) {
+          console.log(file)
           this.Image = file
       },
 

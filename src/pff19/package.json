@@ -4,13 +4,10 @@
   "author": "Jonas Marty / Wiwo and Lars Barmettler / Maimu",
   "scripts": {
     "dev": "cross-env ASPNETCORE_ENVIRONMENT=Development NODE_ENV=development dotnet run",
-    "build": "npm run build-vendor:prod && npm run build:prod",
-    "build:prod": "cross-env NODE_ENV=production webpack --progress --hide-modules",
-    "build-vendor:prod": "cross-env NODE_ENV=production webpack --config webpack.config.vendor.js --progress",
-    "build-vendor:dev": "cross-env NODE_ENV=development webpack --config webpack.config.vendor.js --progress",
-    "lint": "eslint -c ./.eslintrc.js ClientApp/**/*.js  ClientApp/**/*.vue  ClientApp/**/*.json webpack*.js",
-    "install": "npm run build-vendor:dev"
-  },
+    "build:dev": "cross-env NODE_ENV=development webpack --config webpack.dev.js",
+    "build:prod": "cross-env NODE_ENV=production webpack --config webpack.prod.js",
+    "lint": "eslint -c ./.eslintrc.js ClientApp/**/*.js  ClientApp/**/*.vue  ClientApp/**/*.json webpack*.js"
+    },
   "dependencies": {
     "axios": "^0.15.3",
     "core-js": "^2.5.3",

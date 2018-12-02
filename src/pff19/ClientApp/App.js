@@ -30,13 +30,6 @@ if (lang) {
 
 axios.defaults.headers.get['Accepts'] = 'application/json'
 
-// filters
-Vue.filter('capitalize', function (value) {
-  if (!value) return ''
-  value = value.toString()
-  return value.toUpperCase()
-})
-
 Vue.component('app-polygon', Polygon) // component name should be in camel-case
 
 const app = new Vue({
