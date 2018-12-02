@@ -111,11 +111,11 @@ namespace pff19
                 Console.WriteLine("*************Started in production mode**************");
             }
 
+            app.UseAuthentication();
             app.UseMvc();
 
             app.UseStaticFiles();
             app.UseSpaStaticFiles();
-            app.UseAuthentication();
 
             app.UseSpa(spa =>
             {

@@ -13,9 +13,9 @@ namespace pff19.Utiles
     public class MailInformer : IInformer
     {
         private readonly IConfiguration _configuration;
-        private readonly ILogger _logger;
+        private readonly ILogger<MailInformer> _logger;
 
-        public MailInformer(IConfiguration configuration, ILogger logger)
+        public MailInformer(IConfiguration configuration, ILogger<MailInformer> logger)
         {
             _configuration = configuration;
             _logger = logger;
