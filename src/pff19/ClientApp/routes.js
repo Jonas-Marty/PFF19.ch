@@ -2,25 +2,25 @@ import Impressum from 'components/Impressum'
 import HomePage from 'components/home/Home'
 import Sponsors from 'components/sponsors/SponsorList'
 import FAQ from 'components/faq/FAQ'
-import Organisation from 'components/Organisation'
+import Organisation from 'components/organisation/Organisation'
 import Helfer from 'components/helper/Helfer'
 import NewsOverview from 'components/news/NewsOverview'
 import News from 'components/news/News'
-import Error404 from 'components/partials/404.vue'
+import Error404 from 'components/partials/404'
 import Contact from 'components/faq/Kontakt'
 
-import DefaultLayout from './layouts/Default.vue'
-import AdminLayout from './layouts/Admin.vue'
-import Dashboard from 'components/admin/Dashboard.vue'
-import Login from 'components/admin/Login.vue'
-import Sponsoring from 'components/admin/sponsoring/Sponsoring.vue'
-import SponsoringAdd from 'components/admin/sponsoring/Add.vue'
-import SponsoringEdit from 'components/admin/sponsoring/Edit.vue'
-import AdminNews from 'components/admin/news/News.vue'
-import AdminNewsAdd from 'components/admin/news/Add.vue'
-import AdminNewsEdit from 'components/admin/news/Edit.vue'
-import AdminHelfer from 'components/admin/helper/Helfer.vue'
-import AdminContact from 'components/admin/contact/Contact.vue'
+import DefaultLayout from './layouts/Default'
+import AdminLayout from './layouts/Admin'
+import Dashboard from 'components/admin/Dashboard'
+import Login from 'components/admin/Login'
+import Sponsoring from 'components/admin/sponsoring/Sponsoring'
+import SponsoringAdd from 'components/admin/sponsoring/Add'
+import SponsoringEdit from 'components/admin/sponsoring/Edit'
+import AdminNews from 'components/admin/news/News'
+import AdminNewsAdd from 'components/admin/news/Add'
+import AdminNewsEdit from 'components/admin/news/Edit'
+import AdminHelfer from 'components/admin/helper/Helfer'
+import AdminContact from 'components/admin/contact/Contact'
 import { store } from './store/index'
 
 export const routes = [
@@ -29,7 +29,7 @@ export const routes = [
     path: '/',
     children: [
       { name: 'home', path: '/', component: HomePage, display: 'Home', important: true },
-      { name: 'sponsors', path: '/sponsors', component: Sponsors, display: 'Sponsoren', important: false },
+      { name: 'sponsors', path: '/sponsors', component: Sponsors, display: 'Sponsoren', important: true },
       { name: 'faq', path: '/faq', component: FAQ, display: 'FAQ', important: true },
       { name: 'organisation', path: '/organisation', component: Organisation, display: 'Organisation', important: true },
       { name: 'helper', path: '/helfer', component: Helfer, display: 'Helfer', important: true },
