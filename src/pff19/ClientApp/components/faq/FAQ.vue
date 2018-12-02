@@ -41,7 +41,7 @@
 
             <h3>Bands</h3>
             <p>Auch wenn bereits Gerüchte kursieren, ist das Line-Up noch nicht bekannt. Sobald wir Neuigkeiten 
-                haben, werden wir sie via Newsletter (Verlinkung auf Newsletterformular), auf <a href="https://www.facebook.com/pff19mosaik/">Facebook</a>
+                haben, werden wir sie via <a href="https://pff2019.us12.list-manage.com/subscribe/post?u=49efe2269ccc4a7227ef08f59&id=067179a941">Newsletter</a>, auf <a href="https://www.facebook.com/pff19mosaik/">Facebook</a>
                 und <a href="https://www.instagram.com/pff_19_mosaik/">Instagram</a> bekanntgeben.</p>
             
             <p>Das PFF bietet die optimale Bühne für kleine, aber feine Bands. Falls du dich mit deiner Band als 
