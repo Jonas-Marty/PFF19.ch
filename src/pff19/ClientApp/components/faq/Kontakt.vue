@@ -162,7 +162,7 @@ export default {
         position: relative;
     }
     .container {
-        padding-top: 150px;
+        padding-top: 100px;
         min-height: 750px;
     }
 

@@ -69,7 +69,7 @@ export default {
                     name: "Desirée Blass",
                     scoutName: 'Soraya',
                     ressort: 'Finanzen',
-                    email: 'info@pff19.ch'
+                    email: 'soraya@pff19.ch'
                 },
                 {
                     name: "Oliver Bernet",
