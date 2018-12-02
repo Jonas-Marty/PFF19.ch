@@ -119,6 +119,7 @@
 
 <script>
 import auth from '../../../auth.js'
+import {convertToFormData} from '../../../helpers.js'
 import vue2Dropzone from 'vue2-dropzone'
 import { VueEditor } from "vue2-editor"
 import Datepicker from 'vuejs-datepicker'
@@ -137,7 +138,7 @@ export default {
             PreviewFr: '',
             ContentDe: '',
             ContentFr: '',
-            Image: {},
+            UploadImages: [],
             date: new Date(),
 
             customToolbar: [
@@ -210,7 +211,7 @@ export default {
                     ContentFr: this.ContentDe,
                     PreviewDe: this.PreviewDe,
                     PreviewFr: this.PreviewFr,
-                    UploadImage: this.Image
+                    UploadImages: this.UploadImages
                 }
 
                 let form_data = new FormData()
@@ -230,8 +231,8 @@ export default {
       },
 
       sendingEvent (file, xhr) {
-          console.log(file)
-          this.Image = file
+            console.log("adding file")
+            this.UploadImages.push(file)
       },
 
       updateDate (date) {
