@@ -126,12 +126,12 @@ namespace pff19.Controllers
 
         private void SafeNewsImages(NewsViewModel model, News existingNews)
         {
-            if (model.UploadImages != null && model.UploadImages.Count > 0)
+            if (model.Images != null && model.Images.Count > 0)
             {
                 var fileNames = new List<string>();
-                for (var i = 0; i < model.UploadImages.Count; i++)
+                for (var i = 0; i < model.Images.Count; i++)
                 {
-                    var uploadedImage = model.UploadImages[i];
+                    var uploadedImage = model.Images[i];
                     var filename = existingNews.Id + "_" + i + "_" + Path.GetExtension(uploadedImage.FileName);
                     var thumbnailSize = new Size(_configuration.GetValue<int>("Images:ThumbnailSize:News:X"),
                         _configuration.GetValue<int>("Images:ThumbnailSize:News:Y"));
