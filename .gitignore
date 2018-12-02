@@ -331,3 +331,7 @@ ASALocalRun/
 /src/pff19/wwwroot/assets/*
 
 src/pff19/c:/temp/internal-nlog\.txt
+
+src/pff19/appsettings\.Development\.json
+
+src/pff19/appsettings\.json
