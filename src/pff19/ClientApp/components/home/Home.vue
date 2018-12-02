@@ -2,7 +2,8 @@
     <div>
         <app-slideshow> </app-slideshow>
         <app-news-list></app-news-list>
-        <app-description></app-description>
+        <description-de v-if="language === 'de'"></description-de>
+        <description-fr v-if="language === 'fr'"></description-fr>
         <app-sponsors></app-sponsors>
 
     </div>
@@ -11,14 +12,16 @@
 <script>
 import Vue from 'vue';
 
-import Slideshow from './slideshow/Slideshow';
-import NewsList from './news/NewsList.vue';
-import SocialMedia from './SocialMedia.vue';
-import Sponsor from './sponsors/SponsorList.vue';
+import Slideshow from './slideshow/Slideshow'
+import NewsList from './news/NewsList'
+import SocialMedia from './SocialMedia'
+import Sponsor from './sponsors/SponsorList'
 import Bands from './BandsRegistration'
-import Description from './Description.vue'
+import descriptionFr from './DescriptionFr'
+import descriptionDe from './DescriptionDe'
 
-import { mapActions } from 'vuex';
+
+import { mapActions, mapGetters  } from 'vuex';
 
 
 export default {
@@ -31,6 +34,12 @@ export default {
         ...mapActions([
             'enterHome',
             'leaveHome'
+        ])
+    },
+
+    computed: {
+        ...mapGetters([
+            'language'
         ])
     },
 
@@ -47,7 +56,8 @@ export default {
         'app-social-media': SocialMedia,
         'app-sponsors': Sponsor,
         'app-bands': Bands,
-        'app-description': Description
+        descriptionFr,
+        descriptionDe
     }
 }
 </script>

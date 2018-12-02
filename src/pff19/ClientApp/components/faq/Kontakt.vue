@@ -1,4 +1,6 @@
 <template>
+    <div class="container-fluid contact">
+        <app-polygon color="yellow" position="left"> </app-polygon>
     <div class="container">
         <div class="row justify-content-md-center">
             <div class="col-md-8">
@@ -80,6 +82,7 @@
                 </div>
             </div>
         </div>
+        </div>
     </div>
 </template>
 
@@ -155,8 +158,11 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+    .contact {
+        position: relative;
+    }
     .container {
-        padding-top: 150px;
+        padding-top: 100px;
         min-height: 750px;
     }
 

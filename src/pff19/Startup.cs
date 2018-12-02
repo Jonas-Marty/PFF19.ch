@@ -10,9 +10,9 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.IdentityModel.Tokens;
-using NLog.Web;
 using pff19.DataAccess;
 using pff19.DataAccess.Repositories;
+using pff19.Interfaces;
 using pff19.Utiles;
 using Pomelo.EntityFrameworkCore.MySql.Infrastructure;
 
@@ -53,6 +53,9 @@ namespace pff19
             // Add framework services.
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Latest);
 
+            // In production, the Angular files will be served from this directory
+            services.AddSpaStaticFiles(configuration => configuration.RootPath = "wwwroot/dist");
+
             if (Configuration.GetValue<bool>("UseMySql"))
             {
                 services.AddDbContextPool<PffContext>( // replace "YourDbContext" with the class name of your DbContext
@@ -67,7 +70,10 @@ namespace pff19
             }
             else
             {
-                services.AddDbContext<PffContext>(options => options.UseSqlServer(Configuration.GetConnectionString("Dev")));
+                services.AddDbContext<PffContext>(options =>
+                {
+                    options.UseSqlServer(Configuration.GetConnectionString("Dev"), b => b.MigrationsAssembly("pff19.DataAccess"));
+                });
             }
             
             services.AddScoped<NewsRepository, NewsRepository>();
@@ -79,6 +85,7 @@ namespace pff19
             services.AddScoped<FileUtility, FileUtility>();
             services.AddScoped<ContactRequestRepository, ContactRequestRepository>();
             services.AddScoped<BandRequestRepository, BandRequestRepository>();
+            services.AddSingleton<IInformer, MailInformer>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -100,23 +107,19 @@ namespace pff19
             }
             else
             {
-                app.UseExceptionHandler("/Home/Error");
                 app.UseHsts();
                 Console.WriteLine("*************Started in production mode**************");
             }
 
-            app.UseStaticFiles();
             app.UseAuthentication();
+            app.UseMvc();
 
-            app.UseMvc(routes =>
+            app.UseStaticFiles();
+            app.UseSpaStaticFiles();
+
+            app.UseSpa(spa =>
             {
-                routes.MapRoute(
-                    name: "default",
-                    template: "{controller=Home}/{action=Index}/{id?}");
-
-                routes.MapSpaFallbackRoute(
-                    name: "spa-fallback",
-                    defaults: new { controller = "Home", action = "Index" });
+                spa.Options.SourcePath = "wwwroot/dist";
             });
         }
     }

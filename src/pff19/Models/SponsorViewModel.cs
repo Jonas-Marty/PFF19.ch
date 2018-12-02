@@ -1,3 +1,4 @@
+using System;
 using System.ComponentModel.DataAnnotations;
 using Microsoft.AspNetCore.Http;
 using pff19.DataAccess.Models;
@@ -14,10 +15,10 @@ namespace pff19.Models
         [Required]
         public string Name { get; set; }
 
-        [Required]
         public string Link { get; set; }
 
-        [Required]
+        public DateTime CreatedAt { get; set; }
+
         public IFormFile UploadImage { get; set; }
     }
 }

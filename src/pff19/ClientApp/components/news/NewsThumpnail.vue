@@ -1,7 +1,7 @@
 <template>
     <div class="news col-md-4">
         <div class="card">
-            <div class="card-img-top" :style="imagePath" alt="Card image"></div>
+            <img class="card-img-top" :src="`/assets/news/thumbnail/${news.images}`"> 
             <div class="card-body">
                 <div class="card-title">
                     <router-link
@@ -23,10 +23,6 @@ export default {
     props: ['news'],
 
     computed: {
-        imagePath () {
-            return "background-image: url(/assets/news/thumbnail/" + this.news.image + ")";
-
-        },
         newsPreview () {
             return   this.$store.getters.language === 'de' ? this.news.previewDe : this.news.previewFr;
         },
@@ -51,7 +47,8 @@ export default {
         font-family: "Glacial Indifference Bold"
     }
     .card-img-top {
-        height: 220px;
+        max-width: 100%;
+        margin: auto;
         background-size: cover;
     }
 </style>

@@ -1,21 +1,14 @@
 <template>
     <div class="container">
         <h1>Organisation</h1>
-        <p>
-            Unser Team setzt sich aus vielen, unterschiedlichen Mosaiksteinen zusammen.
-            Egal ob Zimmermann, Studentin, Informatiker oder Lehrerin – für die
-            Organisation des PFF 19 bringt jeder seine individuellen Stärken ins Team ein.
-            Gemeinsam gestalten wir ein unvergessliche Pfadi Folk Fest.
-        </p>
-        <p>
-            Möchtest du etwas loswerden? Kontaktiere uns <a href="mailto:info@pff19.ch">hier</a>
-        </p>
+        <text-de v-if="language === 'de'"></text-de>
+        <text-fr v-if="language === 'fr'"></text-fr>
         <div class="team">
             <h2>Das Team</h2>
             <div class="row members">
                 <div class="member col-6 col-md-4 col-lg-3" v-for="image in images" :key="image.scoutName">
                     <div class="card">
-                        <img class="card-img-top" :src="require(`../assets/images/portraits/${image.scoutName}-min.jpg`)" :alt="image.scoutName">
+                        <img class="card-img-top" :src="require(`../../assets/images/portraits/${image.scoutName}-min.jpg`)" :alt="image.scoutName">
                         <div class="card-body">
                             <p class="card-text"><b>{{image.scoutName}}</b>, {{image.name}}<br>{{image.ressort}}<br></p>
                             <blockquote class="blockquote mb-0">
@@ -30,6 +23,9 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
+import textDe from './TextDe'
+import textFr from './TextFr'
 export default {
     data () {
         return {
@@ -69,7 +65,7 @@ export default {
                     name: "Desirée Blass",
                     scoutName: 'Soraya',
                     ressort: 'Finanzen',
-                    email: 'info@pff19.ch'
+                    email: 'soraya@pff19.ch'
                 },
                 {
                     name: "Oliver Bernet",
@@ -145,6 +141,17 @@ export default {
                 },
             ]
         }
+    },
+
+    computed: {
+       ...mapGetters([
+           'language'
+       ])
+    },
+
+    components: {
+        textFr,
+        textDe
     }
 
 }

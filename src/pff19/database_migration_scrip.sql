@@ -14,7 +14,7 @@ CREATE TABLE `News` (
 );
 
 CREATE TABLE `Sponsors` (
-    `Id` int  NOT NULL AUTO_INCREMENT,
+    `Id` int NOT NULL AUTO_INCREMENT,
     `Name` longtext NULL,
     `Logo` longtext NULL,
     `Link` longtext NULL,
@@ -22,12 +22,12 @@ CREATE TABLE `Sponsors` (
 );
 
 INSERT INTO `__EFMigrationsHistory` (`MigrationId`, `ProductVersion`)
-VALUES ('20180702191438_InitialCreate', '2.1.1-rtm-30846');
+VALUES ('20180702191438_InitialCreate', '2.1.4-rtm-31024');
 
 ALTER TABLE `Sponsors` ADD `Status` int NOT NULL DEFAULT 0;
 
 INSERT INTO `__EFMigrationsHistory` (`MigrationId`, `ProductVersion`)
-VALUES ('20180702194855_SponsorStatusEnum', '2.1.1-rtm-30846');
+VALUES ('20180702194855_SponsorStatusEnum', '2.1.4-rtm-31024');
 
 CREATE TABLE `Bands` (
     `Id` int NOT NULL AUTO_INCREMENT,
@@ -73,20 +73,20 @@ CREATE TABLE `Assistants` (
 );
 
 INSERT INTO `__EFMigrationsHistory` (`MigrationId`, `ProductVersion`)
-VALUES ('20180729124949_FranceAndAddAssistants', '2.1.1-rtm-30846');
+VALUES ('20180729124949_FranceAndAddAssistants', '2.1.4-rtm-31024');
 
 INSERT INTO `Users` (`FirstName`, `IsAdmin`, `Mail`, `Name`, `PasswordHash`, `Ressort`, `Salt`, `ScoutName`)
-VALUES ('Administrator', TRUE, 'info@pff.ch', 'Administrator', 0xF1D5151A60A0D532EE522EA06C5CCF2651012D7C53786FD0E4B72E856EFC050D6F8EE22CA0CD50A7AD8BBF81551A88350C83E009DB317507CE21FCDC9DE565C5, 'Kommunikation', 0x53C382691E05B1286B06540012CD6222EEAE092B48EBF3852F882891ECC5149BA41B9DD9688DAD76673B37087E2C8C6EDB520FD8E5D3BDC05841F6E832B58FF8, 'admin');
+VALUES ('Administrator', TRUE, 'info@pff.ch', 'Administrator', 0xAC5AB5814A1F484E2054C700575066F41233236C6EA74780172E995C47408DB32D997D4237760CE349449DF93BDFAC3BCBD845A3E93E42F746CBFDAE8B7F4BB9, 'Kommunikation', 0x82BE9D3606083B80EC12B8F6BD8786ED97DFE19C638CA24396CB53077C3C950E5B07B14050D6E45A98DAECFB06C492121395940D8B8ABDF13874E311F26F4110, 'admin');
 
 INSERT INTO `__EFMigrationsHistory` (`MigrationId`, `ProductVersion`)
-VALUES ('20180729135517_DefaultData', '2.1.1-rtm-30846');
+VALUES ('20180729135517_DefaultData', '2.1.4-rtm-31024');
 
 ALTER TABLE `News` ADD `PreviewDe` longtext NULL;
 
 ALTER TABLE `News` ADD `PreviewFr` longtext NULL;
 
 INSERT INTO `__EFMigrationsHistory` (`MigrationId`, `ProductVersion`)
-VALUES ('20180729144757_NewsPreview', '2.1.1-rtm-30846');
+VALUES ('20180729144757_NewsPreview', '2.1.4-rtm-31024');
 
 CREATE TABLE `Faqs` (
     `Id` int NOT NULL AUTO_INCREMENT,
@@ -100,12 +100,12 @@ CREATE TABLE `Faqs` (
 );
 
 INSERT INTO `__EFMigrationsHistory` (`MigrationId`, `ProductVersion`)
-VALUES ('20180730210224_AddFaqs', '2.1.1-rtm-30846');
+VALUES ('20180730210224_AddFaqs', '2.1.4-rtm-31024');
 
 ALTER TABLE `Assistants` ADD `Email` longtext NULL;
 
 INSERT INTO `__EFMigrationsHistory` (`MigrationId`, `ProductVersion`)
-VALUES ('20180809195107_AssitantEmailColumn', '2.1.1-rtm-30846');
+VALUES ('20180809195107_AssitantEmailColumn', '2.1.4-rtm-31024');
 
 ALTER TABLE `Assistants` MODIFY COLUMN `Vorname` longtext NOT NULL;
 
@@ -114,7 +114,7 @@ ALTER TABLE `Assistants` MODIFY COLUMN `Name` longtext NOT NULL;
 ALTER TABLE `Assistants` MODIFY COLUMN `Email` longtext NOT NULL;
 
 INSERT INTO `__EFMigrationsHistory` (`MigrationId`, `ProductVersion`)
-VALUES ('20180809200400_AssistantRequiredFields', '2.1.1-rtm-30846');
+VALUES ('20180809200400_AssistantRequiredFields', '2.1.4-rtm-31024');
 
 ALTER TABLE `Bands` DROP COLUMN `Mail`;
 
@@ -147,6 +147,18 @@ CREATE TABLE `ContactRequests` (
 );
 
 INSERT INTO `__EFMigrationsHistory` (`MigrationId`, `ProductVersion`)
-VALUES ('20180809204833_ContactRequestAndBandRequest', '2.1.1-rtm-30846');
+VALUES ('20180809204833_ContactRequestAndBandRequest', '2.1.4-rtm-31024');
+
+ALTER TABLE `News` CHANGE `Image` `Images` longtext NULL;
+ALTER TABLE `News` ADD `LinkInstagram` longtext NULL;
+
+ALTER TABLE `News` ADD `LinkFacebook` longtext NULL;
+
+ALTER TABLE `Sponsors` ADD `CreatedAt` datetime(6) NOT NULL DEFAULT '0001-01-01 00:00:00.000000';
+
+ALTER TABLE `News` ADD `DateCreated` datetime(6) NOT NULL DEFAULT '0001-01-01 00:00:00.000000';
+
+INSERT INTO `__EFMigrationsHistory` (`MigrationId`, `ProductVersion`)
+VALUES ('20181117164351_NewFields', '2.1.4-rtm-31024');
 
 

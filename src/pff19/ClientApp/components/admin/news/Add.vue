@@ -11,7 +11,7 @@
                     
                     <div class="form-group">
                         <label for="title_de">Image upload</label>
-                        <vue-dropzone ref="myVueDropzone" id="dropzone" :options="dropzoneOptions" v-on:vdropzone-sending="sendingEvent">
+                        <vue-dropzone ref="myVueDropzone" id="dropzone" :options="dropzoneOptions" v-on:vdropzone-file-added="sendingEvent">
                             <div class="dropzone-custom-content">
                                 <h3 class="dropzone-custom-title">Drag and drop to upload content!</h3>
                                 <div class="subtitle">...or click to select a file from your computer</div>
@@ -119,6 +119,7 @@
 
 <script>
 import auth from '../../../auth.js'
+import {convertToFormData} from '../../../helpers.js'
 import vue2Dropzone from 'vue2-dropzone'
 import { VueEditor } from "vue2-editor"
 import Datepicker from 'vuejs-datepicker'
@@ -137,7 +138,7 @@ export default {
             PreviewFr: '',
             ContentDe: '',
             ContentFr: '',
-            Image: {},
+            Images: [],
             date: new Date(),
 
             customToolbar: [
@@ -148,6 +149,7 @@ export default {
 
             dropzoneOptions: {
                 url: '/api',
+                autoProcessQueue: false,
                 thumbnailWidth: 150,
                 maxFilesize: 0.5,
                 maxFiles: 1,
@@ -209,7 +211,6 @@ export default {
                     ContentFr: this.ContentDe,
                     PreviewDe: this.PreviewDe,
                     PreviewFr: this.PreviewFr,
-                    UploadImage: this.Image
                 }
 
                 let form_data = new FormData()
@@ -217,6 +218,14 @@ export default {
                 for ( var key in formData ) {
                     form_data.append(key, formData[key])
                 }
+
+                for( let i = 0; i < this.Images.length; i++){
+                    form_data.append("Images[]", this.Images[i])
+                }
+
+                this.Images.forEach(image => {
+                    form_data.append("Images[]", image)
+                })
 
                 auth.post('News', form_data)
                 .then(response => {
@@ -229,7 +238,7 @@ export default {
       },
 
       sendingEvent (file, xhr) {
-          this.Image = file
+            this.Images.push(file)
       },
 
       updateDate (date) {

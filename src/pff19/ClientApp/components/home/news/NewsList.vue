@@ -1,7 +1,7 @@
 <template>
     <div class="news-list container">
         <div class="row">
-            <app-news v-for="news in firstThreeNews" :key="news.id" :news="news"> </app-news>
+            <app-news v-for="news in firstThree" :key="news.id" :news="news"> </app-news>
         </div>
             <div class="float-right">
                 <router-link
@@ -14,8 +14,9 @@
 
 <script>
 import Vue from 'vue';
-import News from './News';
+import News from '../../news/NewsThumpnail';
 import axios from 'axios';
+import { mapActions, mapGetters } from 'vuex'
 
 export default {
     data () {
@@ -24,20 +25,25 @@ export default {
         }
     },
 
-    created() {
-        axios.get('/api/news')
-        .then(response => {
-            this.newsList = response.data;
-        }).catch(e => {
-            this.errors.push(e)
-        });
-    },
+    methods: {
+        ...mapActions('news', [
+            'load'
+        ]),
+    }, 
 
     computed: {
-        firstThreeNews () {
-            return this.newsList.slice(0,3);
-        } 
+        ...mapGetters('news', [
+            'all',
+            'firstThree'
+        ])
     },
+
+    created() {
+        if(!(this.all.length > 0)){
+            this.load()
+        }
+    },
+
 
     components: {
         'app-news': News
@@ -54,6 +60,7 @@ export default {
     .news-list {
         margin-top: -250px;
         min-height: 300px;
+        z-index: 2;
     }
 
     @media (max-width: 768px) { 
