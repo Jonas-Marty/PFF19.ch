@@ -88,7 +88,7 @@ export default {
             name: '',
             link: '',
             typ: '3',
-            Image: {},
+            Logo: {},
 
             dropzoneOptions: {
                 url: '/api',
@@ -120,8 +120,6 @@ export default {
             required,
         },
 
-
-
     },
 
     methods: {
@@ -133,7 +131,7 @@ export default {
                     Name: this.name,
                     Link: this.link,
                     Status : this.typ,
-                    UploadImage: this.Image,
+                    Logo: this.Logo,
                 }
 
                 let form_data = new FormData()
@@ -153,14 +151,13 @@ export default {
       },
 
       sendingEvent (file, xhr) {
-          this.Image = file
+          this.Logo = file
       },
 
       updateDate (date) {
           this.date = date;
       }
 
-      
     }
 
 }
