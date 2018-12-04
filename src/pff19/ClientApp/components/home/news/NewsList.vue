@@ -44,7 +44,6 @@ export default {
         }
     },
 
-
     components: {
         'app-news': News
     },

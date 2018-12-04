@@ -9,9 +9,9 @@
                 </div>
                 
                 <h1>{{ newsTitle }}</h1>
-                <div class="img" :style="imagePath" alt="Card image"></div>
-                <div class="date">{{ news.date | formateDate }}</div>
-                
+                <img class="img" :src="`/assets/news/images/${getFirstImage}`" :alt="newsTitle">
+                <div class="date">{{ getCurrentNews.date | formateDate }}</div>
+                <br><br>
 
                 <div class="text-content" v-html="newsContent"></div>
             </div>
@@ -21,6 +21,7 @@
 
 <script>
 import axios from 'axios';
+import { mapGetters, mapActions } from 'vuex'
 
 
 export default {
@@ -30,24 +31,29 @@ export default {
         }
     },
 
-    beforeCreate(){
-        axios.get('/api/news/' + this.$route.params.id) 
-            .then(response => {
-                this.news = response.data;
-            }).catch(e => {
-                console.log('error');
-            });
+    methods: {
+        ...mapActions('news', [
+            'loadCurrentNews'
+        ])
+    },
+
+    mounted() {
+            this.loadCurrentNews(this.$route.params.id)
     },
 
     computed: {
-        imagePath () {
-            return "background-image: url(/assets/news/images/" + this.news.image + ")";
-        },
+        ...mapGetters('news', [
+            'getCurrentNews',
+        ]),
+
         newsTitle () {
-            return this.$store.getters.language === 'de' ? this.news.titleDe : this.news.titleFr;
+            return this.$store.getters.language === 'de' ? this.getCurrentNews.titleDe : this.getCurrentNews.titleFr;
         },
         newsContent () {
-            return this.$store.getters.language === 'de' ? this.news.contentDe : this.news.contentFr;
+            return this.$store.getters.language === 'de' ? this.getCurrentNews.contentDe : this.getCurrentNews.contentFr;
+        },
+        getFirstImage () {
+            return this.getCurrentNews.images.split(';')[0];
         }
         
     }
@@ -63,7 +69,8 @@ export default {
     }
 
     .img {
-        height: 500px;
+        max-height: 500px;
+        max-width: 100%;
         background-size: cover;
         margin-bottom: 20px;
     }

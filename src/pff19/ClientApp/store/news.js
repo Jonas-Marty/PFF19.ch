@@ -4,23 +4,31 @@ import auth from '../auth'
 export const news = {
   namespaced: true,
   state: {
-    news: []
+    news: [],
+    currentnews: {}
   },
 
   getters: {
     all: state => {
       return state.news
     },
-    get: state => {
-      return id => state.news.find(elem => {
-        return elem.id === id
-      })
+
+    getCurrentNews: state => {
+      return state.currentnews
+    },
+
+    firstThree: state => {
+      return state.news.slice(0, 3)
     }
   },
 
   mutations: {
     load: (state, payload) => {
       state.news = payload
+    },
+
+    loadCurrentNews: (state, payload) => {
+      state.currentnews = payload
     },
 
     remove: (state, id) => {
@@ -33,6 +41,14 @@ export const news = {
       axios.get('/api/news')
         .then(response => {
           commit('load', response.data)
+        }).catch(e => {
+        })
+    },
+
+    loadCurrentNews: ({commit}, payload) => {
+      axios.get(`/api/news/${payload}`)
+        .then(response => {
+          commit('loadCurrentNews', response.data)
         }).catch(e => {
         })
     },

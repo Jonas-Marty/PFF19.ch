@@ -1,7 +1,7 @@
 <template>
     <div class="news col-md-4">
         <div class="card">
-            <img class="card-img-top" :src="`/assets/news/thumbnail/${news.images}`"> 
+            <img class="card-img-top" :src="`/assets/news/thumbnail/${getFirstImage}`"> 
             <div class="card-body">
                 <div class="card-title">
                     <router-link
@@ -24,10 +24,13 @@ export default {
 
     computed: {
         newsPreview () {
-            return   this.$store.getters.language === 'de' ? this.news.previewDe : this.news.previewFr;
+            return this.$store.getters.language === 'de' ? this.news.previewDe : this.news.previewFr;
         },
         newsTitle () {
-            return   this.$store.getters.language === 'de' ? this.news.titleDe : this.news.titleFr;
+            return this.$store.getters.language === 'de' ? this.news.titleDe : this.news.titleFr;
+        },
+        getFirstImage () {
+            return this.news.images.split(';')[0];
         }
     }
 
