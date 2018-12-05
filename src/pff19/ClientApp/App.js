@@ -36,11 +36,7 @@ const app = new Vue({
   store,
   router,
   i18n,
-  ...App,
-  mounted () {
-    // You'll need this for renderAfterDocumentEvent.
-    document.dispatchEvent(new window.Event('render-event'))
-  }
+  ...App
 })
 
 export {

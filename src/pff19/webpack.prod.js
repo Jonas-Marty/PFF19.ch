@@ -56,16 +56,10 @@ module.exports = () => {
         filename: '[name].css'
       }),
       new HtmlWebpackPlugin({
-        title: 'PRODUCTION pff19',
+        title: 'PFF19 - Mosaik',
         template: path.resolve(__dirname, 'ClientApp/index.html'),
         filename: path.resolve(__dirname, bundleOutputDir, 'index.html')
-      }),
-      new PrerenderSPAPlugin(
-        path.join(__dirname, bundleOutputDir),
-        [ '/', '/organisation', '/helfer' ],
-        {}
-
-      )
+      })
     ]
   }]
 }
