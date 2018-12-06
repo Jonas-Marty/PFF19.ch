@@ -1,11 +1,8 @@
 const path = require('path')
-const webpack = require('webpack')
 const VueLoaderPlugin = require('vue-loader/lib/plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
-const PrerenderSPAPlugin = require('prerender-spa-plugin')
 var HtmlWebpackPlugin = require('html-webpack-plugin')
 const bundleOutputDir = './wwwroot/dist'
-const Renderer = PrerenderSPAPlugin.PuppeteerRenderer
 
 module.exports = () => {
   console.log('Building for \x1b[33m%s\x1b[0m', process.env.NODE_ENV)
@@ -56,7 +53,7 @@ module.exports = () => {
         filename: '[name].css'
       }),
       new HtmlWebpackPlugin({
-        title: 'PFF19 - Mosaik',
+        title: 'PFF FFS 19 – Mosaik',
         template: path.resolve(__dirname, 'ClientApp/index.html'),
         filename: path.resolve(__dirname, bundleOutputDir, 'index.html')
       })

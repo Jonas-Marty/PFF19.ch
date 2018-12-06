@@ -131,7 +131,7 @@ export default {
                     Name: this.name,
                     Link: this.link,
                     Status : this.typ,
-                    Logo: this.Logo,
+                    UploadImage: this.Logo,
                 }
 
                 let form_data = new FormData()
