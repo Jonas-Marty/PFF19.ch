@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace pff19.DataAccess.Models
 {
@@ -18,5 +19,7 @@ namespace pff19.DataAccess.Models
 
         [Required]
         public string Mail { get; set; }
+
+        public DateTime? SubmitedAt { get; set; }
     }
 }
