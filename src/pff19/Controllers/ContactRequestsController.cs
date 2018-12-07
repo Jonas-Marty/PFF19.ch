@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -41,6 +42,7 @@ namespace pff19.Controllers
         [HttpPost]
         public IActionResult Post(ContactRequest contactRequest)
         {
+            contactRequest.SubmitedAt = DateTime.Now;
             _contactRequestRepository.Add(contactRequest);
             Task.Run(() => _informer.InformAboutContactRequest(contactRequest, $"https://pff19.ch/contactrequest/{contactRequest.Id}"));
             return CreatedAtRoute(GetContactRequestRouteName, new { id = contactRequest.Id }, contactRequest);

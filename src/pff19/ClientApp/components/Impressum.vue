@@ -10,11 +10,16 @@
                         <p>info@pff19.ch</p>
                         <p>&nbsp;</p>
                         <h2>Vertretungsberechtigte Personen</h2>
-                        <p>David Bernet
-<br>Vivane Lott
-<br>Josias Zeller
-<br>Fabio Di Rocco
-<br>Thomas Bauknecht</p>
+                            <p>David Bernet
+                            <br>Vivane Lott
+                            <br>Josias Zeller
+                            <br>Fabio Di Rocco
+                            <br>Thomas Bauknecht</p>
+                            <p>&nbsp;</p>
+                        <h2>Mehrwertsteuer Nr.</h2>
+                        <p>
+                            CHE-381.061.432 MWST
+                        </p>
                         <p>&nbsp;</p>
                         <h2>Haftungsausschluss</h2>
                         <p>Der Autor übernimmt keinerlei Gewähr hinsichtlich der  inhaltlichen Richtigkeit, Genauigkeit, Aktualität, Zuverlässigkeit und  Vollständigkeit der Informationen.</p>

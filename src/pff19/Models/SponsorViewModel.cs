@@ -17,8 +17,6 @@ namespace pff19.Models
 
         public string Link { get; set; }
 
-        public DateTime CreatedAt { get; set; }
-
         public IFormFile UploadImage { get; set; }
     }
 }

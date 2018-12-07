@@ -57,10 +57,12 @@ namespace pff19.Controllers
                 CreatedAt = DateTime.Now
             };
 
+            _sponsorRepository.Update(newSponsor);
+
             SafeSponsorImage(model, newSponsor);
 
             _sponsorRepository.Update(newSponsor);
-            
+
             return CreatedAtRoute("GetSponsor", new { id = newSponsor.Id }, newSponsor);
         }
 
@@ -77,6 +79,7 @@ namespace pff19.Controllers
 
             existingSponsor.Status = model.Status;
             existingSponsor.Name = model.Name;
+            existingSponsor.Link = model.Link;
 
             _sponsorRepository.Update(existingSponsor);
 
@@ -102,7 +105,7 @@ namespace pff19.Controllers
             if (model.UploadImage != null)
             {
                 string filename = existingSponsor.Id + Path.GetExtension(model.UploadImage.FileName);
-                _fileUtility.SaveImage(model.UploadImage, "news", filename,
+                _fileUtility.SaveImage(model.UploadImage, "sponsors", filename,
                     new Size(_configuration.GetValue<int>("Images:Sponsors:X"),
                         _configuration.GetValue<int>("Images:Sponsors:Y")));
                 existingSponsor.Logo = filename;

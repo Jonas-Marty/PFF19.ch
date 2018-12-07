@@ -148,6 +148,7 @@ export default {
 
             dropzoneOptions: {
                 url: '/api',
+                autoProcessQueue: false,
                 thumbnailWidth: 150,
                 maxFilesize: 0.5,
                 maxFiles: 1,
@@ -206,19 +207,19 @@ export default {
                     TitleDe: this.TitleDe,
                     TitleFr: this.TitleFr,
                     ContentDe: this.ContentDe,
-                    ContentFr: this.ContentDe,
+                    ContentFr: this.ContentFr,
                     PreviewDe: this.PreviewDe,
                     PreviewFr: this.PreviewFr,
                 }
 
                 let form_data = new FormData()
 
-                for( let i = 0; i < this.Images.length; i++){
-                    form_data.append("Images[]", this.Images[i])
+                for ( var key in formData ) {
+                    form_data.append(key, formData[key])
                 }
 
                 this.Images.forEach(image => {
-                    form_data.append("Images[]", image)
+                    form_data.append("images", image)
                 })
 
                 auth.put(`News/${this.$route.params.id}`, form_data)
