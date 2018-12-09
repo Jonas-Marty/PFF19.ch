@@ -12,7 +12,7 @@ Vue.use(Vuex)
 export const store = new Vuex.Store({
   state: {
     isHome: false,
-    language: window.localStorage.getItem('language') || ''
+    language: window.localStorage.getItem('language') || 'de'
   },
 
   getters: {
