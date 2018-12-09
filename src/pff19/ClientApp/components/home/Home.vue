@@ -2,8 +2,8 @@
     <div>
         <app-slideshow> </app-slideshow>
         <app-news-list></app-news-list>
-        <description-de v-if="language === 'de'"></description-de>
         <description-fr v-if="language === 'fr'"></description-fr>
+        <description-de v-else></description-de>
         <app-sponsors></app-sponsors>
 
     </div>
