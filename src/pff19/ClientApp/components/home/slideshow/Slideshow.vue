@@ -2,9 +2,12 @@
     <div class="slideshow">
         <div class="container">
             <div class="row">
-
                 <div class="image-container col-md col-sm-12">
-                    <img class="logo col" src="../../../assets/images/logo_yellow_with_text.png">
+                    <img class="logo" 
+                    srcset="../../../assets/images/logo_yellow_with_text.png 400w,
+                    ../../../assets/images/logo_yellow_with_text_retina.png 800w"
+                    sizes="400px"
+                    src="../../../assets/images/logo_yellow_with_text.png" alt="pff-logo">
                 </div>
                     
                 <app-countdown class="col-md col-sm-12"></app-countdown>
@@ -45,8 +48,8 @@ export default {
     }
 
     .logo {
-        margin: auto;
-        height: auto;
+        display: block;
+        max-width: 400px;
     }
 
     .row {
@@ -59,8 +62,10 @@ export default {
         }
 
         .logo {
-            margin: auto;
-            margin-bottom: 30px;
+            margin-left: auto;
+            margin-right: auto;
+            max-width: 80%;
+            margin-bottom: 50px;
             margin-top: 20px;
         }
      }
