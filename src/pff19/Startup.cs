@@ -101,7 +101,8 @@ namespace pff19
                 app.UseDeveloperExceptionPage();
                 app.UseWebpackDevMiddleware(new WebpackDevMiddlewareOptions
                 {
-                    HotModuleReplacement = true
+                    HotModuleReplacement = true, 
+                    ConfigFile = "webpack.dev.js"
                 });
                 Console.WriteLine("!!!!!!!!!!!!!Started in Development mode!!!!!!!!!!!!!");
             }

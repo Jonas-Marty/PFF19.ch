@@ -1,7 +1,7 @@
 <template>
 <div>
-    <faq-de v-if="language === 'de'"></faq-de>
     <faq-fr v-if="language === 'fr'"></faq-fr>
+    <faq-de v-else></faq-de>
 </div>
 </template>
 
