@@ -11,6 +11,11 @@ module.exports = () => {
     devtool: false,
     stats: { modules: false },
     entry: { 'main': './ClientApp/boot-app.js' },
+    optimization: {
+      splitChunks: {
+        chunks: 'all'
+      }
+    },
     resolve: {
       extensions: ['.js', '.vue'],
       alias: {
@@ -23,8 +28,7 @@ module.exports = () => {
     },
     output: {
       path: path.join(__dirname, bundleOutputDir),
-      filename: '[name].js',
-      publicPath: '/dist/'
+      filename: '[name].[chunkhash].bundle.js'
     },
     module: {
       rules: [
