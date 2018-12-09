@@ -10,7 +10,12 @@ module.exports = () => {
     mode: 'development',
     devtool: 'inline-source-map',
     stats: { modules: false },
-    entry: { 'main': './ClientApp/boot-app.js' },
+    entry: {'main': './ClientApp/boot-app.js'},
+    optimization: {
+      splitChunks: {
+        chunks: 'all'
+      }
+    },
     resolve: {
       extensions: ['.js', '.vue'],
       alias: {
@@ -25,6 +30,7 @@ module.exports = () => {
     output: {
       path: path.join(__dirname, bundleOutputDir),
       filename: '[name].js',
+      chunkFilename: '[name].chunk.bundle.js',
       publicPath: '/dist/'
     },
     module: {
