@@ -26,9 +26,9 @@ import { store } from './store/index'
 export const routes = [
   {name: 'default',
     component: DefaultLayout,
-    path: '/',
+    path: '',
     children: [
-      { name: 'home', path: '', component: HomePage, display: 'Home', important: true },
+      { name: 'home', path: '/', component: HomePage, display: 'Home', important: true },
       { name: 'sponsors', path: '/sponsors', component: Sponsors, display: 'Sponsoren', important: false },
       { name: 'faq', path: '/faq', component: FAQ, display: 'FAQ', important: true },
       { name: 'organisation', path: '/organisation', component: Organisation, display: 'Organisation', important: true },
