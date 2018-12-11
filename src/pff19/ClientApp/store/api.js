@@ -76,7 +76,6 @@ export const api = {
         return
       }
       window.globalAxios.post('/users.json' + '?auth=' + state.idToken, userData)
-        .then(res => console.log(res))
         .catch(error => console.log(error))
     },
     fetchUser ({commit, state}) {
@@ -85,7 +84,6 @@ export const api = {
       }
       window.globalAxios.get('/users.json' + '?auth=' + state.idToken)
         .then(res => {
-          console.log(res)
           const data = res.data
           const users = []
           for (let key in data) {

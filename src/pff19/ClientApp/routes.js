@@ -46,7 +46,7 @@ export const routes = [
     path: '/admin',
     beforeEnter: beforeEnter,
     children: [
-      {name: 'adminSponsoring', path: 'sponsoring', component: Sponsoring, display: 'Sponsoring', important: true, beforeEnter: beforeEnter},
+      {name: 'adminSponsoring', path: 'sponsoring', component: Sponsoring, display: 'Sponsoring', important: true},
       {name: 'adminSponsoringAdd', path: 'sponsoring/add', component: SponsoringAdd, display: 'ADD'},
       {name: 'adminSponsoringEdit', path: 'sponsoring/:id/edit', component: SponsoringEdit, display: 'EDIT'},
       {name: 'adminNews', path: 'news/', component: AdminNews, display: 'News', important: true},
