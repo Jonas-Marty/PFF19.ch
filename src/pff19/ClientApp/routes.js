@@ -26,7 +26,7 @@ import { store } from './store/index'
 export const routes = [
   {name: 'default',
     component: DefaultLayout,
-    path: '',
+    path: '/',
     children: [
       { name: 'home', path: '/', component: HomePage, display: 'Home', important: true },
       { name: 'sponsors', path: '/sponsors', component: Sponsors, display: 'Sponsoren', important: false },
@@ -46,7 +46,7 @@ export const routes = [
     path: '/admin',
     beforeEnter: beforeEnter,
     children: [
-      {name: 'adminSponsoring', path: 'sponsoring', component: Sponsoring, display: 'Sponsoring', important: true},
+      {name: 'adminSponsoring', path: 'sponsoring', component: Sponsoring, display: 'Sponsoring', important: true, beforeEnter: beforeEnter},
       {name: 'adminSponsoringAdd', path: 'sponsoring/add', component: SponsoringAdd, display: 'ADD'},
       {name: 'adminSponsoringEdit', path: 'sponsoring/:id/edit', component: SponsoringEdit, display: 'EDIT'},
       {name: 'adminNews', path: 'news/', component: AdminNews, display: 'News', important: true},
@@ -67,7 +67,7 @@ function beforeEnter (to, from, next) {
     if (store.getters['api/isAuthenticated']) {
       next()
     } else {
-      next({name: 'login'})
+      next('/admin/login')
     }
   })
 }

@@ -18,7 +18,7 @@
                                 class="nav-item nav-link"
                         > {{ route.display }} </router-link>
                         <a
-                        href="#"
+                        href="/admin/login"
                         class="nav-item nav-link"
                         @click="logout"
                         >

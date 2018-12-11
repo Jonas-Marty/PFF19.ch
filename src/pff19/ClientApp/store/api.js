@@ -70,7 +70,6 @@ export const api = {
       window.localStorage.removeItem('expirationDate')
       window.localStorage.removeItem('token')
       window.localStorage.removeItem('userId')
-      router.replace({name: 'login'})
     },
     storeUser ({commit, state}, userData) {
       if (!state.idToken) {
@@ -94,7 +93,6 @@ export const api = {
             user.id = key
             users.push(user)
           }
-          console.log(users)
           commit('storeUser', users[0])
         })
         .catch(error => console.log(error))
