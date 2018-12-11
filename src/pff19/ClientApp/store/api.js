@@ -70,14 +70,12 @@ export const api = {
       window.localStorage.removeItem('expirationDate')
       window.localStorage.removeItem('token')
       window.localStorage.removeItem('userId')
-      router.replace({name: 'login'})
     },
     storeUser ({commit, state}, userData) {
       if (!state.idToken) {
         return
       }
       window.globalAxios.post('/users.json' + '?auth=' + state.idToken, userData)
-        .then(res => console.log(res))
         .catch(error => console.log(error))
     },
     fetchUser ({commit, state}) {
@@ -86,7 +84,6 @@ export const api = {
       }
       window.globalAxios.get('/users.json' + '?auth=' + state.idToken)
         .then(res => {
-          console.log(res)
           const data = res.data
           const users = []
           for (let key in data) {
@@ -94,7 +91,6 @@ export const api = {
             user.id = key
             users.push(user)
           }
-          console.log(users)
           commit('storeUser', users[0])
         })
         .catch(error => console.log(error))

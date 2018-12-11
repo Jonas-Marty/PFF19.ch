@@ -142,9 +142,8 @@ export default {
             date: new Date(),
 
             customToolbar: [
-                ['bold', 'italic', 'underline'],
-                [{ 'list': 'ordered'}, { 'list': 'bullet' }],
-                [, 'code-block']
+                ['bold', 'italic', 'underline', 'link'],
+                [{ 'list': 'ordered'}, { 'list': 'bullet' }, {'header': ['2','3']}],
             ],
 
             dropzoneOptions: {

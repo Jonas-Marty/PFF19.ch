@@ -53,7 +53,9 @@ export default {
             return this.$store.getters.language === 'de' ? this.getCurrentNews.contentDe : this.getCurrentNews.contentFr;
         },
         getFirstImage () {
-            return this.getCurrentNews.images.split(';')[0];
+            if(this.getCurrentNews.images){
+                return this.getCurrentNews.images.split(';')[0];
+            }
         }
         
     }

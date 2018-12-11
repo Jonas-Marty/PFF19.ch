@@ -51,7 +51,6 @@ export const sponsors = {
     remove: ({commit}, payload) => {
       auth.delete(`sponsors/${payload}`)
         .then(r => {
-          console.log(r)
           commit('remove', payload)
         }).catch(e => console.log(e))
     }

@@ -26,7 +26,7 @@ import { store } from './store/index'
 export const routes = [
   {name: 'default',
     component: DefaultLayout,
-    path: '',
+    path: '/',
     children: [
       { name: 'home', path: '/', component: HomePage, display: 'Home', important: true },
       { name: 'sponsors', path: '/sponsors', component: Sponsors, display: 'Sponsoren', important: false },
@@ -67,7 +67,7 @@ function beforeEnter (to, from, next) {
     if (store.getters['api/isAuthenticated']) {
       next()
     } else {
-      next({name: 'login'})
+      next('/admin/login')
     }
   })
 }
