@@ -12,9 +12,7 @@ import Polygon from 'components/partials/Polygon.vue'
 
 Vue.use(VueAnalytics, {
   id: 'UA-123742823-1',
-  autoTracking: {
-    screenview: true
-  }
+  router
 })
 
 Vue.use(Vuelidate)
