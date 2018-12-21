@@ -7,7 +7,8 @@
 		"helper": "bénévoles",
 		"impressum": "mentions légales",
 		"news_overview": "news aperçu",
-		"contact": "contact"
+		"contact": "contact",
+		"ticketing": "Tickets"
 	},
 	"components": {
 		"footer": {

@@ -8,6 +8,7 @@ import NewsOverview from 'components/news/NewsOverview'
 import News from 'components/news/News'
 import Error404 from 'components/partials/404'
 import Contact from 'components/faq/Kontakt'
+import Ticketing from 'components/ticketing/Tickets'
 
 import DefaultLayout from './layouts/Default'
 import AdminLayout from './layouts/Admin'
@@ -37,7 +38,8 @@ export const routes = [
       { name: 'impressum', path: '/impressum', component: Impressum, display: 'Impressum' },
       { name: 'news_overview', path: '/news', component: NewsOverview, display: 'NewsOverview' },
       { name: 'news', path: '/news/:id', component: News, display: 'News' },
-      { name: 'contact', path: '/contact', component: Contact, display: 'Kontakt', important: true }
+      { name: 'contact', path: '/contact', component: Contact, display: 'Kontakt', important: true },
+      { name: 'ticketing', path: '/tickets', component: Ticketing, display: 'Tickets', important: false }
     ]
   },
 
