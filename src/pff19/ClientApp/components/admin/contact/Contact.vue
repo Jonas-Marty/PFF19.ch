@@ -8,7 +8,7 @@
                         <h5 class="card-title">
                             {{ contact.firstName }}, {{ contact.lastName }}
                         </h5>
-                        <h6 class="card-subtitle mb-2 text-muted">{{ contact.mail }}</h6>
+                        <h6 class="card-subtitle mb-2 text-muted">{{ contact.mail }}, {{ contact.submitedAt | formateDate }}</h6>
                         <p class="card-text">{{ contact.text }}</p>
                     </div>
                 </div>
