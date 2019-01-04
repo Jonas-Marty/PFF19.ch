@@ -45,6 +45,14 @@ export const news = {
         })
     },
 
+    loadTopThree: ({commit}) => {
+      axios.get('/api/news/top')
+        .then(response => {
+          commit('load', response.data)
+        }).catch(e => {
+        })
+    },
+
     loadCurrentNews: ({commit}, payload) => {
       axios.get(`/api/news/${payload}`)
         .then(response => {
