@@ -1,0 +1,1 @@
+export const NUMBER_OF_NEWS_ON_HOMEPAGE = 3

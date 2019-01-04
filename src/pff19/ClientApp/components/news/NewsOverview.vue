@@ -8,10 +8,11 @@
 </template>
 
 <script>
-import News from './NewsThumpnail';
-import { mapActions, mapGetters } from 'vuex';
-import axios from 'axios';
+import { mapActions, mapGetters } from 'vuex'
+import axios from 'axios'
 
+import News from './NewsThumpnail'
+import NUMBER_OF_NEWS_ON_HOMEPAGE from '../../constants/main'
 
 export default {
     data () {
@@ -32,8 +33,8 @@ export default {
     },
 
     created() {
-        if(!(this.all.length > 0)){
-            this.load();
+         if(!(this.all.length > NUMBER_OF_NEWS_ON_HOMEPAGE)){
+            this.load()
         }
     },
 

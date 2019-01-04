@@ -14,9 +14,11 @@
 
 <script>
 import Vue from 'vue';
-import News from '../../news/NewsThumpnail';
 import axios from 'axios';
 import { mapActions, mapGetters } from 'vuex'
+
+import News from '../../news/NewsThumpnail';
+import NUMBER_OF_NEWS_ON_HOMEPAGE from '../../../constants/main'
 
 export default {
     data () {
@@ -27,7 +29,7 @@ export default {
 
     methods: {
         ...mapActions('news', [
-            'load'
+            'loadTopThree'
         ]),
     }, 
 
@@ -39,8 +41,8 @@ export default {
     },
 
     created() {
-        if(!(this.all.length > 0)){
-            this.load()
+        if(!(this.all.length >= NUMBER_OF_NEWS_ON_HOMEPAGE)){
+            this.loadTopThree()
         }
     },
 
