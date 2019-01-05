@@ -17,7 +17,7 @@
 
         <div class="row">
             <div class="col-12 col-md-4">
-            <div class="card border-important">
+            <div class="card">
                 <img class="card-img-top" src="../../assets/images/slideshow.jpg" alt="Card image cap">
                 <div class="card-body">
                     <h5 class="card-title">3-Tagespass</h5>
@@ -112,10 +112,6 @@
     }
     .card-img-top{
         padding: 0;
-    }
-
-    .border-important{
-        border: 4px solid #C20812;
     }
 
     .iframes {
