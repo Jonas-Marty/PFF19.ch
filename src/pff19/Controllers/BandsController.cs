@@ -44,8 +44,13 @@ namespace pff19.Controllers
                 DescriptionFr =  model.DescriptionFr,
                 Name = model.Name,
                 SpotifyPlaylist = model.SpotifyPlaylist,
-                YoutubeUrls = model.YoutubeUrls
+                YoutubeUrls = model.YoutubeUrls,
+                Facebook =  model.Facebook,
+                Instagram = model.Instagram,
+                PlayTime = model.PlayTime,
+                WebSiteUrl = model.WebSiteUrl
             };
+            band.Order = _bandRepository.GetAll().Select(b => b.Order).DefaultIfEmpty(0).Max() + 1;
             _bandRepository.Add(band);
             SafeBandImages(model, band);
             _bandRepository.Update(band);
@@ -68,8 +73,13 @@ namespace pff19.Controllers
             existingBand.Name = model.Name;
             existingBand.SpotifyPlaylist = model.SpotifyPlaylist;
             existingBand.YoutubeUrls = model.YoutubeUrls;
+            existingBand.Order = model.Order;
+            existingBand.Facebook = model.Facebook;
+            existingBand.Instagram = model.Instagram;
+            existingBand.PlayTime = model.PlayTime;
+            existingBand.WebSiteUrl = model.WebSiteUrl;
 
-            SafeBandImages(model, model);
+            SafeBandImages(model, existingBand);
 
             _bandRepository.Update(existingBand);
 
@@ -89,6 +99,11 @@ namespace pff19.Controllers
             _bandRepository.Delete(existingBand);
 
             return NoContent();
+        }
+
+        private void SafeBandImages(BandViewModel model, Band band)
+        {
+            //TODO
         }
     }
 }

@@ -14,12 +14,11 @@ namespace pff19.DataAccess.Models
         public string SpotifyPlaylist { get; set; }
         public DateTime PlayTime { get; set; }
         public string ImageLarge { get; set; }
-        public string ThumbnailImage { get; set; }
-        public string Images { get; set; }
+        public string ImageThumbnail { get; set; }
         public string YoutubeUrls { get; set; }
         public string WebSiteUrl { get; set; }
         public string Facebook { get; set; }
-        public string Instagramm { get; set; }
+        public string Instagram { get; set; }
         public int Order { get; set; }
     }
 }
