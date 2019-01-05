@@ -37,8 +37,29 @@ namespace pff19.Controllers
         [HttpPost, Authorize]
         public IActionResult Post(Faq faqs)
         {
+            var order = _faqRepository.GetAll().Select(x => x.Order).DefaultIfEmpty(0).Max() + 1;
+            faqs.Order = order;
             _faqRepository.Add(faqs);
             return CreatedAtRoute(GetFaqsRoutName, new { id = faqs.Id }, faqs);
+        }
+
+        [HttpPut, Authorize]
+        public IActionResult Put(int firstId, int secondId)
+        {
+            var existingFaq1 = _faqRepository.Get(firstId);
+            var existingFaq2 = _faqRepository.Get(secondId);
+            if (existingFaq1 == null || existingFaq2 == null)
+            {
+                return NotFound();
+            }
+
+            int tmpOrder = existingFaq1.Order;
+            existingFaq1.Order = existingFaq2.Order;
+            existingFaq2.Order = tmpOrder;
+            _faqRepository.Update(existingFaq1);
+            _faqRepository.Update(existingFaq2);
+
+            return NoContent();
         }
 
         // PUT: api/News/5

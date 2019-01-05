@@ -12,13 +12,8 @@
 
         public string AnswerFr { get; set; }
 
-        public FaqCategory Category { get; set; }
+        public string Category { get; set; }
 
         public int Order { get; set; }
-    }
-
-    public enum FaqCategory
-    {
-
     }
 }
