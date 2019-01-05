@@ -1,10 +1,14 @@
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Configuration;
 using pff19.DataAccess.Models;
 using pff19.DataAccess.Repositories;
 using pff19.Models;
+using pff19.Utiles;
+using SixLabors.Primitives;
 
 namespace pff19.Controllers
 {
@@ -14,10 +18,14 @@ namespace pff19.Controllers
     {
         private const string GetBandRouteName = "GetBands";
         private readonly BandRepository _bandRepository;
+        private readonly IConfiguration _configuration;
+        private readonly FileUtility _fileUtility;
 
-        public BandsController(BandRepository bandRepository)
+        public BandsController(BandRepository bandRepository, IConfiguration configuration, FileUtility fileUtility)
         {
             _bandRepository = bandRepository;
+            _configuration = configuration;
+            _fileUtility = fileUtility;
         }
 
         // GET: api/Bands
@@ -103,7 +111,23 @@ namespace pff19.Controllers
 
         private void SafeBandImages(BandViewModel model, Band band)
         {
-            //TODO
+            if (model.ImageThumbnail != null)
+            {
+                string filename = band.Id + Path.GetExtension(model.ImageThumbnail.FileName);
+                _fileUtility.SaveImage(model.ImageThumbnail, "bands", filename,
+                    new Size(_configuration.GetValue<int>("Images:ThumbnailSize:Bands:X"),
+                        _configuration.GetValue<int>("Images:ThumbnailSize:Bands:Y")));
+                band.ImageThumbnail = filename;
+            }
+
+            if (model.ImageLarge != null)
+            {
+                string filename = band.Id + Path.GetExtension(model.ImageLarge.FileName);
+                _fileUtility.SaveImage(model.ImageLarge, "bands", filename,
+                    new Size(_configuration.GetValue<int>("Images:Bands:X"),
+                        _configuration.GetValue<int>("Images:Bands:Y")));
+                band.ImageLarge = filename;
+            }
         }
     }
 }
