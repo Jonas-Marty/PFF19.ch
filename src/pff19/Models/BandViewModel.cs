@@ -1,25 +1,25 @@
 ﻿using System;
-using System.ComponentModel.DataAnnotations;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
 
-namespace pff19.DataAccess.Models
+namespace pff19.Models
 {
-    public class Band
+    public class BandViewModel
     {
-        [Key]
         public int Id { get; set; }
-
         public string Name { get; set; }
         public string DescriptionDe { get; set; }
         public string DescriptionFr { get; set; }
         public string SpotifyPlaylist { get; set; }
         public DateTime PlayTime { get; set; }
-        public string ImageLarge { get; set; }
-        public string ThumbnailImage { get; set; }
-        public string Images { get; set; }
         public string YoutubeUrls { get; set; }
         public string WebSiteUrl { get; set; }
         public string Facebook { get; set; }
-        public string Instagramm { get; set; }
+        public string Instagram { get; set; }
         public int Order { get; set; }
+        public IFormFile ImageThumbnail { get; set; }
+        public IFormFile ImageLarge { get; set; }
     }
 }
