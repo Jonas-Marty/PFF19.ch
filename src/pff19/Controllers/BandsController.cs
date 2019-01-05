@@ -81,7 +81,7 @@ namespace pff19.Controllers
             existingBand.Name = model.Name;
             existingBand.SpotifyPlaylist = model.SpotifyPlaylist;
             existingBand.YoutubeUrls = model.YoutubeUrls;
-            existingBand.Order = model.Order;
+            existingBand.Order = model.Order ?? existingBand.Order;
             existingBand.Facebook = model.Facebook;
             existingBand.Instagram = model.Instagram;
             existingBand.PlayTime = model.PlayTime;

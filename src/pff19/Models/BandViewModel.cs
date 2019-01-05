@@ -18,7 +18,7 @@ namespace pff19.Models
         public string WebSiteUrl { get; set; }
         public string Facebook { get; set; }
         public string Instagram { get; set; }
-        public int Order { get; set; }
+        public int? Order { get; set; }
         public IFormFile ImageThumbnail { get; set; }
         public IFormFile ImageLarge { get; set; }
     }
