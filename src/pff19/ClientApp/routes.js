@@ -20,6 +20,9 @@ import SponsoringEdit from 'components/admin/sponsoring/Edit'
 import AdminNews from 'components/admin/news/News'
 import AdminNewsAdd from 'components/admin/news/Add'
 import AdminNewsEdit from 'components/admin/news/Edit'
+import AdminFAQs from 'components/admin/faq/FAQs'
+import AdminFAQAdd from 'components/admin/faq/Add'
+// import AdminFAQEdit from 'components/admin/faq/Edit'
 import AdminHelfer from 'components/admin/helper/Helfer'
 import AdminContact from 'components/admin/contact/Contact'
 import { store } from './store/index'
@@ -54,6 +57,9 @@ export const routes = [
       {name: 'adminNews', path: 'news/', component: AdminNews, display: 'News', important: true},
       {name: 'adminNewsAdd', path: 'news/add', component: AdminNewsAdd, display: 'ADD'},
       {name: 'adminNewsEdit', path: 'news/:id/edit', component: AdminNewsEdit, display: 'EDIT'},
+      {name: 'adminFAQs', path: 'faqs/', component: AdminFAQs, display: 'FAQs', important: true},
+      {name: 'adminFAQAdd', path: 'faqs/add', component: AdminFAQAdd, display: 'ADD'},
+      // {name: 'adminFsAQEdit', path: 'faqs/:order/edit', component: AdminFAQEdit, display: 'EDIT'},
       {name: 'adminHelperList', path: 'helper', component: AdminHelfer, display: 'Helfer', important: true},
       {name: 'adminContact', path: 'contact/', component: AdminContact, display: 'Contact', important: true},
       {name: 'adminDashboard', path: '', component: Dashboard, display: 'Dashboard', important: true}

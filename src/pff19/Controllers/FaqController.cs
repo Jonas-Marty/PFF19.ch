@@ -19,14 +19,14 @@ namespace pff19.Controllers
             _faqRepository = faqRepository;
         }
 
-        // GET: api/Faqs
+        // GET: api/faq
         [HttpGet]
         public ActionResult<IEnumerable<Faq>> Get()
         {
             return _faqRepository.GetAll().ToList();
         }
 
-        // GET: api/News/5
+        // GET: api/FAQ/5
         [HttpGet("{id}", Name = GetFaqsRoutName)]
         public Faq Get(int id)
         {
