@@ -6,8 +6,8 @@
             </router-link>
 
             <div class="mr-auto nav-link">
-                <a href="#" class="nav-item" @click="changeLang('de')">de</a> <span class="nav-item">|</span>
-                <a href="#" class="nav-item" @click="changeLang('fr')">fr</a>
+                <a class="nav-item language" @click="changeLang('de')">de</a> <span class="nav-item">|</span>
+                <a class="nav-item language" @click="changeLang('fr')">fr</a>
             </div>
 
 
@@ -121,6 +121,10 @@ export default {
 
 .embedded .nav-item {
     color: white;
+}
+
+.language {
+    cursor: pointer;
 }
 
 .embedded .navbar-toggler {
