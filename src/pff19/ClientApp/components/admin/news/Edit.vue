@@ -9,15 +9,25 @@
                     </div>
                    <form @submit.prevent="submit" v-if="!isSubmitted">
                     
-                    <div class="form-group">
-                        <label for="title_de">Image upload</label>
-                        <vue-dropzone ref="myVueDropzone" id="dropzone" :options="dropzoneOptions" v-on:vdropzone-file-added="sendingEvent">
+                    <div class="form-group dropzone-wrapper" :class="{'invalid-form': $v.Images.$error}">
+                        <label for="image_upload">Image upload (Max 3 Bilder, 1 Bild ist Thumpnail)</label>
+                        <vue-dropzone
+                            ref="myVueDropzone" 
+                            id="dropzone" 
+                            :options="dropzoneOptions" 
+                            v-on:vdropzone-file-added="sendingEvent" 
+                            v-on:vdropzone-removed-file="removingFile"
+                        >
                             <div class="dropzone-custom-content">
                                 <h3 class="dropzone-custom-title">Drag and drop to upload content!</h3>
                                 <div class="subtitle">...or click to select a file from your computer</div>
                             </div>    
-                        </vue-dropzone>   
+                        </vue-dropzone> 
+                        <div class="error-messages">
+                            <p v-if="!$v.Images.required && $v.Images.$dirty">Die News braucht ein Bild</p>
+                        </div>  
                     </div>
+
                     <div class="form-group">
                         <label for="select_date">Date</label>
                         <datepicker @selected="updateDate" :value="date" bootstrap-styling></datepicker>
@@ -113,6 +123,20 @@
 
                     <button type="submit" class="btn btn-primary" >Bestätigen</button>
                 </form>
+
+                <div class="help">
+                    <h3>Hilfe für News upload</h3>
+                    <ul>
+                        <li>Bild sollte mindestens 740x555 Auflösung haben</li>
+                        <li>Bild sollte 4x3 Format haben</li>
+                        <li>Unterstützte Bild Formate sind jpg/png</li>
+                        <li>Ich bitte dich die Bilder bereits im richtigen Format hochzuladen 
+                            (automatische zuschneiden haben wir noch nicht implementiert)</li>
+                        <li>Trage deinen Beitrag zur eine schnelle Webseite und lasse deine 
+                            Bilder vor dem Upload komprimieren unter <a href="https://tinyjpg.com/">https://tinyjpg.com/</a> </li>
+                        <li>Falls beim Editieren trotzdem noch das alte Bild angezeigt wird, mache einen hard reload im Browser</li>
+                    </ul>
+                </div>
             </div>
 
 </template>
@@ -190,9 +214,10 @@ export default {
         },
         ContentFr: {
             required        
+        },
+        Images: {
+            required
         }
-
-
 
     },
 
@@ -229,15 +254,22 @@ export default {
                 })
             }
 
+
       },
 
-      sendingEvent (file, xhr) {
+      sendingEvent (file) {
             this.Images.push(file)
       },
 
       updateDate (date) {
           this.date = date;
       },
+
+      removingFile (file) {
+        this.Images =  this.Images.filter(image => image.name != file.name)
+      },
+
+
     },
     
     mounted() {
@@ -249,20 +281,22 @@ export default {
                 this.PreviewFr = response.data.previewFr
                 this.ContentDe = response.data.contentDe
                 this.ContentFr = response.data.contentFr
-                this.Image =  response.data.image
+                response.data.images.split(';').forEach(image => {
+                    this.$refs.myVueDropzone.manuallyAddFile({ size: 123, name: image, type: "image/jpg" }, `/assets/news/thumbnail/${image}`)
+                })
+
             }).catch(e => {
                 this.errors.push(e)
             })
-        //var file = { size: 123, name: "Icon" };
-        //var url = "https://myvizo.com/img/logo_sm.png";
-        //this.$refs.myVueDropzone.manuallyAddFile(file, url);
+
+        
     }
 
 }
 </script>
 
 <style lang="scss" scoped>
-    #dropzone {
+    .dropzone-wrapper {
         margin-bottom: 50px;
     }
 
@@ -272,5 +306,9 @@ export default {
 
     .html-editor{
         background-color: white;
+    }
+
+    .help {
+        margin-top: 50px;
     }
 </style>
