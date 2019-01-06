@@ -18,7 +18,7 @@
         <div class="row">
             <div class="col-12 col-md-4">
             <div class="card">
-                <img class="card-img-top" src="../../assets/images/slideshow.jpg" alt="Card image cap">
+                <img class="card-img-top" src="../../assets/images/3_tages_pass.jpg" alt="Card image cap">
                 <div class="card-body">
                     <h5 class="card-title">3-Tagespass</h5>
                     <ul class="list-group list-group-flush">
@@ -34,7 +34,7 @@
 
             <div class="col-12 col-md-4">          
             <div class="card">
-                <img class="card-img-top" src="../../assets/images/slideshow.jpg" alt="Card image cap">
+                <img class="card-img-top" src="../../assets/images/1_tagesticket.jpg" alt="Card image cap">
                 <div class="card-body">
                     <h5 class="card-title">Tageseintritt Freitag oder Samstag</h5>
                     <ul class="list-group list-group-flush">
@@ -49,7 +49,7 @@
 
             <div class="col-12 col-md-4">
             <div class="card">
-                <img class="card-img-top" src="../../assets/images/slideshow.jpg" alt="Card image cap">
+                <img class="card-img-top" src="../../assets/images/kinder_sonntag.jpg" alt="Card image cap">
                 <div class="card-body">
                     <h5 class="card-title">Familienticket Sonntag</h5>
                     <ul class="list-group list-group-flush">
