@@ -82,23 +82,12 @@ export default {
             QuestionFr: '',
             AnswerDe: '',
             AnswerFr: '',
-            Category: '',
+            Category: 'default',
 
             customToolbar: [
                 ['bold', 'italic', 'underline', 'link'],
                 [{ 'list': 'ordered'}, { 'list': 'bullet' }, {'header': ['3','4']}],
             ],
-
-            dropzoneOptions: {
-                url: '/api',
-                autoProcessQueue: false,
-                thumbnailWidth: 150,
-                maxFilesize: 0.5,
-                maxFiles: 3,
-                destroyDropzone: true,
-                addRemoveLinks: true,
-            }
-
         }
     },
 
@@ -136,8 +125,6 @@ export default {
                     QuestionFr: this.QuestionFr,
                     AnswerDe: this.AnswerDe,
                     AnswerFr: this.AnswerFr,
-                    Category: this.Category,
-                    Order: this.Order,
                 }
 
                 let form_data = new FormData()
@@ -148,6 +135,7 @@ export default {
 
                 auth.post('faq', form_data)
                 .then(response => {
+                    console.log(response)
                     this.isSubmitted = true;
                 }).catch(e => {
                     this.errors.push(e)

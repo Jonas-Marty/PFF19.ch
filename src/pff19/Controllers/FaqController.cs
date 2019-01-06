@@ -33,7 +33,7 @@ namespace pff19.Controllers
             return _faqRepository.Get(id);
         }
 
-        // POST: api/Faqs
+        // POST: api/Faq
         [HttpPost, Authorize]
         public IActionResult Post(Faq faqs)
         {
