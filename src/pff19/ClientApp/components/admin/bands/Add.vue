@@ -3,7 +3,7 @@
                     <h2 class="title">Band hinzufügen</h2>
 
                     <div v-if="isSubmitted">
-                        <p>Deine News wurde hinzugefügt!</p>
+                        <p>Deine Band wurde hinzugefügt!</p>
                         <router-link :to="{name: 'adminBands'}">
                             Zurück
                         </router-link>
@@ -21,7 +21,7 @@
                             v-on:vdropzone-removed-file="removingThumpnail">  
                         </vue-dropzone>   
                         <div class="error-messages">
-                            <p v-if="!$v.ImageThumbnail.required && $v.ImageThumbnail.$dirty">Die News braucht ein Bild</p>
+                            <p v-if="!$v.ImageThumbnail.required && $v.ImageThumbnail.$dirty">Die Band braucht ein Bild</p>
                         </div> 
                     </div>
 
@@ -35,7 +35,7 @@
                             v-on:vdropzone-removed-file="removingImage">  >
                         </vue-dropzone>   
                         <div class="error-messages">
-                            <p v-if="!$v.ImageLarge.required && $v.ImageLarge.$dirty">Die News braucht ein Bild</p>
+                            <p v-if="!$v.ImageLarge.required && $v.ImageLarge.$dirty">Die Band braucht ein Bild</p>
                         </div> 
                     </div>
 
@@ -146,7 +146,7 @@
                 </form>
 
                 <div class="help">
-                    <h3>Hilfe für News upload</h3>
+                    <h3>Hilfe für Bands upload</h3>
                     <ul>
                         <li>Unterstützte Bild Formate sind jpg/png</li>
                         <li>Ich bitte dich die Bilder bereits im richtigen Format hochzuladen 
