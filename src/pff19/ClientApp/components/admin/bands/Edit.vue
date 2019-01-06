@@ -3,7 +3,7 @@
                     <h2 class="title">Band hinzufügen</h2>
 
                     <div v-if="isSubmitted">
-                        <p>Deine News wurde hinzugefügt!</p>
+                        <p>Deine Band wurde upgedated!</p>
                         <router-link :to="{name: 'adminBands'}">
                             Zurück
                         </router-link>
@@ -12,30 +12,30 @@
                    <form @submit.prevent="submit" v-if="!isSubmitted">
                     
                     <div class="form-group dropzone-wrapper" :class="{'invalid-form': $v.ImageThumbnail.$error}">
-                        <label for="thumpnail_upload">Thumpnail upload (440x330px)</label>
+                        <label for="thumpnailUpload">Thumpnail upload (440x330px)</label>
                         <vue-dropzone 
-                            ref="thumpnail_upload" 
-                            id="thumpnail_upload" 
+                            ref="thumpnailUpload" 
+                            id="thumpnailUpload" 
                             :options="dropzoneOptions" 
                             v-on:vdropzone-file-added="sendingEventThumpnail"
                             v-on:vdropzone-removed-file="removingThumpnail">  
                         </vue-dropzone>   
                         <div class="error-messages">
-                            <p v-if="!$v.ImageThumbnail.required && $v.ImageThumbnail.$dirty">Die News braucht ein Bild</p>
+                            <p v-if="!$v.ImageThumbnail.required && $v.ImageThumbnail.$dirty">Die Band braucht ein Bild</p>
                         </div> 
                     </div>
 
                     <div class="form-group dropzone-wrapper" :class="{'invalid-form': $v.ImageLarge.$error}">
-                        <label for="image_upload">Image upload (1920x730px)</label>
+                        <label for="imageUpload">Image upload (1920x730px)</label>
                         <vue-dropzone 
-                            ref="image_upload" 
-                            id="image_upload" 
+                            ref="imageUpload" 
+                            id="imageUpload" 
                             :options="dropzoneOptions" 
                             v-on:vdropzone-file-added="sendingEventImage"
                             v-on:vdropzone-removed-file="removingImage">  >
                         </vue-dropzone>   
                         <div class="error-messages">
-                            <p v-if="!$v.ImageLarge.required && $v.ImageLarge.$dirty">Die News braucht ein Bild</p>
+                            <p v-if="!$v.ImageLarge.required && $v.ImageLarge.$dirty">Die Band braucht ein Bild</p>
                         </div> 
                     </div>
 
@@ -146,7 +146,7 @@
                 </form>
 
                 <div class="help">
-                    <h3>Hilfe für News upload</h3>
+                    <h3>Hilfe für Band upload</h3>
                     <ul>
                         <li>Unterstützte Bild Formate sind jpg/png</li>
                         <li>Ich bitte dich die Bilder bereits im richtigen Format hochzuladen 
@@ -257,7 +257,7 @@ export default {
                     form_data.append(key, formData[key])
                 }
 
-                auth.post('Bands', form_data)
+                auth.put(`Bands/${this.$route.params.id}`, form_data)
                 .then(response => {
                     this.isSubmitted = true;
                 }).catch(e => {
@@ -282,6 +282,31 @@ export default {
         removingImage (file) {
             this.ImageLarge = {}
         },
+    },
+
+    mounted() {
+        auth.get(`Bands/${this.$route.params.id}`)
+            .then(response => {
+                this.Name = response.data.name
+                this.PlayTime = response.data.playTime
+                this.DescriptionDe = response.data.descriptionDe
+                this.DescriptionFr = response.data.descriptionFr
+                this.Facebook = response.data.facebook
+                this.YoutubeUrls = response.data.youtubeUrls
+                this.Instagram = response.data.instagram
+                this.WebSiteUrl = response.data.webSiteUrl
+                this.$refs.thumpnailUpload.manuallyAddFile(
+                    { size: 123, name: response.data.imageThumbnail, type: "image/jpg" },
+                    `/assets/bands/thumbnail/${response.data.imageThumbnail}`
+                )
+                this.$refs.imageUpload.manuallyAddFile(
+                    { size: 123, name: response.data.imageLarge, type: "image/jpg" },
+                    `/assets/bands/images/${response.data.imageLarge}`
+                )
+
+            }).catch(e => {
+                this.errors.push(e)
+            })
     }
 
 }

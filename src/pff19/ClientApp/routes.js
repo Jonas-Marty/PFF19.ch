@@ -25,6 +25,7 @@ import AdminFAQAdd from 'components/admin/faq/Add'
 // import AdminFAQEdit from 'components/admin/faq/Edit'
 import AdminBands from 'components/admin/bands/Bands'
 import AdminBandsAdd from 'components/admin/bands/Add'
+import AdminBandsEdit from 'components/admin/bands/Edit'
 
 import AdminHelfer from 'components/admin/helper/Helfer'
 import AdminContact from 'components/admin/contact/Contact'
@@ -63,8 +64,9 @@ export const routes = [
       {name: 'adminFAQs', path: 'faqs/', component: AdminFAQs, display: 'FAQs', important: false},
       {name: 'adminFAQAdd', path: 'faqs/add', component: AdminFAQAdd, display: 'ADD'},
       // {name: 'adminFsAQEdit', path: 'faqs/:order/edit', component: AdminFAQEdit, display: 'EDIT'},
-      {name: 'adminBands', path: 'bands/', component: AdminBands, display: 'Bands', important: false},
+      {name: 'adminBands', path: 'bands/', component: AdminBands, display: 'Bands', important: true},
       {name: 'adminBandsAdd', path: 'bands/add', component: AdminBandsAdd, display: 'ADD'},
+      {name: 'adminBandsEdit', path: 'bands/:id/edit', component: AdminBandsEdit, display: 'EDIT'},
       {name: 'adminHelperList', path: 'helper', component: AdminHelfer, display: 'Helfer', important: true},
       {name: 'adminContact', path: 'contact/', component: AdminContact, display: 'Contact', important: true},
       {name: 'adminDashboard', path: '', component: Dashboard, display: 'Dashboard', important: true}

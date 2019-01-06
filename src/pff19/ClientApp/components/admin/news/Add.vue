@@ -16,12 +16,7 @@
                             id="dropzone" 
                             :options="dropzoneOptions" 
                             v-on:vdropzone-file-added="sendingEvent" 
-                            v-on:vdropzone-removed-file="removingFile"
-                        >
-                            <div class="dropzone-custom-content">
-                                <h3 class="dropzone-custom-title">Drag and drop to upload content!</h3>
-                                <div class="subtitle">...or click to select a file from your computer</div>
-                            </div>    
+                            v-on:vdropzone-removed-file="removingFile">
                         </vue-dropzone> 
                         <div class="error-messages">
                             <p v-if="!$v.Images.required && $v.Images.$dirty">Die News braucht ein Bild</p>

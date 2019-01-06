@@ -9,17 +9,17 @@ export const bands = {
 
   getters: {
     all: state => {
-      return state.news
+      return state.bands
     }
   },
 
   mutations: {
     load: (state, payload) => {
-      state.news = payload
+      state.bands = payload
     },
 
     remove: (state, id) => {
-      state.news = state.news.filter(el => el.id !== id)
+      state.bands = state.news.filter(el => el.id !== id)
     }
   },
 
