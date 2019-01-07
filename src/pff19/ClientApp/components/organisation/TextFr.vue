@@ -1,13 +1,13 @@
 <template>
     <div>
         <p>
-            Unser Team setzt sich aus vielen, unterschiedlichen Mosaiksteinen zusammen.
-            Egal ob Zimmermann, Studentin, Informatiker oder Lehrerin – für die
-            Organisation des PFF 19 bringt jeder seine individuellen Stärken ins Team ein.
-            Gemeinsam gestalten wir ein unvergessliche Pfadi Folk Fest.
+            Notre équipe se compose de beaucoup de pièces de mosaïque différentes. Charpentier, étudiantes, 
+            informaticien ou prof – chacun s’implique dans l’équipe avec ses forts individuels. 
+            C’est ensemble que nous organisons une Fête Folk Scoute inoubliable.
+
         </p>
         <p>
-            Möchtest du etwas loswerden? Kontaktiere uns <a href="mailto:info@pff19.ch">hier</a>
+            As-tu quelque chose que tu veux nous dire?  <a href="mailto:info@pff19.ch">Contacte-nous!</a>
         </p>
     </div>
 </template>

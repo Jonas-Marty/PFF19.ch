@@ -8,7 +8,8 @@
 		"impressum": "mentions légales",
 		"news_overview": "news aperçu",
 		"contact": "contact",
-		"ticketing": "Tickets"
+		"ticketing": "Tickets",
+		"bandsOverview": "Bands"
 	},
 	"components": {
 		"footer": {
@@ -38,6 +39,19 @@
 			"bands": {
 				"registration": "Bands inscription"
 			}
+		},
+		"organisation":{
+			"co_president": "Co-président",
+			"secretariat": "Co-Secrétariat",
+			"finances": "Finances",
+			"communication": "Communication",
+			"sponsoring": "Sponsoring",
+			"programm": "Programme",
+			"bands": "Bands",
+			"infrastructure": "Infrastructure",
+			"foot_beverage": "Food & Beverage",
+			"staff": "Staff",
+			"security": "Sécurité"
 		},
 		"faq": {
 			"contact-us": "Contactez nous!",

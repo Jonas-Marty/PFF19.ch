@@ -10,7 +10,7 @@
                     <div class="card">
                         <img class="card-img-top" :src="require(`../../assets/images/portraits/${image.scoutName}-min.jpg`)" :alt="image.scoutName">
                         <div class="card-body">
-                            <p class="card-text"><b>{{image.scoutName}}</b>, {{image.name}}<br>{{image.ressort}}<br></p>
+                            <p class="card-text"><b>{{image.scoutName}}</b>, {{image.name}}<br>{{ $t(`lang.components.organisation.${image.ressort}`) }}<br></p>
                             <blockquote class="blockquote mb-0">
                                 <footer class="blockquote-footer">{{image.email}}</footer>
                             </blockquote>
@@ -24,6 +24,7 @@
 
 <script>
 import { mapGetters } from 'vuex'
+import i18n from '../../locales';
 import textDe from './TextDe'
 import textFr from './TextFr'
 export default {
@@ -33,110 +34,110 @@ export default {
                 {
                     name: "David Bernet",
                     scoutName: 'Echo',
-                    ressort: 'Co-Präsident',
+                    ressort: 'co_president',
                     email: 'echo@pff19.ch'
                 },
                 {
                     name: "Fabio Di Rocco",
                     scoutName: 'Wum',
-                    ressort: 'Co-Präsident',
+                    ressort: 'co_president',
                     email: 'wum@pff19.ch'
                 },
                 {   
                     name: "Viviane Lott",
                     scoutName: 'Aviera',
-                    ressort: 'Sekretariat',
+                    ressort: 'secretariat',
                     email: 'aviera@pff19.ch'
                 },
                 {
                     name: "Josias Zeller",
                     scoutName: 'Fuego',
-                    ressort: 'Sekretariat',
+                    ressort: 'secretariat',
                     email: 'fuego@pff19.ch'
                 },
                 {
                     name: "Thomas Bauknecht",
                     scoutName: 'Snoopy',
-                    ressort: 'Finanzen',
+                    ressort: 'finances',
                     email: 'snoopy@pff19.ch'
                     
                 },
                 {
                     name: "Desirée Blass",
                     scoutName: 'Soraya',
-                    ressort: 'Finanzen',
+                    ressort: 'finances',
                     email: 'soraya@pff19.ch'
                 },
                 {
                     name: "Oliver Bernet",
                     scoutName: 'Pluto',
-                    ressort: 'Kommunikation',
+                    ressort: 'communication',
                     email: 'pluto@pff19.ch'
                 },
                 {
                     name: "Tobias Oechslin",
                     scoutName: 'Splash',
-                    ressort: 'Sponsoring',
+                    ressort: 'sponsoring',
                     email: 'splash@pff19.ch'
                 },
                 {
                     name: "Larissa Meister",
                     scoutName: 'Rajko',
-                    ressort: 'Programm',
+                    ressort: 'programm',
                     email: 'rajko@pff19.ch'
                 },
                 {
                     name: "Stefan Messmer",
                     scoutName: 'Pixel',
-                    ressort: 'Programm',
+                    ressort: 'programm',
                     email: 'pixel@pff19.ch'
                 },
                 {
                     name: "Jelena Hess",
                     scoutName: 'Varuna',
-                    ressort: 'Bands',
+                    ressort: 'bands',
                     email: 'varuna@pff19.ch'
                 },
                 {
                     name: "Matthias Rothmayr",
                     scoutName: 'Piccolo',
-                    ressort: 'Infrastruktur',
+                    ressort: 'infrastructure',
                     email: 'piccolo@pff19.ch'
                 },
                 {
                     name: "Meret Tuor",
                     scoutName: 'Baghira',
-                    ressort: 'Food & Beverage',
+                    ressort: 'foot_beverage',
                     email: 'baghira@pff19.ch'
                 },
                 {
                     name: "Simon Flückiger",
                     scoutName: 'Dwalin',
-                    ressort: 'Food & Beverage',
+                    ressort: 'foot_beverage',
                     email: 'dwalin@pff19.ch'
                 },
                 {
                     name: "Flurina Mäder",
                     scoutName: 'Karibu',
-                    ressort: 'Staff',
+                    ressort: 'staff',
                     email: 'karibu@pff19.ch'
                 },
                 {
                     name: "Simone Scherberger",
                     scoutName: 'Momo',
-                    ressort: 'Staff',
+                    ressort: 'staff',
                     email: 'momo@pff19.ch'
                 },
                 {
                     name: "Davina Biella",
                     scoutName: 'Joya',
-                    ressort: 'Staff',
+                    ressort: 'staff',
                     email: 'joya@pff19.ch'
                 },
                 {
                     name: "Anna Rusch",
                     scoutName: 'Moneypenny',
-                    ressort: 'Sicherheit',
+                    ressort: 'security',
                     email: 'moneypenny@pff19.ch'
                 },
             ]
