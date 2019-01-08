@@ -33,7 +33,7 @@ export const faqs = {
     },
 
     remove: ({commit}, payload) => {
-      auth.delete(`/news/${payload}`)
+      auth.delete(`/faq/${payload}`)
         .then(response => {
           commit('remove', payload)
         }).catch(e => {
