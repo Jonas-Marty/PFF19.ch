@@ -1,6 +1,7 @@
 <template>
     <div>
         <div class="slideshow" :style="{backgroundImage: `url(/assets/bands/images/${this.getCurrentBand.imageLarge})`}">
+            <img class="slideshow-overlay" src="../../assets/images/slideshow-overlay.svg"/>
         </div>
         <div class="container">
                 <div class="row back">
@@ -143,6 +144,12 @@ export default {
         background-position: center;
         position: relative;
         overflow: hidden;
+    }
+
+    .slideshow-overlay {
+        position: absolute;
+        bottom: -1px;
+        right: -3px;
     }
 
     .ytplayer {
