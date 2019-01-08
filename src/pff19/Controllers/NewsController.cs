@@ -128,16 +128,26 @@ namespace pff19.Controllers
         {
             if (model.Images != null && model.Images.Count > 0)
             {
+                var thumbnailSize = new Size(_configuration.GetValue<int>("Images:ThumbnailSize:News:X"),
+                    _configuration.GetValue<int>("Images:ThumbnailSize:News:Y"));
+                var imageSize = new Size(_configuration.GetValue<int>("Images:News:X"),
+                    _configuration.GetValue<int>("Images:News:Y"));
+
                 var fileNames = new List<string>();
                 for (var i = 0; i < model.Images.Count; i++)
                 {
                     var uploadedImage = model.Images[i];
                     var filename = existingNews.Id + "_" + i + "_" + Path.GetExtension(uploadedImage.FileName);
-                    var thumbnailSize = new Size(_configuration.GetValue<int>("Images:ThumbnailSize:News:X"),
-                        _configuration.GetValue<int>("Images:ThumbnailSize:News:Y"));
-                    var imageSize = new Size(_configuration.GetValue<int>("Images:News:X"),
-                        _configuration.GetValue<int>("Images:News:Y"));
-                    _fileUtility.SaveImageWithThumbnail(uploadedImage, "news", filename, imageSize, thumbnailSize);
+
+                    using (Stream uploadStream = uploadedImage.OpenReadStream())
+                    using (MemoryStream imageStream = new MemoryStream())
+                    {
+                        uploadStream.CopyTo(imageStream);
+                        imageStream.Seek(0, SeekOrigin.Begin);
+                        _fileUtility.SaveImage(imageStream, "news", "thumbnail", filename, thumbnailSize);
+                        imageStream.Seek(0, SeekOrigin.Begin);
+                        _fileUtility.SaveImage(imageStream, "news", "images", filename, imageSize);
+                    }
                     fileNames.Add(filename);
                 }
 
