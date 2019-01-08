@@ -1,6 +1,10 @@
 <template>
                 <div>
                     <h2 class="title">Sponsor editieren</h2>
+                    <div class="alert alert-warning">
+                      Im Sponsoring Formular macht das Bildediting noch Probleme. Wird arbeiten daran. 
+                      Eine Alternative ist es den Sponsor zu löschen und neu zu erstellen
+                    </div>
                     <div v-if="isSubmitted">
                         <p>Der Sponsor wurde editiert!</p>
                         <router-link
@@ -10,7 +14,7 @@
                    <form @submit.prevent="submit" v-if="!isSubmitted">
                     
                     <div class="form-group">
-                        <label for="imageUpload">Logo upload (für Gönner braucht es kein Bild)</label>
+                        <label for="imageUpload">Logo upload (für Gönner braucht es kein Bild) 400x150px</label>
                         <vue-dropzone 
                           ref="imageUpload" 
                           id="imageUpload" 

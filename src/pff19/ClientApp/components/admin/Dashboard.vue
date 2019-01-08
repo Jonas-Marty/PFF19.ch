@@ -1,10 +1,27 @@
 <template>
-        <div>
-        <h1>Dashboard</h1>
-                <p>Hallo auf der Webseite des PFF19 Mosaik. Diese Adminpanel befindet sich noch im Aufbau und ist deshalb bewusst noch sehr bescheiden gestaltet.</p>
-                <p>Falls ihr Bugs oder Ideen für die Webseite habt meldet euch bei mir (Maimu: <b>078 870 69 61</b>)</p>
-                <p>Bei Fragen zum Inhalt, wendet euch an an <b>Pluto</b></p> 
-        </div>
+    <div>
+    <h1>Sevus und Hallo!</h1>
+	<ul>
+		<li>
+			Falls du Bugs findet oder Ideen für die Webseite 
+			hast meldet dich bei mir <b>Maimu:</b> maimu@pff19.ch
+		</li>
+		<li>
+			Bei Fragen zum Inhalt, wendet dich an an <b>Pluto</b>: pluto@pff19.ch
+		</li> 
+		<li>
+			Bevor du Bilder uploadest, schneide diese in die 
+			passenden Formate
+		</li>
+		<li>
+			Leiste deinen Beitrag für eine schnelle Webseite und 
+			<a href="https://tinyjpg.com/" >komprimiert</a> die Bilder zuvor.
+		</li>
+		<li>
+			Wenn Möglich lade auch gleich die Französische Übersetztung hoch.
+		</li>
+	</ul>
+    </div>
 </template>
 <script>
 export default {

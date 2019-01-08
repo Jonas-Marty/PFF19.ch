@@ -1,9 +1,9 @@
 <template>
     <div>
         <h1>Alle FAQs</h1>
-        <p>
-            Ist noch in der Entwicklung und ist leider momentan noch nicht im Frontend implementiert. 
-        </p>
+        <div class="alert alert-info">
+            Ist noch in der Entwicklung und beeinflusst noch nicht die FAQ Site. 
+        </div>
         <router-link
             to="faqs/add"
             >

@@ -10,7 +10,7 @@
                    <form @submit.prevent="submit" v-if="!isSubmitted">
                     
                     <div class="form-group dropzone-wrapper" :class="{'invalid-form': $v.Images.$error}">
-                        <label for="image_upload">Image upload (Max 3 Bilder, 1 Bild ist Thumpnail)</label>
+                        <label for="image_upload">Image upload (Max 3 Bilder, 1 Bild ist Thumpnail) 740x555px</label>
                         <vue-dropzone
                             ref="myVueDropzone" 
                             id="dropzone" 
