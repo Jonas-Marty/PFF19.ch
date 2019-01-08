@@ -27,7 +27,8 @@
                         Edit
                         </router-link>
 
-                        <a href="#" class="card-link" @click="remove(band.id)">Delete</a>
+                        <i class="fa fa-remove fa-1x pull-right" @click="remove(band.id)"></i>
+
                 </div>
                     <div >
    
