@@ -10,12 +10,13 @@
                    <form @submit.prevent="submit" v-if="!isSubmitted">
                     
                     <div class="form-group">
-                        <label for="dropzone">Logo upload (für Gönner braucht es kein Bild)</label>
-                        <vue-dropzone ref="myVueDropzone" id="dropzone" :options="dropzoneOptions" v-on:vdropzone-file-added="sendingEvent">
-                            <div class="dropzone-custom-content">
-                                <h3 class="dropzone-custom-title">Drag and drop to upload content!</h3>
-                                <div class="subtitle">...or click to select a file from your computer</div>
-                            </div>    
+                        <label for="imageUpload">Logo upload (für Gönner braucht es kein Bild)</label>
+                        <vue-dropzone 
+                          ref="imageUpload" 
+                          id="imageUpload" 
+                          :options="dropzoneOptions" 
+                          v-on:vdropzone-file-added="sendingImage"
+                          v-on:vdropzone-removed-file="removingImage">   
                         </vue-dropzone>
                     </div>
 
@@ -94,13 +95,14 @@ export default {
     return {
       errors: [],
       isSubmitted: false,
-      name: "",
-      link: "",
-      typ: "4",
-      Logo: {},
+      name: '',
+      link: '',
+      typ: '4',
+      Image: {},
 
       dropzoneOptions: {
         url: "/api",
+        autoProcessQueue: false,
         thumbnailWidth: 150,
         maxFilesize: 0.5,
         maxFiles: 1,
@@ -136,7 +138,7 @@ export default {
           Name: this.name,
           Link: this.link,
           Status: this.typ,
-          UploadImage: this.Logo
+          Logo: this.Image
         };
 
         let form_data = new FormData();
@@ -145,8 +147,7 @@ export default {
           form_data.append(key, formData[key]);
         }
 
-        auth
-          .put(`Sponsors/${this.$route.params.id}`, form_data)
+        auth.put(`Sponsors/${this.$route.params.id}`, form_data)
           .then(response => {
             this.isSubmitted = true;
           })
@@ -156,29 +157,30 @@ export default {
       }
     },
 
-    sendingEvent(file, xhr) {
-      this.Logo = file;
+    sendingImage (file, xhr) {
+      this.Image = file;
     },
 
-    updateDate(date) {
-      this.date = date;
-    }
+    removingImage (file) {
+      this.Image = {}
+    },
   },
 
   mounted() {
     auth.get(`Sponsors/${this.$route.params.id}`)
       .then(response => {
+        console.log(response.data.logo)
         this.name = response.data.name;
         this.link = response.data.link;
         this.typ = response.data.status;
-        this.Image = response.data.image;
+        this.$refs.imageUpload.manuallyAddFile(
+          { size: 123, name: response.data.logo, type: "image/jpg" },
+           `/assets/sponsors/images/${response.data.logo}`
+        )
       })
       .catch(e => {
         this.errors.push(e);
       });
-    //var file = { size: 123, name: "Icon" };
-    //var url = "https://myvizo.com/img/logo_sm.png";
-    //this.$refs.myVueDropzone.manuallyAddFile(file, url);
   }
 };
 </script>

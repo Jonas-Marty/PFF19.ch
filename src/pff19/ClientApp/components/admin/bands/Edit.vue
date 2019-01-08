@@ -1,6 +1,6 @@
 <template>
                 <div>
-                    <h2 class="title">Band hinzufügen</h2>
+                    <h2 class="title">Band Editiern</h2>
 
                     <div v-if="isSubmitted">
                         <p>Deine Band wurde upgedated!</p>
@@ -32,7 +32,7 @@
                             id="imageUpload" 
                             :options="dropzoneOptions" 
                             v-on:vdropzone-file-added="sendingEventImage"
-                            v-on:vdropzone-removed-file="removingImage">  >
+                            v-on:vdropzone-removed-file="removingImage">
                         </vue-dropzone>   
                         <div class="error-messages">
                             <p v-if="!$v.ImageLarge.required && $v.ImageLarge.$dirty">Die Band braucht ein Bild</p>

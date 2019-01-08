@@ -66,7 +66,7 @@ export const routes = [
       {name: 'adminNews', path: 'news/', component: AdminNews, display: 'News', important: true},
       {name: 'adminNewsAdd', path: 'news/add', component: AdminNewsAdd, display: 'ADD'},
       {name: 'adminNewsEdit', path: 'news/:id/edit', component: AdminNewsEdit, display: 'EDIT'},
-      {name: 'adminFAQs', path: 'faqs/', component: AdminFAQs, display: 'FAQs', important: false},
+      {name: 'adminFAQs', path: 'faqs/', component: AdminFAQs, display: 'FAQs', important: true},
       {name: 'adminFAQAdd', path: 'faqs/add', component: AdminFAQAdd, display: 'ADD'},
       // {name: 'adminFsAQEdit', path: 'faqs/:order/edit', component: AdminFAQEdit, display: 'EDIT'},
       {name: 'adminBands', path: 'bands/', component: AdminBands, display: 'Bands', important: true},

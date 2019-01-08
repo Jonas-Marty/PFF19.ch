@@ -32,7 +32,7 @@
                             id="image_upload" 
                             :options="dropzoneOptions" 
                             v-on:vdropzone-file-added="sendingEventImage"
-                            v-on:vdropzone-removed-file="removingImage">  >
+                            v-on:vdropzone-removed-file="removingImage">
                         </vue-dropzone>   
                         <div class="error-messages">
                             <p v-if="!$v.ImageLarge.required && $v.ImageLarge.$dirty">Die Band braucht ein Bild</p>
@@ -293,7 +293,9 @@ export default {
         },
 
         removingThumpnail (file) {
+            console.log('before', this.ImageThumbnail)
             this.ImageThumbnail = {}
+            console.log('after', this.ImageThumbnail)
         },
 
         removingImage (file) {

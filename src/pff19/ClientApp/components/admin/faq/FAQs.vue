@@ -1,6 +1,9 @@
 <template>
     <div>
         <h1>Alle FAQs</h1>
+        <p>
+            Ist noch in der Entwicklung und ist leider momentan noch nicht im Frontend implementiert. 
+        </p>
         <router-link
             to="faqs/add"
             >
