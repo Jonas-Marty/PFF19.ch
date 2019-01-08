@@ -17,8 +17,7 @@ module.exports = () => ({
       { test: /\.css$/, use: [MiniCssExtractPlugin.loader, 'css-loader'] },
       { test: /\.scss$/,
         use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader']
-      },
-      { test: /\.(png|jpg|jpeg|gif|svg|png)$/, use: 'url-loader?limit=25000' }
+      }
     ]
   },
   plugins: [

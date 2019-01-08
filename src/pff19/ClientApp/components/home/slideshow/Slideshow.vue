@@ -31,7 +31,7 @@ export default {
 
 <style lang="scss" scoped>
     .slideshow { 
-        background: url('../../../assets/images/slideshow.jpg');
+        background: url('../../../assets/images/home_img_mq5.jpg');
         height: 800px;
         width: 100%;
         background-repeat: no-repeat;
