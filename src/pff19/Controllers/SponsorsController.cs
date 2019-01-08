@@ -105,7 +105,10 @@ namespace pff19.Controllers
             if (model.UploadImage != null)
             {
                 string filename = existingSponsor.Id + Path.GetExtension(model.UploadImage.FileName);
-                _fileUtility.SaveImage(model.UploadImage, "sponsors", filename,
+                _fileUtility.SaveImage(model.UploadImage.OpenReadStream(),
+                    "sponsors", 
+                    "images",
+                    filename,
                     new Size(_configuration.GetValue<int>("Images:Sponsors:X"),
                         _configuration.GetValue<int>("Images:Sponsors:Y")));
                 existingSponsor.Logo = filename;

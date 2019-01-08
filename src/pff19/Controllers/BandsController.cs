@@ -114,7 +114,7 @@ namespace pff19.Controllers
             if (model.ImageThumbnail != null)
             {
                 string filename = band.Id + Path.GetExtension(model.ImageThumbnail.FileName);
-                _fileUtility.SaveImage(model.ImageThumbnail, "bands", filename,
+                _fileUtility.SaveImage(model.ImageThumbnail.OpenReadStream(), "bands", "thumbnail", filename,
                     new Size(_configuration.GetValue<int>("Images:ThumbnailSize:Bands:X"),
                         _configuration.GetValue<int>("Images:ThumbnailSize:Bands:Y")));
                 band.ImageThumbnail = filename;
@@ -123,7 +123,7 @@ namespace pff19.Controllers
             if (model.ImageLarge != null)
             {
                 string filename = band.Id + Path.GetExtension(model.ImageLarge.FileName);
-                _fileUtility.SaveImage(model.ImageLarge, "bands", filename,
+                _fileUtility.SaveImage(model.ImageLarge.OpenReadStream(), "bands", "images", filename,
                     new Size(_configuration.GetValue<int>("Images:Bands:X"),
                         _configuration.GetValue<int>("Images:Bands:Y")));
                 band.ImageLarge = filename;
