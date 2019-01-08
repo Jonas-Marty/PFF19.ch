@@ -4,12 +4,17 @@ import auth from '../auth'
 export const bands = {
   namespaced: true,
   state: {
-    bands: []
+    bands: [],
+    currentBand: {}
   },
 
   getters: {
     all: state => {
       return state.bands
+    },
+
+    getCurrentBand: state => {
+      return state.currentBand
     }
   },
 
@@ -18,8 +23,12 @@ export const bands = {
       state.bands = payload
     },
 
+    loadCurrentBand: (state, payload) => {
+      state.currentBand = payload
+    },
+
     remove: (state, id) => {
-      state.bands = state.news.filter(el => el.id !== id)
+      state.bands = state.bands.filter(el => el.id !== id)
     }
   },
 
@@ -28,6 +37,14 @@ export const bands = {
       axios.get('/api/bands')
         .then(response => {
           commit('load', response.data)
+        }).catch(e => {
+        })
+    },
+
+    loadCurrentBand: ({commit}, payload) => {
+      axios.get(`/api/bands/${payload}`)
+        .then(response => {
+          commit('loadCurrentBand', response.data)
         }).catch(e => {
         })
     },

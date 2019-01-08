@@ -5,7 +5,7 @@ export const news = {
   namespaced: true,
   state: {
     news: [],
-    currentnews: {}
+    currentNews: {}
   },
 
   getters: {
@@ -14,7 +14,7 @@ export const news = {
     },
 
     getCurrentNews: state => {
-      return state.currentnews
+      return state.currentNews
     },
 
     firstThree: state => {
@@ -28,7 +28,7 @@ export const news = {
     },
 
     loadCurrentNews: (state, payload) => {
-      state.currentnews = payload
+      state.currentNews = payload
     },
 
     remove: (state, id) => {
