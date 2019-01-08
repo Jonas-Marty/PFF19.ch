@@ -35,7 +35,7 @@ namespace pff19.Controllers
 
         // POST: api/Faq
         [HttpPost, Authorize]
-        public IActionResult Post(Faq faqs)
+        public IActionResult Post([FromForm]Faq faqs)
         {
             var order = _faqRepository.GetAll().Select(x => x.Order).DefaultIfEmpty(0).Max() + 1;
             faqs.Order = order;
@@ -43,7 +43,7 @@ namespace pff19.Controllers
             return CreatedAtRoute(GetFaqsRoutName, new { id = faqs.Id }, faqs);
         }
 
-        [HttpPut, Authorize]
+        [HttpPut("{firstId:int}/{secondId:int}"), Authorize]
         public IActionResult Put(int firstId, int secondId)
         {
             var existingFaq1 = _faqRepository.Get(firstId);
@@ -64,7 +64,7 @@ namespace pff19.Controllers
 
         // PUT: api/News/5
         [HttpPut("{id}"), Authorize]
-        public IActionResult Put(int id, Faq faq)
+        public IActionResult Put(int id, [FromForm]Faq faq)
         {
             var existingFaq = _faqRepository.Get(id);
             if (existingFaq == null)
