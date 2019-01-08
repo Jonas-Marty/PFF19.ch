@@ -45,7 +45,7 @@ export const routes = [
       { name: 'helper', path: '/helfer', component: Helfer, display: 'Helfer', important: true },
 
       { name: 'impressum', path: '/impressum', component: Impressum, display: 'Impressum' },
-      { name: 'news_overview', path: '/news', component: NewsOverview, display: 'NewsOverview' },
+      { name: 'newsOverview', path: '/news', component: NewsOverview, display: 'NewsOverview' },
       { name: 'news', path: '/news/:id', component: News, display: 'News' },
       { name: 'contact', path: '/contact', component: Contact, display: 'Kontakt', important: true },
       { name: 'ticketing', path: '/tickets', component: Ticketing, display: 'Tickets', important: false },
