@@ -14,7 +14,12 @@
                     <p class="card-text">               
                         {{ band.descriptionDe | shorten(150)}}
                     </p>
-                        <a href="#" class="card-link">View</a>
+                        <router-link 
+                         class="card-link"
+                            :to="{ name: 'band', params: {id: band.id }}"
+                        >
+                        View
+                        </router-link>
                         <router-link 
                          class="card-link"
                             :to="{ name: 'adminBandsEdit', params: {id: band.id }}"

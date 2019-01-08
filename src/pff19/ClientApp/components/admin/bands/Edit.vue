@@ -142,6 +142,21 @@
                         </div>
                     </div>
 
+                    <div class="form-group">
+                        <label for="spotify">Spotify Playlist code
+                            <a href="https://developer.spotify.com/documentation/widgets/generate/play-button/">hilfe</a>
+                        </label>
+                        <input 
+                            type="text" 
+                            class="form-control" 
+                            id="spotify" 
+                            placeholder="1DFixLWuPkv3KT3TnV35m3" 
+                            v-model="SpotifyPlaylist"
+                        >
+                        <div class="error-messages">
+                        </div>
+                    </div>
+
                     <button type="submit" class="btn btn-primary" >Bestätigen</button>
                 </form>
 
@@ -184,6 +199,7 @@ export default {
             YoutubeUrls: '',
             WebSiteUrl: '',
             Instagram: '',
+            SpotifyPlaylist: '',
             ImageThumbnail: {},
             ImageLarge: {},
 
@@ -246,6 +262,7 @@ export default {
                     Facebook: this.Facebook,
                     YoutubeUrls: this.YoutubeUrls,
                     Instagram: this.Instagram,
+                    SpotifyPlaylist: this.SpotifyPlaylist,
                     WebSiteUrl: this.WebSiteUrl,
                     ImageThumbnail: this.ImageThumbnail,
                     ImageLarge: this.ImageLarge
@@ -294,6 +311,7 @@ export default {
                 this.Facebook = response.data.facebook
                 this.YoutubeUrls = response.data.youtubeUrls
                 this.Instagram = response.data.instagram
+                this.SpotifyPlaylist = response.data.spotifyPlaylist
                 this.WebSiteUrl = response.data.webSiteUrl
                 this.$refs.thumpnailUpload.manuallyAddFile(
                     { size: 123, name: response.data.imageThumbnail, type: "image/jpg" },

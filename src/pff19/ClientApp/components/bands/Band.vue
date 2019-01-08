@@ -15,13 +15,14 @@
                 </div>
                 
                 
-                <h1>{{ this.getCurrentBand.name }}</h1>
-                <div class="row" v-if="this.getCurrentBand.spotify">
+                <h1 class="title">{{ this.getCurrentBand.name }}</h1>
+
+                <div class="row" v-if="this.getCurrentBand.spotifyPlaylist">
                     <div class="col-12 col-md-6 text-content" v-html="description"></div>
                     <div class="col-12 col-md-6">
                         <iframe 
                             class="spotify"
-                            :src="`https://open.spotify.com/embed/user/themaimu/playlist/${this.getCurrentBand.spotify}`" 
+                            :src="`https://open.spotify.com/embed/album/${this.getCurrentBand.spotifyPlaylist}`" 
                             frameborder="0" 
                             allowtransparency="true" 
                             allow="encrypted-media">
@@ -129,6 +130,10 @@ export default {
 
     .back {
         margin-bottom: 30px;
+    }
+
+    .title {
+        margin-bottom: 40px;
     }
 
     .band-image {
