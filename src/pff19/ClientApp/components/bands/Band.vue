@@ -22,7 +22,7 @@
                     <div class="col-12 col-md-6">
                         <iframe 
                             class="spotify"
-                            :src="`https://open.spotify.com/embed/album/${this.getCurrentBand.spotifyPlaylist}`" 
+                            :src="this.getCurrentBand.spotifyPlaylist" 
                             frameborder="0" 
                             allowtransparency="true" 
                             allow="encrypted-media">

@@ -150,7 +150,7 @@
                             type="text" 
                             class="form-control" 
                             id="spotify" 
-                            placeholder="1DFixLWuPkv3KT3TnV35m3" 
+                            placeholder="https://open.spotify.com/embed/album/1DFixLWuPkv3KT3TnV35m3" 
                             v-model="SpotifyPlaylist"
                         >
                         <div class="error-messages">
