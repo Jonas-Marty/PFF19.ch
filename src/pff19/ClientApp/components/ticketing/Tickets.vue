@@ -1,7 +1,8 @@
 <template>
     <div>
         <app-slideshow> </app-slideshow>
-        <description></description>
+        <description-fr v-if="language === 'fr'"></description-fr>
+        <description-de v-else></description-de>
     </div>
 </template>
 
@@ -9,7 +10,9 @@
 import Vue from 'vue';
 
 import Slideshow from './Slideshow'
-import Description from './Description'
+import descriptionDe from './DescriptionDe'
+import descriptionFr from './DescriptionFr'
+
 
 
 import { mapActions, mapGetters  } from 'vuex';
@@ -29,7 +32,8 @@ export default {
 
     components: {
         'app-slideshow': Slideshow,
-        Description
+        descriptionFr,
+        descriptionDe
     }
 }
 </script>

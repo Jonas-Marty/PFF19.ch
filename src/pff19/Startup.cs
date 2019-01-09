@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Text;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
@@ -101,7 +102,8 @@ namespace pff19
                 app.UseDeveloperExceptionPage();
                 app.UseWebpackDevMiddleware(new WebpackDevMiddlewareOptions
                 {
-                    HotModuleReplacement = true, 
+                    HotModuleReplacement = true,
+                    EnvironmentVariables = new Dictionary<string, string> { ["env.mode"] = "development" },
                     ConfigFile = "webpack.dev.js"
                 });
                 Console.WriteLine("!!!!!!!!!!!!!Started in Development mode!!!!!!!!!!!!!");

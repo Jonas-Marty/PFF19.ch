@@ -42,7 +42,7 @@
                         <span class="footer-heading">{{ $t('lang.components.footer.follow_us') | uppercase }}</span>
                         <div class="social-media footer-content">
                             <a href="https://www.facebook.com/pff19mosaik/"> <img :src="require('assets/images/001-facebook.svg')" alt="facebook"> </a>
-                            <a href="https://www.instagram.com/pff_19_mosaik/"> <img :src="require('assets/images/003-instagram.svg')" alt="facebook"> </a>
+                            <a href="https://www.instagram.com/pff_19_mosaik/"> <img :src="require('assets/images/003-instagram.svg')" alt="instagram"> </a>
                         </div>
                     </div>
 

@@ -5,7 +5,7 @@
         </div>
             <div class="float-right">
                 <router-link
-                    :to="{name: 'news_overview'}"
+                    :to="{name: 'newsOverview'}"
                     class=""
                 > {{ $t('lang.components.home.news.further_news') }}</router-link>
             </div>

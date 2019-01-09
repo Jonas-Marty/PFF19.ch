@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using pff19.DataAccess;
 
 namespace pff19.DataAccess.Migrations
 {
     [DbContext(typeof(PffContext))]
-    partial class PffContextModelSnapshot : ModelSnapshot
+    [Migration("20190105162610_NewFieldsForBands")]
+    partial class NewFieldsForBands
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -65,7 +67,7 @@ namespace pff19.DataAccess.Migrations
 
                     b.Property<int>("Order");
 
-                    b.Property<DateTime?>("PlayTime");
+                    b.Property<DateTime>("PlayTime");
 
                     b.Property<string>("SpotifyPlaylist");
 

@@ -9,6 +9,8 @@ import News from 'components/news/News'
 import Error404 from 'components/partials/404'
 import Contact from 'components/faq/Kontakt'
 import Ticketing from 'components/ticketing/Tickets'
+import Band from 'components/bands/Band'
+import BandsOverview from 'components/bands/BandsOverview'
 
 import DefaultLayout from './layouts/Default'
 import AdminLayout from './layouts/Admin'
@@ -20,6 +22,13 @@ import SponsoringEdit from 'components/admin/sponsoring/Edit'
 import AdminNews from 'components/admin/news/News'
 import AdminNewsAdd from 'components/admin/news/Add'
 import AdminNewsEdit from 'components/admin/news/Edit'
+import AdminFAQs from 'components/admin/faq/FAQs'
+import AdminFAQAdd from 'components/admin/faq/Add'
+// import AdminFAQEdit from 'components/admin/faq/Edit'
+import AdminBands from 'components/admin/bands/Bands'
+import AdminBandsAdd from 'components/admin/bands/Add'
+import AdminBandsEdit from 'components/admin/bands/Edit'
+
 import AdminHelfer from 'components/admin/helper/Helfer'
 import AdminContact from 'components/admin/contact/Contact'
 import { store } from './store/index'
@@ -36,10 +45,13 @@ export const routes = [
       { name: 'helper', path: '/helfer', component: Helfer, display: 'Helfer', important: true },
 
       { name: 'impressum', path: '/impressum', component: Impressum, display: 'Impressum' },
-      { name: 'news_overview', path: '/news', component: NewsOverview, display: 'NewsOverview' },
+      { name: 'newsOverview', path: '/news', component: NewsOverview, display: 'NewsOverview' },
       { name: 'news', path: '/news/:id', component: News, display: 'News' },
       { name: 'contact', path: '/contact', component: Contact, display: 'Kontakt', important: true },
-      { name: 'ticketing', path: '/tickets', component: Ticketing, display: 'Tickets', important: false }
+      { name: 'ticketing', path: '/tickets', component: Ticketing, display: 'Tickets', important: false },
+      { name: 'bandsOverview', path: '/bands', component: BandsOverview, display: 'Bands', important: true },
+      { name: 'band', path: '/band/:id', component: Band, display: 'Band' }
+
     ]
   },
 
@@ -54,6 +66,12 @@ export const routes = [
       {name: 'adminNews', path: 'news/', component: AdminNews, display: 'News', important: true},
       {name: 'adminNewsAdd', path: 'news/add', component: AdminNewsAdd, display: 'ADD'},
       {name: 'adminNewsEdit', path: 'news/:id/edit', component: AdminNewsEdit, display: 'EDIT'},
+      {name: 'adminFAQs', path: 'faqs/', component: AdminFAQs, display: 'FAQs', important: true},
+      {name: 'adminFAQAdd', path: 'faqs/add', component: AdminFAQAdd, display: 'ADD'},
+      // {name: 'adminFsAQEdit', path: 'faqs/:order/edit', component: AdminFAQEdit, display: 'EDIT'},
+      {name: 'adminBands', path: 'bands/', component: AdminBands, display: 'Bands', important: true},
+      {name: 'adminBandsAdd', path: 'bands/add', component: AdminBandsAdd, display: 'ADD'},
+      {name: 'adminBandsEdit', path: 'bands/:id/edit', component: AdminBandsEdit, display: 'EDIT'},
       {name: 'adminHelperList', path: 'helper', component: AdminHelfer, display: 'Helfer', important: true},
       {name: 'adminContact', path: 'contact/', component: AdminContact, display: 'Contact', important: true},
       {name: 'adminDashboard', path: '', component: Dashboard, display: 'Dashboard', important: true}

@@ -6,6 +6,8 @@ import { api } from './api'
 import { sponsors } from './sponsors'
 import { helfer } from './helfer'
 import { contact } from './contact'
+import { faqs } from './faqs'
+import { bands } from './bands'
 
 Vue.use(Vuex)
 
@@ -57,6 +59,8 @@ export const store = new Vuex.Store({
     api,
     sponsors,
     helfer,
-    contact
+    contact,
+    faqs,
+    bands
   }
 })

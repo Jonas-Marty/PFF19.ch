@@ -1,9 +1,14 @@
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Configuration;
 using pff19.DataAccess.Models;
 using pff19.DataAccess.Repositories;
+using pff19.Models;
+using pff19.Utiles;
+using SixLabors.Primitives;
 
 namespace pff19.Controllers
 {
@@ -13,10 +18,14 @@ namespace pff19.Controllers
     {
         private const string GetBandRouteName = "GetBands";
         private readonly BandRepository _bandRepository;
+        private readonly IConfiguration _configuration;
+        private readonly FileUtility _fileUtility;
 
-        public BandsController(BandRepository bandRepository)
+        public BandsController(BandRepository bandRepository, IConfiguration configuration, FileUtility fileUtility)
         {
             _bandRepository = bandRepository;
+            _configuration = configuration;
+            _fileUtility = fileUtility;
         }
 
         // GET: api/Bands
@@ -35,15 +44,30 @@ namespace pff19.Controllers
 
         // POST: api/Bands
         [HttpPost]
-        public IActionResult Post(Band band)
+        public IActionResult Post([FromForm] BandViewModel model)
         {
+            Band band = new Band
+            {
+                DescriptionDe =  model.DescriptionDe,
+                DescriptionFr =  model.DescriptionFr,
+                Name = model.Name,
+                SpotifyPlaylist = model.SpotifyPlaylist,
+                YoutubeUrls = model.YoutubeUrls,
+                Facebook =  model.Facebook,
+                Instagram = model.Instagram,
+                PlayTime = model.PlayTime,
+                WebSiteUrl = model.WebSiteUrl
+            };
+            band.Order = _bandRepository.GetAll().Select(b => b.Order).DefaultIfEmpty(0).Max() + 1;
             _bandRepository.Add(band);
-            return CreatedAtRoute(GetBandRouteName, new { id = band.Id }, band);
+            SafeBandImages(model, band);
+            _bandRepository.Update(band);
+            return CreatedAtRoute(GetBandRouteName, new {id = band.Id}, band);
         }
 
         // PUT: api/Bands/5
         [HttpPut("{id}"), Authorize]
-        public IActionResult Put(int id, Band band)
+        public IActionResult Put(int id, [FromForm] BandViewModel model)
         {
             var existingBand = _bandRepository.Get(id);
             if (existingBand == null)
@@ -51,10 +75,19 @@ namespace pff19.Controllers
                 return NotFound();
             }
 
-            existingBand.Name = band.Name;
-            existingBand.DescriptionDe = band.DescriptionDe;
-            existingBand.DescriptionFr = band.DescriptionFr;
+            existingBand.Name = model.Name;
+            existingBand.DescriptionDe = model.DescriptionDe;
+            existingBand.DescriptionFr = model.DescriptionFr;
+            existingBand.Name = model.Name;
+            existingBand.SpotifyPlaylist = model.SpotifyPlaylist;
+            existingBand.YoutubeUrls = model.YoutubeUrls;
+            existingBand.Order = model.Order ?? existingBand.Order;
+            existingBand.Facebook = model.Facebook;
+            existingBand.Instagram = model.Instagram;
+            existingBand.PlayTime = model.PlayTime;
+            existingBand.WebSiteUrl = model.WebSiteUrl;
 
+            SafeBandImages(model, existingBand);
 
             _bandRepository.Update(existingBand);
 
@@ -74,6 +107,27 @@ namespace pff19.Controllers
             _bandRepository.Delete(existingBand);
 
             return NoContent();
+        }
+
+        private void SafeBandImages(BandViewModel model, Band band)
+        {
+            if (model.ImageThumbnail != null)
+            {
+                string filename = band.Id + Path.GetExtension(model.ImageThumbnail.FileName);
+                _fileUtility.SaveImage(model.ImageThumbnail.OpenReadStream(), "bands", "thumbnail", filename,
+                    new Size(_configuration.GetValue<int>("Images:ThumbnailSize:Bands:X"),
+                        _configuration.GetValue<int>("Images:ThumbnailSize:Bands:Y")));
+                band.ImageThumbnail = filename;
+            }
+
+            if (model.ImageLarge != null)
+            {
+                string filename = band.Id + Path.GetExtension(model.ImageLarge.FileName);
+                _fileUtility.SaveImage(model.ImageLarge.OpenReadStream(), "bands", "images", filename,
+                    new Size(_configuration.GetValue<int>("Images:Bands:X"),
+                        _configuration.GetValue<int>("Images:Bands:Y")));
+                band.ImageLarge = filename;
+            }
         }
     }
 }

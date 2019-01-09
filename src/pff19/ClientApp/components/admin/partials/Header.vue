@@ -59,6 +59,18 @@ export default {
         toggleCollapsed (event) {
             this.collapsed = !this.collapsed;
         },
+
+    },
+    created () {
+        let self = this;
+
+        window.addEventListener('click', function(e){
+
+            // close dropdown when clicked outside
+            if (!self.$el.contains(e.target) || self.$el.contains(e.target) && e.target.tagName === 'A'){
+            self.collapse = false
+            } 
+        })
     },
 
 }

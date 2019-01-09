@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using pff19.DataAccess;
 
 namespace pff19.DataAccess.Migrations
 {
     [DbContext(typeof(PffContext))]
-    partial class PffContextModelSnapshot : ModelSnapshot
+    [Migration("20190105122738_FaqCategoryAsString")]
+    partial class FaqCategoryAsString
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -49,29 +51,14 @@ namespace pff19.DataAccess.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("DescriptionDe");
+                    b.Property<string>("DescriptionDe")
+                        .IsRequired();
 
-                    b.Property<string>("DescriptionFr");
+                    b.Property<string>("DescriptionFr")
+                        .IsRequired();
 
-                    b.Property<string>("Facebook");
-
-                    b.Property<string>("ImageLarge");
-
-                    b.Property<string>("ImageThumbnail");
-
-                    b.Property<string>("Instagram");
-
-                    b.Property<string>("Name");
-
-                    b.Property<int>("Order");
-
-                    b.Property<DateTime?>("PlayTime");
-
-                    b.Property<string>("SpotifyPlaylist");
-
-                    b.Property<string>("WebSiteUrl");
-
-                    b.Property<string>("YoutubeUrls");
+                    b.Property<string>("Name")
+                        .IsRequired();
 
                     b.HasKey("Id");
 
