@@ -54,7 +54,7 @@
                     <div v-for="video in videos" :key="video" class=" col-12 col-md-6">
                         <div class="iframe-container">
                         <iframe class="ytplayer" type="text/html"
-                        :src="`http://www.youtube.com/embed/${video}`"
+                        :src="`https://www.youtube.com/embed/${video}`"
                         frameborder="0"/>
                         </div>
                     </div>
