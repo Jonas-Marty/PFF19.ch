@@ -1,16 +1,16 @@
 <template>
     <div class="container">
-        <div class="ticket-buying card">
+        <div class="ticket-buying card row">
             <h1 class="title">Werde mit Deinem Ticket Teil unseres Mosaiks!</h1>
 
 
             <div class="col col-md-6 offset-md-3">
-                <iframe class="iframes first"
-                    datasrc="https://www.ticketino.com/de/OrganizerShopEmbed/1676610/Event/Mosaik-PFF-FFS-19/80740" 
+                <iframe  
+                    class="iframe"
+                    datasrc="https://www.ticketino.com/de/Event/Embed/80740"
                     frameborder="0" 
-                    src="https://www.ticketino.com/de/OrganizerShopEmbed/1676610/Event/Mosaik-PFF-FFS-19/80740"
-                >
-                </iframe>
+                    src="https://www.ticketino.com/de/Event/Embed/80740">
+                 </iframe>
             </div>
 
         </div>
@@ -86,7 +86,7 @@
         </p>
 
 
-    <app-polygon color="yellow" position="left"> </app-polygon>
+        <app-polygon color="yellow" position="left"> </app-polygon>
 
     </div>
     
@@ -114,10 +114,11 @@
         padding: 0;
     }
 
-    .iframes {
+    .iframe {
         margin-bottom: 50px;
         width: 100%;
         height: 500px;
+        max-height: 500px;
     }
 </style>
 
