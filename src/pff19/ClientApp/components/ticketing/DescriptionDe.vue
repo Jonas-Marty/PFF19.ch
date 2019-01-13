@@ -3,8 +3,16 @@
         <div class="ticket-buying card row">
             <h1 class="title">Werde mit Deinem Ticket Teil unseres Mosaiks!</h1>
 
+            <div class="helfer">
+                <h3>Helfer</h3>
+                <p>
+                    Möchtest Du das PFF als Helfer unterstützen und Dir dadurch einen Rabatt 
+                    auf Dein Ticket sichern? <router-link :to="{name: 'helper'}"> Werde Helfer!</router-link> (Helfer beziehen ihr vergünstigtes 
+                    Ticket direkt an der Kasse vor Ort.)
+                </p>
+            </div>
 
-            <div class="col col-md-6 offset-md-3">
+            <div class="col col-md-6 offset-md-3 iframe-wrapper">
                 <iframe  
                     class="iframe"
                     datasrc="https://www.ticketino.com/de/Event/Embed/80740"
@@ -67,14 +75,6 @@
         </div>
 
         
-        <h3>Helfer</h3>
-        <p>
-            Möchtest Du das PFF als Helfer unterstützen und Dir dadurch einen Rabatt 
-            auf Dein Ticket sichern? Werde Helfer! (Helfer beziehen ihr vergünstigtes 
-            Ticket direkt an der Kasse vor Ort.)
-        </p>
-
-
         <h3>Event-Hinweise</h3>
         <ul>
             <li>Das PFF 19 ist für Besucher ab 16 Jahren. </li>
@@ -97,7 +97,7 @@
 <style lang="scss" scoped>
     .ticket-buying {
         margin-top: -250px;
-        min-height: 300px;
+        min-height: 800px;
         z-index: 2;
         position: relative;
     }
@@ -116,11 +116,21 @@
         padding: 0;
     }
 
-    .iframe {
-        margin-bottom: 50px;
+    .iframe-wrapper{
         width: 100%;
-        height: 500px;
-        max-height: 500px;
+        height: 400px;
+        margin-bottom: 50px;
+    }
+
+    .iframe {
+        width: 100%;
+        height: 100%;
+    }
+
+    .helfer {
+        width: 80%;
+        margin: 0 auto;
+        margin-bottom: 50px;
     }
 </style>
 
