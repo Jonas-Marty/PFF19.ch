@@ -39,7 +39,7 @@ export const routes = [
     path: '/',
     children: [
       { name: 'home', path: '/', component: HomePage, display: 'Home', important: true },
-      { name: 'sponsors', path: '/sponsors', component: Sponsors, display: 'Sponsoren', important: false },
+      { name: 'sponsors', path: '/sponsors', component: Sponsors, display: 'Sponsoren', important: true },
       { name: 'faq', path: '/faq', component: FAQ, display: 'FAQ', important: true },
       { name: 'organisation', path: '/organisation', component: Organisation, display: 'Organisation', important: true },
       { name: 'helper', path: '/helfer', component: Helfer, display: 'Helfer', important: true },
@@ -48,8 +48,8 @@ export const routes = [
       { name: 'newsOverview', path: '/news', component: NewsOverview, display: 'NewsOverview' },
       { name: 'news', path: '/news/:id', component: News, display: 'News' },
       { name: 'contact', path: '/contact', component: Contact, display: 'Kontakt', important: true },
-      { name: 'ticketing', path: '/tickets', component: Ticketing, display: 'Tickets', important: false },
       { name: 'bandsOverview', path: '/bands', component: BandsOverview, display: 'Bands', important: true },
+      { name: 'ticketing', path: '/tickets', component: Ticketing, display: 'Tickets', important: true },
       { name: 'band', path: '/band/:id', component: Band, display: 'Band' }
 
     ]

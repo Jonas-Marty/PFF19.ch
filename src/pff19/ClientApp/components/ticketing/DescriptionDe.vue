@@ -24,9 +24,11 @@
                     <ul class="list-group list-group-flush">
                         <li class="list-group-item">Zutritt zum Festivalgelände und zum Zeltplatz von Freitag bis Sonntag </li>
                         <li class="list-group-item">Goodie-Bag mit Festivalbecher</li>
-                        <li class="list-group-item">Shuttlebus vom Bahnhof zum Festivalgelände</li>
                         <li class="list-group-item">Essenspauschale für vier Mahlzeiten: Abendessen
                              am Freitag und Samstag, Frühstück am Samstag und Sonntag. Bitte bring Dein Essgeschirr mit.</li>
+                        <li class="list-group-item">Vergünstigte Anreise mit SBB</li>
+                        <li class="list-group-item">Shuttlebus vom Bahnhof zum Festivalgelände</li>
+
                     </ul>
                 </div>
             </div>
