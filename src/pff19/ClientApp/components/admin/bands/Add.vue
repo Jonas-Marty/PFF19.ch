@@ -293,9 +293,7 @@ export default {
         },
 
         removingThumpnail (file) {
-            console.log('before', this.ImageThumbnail)
             this.ImageThumbnail = {}
-            console.log('after', this.ImageThumbnail)
         },
 
         removingImage (file) {
