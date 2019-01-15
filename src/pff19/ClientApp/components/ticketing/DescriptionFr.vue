@@ -83,7 +83,10 @@
             <li>Am gesamten Festival zählen die Festivalregeln, siehe Festivalregeln im Programmheft am Check-in.</li>
         </ul>
         <p>
-            Hast Du Fragen zu den Tickets, technische Probleme beim Ticketkauf oder dem Zahlungsprozess? Gerne helfen wir 
+            Noch Fragen zu den Tickets oder zum Festival? Die Antwort findest du bestimmt <router-link :to="{name: 'faq'}"> hier</router-link>
+        </p>
+        <p>
+            Hast technische Probleme beim Ticketkauf oder dem Zahlungsprozess? Gerne helfen wir 
             Dir weiter unter <a href="mailto:ticket@pff19.ch">ticket@pff19.ch</a> 
         </p>
 
