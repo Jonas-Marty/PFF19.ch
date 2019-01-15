@@ -24,7 +24,7 @@ import AdminNewsAdd from 'components/admin/news/Add'
 import AdminNewsEdit from 'components/admin/news/Edit'
 import AdminFAQs from 'components/admin/faq/FAQs'
 import AdminFAQAdd from 'components/admin/faq/Add'
-// import AdminFAQEdit from 'components/admin/faq/Edit'
+import AdminFAQEdit from 'components/admin/faq/Edit'
 import AdminBands from 'components/admin/bands/Bands'
 import AdminBandsAdd from 'components/admin/bands/Add'
 import AdminBandsEdit from 'components/admin/bands/Edit'
@@ -68,7 +68,7 @@ export const routes = [
       {name: 'adminNewsEdit', path: 'news/:id/edit', component: AdminNewsEdit, display: 'EDIT'},
       {name: 'adminFAQs', path: 'faqs/', component: AdminFAQs, display: 'FAQs', important: true},
       {name: 'adminFAQAdd', path: 'faqs/add', component: AdminFAQAdd, display: 'ADD'},
-      // {name: 'adminFsAQEdit', path: 'faqs/:order/edit', component: AdminFAQEdit, display: 'EDIT'},
+      {name: 'adminFAQEdit', path: 'faqs/:id/edit', component: AdminFAQEdit, display: 'EDIT'},
       {name: 'adminBands', path: 'bands/', component: AdminBands, display: 'Bands', important: true},
       {name: 'adminBandsAdd', path: 'bands/add', component: AdminBandsAdd, display: 'ADD'},
       {name: 'adminBandsEdit', path: 'bands/:id/edit', component: AdminBandsEdit, display: 'EDIT'},

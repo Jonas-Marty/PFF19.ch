@@ -1,26 +1,55 @@
 <template>
-<div>
-    <faq-fr v-if="language === 'fr'"></faq-fr>
-    <faq-de v-else></faq-de>
-</div>
+    <div class="container-fluid">
+        <app-polygon color="green" position="left"></app-polygon>
+        <div class="container faq">
+            <div class="offset-lg-1 col-lg-10">
+            <h1>FAQ's</h1>
+            <div v-for="faq in all" :key="faq.id">
+                <question :question="faq"> </question>
+            </div>
+            </div>
+        </div>
+    </div>
+
 </template>
 
 <script> 
-import { mapGetters } from 'vuex'
-import faqDe from './FAQDE'
-import faqFr from './FAQFR'
+import { mapGetters, mapActions } from 'vuex'
+import Question from './Question'
 export default {
     components: {
-        faqDe,
-        faqFr
+        Question
     },
 
     computed: {
         ...mapGetters([
             'language'
+        ]),
+        ...mapGetters('faqs', [
+            'all'
         ])
-    }
+    },
+
+    methods: {
+        ...mapActions('faqs', [
+            'load',
+        ]),
+    },
+
+    created() {
+        this.load()
+    },
 
 }
 </script>
+
+<style lang="scss" scoped>
+    .faq {
+        position: relavtive;
+    }
+    .container {
+        padding-top: 100px;
+        min-height: 1000px;
+    }
+</style>
 
