@@ -201,6 +201,9 @@ export default {
         .text-content {
             margin-bottom: 20px;
         }
+        .slideshow { 
+            height: 320px;
+        }
     }
 </style>
 
