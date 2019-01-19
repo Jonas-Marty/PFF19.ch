@@ -39,20 +39,31 @@
                         </div> 
                     </div>
 
-                    <div class="form-group">
-                        <label for="select_date">Auftritts Zeit</label>
-                        <!-- TODO: Adjust range of time  -->
-                        <input 
-                            type="datetime-local" 
-                            id="meeting-time"
-                            value="2019-08-30T19:30"
-                            min="2019-08-30T00:00" max="2019-09-01T23:00"
-                            class="form-control"
-                            v-model="PlayTime"
+                        <div class="form-group" >
+                            <label for="time">Aufrittszeit (wird so dargestellt)</label>
+                            <input 
+                                type="text" 
+                                class="form-control" 
+                                id="time" 
+                                placeholder="20.00 Uhr Samstag" 
+                                v-model="PlayTime"
                             >
+                            <div class="error-messages">
+                            </div>
+                        </div>
+
+                        <div class="form-group" >
+                        <label for="youtbe_url">Youtube codes separiert mit comma (Bsp: "Pun1Nxv9f3g, Oun1Nxv9f3a")</label>
+                        <input 
+                            type="text" 
+                            class="form-control" 
+                            id="youtbe_url" 
+                            placeholder="30. August " 
+                            v-model="YoutubeUrls"
+                        >
                         <div class="error-messages">
                         </div>
-                    </div>
+                        </div>
 
                     <div class="form-group" :class="{'invalid-form': $v.Name.$error}">
                         <label for="name">Name</label>
@@ -305,14 +316,14 @@ export default {
         auth.get(`Bands/${this.$route.params.id}`)
             .then(response => {
                 this.Name = response.data.name
-                this.PlayTime = response.data.playTime
+                this.PlayTime = response.data.playTime ? response.data.playTime : ''
                 this.DescriptionDe = response.data.descriptionDe
                 this.DescriptionFr = response.data.descriptionFr
-                this.Facebook = response.data.facebook
-                this.YoutubeUrls = response.data.youtubeUrls
-                this.Instagram = response.data.instagram
-                this.SpotifyPlaylist = response.data.spotifyPlaylist
-                this.WebSiteUrl = response.data.webSiteUrl
+                this.Facebook = response.data.facebook ? response.data.facebook : ''
+                this.YoutubeUrls = response.data.youtubeUrls ? response.data.youtubeUrls : ''
+                this.Instagram = response.data.instagram ? response.data.instagram : ''
+                this.SpotifyPlaylist = response.data.spotifyPlaylist ? response.data.spotifyPlaylist : ''
+                this.WebSiteUrl = response.data.webSiteUrl ? response.data.spotifyPlaylist : ''
                 this.$refs.thumpnailUpload.manuallyAddFile(
                     { size: 123, name: response.data.imageThumbnail, type: "image/jpg" },
                     `/assets/bands/thumbnail/${response.data.imageThumbnail}`
