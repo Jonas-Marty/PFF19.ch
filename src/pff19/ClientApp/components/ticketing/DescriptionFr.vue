@@ -3,7 +3,7 @@
         <div class="ticket-buying card row">
             <h1 class="title">Werde mit Deinem Ticket Teil unseres Mosaiks!</h1>
 
-            <div class="helfer">
+            <div class="alert alert-info helfer">
                 <h3>Helfer</h3>
                 <p>
                     Möchtest Du das PFF als Helfer unterstützen und Dir dadurch einen Rabatt 
@@ -119,10 +119,9 @@
         padding: 0;
     }
 
-    .iframe-wrapper{
-        width: 100%;
+    .iframe-wrapper {
+        margin-bottom: 30px;
         height: 400px;
-        margin-bottom: 50px;
     }
 
     .iframe {
@@ -135,5 +134,12 @@
         margin: 0 auto;
         margin-bottom: 50px;
     }
+
+@media (max-width: 768px) { 
+    .iframe-wrapper {
+        flex-basis: 1;
+    }
+}
+
 </style>
 
