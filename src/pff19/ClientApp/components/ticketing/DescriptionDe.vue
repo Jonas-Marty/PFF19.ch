@@ -12,7 +12,7 @@
                 </p>
             </div>
 
-            <div class="col col-md-6 offset-md-3 iframe-wrapper">
+            <div class="col-md-6 offset-md-3 iframe-wrapper">
                 <iframe  
                     class="iframe"
                     datasrc="https://www.ticketino.com/de/Event/Embed/80740"
@@ -134,12 +134,6 @@
         margin: 0 auto;
         margin-bottom: 50px;
     }
-
-@media (max-width: 768px) { 
-    .iframe-wrapper {
-        flex-basis: 1;
-    }
-}
 
 </style>
 
