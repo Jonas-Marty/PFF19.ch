@@ -121,12 +121,11 @@
 
     .iframe-wrapper {
         margin-bottom: 30px;
-        height: 400px;
     }
 
     .iframe {
         width: 100%;
-        height: 100%;
+        height: 400px;
     }
 
     .helfer {
