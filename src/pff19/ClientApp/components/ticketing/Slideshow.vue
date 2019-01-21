@@ -32,6 +32,7 @@ export default {
         position: absolute;
         bottom: -1px;
         right: -3px;
+        width: 100%;
     }
 
     .row {
