@@ -40,7 +40,7 @@
                     </div>
 
                         <div class="form-group" >
-                            <label for="time">Aufrittszeit (wird so dargestellt)</label>
+                            <label for="time">Aufrittszeit (wird so dargestellt wie du es schreibst)</label>
                             <input 
                                 type="text" 
                                 class="form-control" 
@@ -52,18 +52,6 @@
                             </div>
                         </div>
 
-                        <div class="form-group" >
-                        <label for="youtbe_url">Youtube codes separiert mit comma (Bsp: "Pun1Nxv9f3g, Oun1Nxv9f3a")</label>
-                        <input 
-                            type="text" 
-                            class="form-control" 
-                            id="youtbe_url" 
-                            placeholder="30. August " 
-                            v-model="YoutubeUrls"
-                        >
-                        <div class="error-messages">
-                        </div>
-                        </div>
 
                     <div class="form-group" :class="{'invalid-form': $v.Name.$error}">
                         <label for="name">Name</label>

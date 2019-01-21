@@ -39,16 +39,14 @@
                         </div> 
                     </div>
 
-                    <div class="form-group">
-                        <label for="select_date">Auftritts Zeit</label>
-                        <!-- TODO: Adjust range of time  -->
-                        <input 
-                            type="datetime-local" 
-                            id="meeting-time"
-                            value="2019-08-30T19:30"
-                            min="2019-08-30T00:00" max="2019-09-01T23:00"
-                            class="form-control"
-                            v-model="PlayTime"
+                    <div class="form-group" >
+                            <label for="time">Aufrittszeit (wird so dargestellt wie du es schreibst)</label>
+                            <input 
+                                type="text" 
+                                class="form-control" 
+                                id="time" 
+                                placeholder="20.00 Uhr Samstag" 
+                                v-model="PlayTime"
                             >
                         <div class="error-messages">
                         </div>
