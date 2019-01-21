@@ -1,4 +1,6 @@
-﻿import './css/site.scss'
+﻿import '@babel/polyfill'
+
+import './css/site.scss'
 import 'core-js/es6/promise'
 import 'core-js/es6/array'
 
