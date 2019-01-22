@@ -4,7 +4,7 @@
         <div class="days col-md-12 col-12">
             <div class="row justify-content-md-end justify-content-center">
                 <div class="day" v-for="(day, index) in time.days" :key="index">
-                    <span class="number">{{ day }}</span>
+                    {{ day }}
                 </div>
             </div>
             <div class="countdown-text">
@@ -14,7 +14,7 @@
         <div class="hours col-md-12 col-12">
             <div class="row justify-content-md-end justify-content-center">
                 <div class="hour" v-for="(hour, index) in time.hours" :key="index">
-                    <span class="number">{{ hour }}</span>
+                    {{ hour }}
                 </div>
             </div>
             <div class="countdown-text justify-content-md-end justify-content-center">
@@ -48,6 +48,7 @@ export default {
         font-weight: bold;
         margin-right: 5px;
         text-align: center;
+        width: 50px;
     }
 
     .days, .hours {
@@ -60,9 +61,6 @@ export default {
         text-align: right;
     }
 
-    .number {
-        margin: 5px 10px 5px 10px;
-    }
 
     @media (max-width: 768px) { 
         .countdown-text {
