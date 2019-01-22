@@ -23,7 +23,8 @@
 				"countdown": {
 					"days": "Tage",
 					"hours": "Stunden"
-				}
+				},
+				"ticket_btn": "jetzt tickets sichern!"
 			},
 			"news": {
 				"further_news" : "weitere News"
@@ -58,7 +59,7 @@
 		},
 
 		"helper": {
-			"helper": "Helfer"
+			"helper": "Hast du Lust am PFF 19 als Helfer/in mitzuwirken? Wir brauchen dich!"
 		}
 
 	},

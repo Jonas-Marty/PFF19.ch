@@ -8,6 +8,13 @@
                     ../../../assets/images/logo_yellow_with_text_retina.png 800w"
                     sizes="400px"
                     src="../../../assets/images/logo_yellow_with_text.png" alt="pff-logo">
+
+                    <router-link :to="{name: 'ticketing'}"> 
+                        <div class="btn btn-danger ticket-btn btn-lg font-weight-bold">
+                            {{ $t(`lang.components.home.slideshow.ticket_btn`) | uppercase }}
+                        </div>
+                    </router-link>
+
                 </div>
                     
                 <app-countdown class="col-md col-sm-12"></app-countdown>
@@ -19,6 +26,7 @@
 </template>
 <script>
 import Countdown from './Countdown';
+import i18n from '../../../locales';
 
 export default {
 
@@ -57,6 +65,10 @@ export default {
         padding-top: 170px;
     }
 
+   .ticket-btn{
+        margin:20px auto;
+    }
+
     @media (max-width: 768px) { 
         .row {
         padding-top: 70px;
@@ -66,9 +78,16 @@ export default {
             margin-left: auto;
             margin-right: auto;
             max-width: 80%;
-            margin-bottom: 50px;
             margin-top: 20px;
         }
+
+        .ticket-btn{
+            width: 80%;
+            margin: 20px auto 20px auto;
+            display: block;
+
+        }
+
      }
 
 </style>

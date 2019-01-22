@@ -23,7 +23,8 @@
 				"countdown": {
 					"days": "jours",
 					"hours": "heures"
-				}
+				},
+				"ticket_btn": "Sécurisez vos billets maintenant!"
 			},
 			"news": {
 				"further_news" : "plus news"
@@ -58,7 +59,7 @@
 			"contact-text": "Ou sous info@pff19.ch"
 		},
 		"helper": {
-			"helper": "Bénévoles"
+			"helper": "Hast du Lust am PFF 19 als Helfer/in mitzuwirken? Wir brauchen dich!"
 		}
 	},
 	"forms": {
