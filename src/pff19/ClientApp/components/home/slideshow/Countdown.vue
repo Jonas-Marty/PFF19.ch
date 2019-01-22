@@ -44,11 +44,11 @@ export default {
 <style lang="scss" scoped>
     .day, .hour {
         background: #F4D82B;
-        padding: 3px 15px 3px 3px;
         font-size: 2.5rem;
         font-weight: bold;
         margin-right: 5px;
         text-align: center;
+        width: 50px;
     }
 
     .days, .hours {
@@ -60,6 +60,7 @@ export default {
         color: #ffffff;
         text-align: right;
     }
+
 
     @media (max-width: 768px) { 
         .countdown-text {
