@@ -34,8 +34,8 @@
                         <li class="list-group-item">Goodie-Bag mit Festivalbecher</li>
                         <li class="list-group-item">Essenspauschale für vier Mahlzeiten: Abendessen
                              am Freitag und Samstag, Frühstück am Samstag und Sonntag. Bitte bring Dein Essgeschirr mit.</li>
-                        <li class="list-group-item">Vergünstigte Anreise mit SBB</li>
                         <li class="list-group-item">Shuttlebus vom Bahnhof zum Festivalgelände</li>
+                        <li class="list-group-item">Vergünstigte Anreise mit SBB</li>
 
                     </ul>
                 </div>
@@ -50,7 +50,6 @@
                     <ul class="list-group list-group-flush">
                         <li class="list-group-item">Zutritt zum Festivalgelände am jeweiligen Tag</li>
                         <li class="list-group-item">Festivalbecher</li>
-                        <li class="list-group-item">Vergünstigte Anreise mit SBB</li>
                         <li class="list-group-item">Shuttlebus vom Bahnhof zum Festivalgelände</li>
                     </ul>
                 </div>
@@ -65,7 +64,6 @@
                     <ul class="list-group list-group-flush">
                         <li class="list-group-item">Zutritt zum Festivalgelände am Sonntag für die Familie (2 Erwachsene + Kinder)</li>
                         <li class="list-group-item">1 Festivalbecher</li>
-                        <li class="list-group-item">Vergünstigte Anreise mit SBB</li>
                         <li class="list-group-item">Shuttlebus vom Bahnhof zum Festivalgelände</li>
                     </ul>
                 </div>
@@ -86,7 +84,7 @@
             Noch Fragen zu den Tickets oder zum Festival? Die Antwort findest du bestimmt <router-link :to="{name: 'faq'}"> hier</router-link>
         </p>
         <p>
-            Hast technische Probleme beim Ticketkauf oder dem Zahlungsprozess? Gerne helfen wir 
+            Hast du technische Probleme beim Ticketkauf oder dem Zahlungsprozess? Gerne helfen wir 
             Dir weiter unter <a href="mailto:ticket@pff19.ch">ticket@pff19.ch</a> 
         </p>
 
