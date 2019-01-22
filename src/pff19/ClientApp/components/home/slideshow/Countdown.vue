@@ -44,7 +44,7 @@ export default {
 <style lang="scss" scoped>
     .day, .hour {
         background: #F4D82B;
-        padding: 3px 15px 3px 15px;
+        padding: 3px 15px 3px 3px;
         font-size: 2.5rem;
         font-weight: bold;
         margin-right: 5px;
