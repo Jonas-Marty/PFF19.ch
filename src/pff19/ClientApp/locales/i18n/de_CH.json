@@ -23,7 +23,8 @@
 				"countdown": {
 					"days": "Tage",
 					"hours": "Stunden"
-				}
+				},
+				"ticket_btn": "jetzt tickets sichern!"
 			},
 			"news": {
 				"further_news" : "weitere News"

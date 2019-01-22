@@ -23,7 +23,8 @@
 				"countdown": {
 					"days": "jours",
 					"hours": "heures"
-				}
+				},
+				"ticket_btn": "Sécurisez vos billets maintenant!"
 			},
 			"news": {
 				"further_news" : "plus news"
