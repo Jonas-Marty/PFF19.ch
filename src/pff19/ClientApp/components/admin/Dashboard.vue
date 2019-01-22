@@ -20,6 +20,10 @@
 		<li>
 			Wenn Möglich lade auch gleich die Französische Übersetztung hoch.
 		</li>
+		<li>
+			Manchmal funktioniert der Upload nicht. Dann kann es sein, dass deine 
+			Session abgeloffen ist. Melde dich dann einfach erneut an.
+		</li>
 	</ul>
     </div>
 </template>

@@ -1,5 +1,7 @@
 <template>
     <div class="container">
+        <text-de v-if="language === 'de'"></text-de>
+        <text-fr v-if="language === 'fr'"></text-fr>
         <div class="sponsors" v-if="mainSponsors && mainSponsors.length > 0">
             <h2>{{ $t('lang.components.home.sponsors.main_sponsors') }}</h2>
             <div class="row">
@@ -55,6 +57,8 @@ import axios from 'axios'
 import { mapActions, mapGetters } from 'vuex'
 import Sponsor from './Sponsor'
 import Goenner from './Goenner'
+import textDe from './TextDe'
+import textFr from './TextFr'
 
 
 export default {
@@ -70,7 +74,12 @@ export default {
            'coSponsors',
            'partner',
            'patron'
+       ]),
+
+       ...mapGetters([
+           'language'
        ])
+
     },
 
     created() {
@@ -79,7 +88,9 @@ export default {
 
     components: {
         'app-sponsor': Sponsor,
-        Goenner
+        Goenner,
+        textFr,
+        textDe
     }
 
 }
@@ -87,7 +98,7 @@ export default {
 
 <style lang="scss" scoped>
     .container {
-        padding-top: 50px;
+        padding-top: 100px;
         min-height: 700px;
     }
 

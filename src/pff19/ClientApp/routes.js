@@ -24,7 +24,7 @@ import AdminNewsAdd from 'components/admin/news/Add'
 import AdminNewsEdit from 'components/admin/news/Edit'
 import AdminFAQs from 'components/admin/faq/FAQs'
 import AdminFAQAdd from 'components/admin/faq/Add'
-// import AdminFAQEdit from 'components/admin/faq/Edit'
+import AdminFAQEdit from 'components/admin/faq/Edit'
 import AdminBands from 'components/admin/bands/Bands'
 import AdminBandsAdd from 'components/admin/bands/Add'
 import AdminBandsEdit from 'components/admin/bands/Edit'
@@ -39,17 +39,17 @@ export const routes = [
     path: '/',
     children: [
       { name: 'home', path: '/', component: HomePage, display: 'Home', important: true },
-      { name: 'sponsors', path: '/sponsors', component: Sponsors, display: 'Sponsoren', important: false },
+      { name: 'ticketing', path: '/tickets', component: Ticketing, display: 'Tickets', important: true },
+      { name: 'bandsOverview', path: '/bands', component: BandsOverview, display: 'Bands', important: true },
       { name: 'faq', path: '/faq', component: FAQ, display: 'FAQ', important: true },
       { name: 'organisation', path: '/organisation', component: Organisation, display: 'Organisation', important: true },
+      { name: 'sponsors', path: '/sponsors', component: Sponsors, display: 'Sponsoren', important: true },
       { name: 'helper', path: '/helfer', component: Helfer, display: 'Helfer', important: true },
+      { name: 'contact', path: '/contact', component: Contact, display: 'Kontakt', important: true },
 
       { name: 'impressum', path: '/impressum', component: Impressum, display: 'Impressum' },
       { name: 'newsOverview', path: '/news', component: NewsOverview, display: 'NewsOverview' },
       { name: 'news', path: '/news/:id', component: News, display: 'News' },
-      { name: 'contact', path: '/contact', component: Contact, display: 'Kontakt', important: true },
-      { name: 'ticketing', path: '/tickets', component: Ticketing, display: 'Tickets', important: false },
-      { name: 'bandsOverview', path: '/bands', component: BandsOverview, display: 'Bands', important: true },
       { name: 'band', path: '/band/:id', component: Band, display: 'Band' }
 
     ]
@@ -68,7 +68,7 @@ export const routes = [
       {name: 'adminNewsEdit', path: 'news/:id/edit', component: AdminNewsEdit, display: 'EDIT'},
       {name: 'adminFAQs', path: 'faqs/', component: AdminFAQs, display: 'FAQs', important: true},
       {name: 'adminFAQAdd', path: 'faqs/add', component: AdminFAQAdd, display: 'ADD'},
-      // {name: 'adminFsAQEdit', path: 'faqs/:order/edit', component: AdminFAQEdit, display: 'EDIT'},
+      {name: 'adminFAQEdit', path: 'faqs/:id/edit', component: AdminFAQEdit, display: 'EDIT'},
       {name: 'adminBands', path: 'bands/', component: AdminBands, display: 'Bands', important: true},
       {name: 'adminBandsAdd', path: 'bands/add', component: AdminBandsAdd, display: 'ADD'},
       {name: 'adminBandsEdit', path: 'bands/:id/edit', component: AdminBandsEdit, display: 'EDIT'},

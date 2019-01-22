@@ -14,11 +14,11 @@
             <div>                
                 {{ news.titleDe }}
             </div>
-                <div >
-                    <i class="fa fa-remove fa-1x pull-right" @click="remove(news.id)"></i>
-                    <router-link 
+            <div>
+                <i class="fa fa-remove fa-1x pull-right" @click="remove(news.id)"></i>
+                <router-link 
                     :to="{ name: 'adminNewsEdit', params: {id: news.id }}"
-                    ><i class="fa fa-edit fa-1x pull-right"></i></router-link>
+                ><i class="fa fa-edit fa-1x pull-right"></i></router-link>
             </div>
             </div>
         </div>

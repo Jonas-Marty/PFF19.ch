@@ -3,7 +3,7 @@
         <h1>Bands</h1>
         <div class="card-columns">
             <div class="card" v-for="band in all" :key="band.id">
-                <img class="card-img-top" :src="`/assets/bands/images/${band.imageThumbnail}`" :alt="band.name">
+                <img class="card-img-top" :src="`/assets/bands/thumbnail/${band.imageThumbnail}`" :alt="band.name">
                 <div class="card-body"> 
                     <router-link
                     :to="{name: 'band', params: {id: band.id}}">

@@ -1,8 +1,8 @@
 <template>
                 <div>
-                    <h2 class="title">FAQ hinzufügen</h2>
+                    <h2 class="title">FAQ editieren</h2>
                     <div v-if="isSubmitted">
-                        <p>Die FAQ wurde hinzugefügt!</p>
+                        <p>Die FAQ wurde geändert!</p>
                         <router-link
                         :to="{name: 'adminFAQs'}"
                         >Zurück</router-link>
@@ -135,6 +135,20 @@ export default {
             }
 
       }     
+    },
+
+    mounted() {
+        auth.get(`faq/${this.$route.params.id}`)
+            .then(response => {
+                console.log(response)
+                this.QuestionDe = response.data.questionDe
+                this.QuestionFr = response.data.questionFr
+                this.AnswerDe = response.data.answerDe
+                this.AnswerFr = response.data.answerFr
+                this.Category = response.data.category
+            }).catch(e => {
+                this.errors.push(e)
+            })
     }
 
 }

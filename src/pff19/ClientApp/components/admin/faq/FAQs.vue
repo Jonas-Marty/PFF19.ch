@@ -1,9 +1,6 @@
 <template>
     <div>
         <h1>Alle FAQs</h1>
-        <div class="alert alert-info">
-            Ist noch in der Entwicklung und beeinflusst noch nicht die FAQ Site. 
-        </div>
         <router-link
             to="faqs/add"
             >
@@ -19,9 +16,9 @@
             </div>
                 <div >
                     <i class="fa fa-remove fa-1x pull-right" @click="remove(faq.id)"></i>
-                    <!-- <router-link 
-                    :to="{ name: 'adminFAQEdit', params: {order: faq.order }}"
-                    ><i class="fa fa-edit fa-1x pull-right"></i></router-link> -->
+                    <router-link 
+                    :to="{ name: 'adminFAQEdit', params: {id: faq.id }}"
+                    ><i class="fa fa-edit fa-1x pull-right"></i></router-link>
             </div>
             </div>
         </div>

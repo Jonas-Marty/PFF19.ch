@@ -8,7 +8,7 @@
         </router-link>
         <div class="card-columns">
             <div class="card" v-for="band in all" :key="band.id">
-                <img class="card-img-top" :src="`/assets/bands/images/${band.imageThumbnail}`" alt="Card image cap">
+                <img class="card-img-top" :src="`/assets/bands/thumbnail/${band.imageThumbnail}`" alt="Card image cap">
                 <div class="card-body"> 
                     <h5 class="card-title">{{ band.name }}</h5>
                     <p class="card-text">               

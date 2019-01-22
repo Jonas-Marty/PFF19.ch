@@ -88,6 +88,10 @@ export default {
             } 
         })
     },
+
+    destroyed () {
+        window.removeEventListener('scroll', this.navbarBackgroundController);
+    }
 }
 </script>
 
