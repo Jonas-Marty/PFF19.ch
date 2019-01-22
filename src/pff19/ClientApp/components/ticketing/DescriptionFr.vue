@@ -31,15 +31,11 @@
                 Vergünstigung</b> auf das Ticket für die Hin- und Rückfahrt (SBB Rabatt Code).
             </li>
 
-            <li><b>Early-bird</b> 300x 3-Tagespass zum Preis von CHF 139.-</li>
+            <li> <b>Vor Ort</b> können am Sonntag Einzeltickets gekauft werden</li>
 
             <li>
                 <b>Familienticket</b> enthält Eintritt für 1 Familie (2 Erwachsene + ihre Kinder bis 16 Jahre). Andere Tickets
                 Für den Sonntag können nicht im Vorverkauf gekauft werden. Kinder unter 6 Jahre sind <b>gratis</b>.
-            </li>
-
-            <li> <b>Vor Ort</b> können am Sonntag Einzeltickets wie folgt gekauft werden: Erwachsene 
-                (über 16 Jahre: CHF 15.-), Kinder zwischen 6 und 16 Jahre CHF 5.-
             </li>
 
             <li>Das PFF 19 ist für Besucher ab 16 Jahren. </li>
@@ -68,10 +64,10 @@
                     <h5 class="card-title">3-Tagespass</h5>
                     <ul class="list-group list-group-flush">
                         <li class="list-group-item">Zutritt zum Festivalgelände und zum Zeltplatz von Freitag bis Sonntag </li>
-                        <li class="list-group-item">Goodie-Bag inkl. 1xFestivalbecher</li>
+                        <li class="list-group-item">Goodie-Bag inkl. 1x Festivalbecher</li>
                         <li class="list-group-item">Verpflegung: 2x Abend, 2x Morgen. Bitte bring Dein Essgeschirr mit.</li>
                         <li class="list-group-item">Shuttlebus vom Bahnhof Stäfa zum Festivalgelände</li>
-                        <li class="list-group-item">Vergünstigte Anreise mit SBB*</li>
+                        <li class="list-group-item">Vergünstigte Anreise mit SBB</li>
 
                     </ul>
                 </div>
@@ -85,7 +81,7 @@
                     <h5 class="card-title">Tageseintritt Freitag oder Samstag</h5>
                     <ul class="list-group list-group-flush">
                         <li class="list-group-item">Zutritt zum Festivalgelände am jeweiligen Tag</li>
-                        <li class="list-group-item">1xFestivalbecher</li>
+                        <li class="list-group-item">1x Festivalbecher</li>
                         <li class="list-group-item">Verpflegung: 1x Abend. Bitte bring Dein Essgeschirr mit.</li>
                         <li class="list-group-item">Shuttlebus vom Bahnhof Stäfa zum Festivalgelände</li>
                     </ul>
@@ -100,7 +96,7 @@
                     <h5 class="card-title">Familienticket Sonntag</h5>
                     <ul class="list-group list-group-flush">
                         <li class="list-group-item">Zutritt zum Festivalgelände am Sonntag für die Familie (2 Erwachsene + Kinder)</li>
-                        <li class="list-group-item">1x Festivalbecher</li>
+                        <li class="list-group-item">2x Festivalbecher</li>
                         <li class="list-group-item">Shuttlebus vom Bahnhof Stäfa zum Festivalgelände</li>
                     </ul>
                 </div>
