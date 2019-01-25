@@ -1,5 +1,8 @@
 <template>
   <div id="signin">
+    <div v-if="getError" class="alert alert-danger">
+      {{getError}}
+    </div>
     <div class="signin-form">
       <form @submit.prevent="onSubmit">
         <div class="form-group">
@@ -28,15 +31,20 @@
 </template>
 
 <script>
-import { mapActions } from 'vuex';
+import { mapActions, mapGetters } from 'vuex';
 
 
   export default {
     data () {
       return {
         email: '',
-        password: ''
+        password: '',
       }
+    },
+    computed: {
+      ...mapGetters('api', [
+        'getError'
+      ])
     },
     methods: {
       ...mapActions('api', [
@@ -50,7 +58,7 @@ import { mapActions } from 'vuex';
         }
         this.login({email: formData.email, password: formData.password})
       }
-    }
+    },
   }
 </script>
 

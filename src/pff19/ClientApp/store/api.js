@@ -7,7 +7,8 @@ export const api = {
   state: {
     idToken: null,
     userId: null,
-    user: null
+    user: null,
+    error: ''
   },
   mutations: {
     authUser (state, userData) {
@@ -20,6 +21,9 @@ export const api = {
     clearAuthData (state) {
       state.idToken = null
       state.userId = null
+    },
+    setError (state, error) {
+      state.error = error
     }
   },
   actions: {
@@ -40,14 +44,18 @@ export const api = {
           window.localStorage.setItem('token', res.data.token)
           window.localStorage.setItem('userId', token.userId)
           window.localStorage.setItem('expirationDate', expirationDate)
+
           commit('authUser', {
             token: res.data.token,
             userId: token.userId
           })
+
           router.push({ name: 'adminDashboard' })
           dispatch('setLogoutTimer', token.exp)
         })
-        .catch(error => console.log(error))
+        .catch(error => {
+          commit('setError', error.response.statusText)
+        })
     },
     tryAutoLogin ({commit}) {
       const token = window.localStorage.getItem('token')
@@ -105,6 +113,9 @@ export const api = {
     },
     getToken (state) {
       return state.idToken
+    },
+    getError (state) {
+      return state.error
     }
   }
 }
