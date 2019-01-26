@@ -1,10 +1,6 @@
 <template>
                 <div>
                     <h2 class="title">Sponsor editieren</h2>
-                    <div class="alert alert-warning">
-                      Im Sponsoring Formular macht das Bildediting noch Probleme. Wird arbeiten daran. 
-                      Eine Alternative ist es den Sponsor zu löschen und neu zu erstellen
-                    </div>
                     <div v-if="isSubmitted">
                         <p>Der Sponsor wurde editiert!</p>
                         <router-link
