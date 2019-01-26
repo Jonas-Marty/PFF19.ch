@@ -39,10 +39,10 @@ export const routes = [
     path: '/',
     children: [
       { name: 'home', path: '/', component: HomePage, display: 'Home', important: true },
-      { name: 'ticketing', path: '/tickets', component: Ticketing, display: 'Tickets', important: true },
-      { name: 'bandsOverview', path: '/bands', component: BandsOverview, display: 'Bands', important: true },
+      { name: 'ticketing', path: '/tickets', component: Ticketing, display: 'Tickets', important: false },
+      { name: 'bandsOverview', path: '/bands', component: BandsOverview, display: 'Bands', important: false },
       { name: 'helper', path: '/helfer', component: Helfer, display: 'Helfer', important: true },
-      { name: 'sponsors', path: '/sponsors', component: Sponsors, display: 'Sponsoren', important: true },
+      { name: 'sponsors', path: '/sponsors', component: Sponsors, display: 'Sponsoren', important: false },
       { name: 'organisation', path: '/organisation', component: Organisation, display: 'Organisation', important: true },
       { name: 'contact', path: '/contact', component: Contact, display: 'Kontakt', important: true },
       { name: 'faq', path: '/faq', component: FAQ, display: 'FAQ', important: true },
