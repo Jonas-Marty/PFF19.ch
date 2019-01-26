@@ -139,6 +139,7 @@
 
 <script>
 import auth from '../../../auth.js'
+import { convertStrintToDate } from '../../../helpers.js'
 import vue2Dropzone from 'vue2-dropzone'
 import { VueEditor } from "vue2-editor"
 import Datepicker from 'vuejs-datepicker'
@@ -271,6 +272,7 @@ export default {
     mounted() {
         auth.get(`News/${this.$route.params.id}`)
             .then(response => {
+                this.date = convertStrintToDate(response.data.date)
                 this.TitleDe = response.data.titleDe
                 this.TitleFr = response.data.titleFr
                 this.PreviewDe = response.data.previewDe
@@ -284,6 +286,7 @@ export default {
             }).catch(e => {
                 this.errors.push(e)
             })
+
     }
 
 }
