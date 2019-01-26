@@ -79,9 +79,10 @@
 </template>
 
 <script>
-import auth from "../../../auth.js";
-import vue2Dropzone from "vue2-dropzone";
-import "vue2-dropzone/dist/vue2Dropzone.min.css";
+import auth from "../../../auth.js"
+import { convertToFormData } from '../../../helpers.js'
+import vue2Dropzone from "vue2-dropzone"
+import "vue2-dropzone/dist/vue2Dropzone.min.css"
 import {
   required,
   email,
@@ -102,7 +103,7 @@ export default {
       name: '',
       link: '',
       typ: '4',
-      Image: {},
+      Logo: {},
 
       dropzoneOptions: {
         url: "/api",
@@ -142,16 +143,10 @@ export default {
           Name: this.name,
           Link: this.link,
           Status: this.typ,
-          Logo: this.Image
+          UploadImage: this.Logo
         };
 
-        let form_data = new FormData();
-
-        for (var key in formData) {
-          form_data.append(key, formData[key]);
-        }
-
-        auth.put(`Sponsors/${this.$route.params.id}`, form_data)
+        auth.put(`sponsors/${this.$route.params.id}`, convertToFormData(formData))
           .then(response => {
             this.isSubmitted = true;
           })
@@ -162,11 +157,11 @@ export default {
     },
 
     sendingImage (file, xhr) {
-      this.Image = file;
+      this.Logo = file;
     },
 
     removingImage (file) {
-      this.Image = {}
+      this.Logo = {}
     },
   },
 
@@ -176,10 +171,12 @@ export default {
         this.name = response.data.name;
         this.link = response.data.link;
         this.typ = response.data.status;
-        this.$refs.imageUpload.manuallyAddFile(
+        if(response.data.logo) {
+          this.$refs.imageUpload.manuallyAddFile(
           { size: 123, name: response.data.logo, type: "image/jpg" },
            `/assets/sponsors/images/${response.data.logo}`
-        )
+          )
+        }
       })
       .catch(e => {
         this.errors.push(e);

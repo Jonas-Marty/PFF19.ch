@@ -267,13 +267,7 @@ export default {
                     ImageLarge: this.ImageLarge
                 }
 
-                let form_data = new FormData()
-
-                for ( var key in formData ) {
-                    form_data.append(key, formData[key])
-                }
-
-                auth.put(`Bands/${this.$route.params.id}`, form_data)
+                auth.put(`Bands/${this.$route.params.id}`, convertToFormData(formData))
                 .then(response => {
                     this.isSubmitted = true;
                 }).catch(e => {
