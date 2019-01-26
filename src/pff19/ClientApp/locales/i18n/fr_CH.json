@@ -57,7 +57,7 @@
 		},
 		"faq": {
 			"contact-us": "Contactez nous!",
-			"contact-text": "Ou sous info@pff19.ch"
+			"contact-text": "Pour toute question sur les billets, écrivez directement à ticket@pff19.ch"
 		},
 		"helper": {
 			"helper": "Hast du Lust am PFF 19 als Helfer/in mitzuwirken? Wir brauchen dich!"
@@ -90,39 +90,5 @@
 			}
 	
 	
-	},
-	"network": {
-		"error": [
-			{
-				"status": "Error 400",
-				"type": "Bad Request",
-				"desc": "Your browser sent a request that this server could not understand"
-			},
-			{
-				"status": "Error 401",
-				"type": "Unauthorized",
-				"desc": "Access is denied due to invalid credentials"
-			},
-			{
-				"status": "Error 403",
-				"type": "Forbideen",
-				"desc": "You don't have permission to access"
-			},
-			{
-				"status": "Error 404",
-				"type": "Not Found",
-				"desc": "The page you are looking for does not exist"
-			},
-			{
-				"status": "Error 500",
-				"type": "Server Error",
-				"desc": "Http error 500 Internal Server Error"
-			},
-			{
-				"status": "Error 503",
-				"type": "Service Unavailable",
-				"desc": "Service temporarily unavailable"
-			}
-		]
 	}
 }

@@ -56,7 +56,7 @@
 		},
 		"faq": {
 			"contact-us": "Kontaktiere uns!",
-			"contact-text": "Oder unter info@pff19.ch"
+			"contact-text": "Bei fragen zu Tickets schreibe direkt an ticket@pff19.ch"
 		},
 
 		"helper": {
@@ -88,39 +88,5 @@
 			"thx-for-register": "Vielen Dank für die Anmeldung!",
 			"contact-confirm": "Ihre Kontaktanfrage wurde abgeschickt."
 		}
-	},
-	"network": {
-		"error": [
-			{
-				"status": "错误 400",
-				"type": "错误的要求",
-				"desc": "由于明显的用户端错误，伺服器不能或不会处理该请求"
-			},
-			{
-				"status": "错误 401",
-				"type": "没授权",
-				"desc": "由于无效凭据，访问被拒绝"
-			},
-			{
-				"status": "错误 403",
-				"type": "拒绝或禁止存取",
-				"desc": "您没有权限访问"
-			},
-			{
-				"status": "错误 404",
-				"type": "找不到",
-				"desc": "您要查找的页面不存在"
-			},
-			{
-				"status": "错误 500",
-				"type": "服务器错误",
-				"desc": "内部服务器错误"
-			},
-			{
-				"status": "错误 503",
-				"type": "服务器无法使用",
-				"desc": "服务暂时不可用"
-			}
-		]
 	}
 }
