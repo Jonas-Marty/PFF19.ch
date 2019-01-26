@@ -126,7 +126,7 @@ export default {
                     form_data.append(key, formData[key])
                 }
 
-                auth.post('faq', form_data)
+                auth.put(`faq/${this.$route.params.id}`, form_data)
                 .then(response => {
                     this.isSubmitted = true;
                 }).catch(e => {
@@ -140,7 +140,6 @@ export default {
     mounted() {
         auth.get(`faq/${this.$route.params.id}`)
             .then(response => {
-                console.log(response)
                 this.QuestionDe = response.data.questionDe
                 this.QuestionFr = response.data.questionFr
                 this.AnswerDe = response.data.answerDe

@@ -173,7 +173,6 @@ export default {
   mounted() {
     auth.get(`Sponsors/${this.$route.params.id}`)
       .then(response => {
-        console.log(response.data.logo)
         this.name = response.data.name;
         this.link = response.data.link;
         this.typ = response.data.status;
