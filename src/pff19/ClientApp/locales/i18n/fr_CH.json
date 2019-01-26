@@ -42,6 +42,7 @@
 			}
 		},
 		"organisation":{
+			"organisation": "Organisateurs",
 			"co_president": "Co-président",
 			"secretariat": "Co-Secrétariat",
 			"finances": "Finances",

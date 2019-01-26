@@ -1,6 +1,6 @@
 <template>
     <div class="container">
-        <h1>Organisation</h1>
+        <h1>{{ $t(`lang.components.organisation.organisation`) }}</h1>
         <text-de v-if="language === 'de'"></text-de>
         <text-fr v-if="language === 'fr'"></text-fr>
         <div class="team">
