@@ -95,7 +95,8 @@
                 <div class="card-body">
                     <h5 class="card-title">Familienticket Sonntag</h5>
                     <ul class="list-group list-group-flush">
-                        <li class="list-group-item">Zutritt zum Festivalgelände am Sonntag für die Familie (2 Erwachsene + Kinder bis 16 Jahre)</li>
+                        <li class="list-group-item">Zutritt zum Festivalgelände am Sonntag für die Familie 
+                            (2 Erwachsene + Kinder bis 16 Jahre) sowie Teilnahme am Programm für Kinder</li>
                         <li class="list-group-item">2x Festivalbecher</li>
                         <li class="list-group-item">Shuttlebus vom Bahnhof Stäfa zum Festivalgelände</li>
                     </ul>
