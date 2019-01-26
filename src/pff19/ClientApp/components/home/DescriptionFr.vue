@@ -17,10 +17,6 @@
 
             </p>
 
-            <p>
-                La prévente des tickets sera lancée vraisemblablement en janvier 2019. Nous vous tenons au courant sur <a href="https://www.instagram.com/pff_19_mosaik/">«Instagram» </a>
-                et <a href="https://www.facebook.com/pff19mosaik/">«Facebook»</a> .
-            </p>
             </div>
         </div>
     </div>

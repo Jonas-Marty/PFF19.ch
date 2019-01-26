@@ -18,10 +18,6 @@
                 Erfahrungen und Eindrücken wieder auseinander.
             </p>
 
-            <p>
-                Der Ticketvorverkauf startet voraussichtlich im Januar. Auf <a href="https://www.instagram.com/pff_19_mosaik/">«Instagram» </a>
-                und <a href="https://www.facebook.com/pff19mosaik/">«Facebook»</a> halten wir euch über den Planungsfortschritt auf dem Laufenden.
-            </p>
             </div>
         </div>
     </div>
