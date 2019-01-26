@@ -8,7 +8,7 @@
                 <p>
                     Möchtest Du das PFF als Helfer unterstützen und Dir dadurch einen Rabatt 
                     auf Dein Ticket sichern? <router-link :to="{name: 'helper'}"> Werde Helfer!</router-link> (Helfer beziehen ihr vergünstigtes 
-                    Ticket direkt an der Kasse vor Ort.)
+                    Ticket direkt an der Kasse vor Ort und müssen kein Ticket im Vorverkauf kaufen!)
                 </p>
             </div>
 
@@ -38,7 +38,7 @@
                 Für den Sonntag können nicht im Vorverkauf gekauft werden. Kinder unter 6 Jahre sind <b>gratis</b>.
             </li>
 
-            <li>Das PFF 19 ist für Besucher ab 16 Jahren. </li>
+            <li>Das PFF 19 ist für Besucher ab 16 Jahren. (Ausser am Familiensonntag) </li>
 
             <li>Bitte beachte, dass Glasflaschen auf dem Festivalgelände und dem Zeltplatz verboten sind.</li>
 
@@ -67,7 +67,7 @@
                         <li class="list-group-item">Goodie-Bag inkl. 1x Festivalbecher</li>
                         <li class="list-group-item">Verpflegung: 2x Abend, 2x Morgen. Bitte bring Dein Essgeschirr mit.</li>
                         <li class="list-group-item">Shuttlebus vom Bahnhof Stäfa zum Festivalgelände</li>
-                        <li class="list-group-item">Vergünstigte Anreise mit SBB</li>
+                        <li class="list-group-item">Vergünstigte Anreise mit SBB beim Kauf eines Tickets bis 31. Mai 2019</li>
 
                     </ul>
                 </div>
@@ -95,7 +95,7 @@
                 <div class="card-body">
                     <h5 class="card-title">Familienticket Sonntag</h5>
                     <ul class="list-group list-group-flush">
-                        <li class="list-group-item">Zutritt zum Festivalgelände am Sonntag für die Familie (2 Erwachsene + Kinder)</li>
+                        <li class="list-group-item">Zutritt zum Festivalgelände am Sonntag für die Familie (2 Erwachsene + Kinder bis 16 Jahre)</li>
                         <li class="list-group-item">2x Festivalbecher</li>
                         <li class="list-group-item">Shuttlebus vom Bahnhof Stäfa zum Festivalgelände</li>
                     </ul>
