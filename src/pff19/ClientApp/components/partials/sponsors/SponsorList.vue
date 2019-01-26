@@ -1,6 +1,6 @@
 <template>
     <div class="sponsors container" v-if="mainSponsors && mainSponsors.length > 0">
-        <h2>{{ $t('lang.components.home.sponsors.sponsors') }}</h2>
+        <h2>{{ $t('lang.components.home.sponsors.main_sponsors') }}</h2>
         <div class="row">
             <app-sponsor
                 v-for="sponsor in mainSponsors"

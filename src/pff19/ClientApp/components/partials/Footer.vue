@@ -51,6 +51,10 @@
                     </div>
 
                 </div>
+
+                <div class="row">
+                    <app-sponsors></app-sponsors>
+                </div>
             </div>
         </div>
         <div class="sub-footer">
@@ -73,7 +77,8 @@
 </template>
 
 <script>
-import { routes } from '../../routes';
+import { routes } from '../../routes'
+import Sponsor from './sponsors/SponsorList'
 
 export default {
     data () {
@@ -86,6 +91,10 @@ export default {
         getDefaultRoutes(){
             return this.routes.find(route => route.name === 'default').children
         }
+    },
+
+    components: {
+        'app-sponsors': Sponsor
     }
 
 }
