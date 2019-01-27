@@ -35,7 +35,7 @@
 
             <li>
                 <b>Familienticket</b> enthält Eintritt für 1 Familie (2 Erwachsene + ihre Kinder bis 16 Jahre). Andere Tickets
-                Für den Sonntag können nicht im Vorverkauf gekauft werden. Kinder unter 6 Jahre sind <b>gratis</b>.
+                für den Sonntag können nicht im Vorverkauf gekauft werden. Kinder unter 6 Jahre sind <b>gratis</b>.
             </li>
 
             <li>Das PFF 19 ist für Besucher ab 16 Jahren. (Ausser am Familiensonntag) </li>
@@ -48,7 +48,7 @@
 
         </ul>
         <p>
-            Noch Fragen zu den Tickets oder zum Festival? Die Antwort findest du bestimmt <router-link :to="{name: 'faq'}"> hier</router-link>
+            Noch Fragen zu den Tickets oder zum Festival? Die Antwort findest du bestimmt <router-link :to="{name: 'faq'}"> hier</router-link>.
         </p>
         <p>
             Hast du technische Probleme beim Ticketkauf oder dem Zahlungsprozess? Gerne helfen wir 
