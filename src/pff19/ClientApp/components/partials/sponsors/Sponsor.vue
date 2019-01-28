@@ -1,6 +1,6 @@
 <template>
     <div class="sponsor col-12 col-md-4">
-            <a :href="sponsor.link">
+            <a :href="sponsor.link" target="_blank">
             <div class="sponsor-img-wrapper">
                 <img :src="imagePath" :alt="sponsor.name" class="sponsor-img mx-auto"/>
             </div>

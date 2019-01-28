@@ -79,11 +79,12 @@ export default {
             margin-right: auto;
             max-width: 80%;
             margin-top: 20px;
+            margin-bottom: 20px;
         }
 
         .ticket-btn{
             width: 80%;
-            margin: 20px auto 20px auto;
+            margin: 0px auto 20px auto;
             display: block;
 
         }
