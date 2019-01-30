@@ -1,14 +1,15 @@
 <template>
     <div class="container">
         <div class="ticket-buying card row">
-            <h1 class="title">Werde mit Deinem Ticket Teil unseres Mosaiks!</h1>
+            <h1 class="title">Deviens part de notre mosaïque avec ton ticket!</h1>
 
             <div class="alert alert-info helfer">
-                <h3>Helfer</h3>
+                <h3>Bénévoles</h3>
                 <p>
-                    Möchtest Du das PFF als Helfer unterstützen und Dir dadurch einen Rabatt 
-                    auf Dein Ticket sichern? <router-link :to="{name: 'helper'}"> Werde Helfer!</router-link> (Helfer beziehen ihr vergünstigtes 
-                    Ticket direkt an der Kasse vor Ort und müssen kein Ticket im Vorverkauf kaufen!)
+                    Est-ce que tu voudrais soutenir le FFS comme bénévole et ainsi profiter d’un avantage sur 
+                    ton ticket? <router-link :to="{name: 'helper'}">Deviens bénévole!</router-link> (Les 
+                    bénévoles reçoivent leurs tickets réduits directement à la caisse quand ils arrivent 
+                    et ils ne doivent pas acheter un ticket en prévente!)
                 </p>
             </div>
 
@@ -25,34 +26,37 @@
 
         <div class="alert">
         
-        <h3>Infos</h3>
+        <h3>Informations</h3>
         <ul>
-            <li>Beim Kauf eines 3-Tagespasses bis zum <b>31. Mai 2019</b> erhält man <b>50% 
-                Vergünstigung</b> auf das Ticket für die Hin- und Rückfahrt (SBB Rabatt Code).
+            <li>
+                Quand tu achètes un ticket de trois jours avant le <b>31. mai</b>, tu reçois une réduction 
+                de <b>50%</b> pour ton ticket de CFF pour aller et retour en train (CFF code de réduction).
             </li>
 
-            <li> <b>Vor Ort</b> können am Sonntag Einzeltickets gekauft werden</li>
+            <li>Il est possible d’acheter un ticket (pour une personne) le dimanche à la caisse.</li>
 
             <li>
-                <b>Familienticket</b> enthält Eintritt für 1 Familie (2 Erwachsene + ihre Kinder bis 16 Jahre). Andere Tickets
-                für den Sonntag können nicht im Vorverkauf gekauft werden. Kinder unter 6 Jahre sind <b>gratis</b>.
+                <b>Le ticket de familles</b> contient l’entrée pour une famille (2 adultes + leurs 
+                enfants jusqu’à l’âge 16). Il n’est pas possible d’acheter d’autres tickets pour 
+                le dimanche en prévente. Enfants de moins de 6 ans sont <b>gratuits</b>.
             </li>
 
-            <li>Das PFF 19 ist für Besucher ab 16 Jahren. (Ausser am Familiensonntag) </li>
+            <li>Le FFS est pour les visiteurs à partir de 16 ans (sauf le dimanche de familles).</li>
 
-            <li>Bitte beachte, dass Glasflaschen auf dem Festivalgelände und dem Zeltplatz verboten sind.</li>
+            <li>Attention: Les bouteilles de verre sont interdites au terrain du festival et à l’emplacement de tentes.</li>
 
-            <li>Gebrannter Alkohol ist am gesamten Festival nicht erlaubt. Er wird nicht toleriert und konfisziert.</li>
+            <li> L’alcool distillé est interdit au festival entier. Il n’est pas toléré et il sera confisqué.</li>
 
-            <li>Am gesamten Festival zählen die Festivalregeln, siehe Festivalregeln im Programmheft am Check-in.</li>
+            <li>Les règles du festival ont cours pendant tout le festival, voir les règles du festival dans le programme au check-in.</li>
 
         </ul>
         <p>
-            Noch Fragen zu den Tickets oder zum Festival? Die Antwort findest du bestimmt <router-link :to="{name: 'faq'}"> hier</router-link>.
+            Est-ce que tu as des questions au sujet des tickets ou du festival? Tu trouveras certainement 
+            les réponses <router-link :to="{name: 'faq'}">ici</router-link>.
         </p>
         <p>
-            Hast du technische Probleme beim Ticketkauf oder dem Zahlungsprozess? Gerne helfen wir 
-            Dir weiter unter <a href="mailto:ticket@pff19.ch">ticket@pff19.ch</a> 
+            Est-ce que tu as de problèmes techniques avec l’achat de tickets ou avec le processus de 
+            paiement? Nous sommes à ton disposition pour t’aider sous <a href="mailto:ticket@pff19.ch">ticket@pff19.ch</a> 
         </p>
         </div>
 
@@ -61,13 +65,13 @@
             <div class="card">
                 <img class="card-img-top" src="../../assets/images/3_tages_pass.jpg" alt="Card image cap">
                 <div class="card-body">
-                    <h5 class="card-title">3-Tagespass</h5>
+                    <h5 class="card-title">Ticket de 3 jours</h5>
                     <ul class="list-group list-group-flush">
-                        <li class="list-group-item">Zutritt zum Festivalgelände und zum Zeltplatz von Freitag bis Sonntag </li>
-                        <li class="list-group-item">Goodie-Bag inkl. 1x Festivalbecher</li>
-                        <li class="list-group-item">Verpflegung: 2x Abend, 2x Morgen. Bitte bring Dein Essgeschirr mit.</li>
-                        <li class="list-group-item">Shuttlebus vom Bahnhof Stäfa zum Festivalgelände</li>
-                        <li class="list-group-item">Vergünstigte Anreise mit SBB beim Kauf eines Tickets bis 31. Mai 2019</li>
+                        <li class="list-group-item">Entrée au terrain du festival et à l’emplacement de tentes du vendredi au dimanche</li>
+                        <li class="list-group-item">Goodie-bag incl. 1x gobelet de festival</li>
+                        <li class="list-group-item">Ravitaillement : 2x dîner, 2x petit-déjeuner. S’il te plaît amène ta propre vaisselle pour manger.</li>
+                        <li class="list-group-item">Navette de la gare Stäfa au terrain du festival</li>
+                        <li class="list-group-item">Voyage au prix réduit avec le CFF quand tu achètes un ticket avant le 31. mai 2019</li>
 
                     </ul>
                 </div>
@@ -78,12 +82,12 @@
             <div class="card">
                 <img class="card-img-top" src="../../assets/images/1_tagesticket.jpg" alt="Card image cap">
                 <div class="card-body">
-                    <h5 class="card-title">Tageseintritt Freitag oder Samstag</h5>
+                    <h5 class="card-title">Ticket pour 1 jour vendredi ou samedi</h5>
                     <ul class="list-group list-group-flush">
-                        <li class="list-group-item">Zutritt zum Festivalgelände am jeweiligen Tag</li>
-                        <li class="list-group-item">1x Festivalbecher</li>
-                        <li class="list-group-item">Verpflegung: 1x Abend. Bitte bring Dein Essgeschirr mit.</li>
-                        <li class="list-group-item">Shuttlebus vom Bahnhof Stäfa zum Festivalgelände</li>
+                        <li class="list-group-item">Entrée au terrain du festival au jour respectif</li>
+                        <li class="list-group-item">1x gobelet de festival</li>
+                        <li class="list-group-item">Ravitaillement : 1x dîner. S’il te plaît amène ta propre vaisselle pour manger.</li>
+                        <li class="list-group-item">Navette de la gare Stäfa au terrain du festival</li>
                     </ul>
                 </div>
             </div>
@@ -93,12 +97,12 @@
             <div class="card">
                 <img class="card-img-top" src="../../assets/images/kinder_sonntag.jpg" alt="Card image cap">
                 <div class="card-body">
-                    <h5 class="card-title">Familienticket Sonntag</h5>
+                    <h5 class="card-title">Ticket de famille dimanche</h5>
                     <ul class="list-group list-group-flush">
-                        <li class="list-group-item">Zutritt zum Festivalgelände am Sonntag für die Familie 
-                            (2 Erwachsene + Kinder bis 16 Jahre) sowie Teilnahme am Programm für Kinder</li>
-                        <li class="list-group-item">2x Festivalbecher</li>
-                        <li class="list-group-item">Shuttlebus vom Bahnhof Stäfa zum Festivalgelände</li>
+                        <li class="list-group-item">Entrée au terrain du festival au dimanche pour la famille 
+                            (2 adultes + leurs enfants jusqu’à l’âge 16) et participation au programme pour les enfants</li>
+                        <li class="list-group-item">2x gobelets de festival</li>
+                        <li class="list-group-item">Navette de la gare Stäfa au terrain du festival</li>
                     </ul>
                 </div>
             </div>

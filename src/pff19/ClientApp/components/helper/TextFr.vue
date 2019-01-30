@@ -1,20 +1,22 @@
 <template>
     <div class="info-text">
-        <!-- <div class="helfertool">
-            <a href="https://pff19.ukula.ch/"><div class="btn btn-lg btn-primary">zum Helfertool</div></a>
-        </div> -->
+        <div class="helfertool">
+            <a href="https://pff19.ukula.ch/"><div class="btn btn-lg btn-primary">Au stafftool</div></a>
+        </div>
         <p>
-            Trage dich im Helfertool ein und sichere dir deine liebsten Schichten! 
-            Mehr über die Vorteile und Vergünstigungen erfährst du im PDF <a href="https://drive.google.com/file/d/0B8GQQKgV9iZTUGZ2QXNVNVc4a2ZMOTRSLUJ5eTVwZE1hWWsw/view" target="_blank">Helferentschädigung</a>.
+            Choisis – dans notre stafftool – une tâche, qui te plaît et inscris-toi 
+            directement pour ton poste au FFS 19. Tu trouves plus d’informations sur 
+            des avantage et réductions pour les bénévoles dans le 
+            <a href="https://drive.google.com/file/d/0B8GQQKgV9iZTUGZ2QXNVNVc4a2ZMOTRSLUJ5eTVwZE1hWWsw/view" target="_blank">PDF-condition-de-bénévoles</a>.
         </p>
         <p>
-            Reserviere dir ausserdem den 12. Oktober 2019 für das Helferfest!
+            Note le 12 octobre 2019 – c’est la fête de bénévoles!
         </p>
         <p>
-            Achtung! Wenn du dich zum Helfen einträgst, musst du KEIN Ticket im Voraus kaufen.
+            <b>Important!</b> Il NE FAUT PAS acheter un ticket quand tu t’inscris comme bénévole.
         </p>
  
-        <p class="font-weight-bold">Vielen Dank für deine Unterstützung!
+        <p class="font-weight-bold">Merci beaucoup pour ton soutien!
         </p>
     </div>
 </template>
