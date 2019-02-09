@@ -80,6 +80,12 @@
                 <div v-if="isSubmitted">
                         <span class="success-message">{{ $t('lang.forms.success.contact-confirm') }}</span>
                 </div>
+                <div class="account-infos">
+                    {{ $t('lang.components.faq.account') }}:
+                    <p>CH98 0070 0110 0062 5243 7<br>
+                    PFF Stäfa 2019<br>
+                    8712 Stäfa</p>
+                </div>
             </div>
         </div>
         </div>
@@ -164,6 +170,9 @@ export default {
     .container {
         padding-top: 100px;
         min-height: 750px;
+    }
+    .account-infos {
+        margin-top: 40px;
     }
 
 </style>

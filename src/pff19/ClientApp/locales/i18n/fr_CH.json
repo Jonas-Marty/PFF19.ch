@@ -16,7 +16,8 @@
 			"dont_miss_news": "ne manquez aucune news",
 			"example": "exemple",
 			"register_newsletter": "inscription Newsletter",
-			"follow_us": "suivez-nous"
+			"follow_us": "suivez-nous",
+			"pbs": "Un autre du mouvement scout de suisse"
 		},
 		"home": {
 			"slideshow": {
@@ -57,7 +58,8 @@
 		},
 		"faq": {
 			"contact-us": "Contactez nous!",
-			"contact-text": "Pour toute question sur les billets, écrivez directement à ticket@pff19.ch"
+			"contact-text": "Pour toute question sur les billets, écrivez directement à ticket@pff19.ch",
+			"account": "Nos informations de compte"
 		},
 		"helper": {
 			"helper": "Nous avons besoin de toi!"

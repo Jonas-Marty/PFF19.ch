@@ -16,7 +16,8 @@
 			"dont_miss_news": "Keine News verpassen",
 			"example": "beispiel",
 			"register_newsletter": "Anmeldung Newsletter",
-			"follow_us": "Folge uns"
+			"follow_us": "Folge uns",
+			"pbs": "Ein Anlass der Pfadibewegung Schweiz"
 		},
 		"home": {
 			"slideshow": {
@@ -56,7 +57,8 @@
 		},
 		"faq": {
 			"contact-us": "Kontaktiere uns!",
-			"contact-text": "Bei fragen zu Tickets schreibe direkt an ticket@pff19.ch"
+			"contact-text": "Bei fragen zu Tickets schreibe direkt an ticket@pff19.ch",
+			"account": "Unsere Kontoangaben"
 		},
 
 		"helper": {
