@@ -52,11 +52,24 @@
 
                 </div>
 
-                <div class="row">
-                    <app-sponsors></app-sponsors>
-                </div>
             </div>
         </div>
+        <div class="second-footer">
+               <div class="container">
+                    <div class="row">
+                        <app-sponsors></app-sponsors>
+                    </div>
+
+                    <div class="movement-suisse">
+                        <h2>{{ $t('lang.components.footer.pbs') }}</h2>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <img class="pbs-logo" :src="require('assets/images/logo_pbs.png')" alt="PBS Logo"/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         <div class="sub-footer">
                 <div class="container">
                     <div class="row">
@@ -154,6 +167,19 @@ export default {
         width: 100%;
         background: #101010;
         color: white;
+    }
+
+    .pbs-logo {
+        width: 100%
+    }
+
+    .second-footer {
+        background: #2b2b2b;
+        color: white;
+    }
+
+    .movement-suisse {
+        margin-top: 40px;
     }
 </style>
 
