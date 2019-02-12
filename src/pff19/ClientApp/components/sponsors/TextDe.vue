@@ -11,8 +11,8 @@
                 Weitere Informationen rund um den Event und die Sponsoringleistungen finden Sie hier:
             </p>
             <ul>
-                <li><a href="https://drive.google.com/open?id=0B8GQQKgV9iZTNEg1N1Z1b3RYU0hsMkVwX3ZEYzdjMUtWamVN" target="_blank">Informationsbroschüre</a></li>
-                <li><a href="https://drive.google.com/file/d/0B8GQQKgV9iZTUlJJRGFNRHpnYkpSSVBOMGUxd1lEMFV0bkFj/view?usp=sharing" target="_blank">Sponsoring-Konzept</a></li>
+                <li><a href="/assets/Informationsbroschüre PFF STÄFA 2019 - Online.pdf" target="_blank">Informationsbroschüre</a></li>
+                <li><a href="/assets/Sponsoringkonzept PFF Stäfa 2019.pdf" target="_blank">Sponsoring-Konzept</a></li>
             </ul>
 
             <p>Sie möchten uns einfach so unterstützen? Hier finden Sie unsere Kontoangaben:</p>
