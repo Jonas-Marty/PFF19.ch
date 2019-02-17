@@ -17,14 +17,16 @@
 
             <div class="collapse navbar-collapse" :class="{show: collapse}" id="navbarNavAltMarkup">
                 <div class="navbar-nav ml-auto" >
+                    <span 
+                        class="nav-item"
+                        v-for="route in getDefaultRoutes" :key="route.display"
+                    >
                         <router-link
-                                v-for="route in getDefaultRoutes" :key="route.display"
                                 v-if="route.important"
                                 :to="route.path"
-                                class="nav-item nav-link"
+                                class="nav-link"
                         > {{ $t(`lang.navigation.${route.name}`) }}</router-link>
-
-                     
+                    </span> 
                 </div>
             </div>
 
@@ -123,7 +125,7 @@ export default {
     visibility: hidden;
 }
 
-.embedded .nav-item {
+.embedded .nav-link {
     color: white;
 }
 
