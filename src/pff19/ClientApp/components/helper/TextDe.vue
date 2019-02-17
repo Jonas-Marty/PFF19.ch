@@ -5,7 +5,7 @@
         </div>
         <p>
             Trage dich im Helfertool ein und sichere dir deine liebsten Schichten! 
-            Mehr über die Vorteile und Vergünstigungen erfährst du im PDF <a href="https://drive.google.com/file/d/0B8GQQKgV9iZTUGZ2QXNVNVc4a2ZMOTRSLUJ5eTVwZE1hWWsw/view" target="_blank">Helferentschädigung</a>.
+            Mehr über die Vorteile und Vergünstigungen erfährst du im PDF <a href="/assets/Helfer-Entschädigung.pdf" target="_blank">Helferentschädigung</a>.
         </p>
         <p>
             Reserviere dir ausserdem den 12. Oktober 2019 für das Helferfest!

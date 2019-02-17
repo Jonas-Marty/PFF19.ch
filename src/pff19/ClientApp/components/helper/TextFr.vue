@@ -7,7 +7,7 @@
             Choisis – dans notre stafftool – une tâche, qui te plaît et inscris-toi 
             directement pour ton poste au FFS 19. Tu trouves plus d’informations sur 
             des avantage et réductions pour les bénévoles dans le 
-            <a href="https://drive.google.com/file/d/0B8GQQKgV9iZTUGZ2QXNVNVc4a2ZMOTRSLUJ5eTVwZE1hWWsw/view" target="_blank">PDF-condition-de-bénévoles</a>.
+            <a href="/assets/Helfer-Entschädigung.pdf" target="_blank">PDF-condition-de-bénévoles</a>.
         </p>
         <p>
             Note le 12 octobre 2019 – c’est la fête de bénévoles!
