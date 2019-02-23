@@ -42,7 +42,8 @@
 			}
 		},
 		"organisation":{
-			"organisation": "Hauptleitung",
+			"organisation": "Organisation",
+			"team": "Hauptleitung",
 			"co_president": "Co-Präsident",
 			"secretariat": "Sekretariat",
 			"finances": "Finanzen",

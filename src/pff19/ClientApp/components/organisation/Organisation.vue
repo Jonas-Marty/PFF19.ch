@@ -4,7 +4,7 @@
         <text-de v-if="language === 'de'"></text-de>
         <text-fr v-if="language === 'fr'"></text-fr>
         <div class="team">
-            <h2>Das Team</h2>
+            <h2>{{ $t(`lang.components.organisation.team`) }}</h2>
             <div class="row members">
                 <div class="member col-6 col-md-4 col-lg-3" v-for="image in images" :key="image.scoutName">
                     <div class="card">

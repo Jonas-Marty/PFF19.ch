@@ -43,7 +43,8 @@
 			}
 		},
 		"organisation":{
-			"organisation": "Organisateurs",
+			"organisation": "Organisation",
+			"team": "Team",
 			"co_president": "Co-président",
 			"secretariat": "Co-Secrétariat",
 			"finances": "Finances",
