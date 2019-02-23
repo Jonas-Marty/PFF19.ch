@@ -65,10 +65,7 @@ export const routes = [
         path: "/helfer",
         component: Helfer,
         display: "Helfer",
-        important: true,
-        beforeEnter() {
-          location.href = "https://pff19.ukula.ch/";
-        }
+        important: true
       },
       {
         name: "sponsors",
