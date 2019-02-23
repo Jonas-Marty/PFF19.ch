@@ -64,7 +64,9 @@
                         <h2>{{ $t('lang.components.footer.pbs') }}</h2>
                         <div class="row">
                             <div class="col-md-6">
-                                <img class="pbs-logo" :src="require('assets/images/logo_pbs.png')" alt="PBS Logo"/>
+                                <a href="https://www.scout.ch/de" target="_blank">
+                                    <img class="pbs-logo" :src="require('assets/images/logo_pbs.png')" alt="PBS Logo"/>
+                                </a>
                             </div>
                         </div>
                     </div>

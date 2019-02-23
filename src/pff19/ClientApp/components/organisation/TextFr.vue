@@ -1,10 +1,9 @@
 <template>
     <div>
         <p>
-            Notre équipe se compose de beaucoup de pièces de mosaïque différentes. Charpentier, étudiantes, 
-            informaticien ou prof – chacun s’implique dans l’équipe avec ses forts individuels. 
-            C’est ensemble que nous organisons une Fête Folk Scoute inoubliable.
-
+            L'organisation du FFS est divisée en ressorts différents. 
+            Tous les chefs de ressorts sont soutenus par des bénévoles. 
+            Le comité se compose d'un total de près de 50 membres.
         </p>
         <p>
             As-tu quelque chose que tu veux nous dire?  <a href="mailto:info@pff19.ch">Contacte-nous!</a>
