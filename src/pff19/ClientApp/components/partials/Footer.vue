@@ -5,12 +5,16 @@
                 <div class="row">
 
                     <div class="col-md-3 col-sm-6 links footer-block">
+                        <span   
+                            class="list-item"                              
+                            v-for="route in getDefaultRoutes" :key="route.name"
+                        >
                         <router-link
-                                v-for="route in getDefaultRoutes" :key="route.name"
                                 v-if="route.important"
                                 :to="route.path"
-                                class="list-item footer-heading"
+                                class="footer-heading"
                             > {{ $t(`lang.navigation.${route.name}`) }}</router-link>
+                        </span>
                     </div>
 
                     <div class="col-md-4 col-sm-6 footer-block">
