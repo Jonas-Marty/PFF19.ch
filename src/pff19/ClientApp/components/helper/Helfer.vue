@@ -1,4 +1,6 @@
 <template>
+    <div>
+    <slideshow></slideshow>
     <div class="container">
         <div class="row justify-content-md-center">
             <div class="col-md-8">
@@ -8,6 +10,7 @@
             </div>
         </div>
     </div>
+    </div>
 </template>
 
 <script>
@@ -16,6 +19,8 @@ import axios from 'axios';
 import { mapGetters } from 'vuex'
 import textDe from './TextDe'
 import textFr from './TextFr'
+import Slideshow from './Slideshow'
+
 
  import { required, email, between, numeric, minValue, maxLength, minLength, sameAs, requiredUnless } from 'vuelidate/lib/validators';
 
@@ -86,7 +91,8 @@ export default {
 
     components: {
         textDe,
-        textFr
+        textFr,
+        Slideshow
     }
 
 }
@@ -94,8 +100,8 @@ export default {
 
 <style lang="scss" scoped>
     .container {
-        padding-top: 100px;
-        min-height: 700px;
+        padding-top: 50px;
+        min-height: 500px;
     }
 
 </style>
