@@ -41,10 +41,10 @@
                 <div class="row" v-if="this.getCurrentBand.facebook || this.getCurrentBand.instagram">
                 <div class="col-12 social-media-container">
                     <div class="social-media" v-if="this.getCurrentBand.facebook">
-                        <a :href="this.getCurrentBand.facebook"> <img :src="require('assets/images/001-facebook.svg')" alt="facebook" class="social-icon"> </a>
+                        <a :href="this.getCurrentBand.facebook"> <img :src="require('assets/images/facebook.png')" alt="facebook" class="social-icon"> </a>
                     </div>
                     <div class="social-media" v-if="this.getCurrentBand.instagram">
-                        <a :href="this.getCurrentBand.instagram"> <img :src="require('assets/images/003-instagram.svg')" alt="instagram" class="social-icon"> </a>
+                        <a :href="this.getCurrentBand.instagram"> <img :src="require('assets/images/instagram.png')" alt="instagram" class="social-icon"> </a>
                     </div>
                 </div>
                 </div>
@@ -173,7 +173,7 @@ export default {
     }
 
     .social-icon {
-        width: 40px;
+        width: 32px;
     }  
 
     .social-media-wrapper{

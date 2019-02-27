@@ -45,8 +45,9 @@
                     <div class="col-md-2 col-sm-6 footer-block">
                         <span class="footer-heading">{{ $t('lang.components.footer.follow_us') | uppercase }}</span>
                         <div class="social-media footer-content">
-                            <a href="https://www.facebook.com/pff19mosaik/"> <img :src="require('assets/images/001-facebook.svg')" alt="facebook"> </a>
-                            <a href="https://www.instagram.com/pff_19_mosaik/"> <img :src="require('assets/images/003-instagram.svg')" alt="instagram"> </a>
+                            <a href="https://www.facebook.com/pff19mosaik/" target="_blank"> <img :src="require('assets/images/facebook.png')" alt="facebook"> </a>
+                            <a href="https://www.instagram.com/pff_19_mosaik/"target="_blank"> <img :src="require('assets/images/instagram.png')" alt="instagram"> </a>
+                            <a href="https://open.spotify.com/user/k0y6g4in0wgw2v14gt3by8yl8/playlist/6OuHBOtWl8BIA7DCtQHIeL?" target="_blank"> <img :src="require('assets/images/spotify.png')" alt="instagram"> </a>
                         </div>
                     </div>
 
