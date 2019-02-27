@@ -1,38 +1,57 @@
 <template>
     <div class="slideshow">
         <div class="container">
-            <div class="row">
-                <div class="image-container col-md col-sm-12">
-                </div>
-                                
+            <div class="content-block">
+                <picture>
+                    <source media="(max-width: 768px)" :srcset="HelperImgMQ12" alt="slidshow-img">
+                    <img :src="HelperImg" alt="slideshow-img">
+                </picture>
             </div>
+                                
         </div>
-        <img class="slideshow-overlay" src="../../assets/images/slideshow-overlay.svg"/>
+        <div class="slideshow-overlay">
+            <img src="../../assets/images/slideshow-overlay.svg"/>
+        </div>
     </div>
 </template>
 <script>
+import HelperImg from '../../assets/images/helper_image.jpg'
+import HelperImgMQ12 from '../../assets/images/helper_image_mq12.jpg'
+
 export default {
-    
+    data () {
+        return {
+            HelperImg,
+            HelperImgMQ12
+        }
+    }
 }
 </script> 
 
 <style lang="scss" scoped>
     .slideshow { 
-        background: url('../../assets/images/helper_image.jpg');
         height: 630px;
         width: 100%;
-        background-repeat: no-repeat;
-        background-size: cover;
-        background-position: center;
         position: relative;
         overflow: hidden;
     }
 
     .slideshow-overlay {
         position: absolute;
-        bottom: -1px;
+        bottom: -5px;
         right: -3px;
         width: 100%;
+    }
+
+    .content-block {
+        position: absolute;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
     }
 
     .row {
@@ -40,16 +59,8 @@ export default {
     }
 
     @media (max-width: 768px) { 
-        .row {
-        padding-top: 70px;
-        }
-
-        .logo {
-            margin-left: auto;
-            margin-right: auto;
-            max-width: 80%;
-            margin-bottom: 50px;
-            margin-top: 20px;
+        .slideshow {
+            height: 400px;
         }
      }
 
