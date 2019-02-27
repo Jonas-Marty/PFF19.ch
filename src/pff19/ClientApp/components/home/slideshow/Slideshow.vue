@@ -1,6 +1,13 @@
 <template>
     <div class="slideshow">
         <div class="container">
+            <div class="content-block">
+                <picture>
+                    <source media="(max-width: 768px)" :srcset="HomeImgMQ123" alt="slidshow-img">
+                    <img :src="HomeImgMQ45" alt="slideshow-img">
+                </picture>
+            </div>
+
             <div class="row">
                 <div class="image-container col-md col-sm-12">
                     <img class="logo" 
@@ -25,11 +32,21 @@
     </div>
 </template>
 <script>
-import Countdown from './Countdown';
-import i18n from '../../../locales';
+import Countdown from './Countdown'
+import HomeImgMQ45 from '../../../assets/images/home_img_mq5.jpg'
+import HomeImgMQ123 from '../../../assets/images/home_img_mq12.jpg'
+
+
+
+import i18n from '../../../locales'
 
 export default {
-
+    data() {
+        return {
+            HomeImgMQ45,
+            HomeImgMQ123
+        }
+    },
     components: {
         'app-countdown': Countdown 
     }
@@ -39,7 +56,6 @@ export default {
 
 <style lang="scss" scoped>
     .slideshow { 
-        background: url('../../../assets/images/home_img_mq5.jpg');
         height: 800px;
         width: 100%;
         background-repeat: no-repeat;
@@ -55,6 +71,16 @@ export default {
         right: -3px;
         width: 100%;
     }
+    .content-block {
+        position: absolute;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+    }
 
     .logo {
         display: block;
@@ -69,7 +95,7 @@ export default {
         margin:20px auto;
     }
 
-    @media (max-width: 768px) { 
+    @media (max-width: 767px) { 
         .row {
         padding-top: 70px;
         }

@@ -62,7 +62,7 @@ export default {
     }
 
 
-    @media (max-width: 768px) { 
+    @media (max-width: 767px) { 
         .countdown-text {
             text-align: center;
         }
