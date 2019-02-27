@@ -1,5 +1,5 @@
 <template>
-    <div class="sponsor col-12 col-md-4">
+    <div class="sponsor col-10 col-12 col-md-4">
             <a :href="sponsor.link" target="_blank">
             <div class="sponsor-img-wrapper">
                 <img :src="imagePath" :alt="sponsor.name" class="sponsor-img mx-auto"/>

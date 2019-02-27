@@ -46,12 +46,12 @@
                         <span class="footer-heading">{{ $t('lang.components.footer.follow_us') | uppercase }}</span>
                         <div class="social-media footer-content">
                             <a href="https://www.facebook.com/pff19mosaik/" target="_blank"> <img :src="require('assets/images/facebook.png')" alt="facebook"> </a>
-                            <a href="https://www.instagram.com/pff_19_mosaik/"target="_blank"> <img :src="require('assets/images/instagram.png')" alt="instagram"> </a>
+                            <a href="https://www.instagram.com/pff_19_mosaik/" target="_blank"> <img :src="require('assets/images/instagram.png')" alt="instagram"> </a>
                             <a href="https://open.spotify.com/user/k0y6g4in0wgw2v14gt3by8yl8/playlist/6OuHBOtWl8BIA7DCtQHIeL?" target="_blank"> <img :src="require('assets/images/spotify.png')" alt="instagram"> </a>
                         </div>
                     </div>
 
-                    <div class="col-md-3 col-sm-6 footer-block">
+                    <div class="col-10 col-md-3 col-sm-6 footer-block">
                         <img class="footer-logo" :src="require('assets/images/logo_yellow_with_text.png')" alt="pff Logo"/>
                     </div>
 
@@ -68,7 +68,7 @@
                     <div class="movement-suisse">
                         <h2>{{ $t('lang.components.footer.pbs') }}</h2>
                         <div class="row">
-                            <div class="col-md-6">
+                            <div class="offset-1 col-10 col-md-6">
                                 <a href="https://www.scout.ch/de" target="_blank">
                                     <img class="pbs-logo" :src="require('assets/images/logo_pbs.png')" alt="PBS Logo"/>
                                 </a>
@@ -165,7 +165,9 @@ export default {
     }
 
     .footer-block {
-        margin: 10px 0 20px 0;
+        margin: auto;
+        margin-top: 20px;
+        margin-bottom: 20px;
     }
 
     .sub-footer {
