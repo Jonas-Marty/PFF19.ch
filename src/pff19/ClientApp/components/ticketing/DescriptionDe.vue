@@ -44,6 +44,8 @@
 
             <li>Gebrannter Alkohol ist am gesamten Festival nicht erlaubt. Er wird nicht toleriert und konfisziert.</li>
 
+            <li>Mit dem Kauf eines Tickets akzeptierst du die <a href="https://www.dropbox.com/s/6423cu7yrxpi0iz/AGB%20PFF%20St%C3%A4fa%202019%20Besucher.pdf?dl=0" target="_blank">Allgemeinen Geschäftsbedingungen</a> (AGB) des Vereins PFF Stäfa 2019.</li>
+
             <li>Am gesamten Festival zählen die Festivalregeln, siehe Festivalregeln im Programmheft am Check-in.</li>
 
         </ul>

@@ -2,7 +2,6 @@
     <div class="question">
         <h3>{{ questionTitle }}</h3>
         <div class="text-content" v-html="questionAnswer"></div>
-
     </div>
 </template>
 <script>

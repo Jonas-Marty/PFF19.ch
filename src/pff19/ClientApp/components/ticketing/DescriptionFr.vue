@@ -47,6 +47,11 @@
 
             <li> L’alcool distillé est interdit au festival entier. Il n’est pas toléré et il sera confisqué.</li>
 
+
+            <li>Avec l'achat d'un ticket ou avec l'inscription comme bénévole tu acceptes nos 
+                <a href="https://www.dropbox.com/s/6423cu7yrxpi0iz/AGB%20PFF%20St%C3%A4fa%202019%20Besucher.pdf?dl=0" 
+                target="_blank">conditions générales</a></li>
+
             <li>Les règles du festival ont cours pendant tout le festival, voir les règles du festival dans le programme au check-in.</li>
 
         </ul>
