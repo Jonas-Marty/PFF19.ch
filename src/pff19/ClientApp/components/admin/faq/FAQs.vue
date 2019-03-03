@@ -7,10 +7,7 @@
             <i class="fa fa-add fa-1x pull-right"></i>hinzufügen
         </router-link>
         <div class="list-group">
-            <div class="list-group-item d-flex justify-content-between align-items-right" v-for="faq in all" :key="faq.id">
-            <div>
-                {{ faq.id }}
-            </div>
+            <div class="list-group-item d-flex justify-content-between align-items-right" v-for="faq in orderedFaqs" :key="faq.id">
             <div>                
                 {{ faq.questionDe }}
             </div>
@@ -19,14 +16,16 @@
                     <router-link 
                     :to="{ name: 'adminFAQEdit', params: {id: faq.id }}"
                     ><i class="fa fa-edit fa-1x pull-right"></i></router-link>
+                    <i class="fa fa-arrow-up fa-1x pull-right" @click="toUpperElem(faq.id, faq.order)"></i>
+                    <i class="fa fa-arrow-down fa-1x pull-right" @click="toLowerElem(faq.id, faq.order)"></i>
             </div>
             </div>
         </div>
     </div>
 </template>
 <script>
-import { mapActions, mapGetters } from 'vuex';
-import axios from 'axios';
+import { mapActions, mapGetters } from 'vuex'
+import axios from 'axios'
 
 
 export default {
@@ -34,19 +33,60 @@ export default {
     methods: {
         ...mapActions('faqs', [
             'load',
-            'remove'
+            'remove',
+            'swap'
         ]),
+
+        toUpperElem(id, order) {
+            let minDiff = Number.MAX_SAFE_INTEGER
+            let otherElem = {}
+
+            this.orderedFaqs.forEach(el => {
+                const diff = order - el.order
+                if(diff > 0 && diff < minDiff ) {
+                    minDiff = diff
+                    otherElem = el
+                }
+            })
+            if(Object.keys(otherElem).length !== 0) {
+                this.swap({first: id, second: otherElem.id})
+            }
+        },
+
+        toLowerElem(id, order) {
+            let minDiff = Number.MAX_SAFE_INTEGER
+            let otherElem = {}
+
+            this.orderedFaqs.forEach(el => {
+                const diff = el.order - order
+                if(diff > 0 && diff < minDiff ) {
+                    minDiff = diff
+                    otherElem = el
+                }
+            })
+
+            if(Object.keys(otherElem).length !== 0) {
+                this.swap({first: id, second: otherElem.id})
+            }
+        }
     }, 
 
     computed: {
        ...mapGetters('faqs',[
            'all'
-       ])
+       ]),
+       orderedFaqs () {
+           return this.all.sort((a,b) => a.order - b.order)
+       }
     },
 
     created() {
         this.load()
     },
+
+    updated() {
+        this.load()
+    }
     
     
 }

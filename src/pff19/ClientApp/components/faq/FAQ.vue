@@ -4,7 +4,7 @@
         <div class="container faq">
             <div class="offset-lg-1 col-lg-10">
             <h1>FAQ's</h1>
-            <div v-for="faq in all" :key="faq.id">
+            <div v-for="faq in orderedFaqs" :key="faq.id">
                 <question :question="faq"> </question>
             </div>
             </div>
@@ -27,7 +27,10 @@ export default {
         ]),
         ...mapGetters('faqs', [
             'all'
-        ])
+        ]),
+        orderedFaqs () {
+           return this.all.sort((a,b) => a.order - b.order)
+       }
     },
 
     methods: {
