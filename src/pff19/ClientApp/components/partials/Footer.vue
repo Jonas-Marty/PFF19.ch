@@ -145,6 +145,7 @@ export default {
     .social-media img{
         width: 30px;
         margin-right:10px;
+        margin-bottom: 10px;
     }
 
     .footer-heading {
