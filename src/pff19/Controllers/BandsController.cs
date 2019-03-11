@@ -94,6 +94,25 @@ namespace pff19.Controllers
             return NoContent();
         }
 
+        [HttpPut("{firstId:int}/{secondId:int}"), Authorize]
+        public IActionResult Put(int firstId, int secondId)
+        {
+            var existingBand1 = _bandRepository.Get(firstId);
+            var existingBand2 = _bandRepository.Get(secondId);
+            if (existingBand1 == null || existingBand2 == null)
+            {
+                return NotFound();
+            }
+
+            int tmpOrder = existingBand1.Order;
+            existingBand1.Order = existingBand2.Order;
+            existingBand2.Order = tmpOrder;
+            _bandRepository.Update(existingBand1);
+            _bandRepository.Update(existingBand2);
+
+            return NoContent();
+        }
+
         // DELETE: api/Bands/5
         [HttpDelete("{id}"), Authorize]
         public IActionResult Delete(int id)
