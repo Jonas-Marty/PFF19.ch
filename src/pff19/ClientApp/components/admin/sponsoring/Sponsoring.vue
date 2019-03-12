@@ -37,6 +37,8 @@ export default {
                 1: 'Co-Sponsor',
                 2: 'Partner',
                 3: 'Gönner',
+                4: 'Infrastrukturpartner',
+                5: 'Pfadi-Partner'
             }
         }
     },

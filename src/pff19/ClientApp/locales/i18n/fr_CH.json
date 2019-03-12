@@ -35,7 +35,9 @@
 				"main_sponsors": "Sponsors principaux",
 				"co_sponsors": "Co-Sponsors",
 				"partner": "Partenaire",
-				"patron": "Patron" 
+				"patron": "Patron",
+				"infrapartner": "Infrastructure Partenaire",
+				"scoutpartner": "Scout Partenaire" 
 			},
 
 			"bands": {

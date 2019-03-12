@@ -38,6 +38,30 @@
                 </div>
         </div>
 
+        <div class="sponsors" v-if="infrapartner && infrapartner.length > 0">
+            <h2>{{ $t('lang.components.home.sponsors.infrapartner') }}</h2>
+            <div class="row">
+                <app-sponsor
+                    v-for="sponsor in infrapartner"
+                    :key="sponsor.id"
+                    :sponsor="sponsor"
+                >   
+                </app-sponsor>
+                </div>
+        </div>
+
+        <div class="sponsors" v-if="scoutpartner && scoutpartner.length > 0">
+            <h2>{{ $t('lang.components.home.sponsors.scoutpartner') }}</h2>
+            <div class="row">
+                <app-sponsor
+                    v-for="sponsor in scoutpartner"
+                    :key="sponsor.id"
+                    :sponsor="sponsor"
+                >   
+                </app-sponsor>
+                </div>
+        </div>
+
         <div class="sponsors" v-if="patron && patron.length > 0">
             <h2>{{ $t('lang.components.home.sponsors.patron') }}</h2>
             <div class="row">
@@ -73,7 +97,9 @@ export default {
            'mainSponsors',
            'coSponsors',
            'partner',
-           'patron'
+           'patron',
+           'infrapartner',
+           'scoutpartner'
        ]),
 
        ...mapGetters([

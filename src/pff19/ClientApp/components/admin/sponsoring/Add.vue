@@ -58,7 +58,9 @@
                         @blur="$v.link.$touch()"
                         class="form-control"
                         v-model="typ"
-                        >
+                        >   
+                            <option  value="5">Pfadi-Partner</option>
+                            <option value="4">Infrastruktur Partner</option>
                             <option  value="3">Gönner</option>
                             <option value="2">Partner</option>
                             <option value="1">Co-Sponsor</option>

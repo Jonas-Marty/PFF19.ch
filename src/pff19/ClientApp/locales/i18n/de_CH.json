@@ -35,7 +35,9 @@
 				"main_sponsors": "Hauptsponsoren",
 				"co_sponsors": "Co-Sponsoren",
 				"partner": "Partner",
-				"patron": "Gönner" 
+				"patron": "Gönner",
+				"infrapartner": "Infrastruktur Partner",
+				"scoutpartner": "Pfadi Partner"
 			},
 			"bands": {
 				"registration": "Bands Anmeldung"
