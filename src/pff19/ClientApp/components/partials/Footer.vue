@@ -66,9 +66,9 @@
                     </div>
 
                     <div class="movement-suisse">
-                        <h3>{{ $t('lang.components.footer.pbs') }}</h3>
+                        <h4>{{ $t('lang.components.footer.pbs') }}</h4>
                         <div class="row">
-                            <div class="offset-1 col-10 col-md-5">
+                            <div class="offset-1 col-10 col-md-4">
                                 <a href="https://www.scout.ch/de" target="_blank">
                                     <img class="pbs-logo" :src="require('assets/images/logo_pbs.png')" alt="PBS Logo"/>
                                 </a>
