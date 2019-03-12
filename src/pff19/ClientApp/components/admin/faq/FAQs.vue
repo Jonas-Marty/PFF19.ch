@@ -26,10 +26,14 @@
 <script>
 import { mapActions, mapGetters } from 'vuex'
 import axios from 'axios'
-
-
+ 
 export default {
 
+    data() {
+        return {
+            faqs: []
+        }
+    },
     methods: {
         ...mapActions('faqs', [
             'load',
@@ -50,6 +54,7 @@ export default {
             })
             if(Object.keys(otherElem).length !== 0) {
                 this.swap({first: id, second: otherElem.id})
+                window.location.reload() //fucking ugly way to do it but i dont have time to do it better
             }
         },
 
@@ -66,10 +71,12 @@ export default {
             })
 
             if(Object.keys(otherElem).length !== 0) {
-                this.swap({first: id, second: otherElem.id})
+                this.swap({first: id, second: otherElem.id}).then(this.load())
+                window.location.reload() //fucking ugly way to do it but i dont have time to do it better
             }
-        }
+        },
     }, 
+ 
 
     computed: {
        ...mapGetters('faqs',[
@@ -83,11 +90,6 @@ export default {
     created() {
         this.load()
     },
-
-    updated() {
-        this.load()
-    }
-    
     
 }
 </script>

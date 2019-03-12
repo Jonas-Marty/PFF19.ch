@@ -23,7 +23,7 @@
                         <p>Verweise und Links auf Webseiten  Dritter liegen ausserhalb unseres Verantwortungsbereichs Es wird jegliche Verantwortung für solche Webseiten  abgelehnt.  Der Zugriff und die Nutzung solcher Webseiten erfolgen  auf eigene Gefahr des Nutzers oder der Nutzerin. </p>
                         <p>&nbsp;</p>
                         <h2>Urheberrechte</h2>
-                        <p>Die Urheber- und alle anderen Rechte an Inhalten, Bildern, Fotos oder anderen Dateien auf der Website gehören ausschliesslich <strong>der Firma PFF Stäfa 2019</strong> oder den speziell genannten  Rechtsinhabern. Für die Reproduktion jeglicher Elemente ist die schriftliche Zustimmung der Urheberrechtsträger im Voraus einzuholen.</p>
+                        <p>Die Urheber- und alle anderen Rechte an Inhalten, Bildern, Fotos oder anderen Dateien auf der Website gehören ausschliesslich <strong>des Vereins PFF Stäfa 2019</strong> oder den speziell genannten  Rechtsinhabern. Für die Reproduktion jeglicher Elemente ist die schriftliche Zustimmung der Urheberrechtsträger im Voraus einzuholen.</p>
                         <p>&nbsp;</p>
                         <h2>Datenschutz</h2>
                         <p>Gestützt auf Artikel 13 der schweizerischen Bundesverfassung  und die datenschutzrechtlichen Bestimmungen des Bundes (Datenschutzgesetz, DSG)  hat jede Person Anspruch auf Schutz ihrer Privatsphäre sowie auf Schutz vor  Missbrauch ihrer persönlichen Daten. Wir halten diese Bestimmungen ein.  Persönliche Daten werden streng vertraulich behandelt und weder an Dritte  verkauft noch weiter gegeben.</p>
