@@ -7,7 +7,7 @@
                 <h3>Bénévoles</h3>
                 <p>
                     Est-ce que tu voudrais soutenir le FFS comme bénévole et ainsi profiter d’un avantage sur 
-                    ton ticket? <router-link :to="{name: 'helper'}">Deviens bénévole!</router-link> (Les 
+                    ton ticket? <a href="https://pff19.ukula.ch/" target="_blank">Deviens bénévole!</a> (Les 
                     bénévoles reçoivent leurs tickets réduits directement à la caisse quand ils arrivent 
                     et ils ne doivent pas acheter un ticket en prévente!)
                 </p>

@@ -7,7 +7,7 @@
                 <h3>Helfer</h3>
                 <p>
                     Möchtest Du das PFF als Helfer unterstützen und Dir dadurch einen Rabatt 
-                    auf Dein Ticket sichern? <router-link :to="{name: 'helper'}"> Werde Helfer!</router-link> (Helfer beziehen ihr vergünstigtes 
+                    auf Dein Ticket sichern?<a href="https://pff19.ukula.ch/" target="_blank"> Werde Helfer!</a> (Helfer beziehen ihr vergünstigtes 
                     Ticket direkt an der Kasse vor Ort und müssen kein Ticket im Vorverkauf kaufen!)
                 </p>
             </div>
