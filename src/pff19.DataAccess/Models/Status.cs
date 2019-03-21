@@ -5,8 +5,9 @@
         Hauptsponsor = 0,
         CoSponsor = 1,
         Partner = 2,
-        Gönner = 3,
+        GönnerPrivat = 3,
         Infrastrukturpartner = 4,
-        PfadiPartner = 5
+        PfadiPartner = 5,
+        GönnerUnternehmen = 6
     }
 }
