@@ -20,5 +20,6 @@ namespace pff19.DataAccess.Models
         public string Facebook { get; set; }
         public string Instagram { get; set; }
         public int Order { get; set; }
+        public string ImageMobile { get; set; }
     }
 }

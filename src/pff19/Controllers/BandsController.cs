@@ -147,6 +147,15 @@ namespace pff19.Controllers
                         _configuration.GetValue<int>("Images:Bands:Y")));
                 band.ImageLarge = filename;
             }
+
+            if (model.ImageMobile != null)
+            {
+                string filename = band.Id + Path.GetExtension(model.ImageMobile.FileName);
+                _fileUtility.SaveImage(model.ImageMobile.OpenReadStream(), "bands", "mobile", filename,
+                    new Size(_configuration.GetValue<int>("Images:MobileSize:Bands:X"),
+                        _configuration.GetValue<int>("Images:MobileSize:Bands:Y")));
+                band.ImageMobile = filename;
+            }
         }
     }
 }

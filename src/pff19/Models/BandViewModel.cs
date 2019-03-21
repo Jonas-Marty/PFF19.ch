@@ -21,5 +21,6 @@ namespace pff19.Models
         public int? Order { get; set; }
         public IFormFile ImageThumbnail { get; set; }
         public IFormFile ImageLarge { get; set; }
+        public IFormFile ImageMobile { get; set; }
     }
 }
