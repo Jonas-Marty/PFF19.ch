@@ -47,7 +47,7 @@
                         <div class="social-media footer-content">
                             <a href="https://www.facebook.com/pff19mosaik/" target="_blank"> <img :src="require('assets/images/facebook.png')" alt="facebook"> </a>
                             <a href="https://www.instagram.com/pff_19_mosaik/" target="_blank"> <img :src="require('assets/images/instagram.png')" alt="instagram"> </a>
-                            <a href="https://open.spotify.com/user/k0y6g4in0wgw2v14gt3by8yl8/playlist/6OuHBOtWl8BIA7DCtQHIeL?" target="_blank"> <img :src="require('assets/images/spotify.png')" alt="instagram"> </a>
+                            <a href="https://open.spotify.com/user/k0y6g4in0wgw2v14gt3by8yl8/playlist/6OuHBOtWl8BIA7DCtQHIeL?" target="_blank"> <img :src="require('assets/images/spotify.png')" alt="spotify"> </a>
                         </div>
                     </div>
 
