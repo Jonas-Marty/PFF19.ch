@@ -22,12 +22,12 @@ CREATE TABLE `Sponsors` (
 );
 
 INSERT INTO `__EFMigrationsHistory` (`MigrationId`, `ProductVersion`)
-VALUES ('20180702191438_InitialCreate', '2.1.4-rtm-31024');
+VALUES ('20180702191438_InitialCreate', '2.2.3-servicing-35854');
 
 ALTER TABLE `Sponsors` ADD `Status` int NOT NULL DEFAULT 0;
 
 INSERT INTO `__EFMigrationsHistory` (`MigrationId`, `ProductVersion`)
-VALUES ('20180702194855_SponsorStatusEnum', '2.1.4-rtm-31024');
+VALUES ('20180702194855_SponsorStatusEnum', '2.2.3-servicing-35854');
 
 CREATE TABLE `Bands` (
     `Id` int NOT NULL AUTO_INCREMENT,
@@ -52,7 +52,7 @@ CREATE TABLE `Users` (
 );
 
 INSERT INTO `__EFMigrationsHistory` (`MigrationId`, `ProductVersion`)
-VALUES ('20180709212713_BandsAndBasicUser', '2.1.1-rtm-30846');
+VALUES ('20180709212713_BandsAndBasicUser', '2.2.3-servicing-35854');
 
 ALTER TABLE `News` CHANGE `Title` `TitleFr` longtext NULL;
 ALTER TABLE `News` CHANGE `Content` `TitleDe` longtext NULL;
@@ -73,20 +73,20 @@ CREATE TABLE `Assistants` (
 );
 
 INSERT INTO `__EFMigrationsHistory` (`MigrationId`, `ProductVersion`)
-VALUES ('20180729124949_FranceAndAddAssistants', '2.1.4-rtm-31024');
+VALUES ('20180729124949_FranceAndAddAssistants', '2.2.3-servicing-35854');
 
 INSERT INTO `Users` (`FirstName`, `IsAdmin`, `Mail`, `Name`, `PasswordHash`, `Ressort`, `Salt`, `ScoutName`)
-VALUES ('Administrator', TRUE, 'info@pff.ch', 'Administrator', 0xAC5AB5814A1F484E2054C700575066F41233236C6EA74780172E995C47408DB32D997D4237760CE349449DF93BDFAC3BCBD845A3E93E42F746CBFDAE8B7F4BB9, 'Kommunikation', 0x82BE9D3606083B80EC12B8F6BD8786ED97DFE19C638CA24396CB53077C3C950E5B07B14050D6E45A98DAECFB06C492121395940D8B8ABDF13874E311F26F4110, 'admin');
+VALUES ('Administrator', TRUE, 'info@pff.ch', 'Administrator', 0x77F3E1C030BAC182DFC9579C879358BCBF6822C2CE8B0A4E41151718F9CD09B6EC3E54166E3812F1C27550069F7A46E5737FDA65121244AFA2D60FE65331CDBC, 'Kommunikation', 0x5CEDD2E9D2C1F19C661B70EB1AF6C9E4C9AFE0EDF8DD595E4F6E436822147E6A9C432F617E5C7C4A98B01FB5AA28409FF2713625E9707D87EFBB8C881765F6AE, 'admin');
 
 INSERT INTO `__EFMigrationsHistory` (`MigrationId`, `ProductVersion`)
-VALUES ('20180729135517_DefaultData', '2.1.4-rtm-31024');
+VALUES ('20180729135517_DefaultData', '2.2.3-servicing-35854');
 
 ALTER TABLE `News` ADD `PreviewDe` longtext NULL;
 
 ALTER TABLE `News` ADD `PreviewFr` longtext NULL;
 
 INSERT INTO `__EFMigrationsHistory` (`MigrationId`, `ProductVersion`)
-VALUES ('20180729144757_NewsPreview', '2.1.4-rtm-31024');
+VALUES ('20180729144757_NewsPreview', '2.2.3-servicing-35854');
 
 CREATE TABLE `Faqs` (
     `Id` int NOT NULL AUTO_INCREMENT,
@@ -100,12 +100,12 @@ CREATE TABLE `Faqs` (
 );
 
 INSERT INTO `__EFMigrationsHistory` (`MigrationId`, `ProductVersion`)
-VALUES ('20180730210224_AddFaqs', '2.1.4-rtm-31024');
+VALUES ('20180730210224_AddFaqs', '2.2.3-servicing-35854');
 
 ALTER TABLE `Assistants` ADD `Email` longtext NULL;
 
 INSERT INTO `__EFMigrationsHistory` (`MigrationId`, `ProductVersion`)
-VALUES ('20180809195107_AssitantEmailColumn', '2.1.4-rtm-31024');
+VALUES ('20180809195107_AssitantEmailColumn', '2.2.3-servicing-35854');
 
 ALTER TABLE `Assistants` MODIFY COLUMN `Vorname` longtext NOT NULL;
 
@@ -114,7 +114,7 @@ ALTER TABLE `Assistants` MODIFY COLUMN `Name` longtext NOT NULL;
 ALTER TABLE `Assistants` MODIFY COLUMN `Email` longtext NOT NULL;
 
 INSERT INTO `__EFMigrationsHistory` (`MigrationId`, `ProductVersion`)
-VALUES ('20180809200400_AssistantRequiredFields', '2.1.4-rtm-31024');
+VALUES ('20180809200400_AssistantRequiredFields', '2.2.3-servicing-35854');
 
 ALTER TABLE `Bands` DROP COLUMN `Mail`;
 
@@ -147,7 +147,7 @@ CREATE TABLE `ContactRequests` (
 );
 
 INSERT INTO `__EFMigrationsHistory` (`MigrationId`, `ProductVersion`)
-VALUES ('20180809204833_ContactRequestAndBandRequest', '2.1.4-rtm-31024');
+VALUES ('20180809204833_ContactRequestAndBandRequest', '2.2.3-servicing-35854');
 
 ALTER TABLE `News` CHANGE `Image` `Images` longtext NULL;
 ALTER TABLE `News` ADD `LinkInstagram` longtext NULL;
@@ -159,6 +159,68 @@ ALTER TABLE `Sponsors` ADD `CreatedAt` datetime(6) NOT NULL DEFAULT '0001-01-01 
 ALTER TABLE `News` ADD `DateCreated` datetime(6) NOT NULL DEFAULT '0001-01-01 00:00:00.000000';
 
 INSERT INTO `__EFMigrationsHistory` (`MigrationId`, `ProductVersion`)
-VALUES ('20181117164351_NewFields', '2.1.4-rtm-31024');
+VALUES ('20181117164351_NewFields', '2.2.3-servicing-35854');
 
+ALTER TABLE `ContactRequests` ADD `SubmitedAt` datetime(6) NULL;
+
+INSERT INTO `__EFMigrationsHistory` (`MigrationId`, `ProductVersion`)
+VALUES ('20181206214136_ContactRequest_SubmitedAt', '2.2.3-servicing-35854');
+
+ALTER TABLE `Faqs` MODIFY COLUMN `Category` longtext NULL;
+
+INSERT INTO `__EFMigrationsHistory` (`MigrationId`, `ProductVersion`)
+VALUES ('20190105122738_FaqCategoryAsString', '2.2.3-servicing-35854');
+
+ALTER TABLE `Bands` MODIFY COLUMN `Name` longtext NULL;
+
+ALTER TABLE `Bands` MODIFY COLUMN `DescriptionFr` longtext NULL;
+
+ALTER TABLE `Bands` MODIFY COLUMN `DescriptionDe` longtext NULL;
+
+ALTER TABLE `Bands` ADD `Facebook` longtext NULL;
+
+ALTER TABLE `Bands` ADD `ImageLarge` longtext NULL;
+
+ALTER TABLE `Bands` ADD `ImageThumbnail` longtext NULL;
+
+ALTER TABLE `Bands` ADD `Instagram` longtext NULL;
+
+ALTER TABLE `Bands` ADD `Order` int NOT NULL DEFAULT 0;
+
+ALTER TABLE `Bands` ADD `PlayTime` datetime(6) NOT NULL DEFAULT '0001-01-01 00:00:00.000000';
+
+ALTER TABLE `Bands` ADD `SpotifyPlaylist` longtext NULL;
+
+ALTER TABLE `Bands` ADD `WebSiteUrl` longtext NULL;
+
+ALTER TABLE `Bands` ADD `YoutubeUrls` longtext NULL;
+
+INSERT INTO `__EFMigrationsHistory` (`MigrationId`, `ProductVersion`)
+VALUES ('20190105162610_NewFieldsForBands', '2.2.3-servicing-35854');
+
+ALTER TABLE `Bands` MODIFY COLUMN `PlayTime` datetime(6) NULL;
+
+INSERT INTO `__EFMigrationsHistory` (`MigrationId`, `ProductVersion`)
+VALUES ('20190105165319_BandPlayTimeNotNull', '2.2.3-servicing-35854');
+
+ALTER TABLE `Faqs` MODIFY COLUMN `QuestionFr` longtext NOT NULL;
+
+ALTER TABLE `Faqs` MODIFY COLUMN `QuestionDe` longtext NOT NULL;
+
+ALTER TABLE `Faqs` MODIFY COLUMN `Category` longtext NOT NULL;
+
+ALTER TABLE `Faqs` MODIFY COLUMN `AnswerFr` longtext NOT NULL;
+
+ALTER TABLE `Faqs` MODIFY COLUMN `AnswerDe` longtext NOT NULL;
+
+ALTER TABLE `Bands` MODIFY COLUMN `PlayTime` longtext NULL;
+
+INSERT INTO `__EFMigrationsHistory` (`MigrationId`, `ProductVersion`)
+VALUES ('20190119124702_ChangeBandPlayTimeToStringColumn', '2.2.3-servicing-35854');
+
+ALTER TABLE `Bands` ADD `ImageMobile` longtext NULL;
+
+INSERT INTO `__EFMigrationsHistory` (`MigrationId`, `ProductVersion`)
+VALUES ('20190321195706_AddBandMobileImage', '2.2.3-servicing-35854');
+ 
 
