@@ -169,7 +169,7 @@ export default {
                 url: '/api',
                 autoProcessQueue: false,
                 thumbnailWidth: 150,
-                maxFilesize: 0.5,
+                maxFilesize: 1.5,
                 maxFiles: 3,
                 destroyDropzone: true,
                 addRemoveLinks: true,
