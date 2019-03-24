@@ -41,7 +41,7 @@
 
                     <div class="form-group" :class="{'invalid-form': $v.AnswerDe.$error}">
                         <label for="answer_de">Antwort Deutsch</label>
-                        <vue-editor class="html-editor" @blur="$v.AnswerDe.$touch()" id="answer_de" :editorToolbar="customToolbar" v-model="AnswerDe"></vue-editor>
+                        <vue-editor class="html-editor" @blur="$v.AnswerDe.$touch()" id="answer_de" :editorOptions="optionsEditor" :editorToolbar="customToolbar" v-model="AnswerDe"></vue-editor>
 
                         <div class="error-messages"> 
                             <p v-if="!$v.AnswerDe.required && $v.AnswerDe.$dirty">Es brauch eine Antwort auf die Frage</p>
@@ -50,7 +50,7 @@
 
                     <div class="form-group" :class="{'invalid-form': $v.AnswerFr.$error}">
                         <label for="answer_fr">Antwort Französisch</label>
-                        <vue-editor class="html-editor" @blur="$v.AnswerFr.$touch()" id="answer_fr" :editorToolbar="customToolbar" v-model="AnswerFr"></vue-editor>
+                        <vue-editor class="html-editor" @blur="$v.AnswerFr.$touch()" id="answer_fr" :editorOptions="optionsEditor" :editorToolbar="customToolbar" v-model="AnswerFr"></vue-editor>
 
                         <div class="error-messages"> 
                             <p v-if="!$v.AnswerFr.required && $v.AnswerFr.$dirty">Es brauch eine Antwort auf die Frage</p>
@@ -79,7 +79,11 @@ export default {
             AnswerDe: '',
             AnswerFr: '',
             Category: 'default',
-
+            optionsEditor: {
+                formats: [
+                    'bold','underline','italic', 'list', 'link', 'header'
+                ],
+            },
             customToolbar: [
                 ['bold', 'italic', 'underline', 'link'],
                 [{ 'list': 'ordered'}, { 'list': 'bullet' }, {'header': ['3','4']}],

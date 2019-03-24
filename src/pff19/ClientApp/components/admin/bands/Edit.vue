@@ -70,7 +70,7 @@
 
                     <div class="form-group" :class="{'invalid-form': $v.DescriptionDe.$error}">
                         <label for="description_de">Description Deutsch</label>
-                        <vue-editor class="html-editor" @blur="$v.DescriptionDe.$touch()" id="description_de" :editorToolbar="customToolbar" v-model="DescriptionDe"></vue-editor>
+                        <vue-editor class="html-editor" @blur="$v.DescriptionDe.$touch()" id="description_de" :editorOptions="optionsEditor" :editorToolbar="customToolbar" v-model="DescriptionDe"></vue-editor>
 
                         <div class="error-messages"> 
                             <p v-if="!$v.DescriptionDe.required && $v.DescriptionDe.$dirty">Es braucht eine Bescpreibung zur Band</p>
@@ -80,7 +80,7 @@
 
                     <div class="form-group" :class="{'invalid-form': $v.DescriptionFr.$error}">
                         <label for="description_fr">Description Französisch</label>
-                        <vue-editor class="html-editor" @blur="$v.DescriptionFr.$touch()" id="description_fr" :editorToolbar="customToolbar" v-model="DescriptionFr"></vue-editor>
+                        <vue-editor class="html-editor" @blur="$v.DescriptionFr.$touch()" id="description_fr" :editorOptions="optionsEditor" :editorToolbar="customToolbar" v-model="DescriptionFr"></vue-editor>
 
                         <div class="error-messages"> 
                             <p v-if="!$v.DescriptionFr.required && $v.DescriptionFr.$dirty">Es braucht eine Bescpreibung zur Band</p>
@@ -201,7 +201,11 @@ export default {
             SpotifyPlaylist: '',
             ImageThumbnail: {},
             ImageLarge: {},
-
+            optionsEditor: {
+                formats: [
+                    'bold','underline','italic', 'list', 'link', 'header'
+                ],
+            },
             customToolbar: [
                 ['bold', 'italic', 'underline', 'link'],
                 [{ 'list': 'ordered'}, { 'list': 'bullet' }, {'header': ['2','3']}],

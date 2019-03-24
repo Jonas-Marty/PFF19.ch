@@ -100,7 +100,7 @@
 
                     <div class="form-group" :class="{'invalid-form': $v.ContentDe.$error}">
                         <label for="content_de">Inhalt Deutsch</label>
-                        <vue-editor class="html-editor" @blur="$v.ContentDe.$touch()" id="contentd_de" :editorToolbar="customToolbar" v-model="ContentDe"></vue-editor>
+                        <vue-editor class="html-editor" @blur="$v.ContentDe.$touch()" id="contentd_de" :editorOptions="optionsEditor" :editorToolbar="customToolbar" v-model="ContentDe"></vue-editor>
 
                         <div class="error-messages"> 
                             <p v-if="!$v.ContentDe.required && $v.ContentDe.$dirty">Es brauch einen Inhalt für deine News</p>
@@ -109,7 +109,7 @@
 
                     <div class="form-group" :class="{'invalid-form': $v.ContentFr.$error}">
                         <label for="content_fr">Inhalt Französisch</label>
-                        <vue-editor class="html-editor" @blur="$v.ContentFr.$touch()" id="contentd_fr" :editorToolbar="customToolbar" v-model="ContentFr"></vue-editor>
+                        <vue-editor class="html-editor" @blur="$v.ContentFr.$touch()" id="contentd_fr" :editorOptions="optionsEditor" :editorToolbar="customToolbar" v-model="ContentFr"></vue-editor>
 
                         <div class="error-messages"> 
                             <p v-if="!$v.ContentFr.required && $v.ContentFr.$dirty">Es brauch einen Inhalt für deine News</p>
@@ -159,7 +159,11 @@ export default {
             ContentFr: '',
             Images: [],
             date: new Date(),
-
+            optionsEditor: {
+                formats: [
+                    'bold','underline','italic', 'list', 'link', 'header'
+                ],
+            },
             customToolbar: [
                 ['bold', 'italic', 'underline', 'link'],
                 [{ 'list': 'ordered'}, { 'list': 'bullet' }, {'header': ['2','3']}],
