@@ -3,11 +3,11 @@
         <div class="slideshow">
             <div class="content-block">
                 <picture v-if="this.getCurrentBand.imageMobile">
-                    <source media="(min-width: 768px)" :srcset="`/assets/bands/images/${this.getCurrentBand.imageLarge}`" alt="slidshow-img">
-                    <img :src="`/assets/bands/mobile/${this.getCurrentBand.imageMobile}`" alt="slideshow-img">
+                    <source media="(min-width: 768px)" :srcset="`/assets/bands/images/${this.getCurrentBand.imageLarge}`"  class="slideshow" alt="slidshow-img">
+                    <img :src="`/assets/bands/mobile/${this.getCurrentBand.imageMobile}`" class="slideshow" alt="slideshow-img">
                 </picture>
                 <picture v-else>
-                    <img :src="`/assets/bands/images/${this.getCurrentBand.imageLarge}`" alt="slideshow-img">
+                    <img :src="`/assets/bands/images/${this.getCurrentBand.imageLarge}`" class="slideshow" alt="slideshow-img">
                 </picture>
             </div>
       
@@ -124,7 +124,7 @@ export default {
         margin-bottom: 20px;
     }
     .myContainer, .container {
-        padding-top: 60px; 
+        padding-top: 50px; 
     }
 
     .img {
