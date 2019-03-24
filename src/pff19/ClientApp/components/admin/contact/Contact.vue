@@ -1,9 +1,8 @@
 <template>
     <div>
-        <h1>Kontaktanfragen</h1>
-        <div class="row">
-            <div class="col-12 col-md-4"  v-for="contact in all" :key="contact.id">
-                <div class="card">
+        <h1>Kontaktanfragen (neuste zuerst)</h1>
+        <div class="list-group">
+            <div class="list-group-item"  v-for="contact in orderedContacts" :key="contact.id">
                     <div class="card-body">
                         <h5 class="card-title">
                             {{ contact.firstName }}, {{ contact.lastName }}
@@ -11,7 +10,6 @@
                         <h6 class="card-subtitle mb-2 text-muted">{{ contact.mail }}, {{ contact.submitedAt | formateDate }}</h6>
                         <p class="card-text">{{ contact.text }}</p>
                     </div>
-                </div>
             </div>
         </div>
     </div>
@@ -32,7 +30,11 @@ export default {
     computed: {
        ...mapGetters('contact',[
            'all'
-       ])
+       ]),
+       orderedContacts () {
+           console.log(this.all)
+           return this.all.sort((a,b) => ((new Date(a.submitedAt) - new Date(b.submitedAt)) * -1))
+       }
     },
 
     created() {
