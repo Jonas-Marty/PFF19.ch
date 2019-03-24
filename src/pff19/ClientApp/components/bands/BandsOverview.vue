@@ -2,7 +2,7 @@
     <div class="container">
         <h1>Bands</h1>
         <div class="card-columns">
-            <div class="card" v-for="band in all" :key="band.id">
+            <div class="card" v-for="band in orderedBands" :key="band.id">
                 <img class="card-img-top" :src="`/assets/bands/thumbnail/${band.imageThumbnail}`" :alt="band.name">
                 <div class="card-body"> 
                     <router-link
@@ -36,7 +36,10 @@ export default {
     computed: {
        ...mapGetters('bands',[
            'all'
-       ])
+       ]),
+        orderedBands () {
+           return this.all.sort((a,b) => a.order - b.order)
+        }
     },
 
     created() {

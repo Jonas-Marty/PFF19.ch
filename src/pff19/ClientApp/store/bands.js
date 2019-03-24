@@ -55,6 +55,9 @@ export const bands = {
           commit('remove', payload)
         }).catch(e => {
         })
+    },
+    swap: ({ commit }, { first, second }) => {
+      auth.put(`/bands/${first}/${second}`)
     }
   }
 }
