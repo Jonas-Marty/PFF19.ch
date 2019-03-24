@@ -1,6 +1,16 @@
 <template>
-    <div>
-        <div class="slideshow" :style="{backgroundImage: `url(/assets/bands/images/${this.getCurrentBand.imageLarge})`}">
+    <div class="myContainer">
+        <div class="slideshow">
+            <div class="content-block">
+                <picture v-if="this.getCurrentBand.imageMobile">
+                    <source media="(min-width: 768px)" :srcset="`/assets/bands/images/${this.getCurrentBand.imageLarge}`" alt="slidshow-img">
+                    <img :src="`/assets/bands/mobile/${this.getCurrentBand.imageMobile}`" alt="slideshow-img">
+                </picture>
+                <picture v-else>
+                    <img :src="`/assets/bands/images/${this.getCurrentBand.imageLarge}`" alt="slideshow-img">
+                </picture>
+            </div>
+      
             <img class="slideshow-overlay" src="../../assets/images/slideshow-overlay.svg"/>
         </div>
         <div class="container">
@@ -113,8 +123,8 @@ export default {
     h1 {
         margin-bottom: 20px;
     }
-    .container {
-        padding-top: 50px; 
+    .myContainer, .container {
+        padding-top: 60px; 
     }
 
     .img {
@@ -156,6 +166,17 @@ export default {
         bottom: -1px;
         right: -3px;
         width: 100%;
+    }
+
+    .content-block {
+        position: absolute;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
     }
 
     .ytplayer {

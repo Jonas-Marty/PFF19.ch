@@ -39,6 +39,17 @@
                         </div> 
                     </div>
 
+                    <div class="form-group dropzone-wrapper">
+                        <label for="mobileUpload">Smartphone Image upload (768x400)</label>
+                        <vue-dropzone 
+                            ref="mobileUpload" 
+                            id="mobileUpload" 
+                            :options="dropzoneOptions" 
+                            v-on:vdropzone-file-added="sendingEventMobileImage"
+                            v-on:vdropzone-removed-file="removingMobileImage">
+                        </vue-dropzone>   
+                    </div>
+
                         <div class="form-group" >
                             <label for="time">Aufrittszeit (wird so dargestellt wie du es schreibst)</label>
                             <input 
@@ -201,6 +212,7 @@ export default {
             SpotifyPlaylist: '',
             ImageThumbnail: {},
             ImageLarge: {},
+            ImageMobile: {},
             optionsEditor: {
                 formats: [
                     'bold','underline','italic', 'list', 'link', 'header'
@@ -268,7 +280,8 @@ export default {
                     SpotifyPlaylist: this.SpotifyPlaylist,
                     WebSiteUrl: this.WebSiteUrl,
                     ImageThumbnail: this.ImageThumbnail,
-                    ImageLarge: this.ImageLarge
+                    ImageLarge: this.ImageLarge,
+                    ImageMobile: this.ImageMobile
                 }
 
                 auth.put(`Bands/${this.$route.params.id}`, convertToFormData(formData))
@@ -288,6 +301,10 @@ export default {
         sendingEventImage (file, xhr) {
             this.ImageLarge = file
         },
+        
+        sendingEventMobileImage (file, xhr) {
+            this.ImageMobile = file
+        },
 
         removingThumpnail (file) {
             this.ImageThumbnail = {}
@@ -296,6 +313,10 @@ export default {
         removingImage (file) {
             this.ImageLarge = {}
         },
+
+        removingMobileImage (file) {
+            this.ImageMobile = {}
+        }
     },
 
     mounted() {
@@ -317,6 +338,10 @@ export default {
                 this.$refs.imageUpload.manuallyAddFile(
                     { size: 123, name: response.data.imageLarge, type: "image/jpg" },
                     `/assets/bands/images/${response.data.imageLarge}`
+                )
+                this.$refs.mobileUpload.manuallyAddFile(
+                    { size: 123, name: response.data.imageMobile, type: "image/jpg" },
+                    `/assets/bands/mobile/${response.data.imageMobile}`
                 )
 
             }).catch(e => {

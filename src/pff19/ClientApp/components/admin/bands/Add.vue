@@ -39,6 +39,17 @@
                         </div> 
                     </div>
 
+                    <div class="form-group dropzone-wrapper">
+                        <label for="smartphone_image_upload">Smartphone Image upload (768x400)</label>
+                        <vue-dropzone 
+                            ref="smartphone_image_upload" 
+                            id="smartphone_image_upload" 
+                            :options="dropzoneOptions" 
+                            v-on:vdropzone-file-added="sendingEventMobileImage"
+                            v-on:vdropzone-removed-file="removingMobileImage">
+                        </vue-dropzone>   
+                    </div>
+
                     <div class="form-group" >
                             <label for="time">Aufrittszeit (wird so dargestellt wie du es schreibst)</label>
                             <input 
@@ -267,7 +278,8 @@ export default {
                     WebSiteUrl: this.WebSiteUrl,
                     SpotifyPlaylist: this.SpotifyPlaylist,
                     ImageThumbnail: this.ImageThumbnail,
-                    ImageLarge: this.ImageLarge
+                    ImageLarge: this.ImageLarge,
+                    ImageMobile: this.ImageMobile
                 }
 
                 let form_data = new FormData()
@@ -294,12 +306,19 @@ export default {
             this.ImageLarge = file
         },
 
+        sendingEventMobileImage (file, xhr) {
+            this.ImageMobile = file
+        },
+
         removingThumpnail (file) {
             this.ImageThumbnail = {}
         },
 
         removingImage (file) {
             this.ImageLarge = {}
+        },
+        removingMobileImage (file) {
+            this.ImageMobile = {}
         },
     }
 
