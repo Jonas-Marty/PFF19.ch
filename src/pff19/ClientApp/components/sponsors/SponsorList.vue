@@ -62,11 +62,23 @@
                 </div>
         </div>
 
-        <div class="sponsors" v-if="patron && patron.length > 0">
-            <h2>{{ $t('lang.components.home.sponsors.patron') }}</h2>
+        <div class="sponsors" v-if="patronCompany && patronCompany.length > 0">
+            <h2>{{ $t('lang.components.home.sponsors.patron_company') }}</h2>
             <div class="row">
                 <goenner
-                    v-for="sponsor in patron"
+                    v-for="sponsor in patronCompanySorted"
+                    :key="sponsor.id"
+                    :sponsor="sponsor"
+                >   
+                </goenner>
+                </div>
+        </div>
+
+        <div class="sponsors" v-if="patronPrivatePerson && patronPrivatePerson.length > 0">
+            <h2>{{ $t('lang.components.home.sponsors.patron_private_person') }}</h2>
+            <div class="row">
+                <goenner
+                    v-for="sponsor in patronPrivatePerson"
                     :key="sponsor.id"
                     :sponsor="sponsor"
                 >   
@@ -97,14 +109,23 @@ export default {
            'mainSponsors',
            'coSponsors',
            'partner',
-           'patron',
+           'patronCompany',
+           'patronPrivatePerson',
            'infrapartner',
            'scoutpartner'
        ]),
 
        ...mapGetters([
            'language'
-       ])
+       ]),
+
+       patronCompanySorted() {
+           return this.patronCompany.sort((a,b) => a.name.localeCompare(b.name))
+       },
+
+       patronPrivatePersonSorted(){
+           return this.patronPrivatePerson.sort((a,b) => a.name.localeCompare(b.name))
+       }
 
     },
 

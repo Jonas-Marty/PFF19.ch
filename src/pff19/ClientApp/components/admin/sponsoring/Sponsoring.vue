@@ -36,9 +36,10 @@ export default {
                 0: 'Hauptsponsor',
                 1: 'Co-Sponsor',
                 2: 'Partner',
-                3: 'Gönner',
+                3: 'Gönner (Privatperson)',
                 4: 'Infrastrukturpartner',
-                5: 'Pfadi-Partner'
+                5: 'Pfadi-Partner',
+                6: 'Gönner (Unternehmen)'
             }
         }
     },

@@ -20,7 +20,7 @@ export const sponsors = {
     partner: state => {
       return state.sponsors.filter(el => el.status === 2);
     },
-    patron: state => {
+    patronPrivatePerson: state => {
       return state.sponsors.filter(el => el.status === 3);
     },
     infrapartner: state => {
@@ -28,6 +28,9 @@ export const sponsors = {
     },
     scoutpartner: state => {
       return state.sponsors.filter(el => el.status === 5);
+    },
+    patronCompany: state => {
+      return state.sponsors.filter(el => el.status === 6);
     },
     get: state => {
       return id =>

@@ -35,7 +35,8 @@
 				"main_sponsors": "Sponsors principaux",
 				"co_sponsors": "Co-Sponsors",
 				"partner": "Partenaire",
-				"patron": "Patron",
+				"patron_private_person": "Patron personne",
+				"patron_company": "Patron entreprise",
 				"infrapartner": "Infrastructure Partenaire",
 				"scoutpartner": "Scout Partenaire" 
 			},
