@@ -3,7 +3,7 @@
         <div class="container">
             <div class="content-block">
                 <picture class="background-img">
-                    <source media="(max-width: 768px)" :srcset="`assets/bands/mobile/${imageMobile}`" alt="slidshow-img" class="img-fluid background-img">
+                    <source v-if="imageMobile" media="(max-width: 768px)" :srcset="`assets/bands/mobile/${imageMobile}`" alt="slidshow-img" class="img-fluid background-img">
                     <img :src="`assets/bands/images/${getFirstImage}`" alt="slideshow-img" class="img-fluid background-img">
                 </picture>
             </div>
