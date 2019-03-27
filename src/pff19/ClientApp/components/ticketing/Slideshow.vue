@@ -41,7 +41,7 @@ export default {
 
     @media (max-width: 768px) { 
         .row {
-        padding-top: 70px;
+            padding-top: 70px;
         }
 
         .logo {

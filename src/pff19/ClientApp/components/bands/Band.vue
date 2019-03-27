@@ -1,54 +1,45 @@
 <template>
     <div class="myContainer">
-        <div class="slideshow">
-            <div class="content-block">
-                <picture v-if="this.getCurrentBand.imageMobile">
-                    <source media="(min-width: 768px)" :srcset="`/assets/bands/images/${this.getCurrentBand.imageLarge}`"  class="slideshow" alt="slidshow-img">
-                    <img :src="`/assets/bands/mobile/${this.getCurrentBand.imageMobile}`" class="slideshow" alt="slideshow-img">
-                </picture>
-                <picture v-else>
-                    <img :src="`/assets/bands/images/${this.getCurrentBand.imageLarge}`" class="slideshow" alt="slideshow-img">
-                </picture>
-            </div>
-      
-            <img class="slideshow-overlay" src="../../assets/images/slideshow-overlay.svg"/>
-        </div>
+        <slideshow :images="this.getCurrentBand.imageLarge" :imageMobile="this.getCurrentBand.imageMobile"/>
         <div class="container">
-                <div class="row back">
-                    <div class="col">
-                        <router-link 
+            <div class="row back">
+                <div class="col">
+                    <router-link 
                         class="btn btn-outline-primary" 
                         :to="{name: 'bandsOverview'}">
                             Alle Bands
-                        </router-link>
-                    </div>
+                    </router-link>
                 </div>
-                
-                
-                <h1 class="title">{{ this.getCurrentBand.name }}</h1>
+            </div>
+                    
+            <h1 class="title">{{ this.getCurrentBand.name }}</h1>
 
-                <div class="row" v-if="this.getCurrentBand.spotifyPlaylist">
-                    <div class="col-12 col-md-6 text-content" v-html="description"></div>
-                    <div class="col-12 col-md-6">
-                        <iframe 
-                            class="spotify"
-                            :src="this.getCurrentBand.spotifyPlaylist" 
-                            frameborder="0" 
-                            allowtransparency="true" 
-                            allow="encrypted-media">
-                        </iframe>
-                    </div>
+            <div class="row" v-if="this.getCurrentBand.spotifyPlaylist">
+                <div class="col-12 col-md-6 text-content" v-html="description">
+
                 </div>
-                <div class="row" v-else >
-                    <div class="col-12 text-content" v-html="description"></div>
+                <div class="col-12 col-md-6">
+                    <iframe 
+                        class="spotify"
+                        :src="this.getCurrentBand.spotifyPlaylist" 
+                        frameborder="0" 
+                        allowtransparency="true" 
+                        allow="encrypted-media">
+                    </iframe>
                 </div>
-                                
-                <div class="row" v-if="this.getCurrentBand.webSiteUrl">
-                    <div class="col-12 band-website">
+            </div>
+
+            <div class="row" v-else >
+                <div class="col-12 text-content" v-html="description"></div>
+            </div>
+                                    
+            <div class="row" v-if="this.getCurrentBand.webSiteUrl">
+                <div class="col-12 band-website">
                     <a :href="this.getCurrentBand.webSiteUrl">Band Website</a>
-                    </div>
                 </div>
-                <div class="row" v-if="this.getCurrentBand.facebook || this.getCurrentBand.instagram">
+            </div>
+                
+            <div class="row" v-if="this.getCurrentBand.facebook || this.getCurrentBand.instagram">
                 <div class="col-12 social-media-container">
                     <div class="social-media" v-if="this.getCurrentBand.facebook">
                         <a :href="this.getCurrentBand.facebook"> <img :src="require('assets/images/facebook.png')" alt="facebook" class="social-icon"> </a>
@@ -57,19 +48,19 @@
                         <a :href="this.getCurrentBand.instagram"> <img :src="require('assets/images/instagram.png')" alt="instagram" class="social-icon"> </a>
                     </div>
                 </div>
-                </div>
+            </div>
 
 
-                <div class="youtube-container row" v-if="videos">
-                    <div v-for="video in videos" :key="video" class=" col-12 col-md-6">
-                        <div class="iframe-container">
+            <div class="youtube-container row" v-if="videos">
+                <div v-for="video in videos" :key="video" class=" col-12 col-md-6">
+                    <div class="iframe-container">
                         <iframe class="ytplayer" type="text/html"
-                        :src="`https://www.youtube.com/embed/${video}`"
-                        frameborder="0"/>
-                        </div>
+                            :src="`https://www.youtube.com/embed/${video}`"
+                            frameborder="0"/>
                     </div>
                 </div>
-              
+            </div>
+                
         </div>
     </div>
 </template>
@@ -78,12 +69,18 @@
 import axios from 'axios';
 import { mapGetters, mapActions } from 'vuex'
 
+import Slideshow from './Slideshow'
+
 
 export default {
     data () {
         return {
             bands: {},
         }
+    },
+
+    components: {
+        Slideshow
     },
 
     methods: {
@@ -104,11 +101,6 @@ export default {
         description () {
             return this.$store.getters.language === 'de' ? this.getCurrentBand.descriptionDe : this.getCurrentBand.descriptionFr
         },
-        getFirstImage () {
-            if(this.getCurrentBand.images){
-                return this.getCurrentBand.images.split(';')[0]
-            }
-        },
         videos (){
             if(this.getCurrentBand.youtubeUrls) {
                 return  this.getCurrentBand.youtubeUrls.replace(/\s/g, '').split(',')
@@ -121,16 +113,6 @@ export default {
 
 <style lang="scss" scoped>
     h1 {
-        margin-bottom: 20px;
-    }
-    .myContainer, .container {
-        padding-top: 50px; 
-    }
-
-    .img {
-        max-height: 500px;
-        max-width: 100%;
-        background-size: cover;
         margin-bottom: 20px;
     }
 
@@ -149,34 +131,6 @@ export default {
     .band-image {
         max-height: 100%;
         max-width: 100%;
-    }
-
-    .slideshow { 
-        height: 630px;
-        width: 100%;
-        background-repeat: no-repeat;
-        background-size: cover;
-        background-position: center;
-        position: relative;
-        overflow: hidden;
-    }
-
-    .slideshow-overlay {
-        position: absolute;
-        bottom: -1px;
-        right: -3px;
-        width: 100%;
-    }
-
-    .content-block {
-        position: absolute;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        left: 0;
-        right: 0;
-        top: 0;
-        bottom: 0;
     }
 
     .ytplayer {
@@ -215,8 +169,25 @@ export default {
         margin: 20px 0 20px 0;
     }
 
+    .myContainer, .container {
+        padding-top: 40; 
+    }
+    .container {
+        margin-top: 30px;
+    }
+
+    @media (max-width: 1024px) {
+        .myContainer, .container {
+            padding-top: 0; 
+        }
+    }
 
     @media (max-width: 768px) { 
+
+        .myContainer, .container {
+            padding-top: 50px; 
+        }
+
         .spotify {
             float:left;
         }
