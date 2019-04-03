@@ -13,7 +13,7 @@
   "dependencies": {
     "@babel/polyfill": "^7.2.5",
     "axios": "^0.15.3",
-    "core-js": "^2.5.3",
+    "core-js": "^2.6.5",
     "jwt-decode": "^2.2.0",
     "vue": "^2.5.16",
     "vue-analytics": "^5.12.3",
