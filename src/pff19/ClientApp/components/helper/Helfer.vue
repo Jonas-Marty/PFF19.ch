@@ -1,16 +1,16 @@
 <template>
-    <div class="padding-top">
-        <slideshow></slideshow>
-        <div class="container">
-            <div class="row justify-content-md-center">
-                <div class="col-md-8">
-                    <h1>{{ $t('lang.components.helper.helper') }}</h1>
-                    <text-de v-if="language === 'de'"></text-de>
-                    <text-fr v-if="language === 'fr'"></text-fr>
-                </div>
-            </div>
+  <div class="padding-top">
+    <slideshow></slideshow>
+    <div class="container">
+      <div class="row justify-content-md-center">
+        <div class="col-md-8">
+          <h1>{{ $t('lang.components.helper.helper') }}</h1>
+          <text-de v-if="language === 'de'"></text-de>
+          <text-fr v-if="language === 'fr'"></text-fr>
         </div>
+      </div>
     </div>
+  </div>
 </template>
 
 <script>
@@ -34,6 +34,11 @@ import {
 } from 'vuelidate/lib/validators'
 
 export default {
+    metaInfo() {
+        return {
+            title: `| ${this.$i18n.t('lang.navigation.helper')}`
+        }
+    },
     data() {
         return {
             isSubmitted: false,

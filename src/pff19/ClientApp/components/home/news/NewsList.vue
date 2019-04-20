@@ -1,14 +1,16 @@
 <template>
-    <div class="news-list container">
-        <div class="row">
-            <app-news v-for="news in firstThree" :key="news.id" :news="news"> </app-news>
-        </div>
-        <div class="float-right">
-            <router-link :to="{ name: 'newsOverview' }" class="">
-                {{ $t('lang.components.home.news.further_news') }}</router-link
-            >
-        </div>
+  <div class="news-list container">
+    <div class="row">
+      <app-news v-for="news in firstThree" :key="news.id" :news="news"></app-news>
     </div>
+    <div class="float-right">
+      <router-link :to="{ name: 'newsOverview' }" class>
+        {{
+        $t('lang.components.home.news.further_news')
+        }}
+      </router-link>
+    </div>
+  </div>
 </template>
 
 <script>

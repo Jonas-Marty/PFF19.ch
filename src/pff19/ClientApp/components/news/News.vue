@@ -1,24 +1,23 @@
 <template>
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-lg-8">
-                <div class="row back">
-                    <div class="col">
-                        <router-link class="btn btn-outline-primary" to="/news"
-                            >Alle News</router-link
-                        >
-                    </div>
-                </div>
-
-                <h1>{{ newsTitle }}</h1>
-                <img class="img" :src="`/assets/news/images/${getFirstImage}`" :alt="newsTitle" />
-                <div class="date">{{ getCurrentNews.date | formateDate }}</div>
-                <br /><br />
-
-                <div class="text-content" v-html="newsContent"></div>
-            </div>
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-8">
+        <div class="row back">
+          <div class="col">
+            <router-link class="btn btn-outline-primary" to="/news">Alle News</router-link>
+          </div>
         </div>
+
+        <h1>{{ newsTitle }}</h1>
+        <img class="img" :src="`/assets/news/images/${getFirstImage}`" :alt="newsTitle">
+        <div class="date">{{ getCurrentNews.date | formateDate }}</div>
+        <br>
+        <br>
+
+        <div class="text-content" v-html="newsContent"></div>
+      </div>
     </div>
+  </div>
 </template>
 
 <script>
@@ -26,6 +25,11 @@ import axios from 'axios'
 import { mapGetters, mapActions } from 'vuex'
 
 export default {
+    metaInfo() {
+        return {
+            title: `| ${this.newsTitle}`
+        }
+    },
     data() {
         return {
             news: {}

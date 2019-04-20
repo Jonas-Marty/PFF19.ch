@@ -1,28 +1,33 @@
 <template>
-    <div class="container">
-        <h1>Bands</h1>
-        <div class="card-columns">
-            <div class="card" v-for="band in orderedBands" :key="band.id">
-                <img
-                    class="card-img-top"
-                    :src="`/assets/bands/thumbnail/${band.imageThumbnail}`"
-                    :alt="band.name"
-                />
-                <div class="card-body">
-                    <router-link :to="{ name: 'band', params: { id: band.id } }">
-                        <h5 class="card-title">{{ band.name }}</h5>
-                    </router-link>
-                    <p class="card-text"></p>
-                </div>
-            </div>
+  <div class="container">
+    <h1>Bands</h1>
+    <div class="card-columns">
+      <div class="card" v-for="band in orderedBands" :key="band.id">
+        <img
+          class="card-img-top"
+          :src="`/assets/bands/thumbnail/${band.imageThumbnail}`"
+          :alt="band.name"
+        >
+        <div class="card-body">
+          <router-link :to="{ name: 'band', params: { id: band.id } }">
+            <h5 class="card-title">{{ band.name }}</h5>
+          </router-link>
+          <p class="card-text"></p>
         </div>
+      </div>
     </div>
+  </div>
 </template>
 <script>
 import { mapActions, mapGetters } from 'vuex'
 import axios from 'axios'
 
 export default {
+    metaInfo() {
+        return {
+            title: `| ${this.$i18n.t('lang.navigation.bandsOverview')}`
+        }
+    },
     methods: {
         ...mapActions('bands', ['load', 'loadCurrentBand'])
     },
