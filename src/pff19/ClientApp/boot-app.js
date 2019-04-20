@@ -6,6 +6,6 @@ import 'core-js/es6/array'
 
 import { app } from './App'
 
-document.addEventListener('DOMContentLoaded', function () {
-  app.$mount('#app')
+document.addEventListener('DOMContentLoaded', function() {
+    app.$mount('#app')
 })

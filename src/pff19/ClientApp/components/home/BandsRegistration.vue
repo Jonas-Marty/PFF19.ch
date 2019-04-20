@@ -6,32 +6,27 @@
 
 <script>
 export default {
-    data () {
+    data() {
         return {
             sponsors: []
         }
     },
 
-    methods: {
-        
-    }
-
+    methods: {}
 }
 </script>
 
 <style lang="scss" scoped>
-    .sponsors {
-        width: 100%;
-        margin-top: 20px;
-    }
+.sponsors {
+    width: 100%;
+    margin-top: 20px;
+}
 
-    .sponsor {
-        margin-bottom: 20px;
-    }
+.sponsor {
+    margin-bottom: 20px;
+}
 
-    .sponsors img {
-        width: 100%;
-    }
-
+.sponsors img {
+    width: 100%;
+}
 </style>
-

@@ -61,7 +61,6 @@ module.exports = () => {
           filename: '[name].css'
         }),
         new HtmlWebpackPlugin({
-          title: 'PFF FFS 19 – Mosaik',
           filename: path.resolve(__dirname, bundleOutputDir, 'index.html'),
           template: path.resolve(__dirname, 'ClientApp/index.html')
         })

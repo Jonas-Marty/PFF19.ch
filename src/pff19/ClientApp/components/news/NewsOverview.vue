@@ -15,25 +15,21 @@ import News from './NewsThumpnail'
 import NUMBER_OF_NEWS_ON_HOMEPAGE from '../../constants/main'
 
 export default {
-    data () {
+    data() {
         return {
             newsList: []
         }
     },
     methods: {
-        ...mapActions('news', [
-            'load'
-        ]),
-    }, 
+        ...mapActions('news', ['load'])
+    },
 
     computed: {
-       ...mapGetters('news',[
-           'all'
-       ])
+        ...mapGetters('news', ['all'])
     },
 
     created() {
-         if(!(this.all.length > NUMBER_OF_NEWS_ON_HOMEPAGE)){
+        if (!(this.all.length > NUMBER_OF_NEWS_ON_HOMEPAGE)) {
             this.load()
         }
     },
@@ -45,7 +41,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-    .container {
-        padding-top: 100px;
-    }
+.container {
+    padding-top: 100px;
+}
 </style>

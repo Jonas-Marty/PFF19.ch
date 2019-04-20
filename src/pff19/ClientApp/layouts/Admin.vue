@@ -1,10 +1,10 @@
 <template>
-<div class="wraper">
-    <nav-bar />
-    <div class="container">
-        <router-view></router-view>
+    <div class="wraper">
+        <nav-bar />
+        <div class="container">
+            <router-view></router-view>
+        </div>
     </div>
-</div>
 </template>
 
 <script>
@@ -23,4 +23,3 @@ export default {
     padding-bottom: 50px;
 }
 </style>
-

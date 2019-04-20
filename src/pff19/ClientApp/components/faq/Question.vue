@@ -5,20 +5,22 @@
     </div>
 </template>
 <script>
-
 export default {
     props: ['question'],
 
     computed: {
-        questionTitle () {
-            return this.$store.getters.language === 'de' ? this.question.questionDe : this.question.questionFr;
+        questionTitle() {
+            return this.$store.getters.language === 'de'
+                ? this.question.questionDe
+                : this.question.questionFr
         },
 
-        questionAnswer () {
-            return this.$store.getters.language === 'de' ? this.question.answerDe : this.question.answerFr;
+        questionAnswer() {
+            return this.$store.getters.language === 'de'
+                ? this.question.answerDe
+                : this.question.answerFr
         }
     }
-
 }
 </script>
 

@@ -7,27 +7,21 @@
 </template>
 
 <script>
-import Vue from 'vue';
+import Vue from 'vue'
 
 import Slideshow from './Slideshow'
 import descriptionDe from './DescriptionDe'
 import descriptionFr from './DescriptionFr'
 
-
-
-import { mapActions, mapGetters  } from 'vuex';
-
+import { mapActions, mapGetters } from 'vuex'
 
 export default {
     data() {
-        return {
-        }
+        return {}
     },
 
     computed: {
-        ...mapGetters([
-            'language'
-        ])
+        ...mapGetters(['language'])
     },
 
     components: {
@@ -38,5 +32,4 @@ export default {
 }
 </script>
 
-<style>
-</style>
+<style></style>

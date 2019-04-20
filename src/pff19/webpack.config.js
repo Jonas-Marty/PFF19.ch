@@ -53,7 +53,6 @@ module.exports = ({ mode, presets } = { mode: 'production', presets: [] }) => {
         new HtmlWebpackPlugin(),
         new VueLoaderPlugin(),
         new HtmlWebpackPlugin({
-          title: 'PFF FFS 19 – Mosaik',
           filename: path.resolve(__dirname, bundleOutputDir, 'index.html'),
           template: path.resolve(__dirname, 'ClientApp/index.html')
         })

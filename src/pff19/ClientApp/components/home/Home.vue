@@ -1,6 +1,6 @@
 <template>
     <div>
-        <app-slideshow> </app-slideshow>
+        <app-slideshow></app-slideshow>
         <app-news-list></app-news-list>
         <description-fr v-if="language === 'fr'"></description-fr>
         <description-de v-else></description-de>
@@ -8,7 +8,7 @@
 </template>
 
 <script>
-import Vue from 'vue';
+import Vue from 'vue'
 
 import Slideshow from './slideshow/Slideshow'
 import NewsList from './news/NewsList'
@@ -17,34 +17,30 @@ import Bands from './BandsRegistration'
 import descriptionFr from './DescriptionFr'
 import descriptionDe from './DescriptionDe'
 
-
-import { mapActions, mapGetters  } from 'vuex';
-
+import { mapActions, mapGetters } from 'vuex'
 
 export default {
+    metaInfo: {
+        title: 'Home'
+    },
+
     data() {
-        return {
-        }
+        return {}
     },
 
     methods: {
-        ...mapActions([
-            'enterHome',
-            'leaveHome'
-        ])
+        ...mapActions(['enterHome', 'leaveHome'])
     },
 
     computed: {
-        ...mapGetters([
-            'language'
-        ])
+        ...mapGetters(['language'])
     },
 
-    mounted () {
-        this.enterHome();
+    mounted() {
+        this.enterHome()
     },
-    beforeDestroy () {
-        this.leaveHome();
+    beforeDestroy() {
+        this.leaveHome()
     },
 
     components: {
@@ -58,5 +54,4 @@ export default {
 }
 </script>
 
-<style>
-</style>
+<style></style>

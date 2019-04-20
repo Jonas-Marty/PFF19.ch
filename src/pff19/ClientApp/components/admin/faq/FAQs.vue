@@ -1,24 +1,32 @@
 <template>
     <div>
         <h1>Alle FAQs</h1>
-        <router-link
-            to="faqs/add"
-            >
+        <router-link to="faqs/add">
             <i class="fa fa-add fa-1x pull-right"></i>hinzufügen
         </router-link>
         <div class="list-group">
-            <div class="list-group-item d-flex justify-content-between align-items-right" v-for="faq in orderedFaqs" :key="faq.id">
-            <div>                
-                {{ faq.questionDe }}
-            </div>
-                <div >
+            <div
+                class="list-group-item d-flex justify-content-between align-items-right"
+                v-for="faq in orderedFaqs"
+                :key="faq.id"
+            >
+                <div>
+                    {{ faq.questionDe }}
+                </div>
+                <div>
                     <i class="fa fa-remove fa-1x pull-right" @click="remove(faq.id)"></i>
-                    <router-link 
-                    :to="{ name: 'adminFAQEdit', params: {id: faq.id }}"
-                    ><i class="fa fa-edit fa-1x pull-right"></i></router-link>
-                    <i class="fa fa-arrow-up fa-1x pull-right" @click="toUpperElem(faq.id, faq.order)"></i>
-                    <i class="fa fa-arrow-down fa-1x pull-right" @click="toLowerElem(faq.id, faq.order)"></i>
-            </div>
+                    <router-link :to="{ name: 'adminFAQEdit', params: { id: faq.id } }"
+                        ><i class="fa fa-edit fa-1x pull-right"></i
+                    ></router-link>
+                    <i
+                        class="fa fa-arrow-up fa-1x pull-right"
+                        @click="toUpperElem(faq.id, faq.order)"
+                    ></i>
+                    <i
+                        class="fa fa-arrow-down fa-1x pull-right"
+                        @click="toLowerElem(faq.id, faq.order)"
+                    ></i>
+                </div>
             </div>
         </div>
     </div>
@@ -26,20 +34,15 @@
 <script>
 import { mapActions, mapGetters } from 'vuex'
 import axios from 'axios'
- 
-export default {
 
+export default {
     data() {
         return {
             faqs: []
         }
     },
     methods: {
-        ...mapActions('faqs', [
-            'load',
-            'remove',
-            'swap'
-        ]),
+        ...mapActions('faqs', ['load', 'remove', 'swap']),
 
         toUpperElem(id, order) {
             let minDiff = Number.MAX_SAFE_INTEGER
@@ -47,13 +50,13 @@ export default {
 
             this.orderedFaqs.forEach(el => {
                 const diff = order - el.order
-                if(diff > 0 && diff < minDiff ) {
+                if (diff > 0 && diff < minDiff) {
                     minDiff = diff
                     otherElem = el
                 }
             })
-            if(Object.keys(otherElem).length !== 0) {
-                this.swap({first: id, second: otherElem.id})
+            if (Object.keys(otherElem).length !== 0) {
+                this.swap({ first: id, second: otherElem.id })
                 window.location.reload() //fucking ugly way to do it but i dont have time to do it better
             }
         },
@@ -64,33 +67,29 @@ export default {
 
             this.orderedFaqs.forEach(el => {
                 const diff = el.order - order
-                if(diff > 0 && diff < minDiff ) {
+                if (diff > 0 && diff < minDiff) {
                     minDiff = diff
                     otherElem = el
                 }
             })
 
-            if(Object.keys(otherElem).length !== 0) {
-                this.swap({first: id, second: otherElem.id}).then(this.load())
+            if (Object.keys(otherElem).length !== 0) {
+                this.swap({ first: id, second: otherElem.id }).then(this.load())
                 window.location.reload() //fucking ugly way to do it but i dont have time to do it better
             }
-        },
-    }, 
- 
+        }
+    },
 
     computed: {
-       ...mapGetters('faqs',[
-           'all'
-       ]),
-       orderedFaqs () {
-           return this.all.sort((a,b) => a.order - b.order)
-       }
+        ...mapGetters('faqs', ['all']),
+        orderedFaqs() {
+            return this.all.sort((a, b) => a.order - b.order)
+        }
     },
 
     created() {
         this.load()
-    },
-    
+    }
 }
 </script>
 
@@ -99,7 +98,7 @@ export default {
     cursor: pointer;
 }
 
-.fa-edit{
-    margin-right: 5px
+.fa-edit {
+    margin-right: 5px;
 }
 </style>
