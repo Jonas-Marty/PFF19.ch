@@ -62,7 +62,7 @@ namespace pff19.Controllers
             return NoContent();
         }
 
-        // PUT: api/News/5
+        // PUT: api/Faq/5
         [HttpPut("{id}"), Authorize]
         public IActionResult Put(int id, [FromForm]Faq faq)
         {
@@ -75,7 +75,6 @@ namespace pff19.Controllers
             existingFaq.AnswerDe = faq.AnswerDe;
             existingFaq.AnswerFr = faq.AnswerFr;
             existingFaq.Category = faq.Category;
-            existingFaq.Order = faq.Order;
             existingFaq.QuestionDe = faq.QuestionDe;
             existingFaq.QuestionFr = faq.QuestionFr;
 
