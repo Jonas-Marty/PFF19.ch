@@ -108,8 +108,24 @@ export const routes = [
                 component: NewsOverview,
                 display: 'NewsOverview'
             },
-            { name: 'news', path: '/news/:id', component: News, display: 'News' },
-            { name: 'band', path: '/band/:id', component: Band, display: 'Band' }
+            {
+                name: 'news', 
+                path: '/news/:id', 
+                component: News, 
+                display: 'News'
+            },
+            {
+                name: 'band', 
+                path: '/band/:id/:name', 
+                component: Band, 
+                display: 'Band'
+            },
+            {
+                name: 'bandWithoutId', 
+                path: '/band/:id', 
+                component: Band, 
+                display: 'Band'
+            }
         ]
     },
 
