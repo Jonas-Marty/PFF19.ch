@@ -95,7 +95,13 @@ namespace pff19
             loggerFactory.AddConsole(Configuration.GetSection("Logging"));
             loggerFactory.AddDebug();
 
-            Console.WriteLine("Environmentname for ASP.NET CORE is: " + env.EnvironmentName);
+            Console.WriteLine("Environment name for ASP.NET CORE is: " + env.EnvironmentName);
+
+            using (var serviceScope = app.ApplicationServices.GetRequiredService<IServiceScopeFactory>().CreateScope())
+            {
+                var context = serviceScope.ServiceProvider.GetService<PffContext>();
+                context.Database.Migrate();
+            }
 
             if (env.IsDevelopment())
             {
