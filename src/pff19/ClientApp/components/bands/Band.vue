@@ -13,6 +13,7 @@
                 </div>
             </div>
             <h1 class="title">{{ this.getCurrentBand.name }}</h1>
+            <h6 class="title-playtime">{{ this.getCurrentBand.playTime }}</h6>
 
             <div class="row" v-if="this.getCurrentBand.spotifyPlaylist">
                 <div class="col-12 col-md-6 text-content" v-html="description"></div>
@@ -137,6 +138,12 @@ h1 {
 
 .title {
     margin-bottom: 40px;
+    margin-right: 20px;
+    display: inline-block;
+}
+
+.title-playtime {
+    display: inline-block;
 }
 
 .band-image {

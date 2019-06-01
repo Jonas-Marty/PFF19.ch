@@ -14,6 +14,7 @@
                     <router-link :to="{ name: 'band', params: { id: band.id, name: band.name } }">
                         <h5 class="card-title">{{ band.name }}</h5>
                     </router-link>
+                    <h6>{{ band.playTime }}</h6>
                     <p class="card-text"></p>
                 </div>
             </div>
