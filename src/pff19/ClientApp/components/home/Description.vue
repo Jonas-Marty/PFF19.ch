@@ -2,7 +2,7 @@
     <div class="container-fluid description">
         <div class="container">
             <div class="">
-                <h2>PFF FFS 19 Mosaik</h2>
+                <h1>PFF FFS 19 Mosaik</h1>
                 <p>
                     Das PFF FFS 19 MOSAIK ist die Fortführung einer langjährigen, schweizweiten
                     Tradition – dem Pfadi Folk Fest. Nach 26 Jahren findet das «PFF» erstmals wieder
