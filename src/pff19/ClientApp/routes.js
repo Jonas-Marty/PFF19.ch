@@ -54,25 +54,31 @@ export const routes = [
                 important: true
             },
             {
-                name: 'bandsOverview',
-                path: '/bands',
-                component: BandsOverview,
-                display: 'Bands',
-                important: true
-            },
-            {
-                name: 'helper',
-                path: '/helfer',
-                component: Helfer,
-                display: 'Helfer',
-                important: true
-            },
-            {
-                name: 'sponsors',
-                path: '/sponsors',
-                component: Sponsors,
-                display: 'Sponsoren',
-                important: true
+                name: 'infos',
+                path: '',
+                children: [
+                    {
+                        name: 'bandsOverview',
+                        path: '/bands',
+                        component: BandsOverview,
+                        display: 'Bands',
+                        important: true
+                    },
+                    {
+                        name: 'helper',
+                        path: '/helfer',
+                        component: Helfer,
+                        display: 'Helfer',
+                        important: true
+                    },
+                    {
+                        name: 'sponsors',
+                        path: '/sponsors',
+                        component: Sponsors,
+                        display: 'Sponsoren',
+                        important: true
+                    }
+                ]
             },
             {
                 name: 'organisation',
@@ -109,21 +115,21 @@ export const routes = [
                 display: 'NewsOverview'
             },
             {
-                name: 'news', 
-                path: '/news/:id', 
-                component: News, 
+                name: 'news',
+                path: '/news/:id',
+                component: News,
                 display: 'News'
             },
             {
-                name: 'band', 
-                path: '/band/:id/:name', 
-                component: Band, 
+                name: 'band',
+                path: '/band/:id/:name',
+                component: Band,
                 display: 'Band'
             },
             {
-                name: 'bandWithoutId', 
-                path: '/band/:id', 
-                component: Band, 
+                name: 'bandWithoutId',
+                path: '/band/:id',
+                component: Band,
                 display: 'Band'
             }
         ]
