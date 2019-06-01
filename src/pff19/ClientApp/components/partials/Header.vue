@@ -1,51 +1,53 @@
 ﻿<template>
-  <transition name="bounce">
-    <nav
-      class="navbar navbar-expand-md navbar-inverse position-fixed shadow-sm"
-      :class="{ embedded: embedded && isHome && !collapse }"
-    >
-      <router-link class="navbar-brand" :to="{ name: 'home' }">
-        <img
-          :class="{}"
-          src="../../assets/images/black_green_small_logo.png"
-          height="40"
-          class="d-inline-block align-top"
-          alt="logo_pff19"
+    <transition name="bounce">
+        <nav
+            class="navbar navbar-expand-md navbar-inverse position-fixed shadow-sm"
+            :class="{ embedded: embedded && isHome && !collapse }"
         >
-      </router-link>
+            <router-link class="navbar-brand" :to="{ name: 'home' }">
+                <img
+                    :class="{}"
+                    src="../../assets/images/black_green_small_logo.png"
+                    height="40"
+                    class="d-inline-block align-top"
+                    alt="logo_pff19"
+                />
+            </router-link>
 
-      <div class="mr-auto nav-link">
-        <a class="nav-item language" @click="changeLang('de')">de</a>
-        <span class="nav-item">|</span>
-        <a class="nav-item language" @click="changeLang('fr')">fr</a>
-      </div>
+            <div class="mr-auto nav-link">
+                <a class="nav-item language" @click="changeLang('de')">de</a>
+                <span class="nav-item">|</span>
+                <a class="nav-item language" @click="changeLang('fr')">fr</a>
+            </div>
 
-      <button
-        class="navbar-toggler"
-        @click="collapse = !collapse"
-        type="button"
-        data-toggle="collapse"
-        data-target="#navbarNavAltMarkup"
-        aria-controls="navbarNavAltMarkup"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-      >
-        <span class="fa fa-navicon"></span>
-      </button>
+            <button
+                class="navbar-toggler"
+                @click="collapse = !collapse"
+                type="button"
+                data-toggle="collapse"
+                data-target="#navbarNavAltMarkup"
+                aria-controls="navbarNavAltMarkup"
+                aria-expanded="false"
+                aria-label="Toggle navigation"
+            >
+                <span class="fa fa-navicon"></span>
+            </button>
 
-      <div class="collapse navbar-collapse" :class="{ show: collapse }" id="navbarNavAltMarkup">
-        <div class="navbar-nav ml-auto">
-          <span class="nav-item" v-for="route in getDefaultRoutes" :key="route.name">
-            <router-link
-              v-if="route.important"
-              :to="route.path"
-              class="nav-link"
-            >{{ $t(`lang.navigation.${route.name}`) }}</router-link>
-          </span>
-        </div>
-      </div>
-    </nav>
-  </transition>
+            <div
+                class="collapse navbar-collapse"
+                :class="{ show: collapse }"
+                id="navbarNavAltMarkup"
+            >
+                <div class="navbar-nav ml-auto">
+                    <span class="nav-item" v-for="route in getDefaultRoutes" :key="route.name">
+                        <router-link v-if="route.important" :to="route.path" class="nav-link">{{
+                            $t(`lang.navigation.${route.name}`)
+                        }}</router-link>
+                    </span>
+                </div>
+            </div>
+        </nav>
+    </transition>
 </template>
 
 <script>

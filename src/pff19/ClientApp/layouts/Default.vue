@@ -1,9 +1,9 @@
 <template>
-  <div id="app">
-    <nav-menu params="route: route"></nav-menu>
-    <router-view></router-view>
-    <app-footer></app-footer>
-  </div>
+    <div id="app">
+        <nav-menu params="route: route"></nav-menu>
+        <router-view></router-view>
+        <app-footer></app-footer>
+    </div>
 </template>
 
 <script>

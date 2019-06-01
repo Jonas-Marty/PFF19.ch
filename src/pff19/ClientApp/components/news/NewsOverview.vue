@@ -1,10 +1,10 @@
 <template>
-  <div class="container">
-    <h1>Alle News</h1>
-    <div class="row">
-      <app-news v-for="news in all" :key="news.id" :news="news"></app-news>
+    <div class="container">
+        <h1>Alle News</h1>
+        <div class="row">
+            <app-news v-for="news in all" :key="news.id" :news="news"></app-news>
+        </div>
     </div>
-  </div>
 </template>
 
 <script>
