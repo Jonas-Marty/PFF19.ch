@@ -14,7 +14,7 @@ import { mapGetters } from 'vuex'
 export default {
     metaInfo() {
         return {
-            titleTemplate: 'PFF FFS 19 %s',
+            titleTemplate: 'PFF FFS Mosaik - Openair Stäfa 19 %s',
             htmlAttrs: {
                 lang: this.language,
                 description:
