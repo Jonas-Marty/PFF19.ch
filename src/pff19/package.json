@@ -4,7 +4,7 @@
     "author": "Jonas Marty / Wiwo and Lars Barmettler / Maimu",
     "scripts": {
         "webpack": "webpack",
-        "dev": "cross-env ASPNETCORE_ENVIRONMENT=Development dotnet run watch",
+        "dev": "cross-env ASPNETCORE_ENVIRONMENT=Development dotnet run",
         "analyze": "npm run webpack -- --env.mode production --env.presets analyze",
         "build:dev": "npm run webpack -- --env.mode development",
         "build:prod": "npm run webpack -- --env.mode production",
