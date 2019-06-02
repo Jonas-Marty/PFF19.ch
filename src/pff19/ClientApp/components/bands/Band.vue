@@ -13,7 +13,7 @@
                 </div>
             </div>
             <h1 class="title">{{ this.getCurrentBand.name }}</h1>
-            <h6 class="title-playtime">{{ this.getCurrentBand.playTime }}</h6>
+            <h6 class="title-playtime">{{ this.getCurrentBand.playTimeForSorting | formateDateTime(language) }}</h6>
 
             <div class="row" v-if="this.getCurrentBand.spotifyPlaylist">
                 <div class="col-12 col-md-6 text-content" v-html="description"></div>
@@ -108,6 +108,7 @@ export default {
 
     computed: {
         ...mapGetters('bands', ['getCurrentBand']),
+        ...mapGetters(['language']),
 
         description() {
             return this.$store.getters.language === 'de'
