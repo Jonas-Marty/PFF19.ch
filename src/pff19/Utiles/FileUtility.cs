@@ -1,5 +1,7 @@
 
+using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using SixLabors.ImageSharp;
@@ -23,12 +25,37 @@ namespace pff19.Utiles
             var basePath = Path.Combine(_environment.WebRootPath, "assets", type);
             var imagePath = Path.Combine(basePath, subfolder, filename);
             Directory.CreateDirectory(Path.GetDirectoryName(imagePath));
-            
+
             using (Image<Rgba32> image = Image.Load(imageStream))
             {
                 image.Mutate(x => x.Resize(new ResizeOptions { Mode = ResizeMode.Max, Size = maxImageSize }));
                 image.Save(imagePath); // Automatic encoder selected based on extension.
             }
+        }
+
+        public void SaveFile(Stream fileStream, string name)
+        {
+            var basePath = Path.Combine(_environment.WebRootPath, "assets", "files");
+            Directory.CreateDirectory(basePath);
+            var filePath = Path.Combine(basePath, name);
+            using (var fs = new FileStream(filePath, FileMode.Create))
+            {
+                fileStream.CopyTo(fs);
+            }
+        }
+
+        public void DeleteFile(string name)
+        {
+            var basePath = Path.Combine(_environment.WebRootPath, "assets", "files");
+            var filePath = Path.Combine(basePath, name);
+            File.Delete(filePath);
+        }
+
+        public IEnumerable<string> GetFiles()
+        {
+            var basePath = Path.Combine(_environment.WebRootPath, "assets", "files");
+            var filesDirectory = new DirectoryInfo(basePath);
+            return filesDirectory.GetFiles().Select(f => f.Name);
         }
     }
 }

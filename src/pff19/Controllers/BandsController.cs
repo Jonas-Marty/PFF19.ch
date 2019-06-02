@@ -56,7 +56,8 @@ namespace pff19.Controllers
                 Facebook =  model.Facebook,
                 Instagram = model.Instagram,
                 PlayTime = model.PlayTime,
-                WebSiteUrl = model.WebSiteUrl
+                WebSiteUrl = model.WebSiteUrl,
+                PlayTimeForSorting = model.PlayTimeForSorting
             };
             band.Order = _bandRepository.GetAll().Select(b => b.Order).DefaultIfEmpty(0).Max() + 1;
             _bandRepository.Add(band);
@@ -85,6 +86,7 @@ namespace pff19.Controllers
             existingBand.Facebook = model.Facebook;
             existingBand.Instagram = model.Instagram;
             existingBand.PlayTime = model.PlayTime;
+            existingBand.PlayTimeForSorting = model.PlayTimeForSorting;
             existingBand.WebSiteUrl = model.WebSiteUrl;
 
             SafeBandImages(model, existingBand);

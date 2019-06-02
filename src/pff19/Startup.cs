@@ -95,7 +95,13 @@ namespace pff19
             loggerFactory.AddConsole(Configuration.GetSection("Logging"));
             loggerFactory.AddDebug();
 
-            Console.WriteLine("Environmentname for ASP.NET CORE is: " + env.EnvironmentName);
+            Console.WriteLine("Environment name for ASP.NET CORE is: " + env.EnvironmentName);
+
+            using (var serviceScope = app.ApplicationServices.GetRequiredService<IServiceScopeFactory>().CreateScope())
+            {
+                var context = serviceScope.ServiceProvider.GetService<PffContext>();
+                context.Database.Migrate();
+            }
 
             if (env.IsDevelopment())
             {
@@ -103,8 +109,7 @@ namespace pff19
                 app.UseWebpackDevMiddleware(new WebpackDevMiddlewareOptions
                 {
                     HotModuleReplacement = true,
-                    EnvironmentVariables = new Dictionary<string, string> { ["env.mode"] = "development" },
-                    ConfigFile = "webpack.dev.js"
+                    EnvParam = new Dictionary<string, string>{["mode"] = "development"},
                 });
                 Console.WriteLine("!!!!!!!!!!!!!Started in Development mode!!!!!!!!!!!!!");
             }

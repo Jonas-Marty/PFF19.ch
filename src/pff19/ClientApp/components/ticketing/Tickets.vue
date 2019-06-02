@@ -1,9 +1,9 @@
 <template>
-  <div>
-    <app-slideshow></app-slideshow>
-    <description-fr v-if="language === 'fr'"></description-fr>
-    <description-de v-else></description-de>
-  </div>
+    <div>
+        <app-slideshow></app-slideshow>
+        <description-fr v-if="language === 'fr'"></description-fr>
+        <description-de v-else></description-de>
+    </div>
 </template>
 
 <script>

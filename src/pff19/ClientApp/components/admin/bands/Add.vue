@@ -63,13 +63,15 @@
             </div>
 
             <div class="form-group">
-                <label for="time">Aufrittszeit (wird so dargestellt wie du es schreibst)</label>
+                <label for="timeForSorting"
+                    >Aufrittszeit (für die Sortierung und Gruppierung nach Tag in der TimeTable
+                    verwendet, MM-dd-YYYY HH-mm)</label
+                >
                 <input
-                    type="text"
+                    type="datetime-local"
                     class="form-control"
                     id="time"
-                    placeholder="20.00 Uhr Samstag"
-                    v-model="PlayTime"
+                    v-model="PlayTimeForSorting"
                 />
                 <div class="error-messages"></div>
             </div>
@@ -248,7 +250,7 @@ export default {
         return {
             errors: [],
             isSubmitted: false,
-            PlayTime: '',
+            PlayTimeForSorting: '',
             Name: '',
             DescriptionDe: '',
             DescriptionFr: '',
@@ -323,7 +325,8 @@ export default {
                     SpotifyPlaylist: this.SpotifyPlaylist,
                     ImageThumbnail: this.ImageThumbnail,
                     ImageLarge: this.ImageLarge,
-                    ImageMobile: this.ImageMobile
+                    ImageMobile: this.ImageMobile,
+                    PlayTimeForSorting: this.PlayTimeForSorting
                 }
 
                 let form_data = new FormData()

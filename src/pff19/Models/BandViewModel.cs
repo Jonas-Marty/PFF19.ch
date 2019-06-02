@@ -14,6 +14,7 @@ namespace pff19.Models
         public string DescriptionFr { get; set; }
         public string SpotifyPlaylist { get; set; }
         public string PlayTime { get; set; }
+        public DateTime PlayTimeForSorting { get; set; }
         public string YoutubeUrls { get; set; }
         public string WebSiteUrl { get; set; }
         public string Facebook { get; set; }

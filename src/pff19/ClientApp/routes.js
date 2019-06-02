@@ -14,6 +14,8 @@ import BandsOverview from 'components/bands/BandsOverview'
 
 import DefaultLayout from './layouts/Default'
 import AdminLayout from './layouts/Admin'
+import EmptyRouteView from './layouts/EmptyRouteView'
+
 import Dashboard from 'components/admin/Dashboard'
 import Login from 'components/admin/Login'
 import Sponsoring from 'components/admin/sponsoring/Sponsoring'
@@ -54,11 +56,39 @@ export const routes = [
                 important: true
             },
             {
-                name: 'bandsOverview',
-                path: '/bands',
-                component: BandsOverview,
-                display: 'Bands',
-                important: true
+                name: 'info',
+                path: '',
+                component: EmptyRouteView,
+                children: [
+                    {
+                        name: 'faq',
+                        path: '/faq',
+                        component: FAQ,
+                        display: 'FAQ',
+                        important: true
+                    },
+                    {
+                        name: 'sponsors',
+                        path: '/sponsors',
+                        component: Sponsors,
+                        display: 'Sponsoren',
+                        important: true
+                    },
+                    {
+                        name: 'organisation',
+                        path: '/organisation',
+                        component: Organisation,
+                        display: 'Organisation',
+                        important: true
+                    },
+                    {
+                        name: 'contact',
+                        path: '/contact',
+                        component: Contact,
+                        display: 'Kontakt',
+                        important: true
+                    }
+                ]
             },
             {
                 name: 'helper',
@@ -68,34 +98,12 @@ export const routes = [
                 important: true
             },
             {
-                name: 'sponsors',
-                path: '/sponsors',
-                component: Sponsors,
-                display: 'Sponsoren',
+                name: 'bandsOverview',
+                path: '/bands',
+                component: BandsOverview,
+                display: 'Bands',
                 important: true
             },
-            {
-                name: 'organisation',
-                path: '/organisation',
-                component: Organisation,
-                display: 'Organisation',
-                important: true
-            },
-            {
-                name: 'contact',
-                path: '/contact',
-                component: Contact,
-                display: 'Kontakt',
-                important: true
-            },
-            {
-                name: 'faq',
-                path: '/faq',
-                component: FAQ,
-                display: 'FAQ',
-                important: true
-            },
-
             {
                 name: 'impressum',
                 path: '/impressum',
@@ -109,21 +117,21 @@ export const routes = [
                 display: 'NewsOverview'
             },
             {
-                name: 'news', 
-                path: '/news/:id', 
-                component: News, 
+                name: 'news',
+                path: '/news/:id',
+                component: News,
                 display: 'News'
             },
             {
-                name: 'band', 
-                path: '/band/:id/:name', 
-                component: Band, 
+                name: 'band',
+                path: '/band/:id/:name',
+                component: Band,
                 display: 'Band'
             },
             {
-                name: 'bandWithoutId', 
-                path: '/band/:id', 
-                component: Band, 
+                name: 'bandWithoutId',
+                path: '/band/:id',
+                component: Band,
                 display: 'Band'
             }
         ]
