@@ -1,53 +1,79 @@
 ﻿<template>
-    <transition name="bounce">
-        <nav
-            class="navbar navbar-expand-md navbar-inverse position-fixed shadow-sm"
-            :class="{ embedded: embedded && isHome && !collapse }"
+  <transition name="bounce">
+    <nav
+      class="navbar navbar-expand-md navbar-inverse position-fixed shadow-sm"
+      :class="{ embedded: embedded && isHome && !collapse }"
+    >
+      <router-link class="navbar-brand" :to="{ name: 'home' }">
+        <img
+          :class="{}"
+          src="../../assets/images/black_green_small_logo.png"
+          height="40"
+          class="d-inline-block align-top"
+          alt="logo_pff19"
         >
-            <router-link class="navbar-brand" :to="{ name: 'home' }">
-                <img
-                    :class="{}"
-                    src="../../assets/images/black_green_small_logo.png"
-                    height="40"
-                    class="d-inline-block align-top"
-                    alt="logo_pff19"
-                />
-            </router-link>
+      </router-link>
 
-            <div class="mr-auto nav-link">
-                <a class="nav-item language" @click="changeLang('de')">de</a>
-                <span class="nav-item">|</span>
-                <a class="nav-item language" @click="changeLang('fr')">fr</a>
-            </div>
+      <div class="mr-auto nav-link">
+        <a class="nav-item language" @click="changeLang('de')">de</a>
+        <span class="nav-item">|</span>
+        <a class="nav-item language" @click="changeLang('fr')">fr</a>
+      </div>
 
-            <button
-                class="navbar-toggler"
-                @click="collapse = !collapse"
-                type="button"
-                data-toggle="collapse"
-                data-target="#navbarNavAltMarkup"
-                aria-controls="navbarNavAltMarkup"
-                aria-expanded="false"
-                aria-label="Toggle navigation"
-            >
-                <span class="fa fa-navicon"></span>
-            </button>
+      <button
+        class="navbar-toggler"
+        @click="collapse = !collapse"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarNavAltMarkup"
+        aria-controls="navbarNavAltMarkup"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="fa fa-navicon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" :class="{ show: collapse }" id="navbarNavAltMarkup">
+        <div class="navbar-nav ml-auto">
+          <span
+            class="nav-item"
+            :class="{'dropdown': route.children}"
+            v-for="route in getDefaultRoutes"
+            :key="route.name"
+          >
+            <router-link
+              v-if="route.important && !route.children"
+              :to="route.path"
+              class="nav-link"
+            >{{ $t(`lang.navigation.${route.name}`) }}</router-link>
 
             <div
-                class="collapse navbar-collapse"
-                :class="{ show: collapse }"
-                id="navbarNavAltMarkup"
+              v-if="route.children"
+              class="nav-link dropdown-toggle"
+              id="navbarDropdown"
+              role="button"
+              @click="infoDropdown = !infoDropdown"
+              aria-haspopup="true"
+              aria-expanded="false"
+            >{{ $t(`lang.navigation.${route.name}`) }}</div>
+            <div
+              v-if="route.children"
+              class="dropdown-menu shadow-sm"
+              :class="{'show': infoDropdown}"
+              aria-labelledby="navbarDropdown"
             >
-                <div class="navbar-nav ml-auto">
-                    <span class="nav-item" v-for="route in getDefaultRoutes" :key="route.name">
-                        <router-link v-if="route.important" :to="route.path" class="nav-link">{{
-                            $t(`lang.navigation.${route.name}`)
-                        }}</router-link>
-                    </span>
-                </div>
+              <router-link
+                v-for="child in route.children"
+                :key="child.name"
+                :to="{name: child.name}"
+                class="nav-link"
+              >{{ $t(`lang.navigation.${child.name}`) }}</router-link>
             </div>
-        </nav>
-    </transition>
+          </span>
+        </div>
+      </div>
+    </nav>
+  </transition>
 </template>
 
 <script>
@@ -60,7 +86,8 @@ export default {
         return {
             routes,
             embedded: true,
-            collapse: false
+            collapse: false,
+            infoDropdown: false
         }
     },
     computed: {
@@ -103,6 +130,7 @@ export default {
                 (self.$el.contains(e.target) && e.target.tagName === 'A')
             ) {
                 self.collapse = false
+                self.infoDropdown = false
             }
         })
     },
@@ -131,6 +159,13 @@ export default {
     -o-transition: all 0.5s ease;
 }
 
+.navbar .shadow-sm {
+  transition: none;
+  -webkit-transition: none;
+  -moz-transition: none;
+  -o-transition: none;
+}
+
 .embedded {
     color: white;
     background: none;
@@ -145,11 +180,34 @@ export default {
     color: white;
 }
 
+.embedded .dropdown-menu .nav-link {
+    color: #007bff;
+}
+
 .language {
     cursor: pointer;
 }
 
 .embedded .navbar-toggler {
     color: white;
+}
+
+.nav-link {
+    color: #007bff;
+}
+
+.dropdown-menu {
+  border: none;
+  padding: 8px;
+
+}
+@media (max-width: 768px) {
+    .dropdown-menu {
+        background-color: #ececec;
+        padding-left: 20px;
+    }
+    .navbar .shadow-sm {
+      box-shadow: none !important;
+    }
 }
 </style>

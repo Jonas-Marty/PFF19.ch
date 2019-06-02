@@ -6,12 +6,23 @@
                     <div class="col-md-3 col-sm-6 links footer-block">
                         <span class="list-item" v-for="route in getDefaultRoutes" :key="route.name">
                             <router-link
-                                v-if="route.important"
-                                :to="route.path"
-                                class="footer-heading"
+                            v-if="route.important && !route.children"
+                            :to="route.path"
+                            class="footer-heading"
+                            >{{ $t(`lang.navigation.${route.name}`) }}</router-link>
+
+                            <div
+                            v-if="route.children"
+                            class="subnav"
                             >
-                                {{ $t(`lang.navigation.${route.name}`) }}</router-link
-                            >
+                                <router-link
+                                    v-for="child in route.children"
+                                    :key="child.name"
+                                    :to="{name: child.name}"
+                                    class="footer-heading list-item"
+                                >{{ $t(`lang.navigation.${child.name}`) }}</router-link>
+                            </div>
+                            
                         </span>
                     </div>
 
@@ -166,7 +177,7 @@ import Sponsor from './sponsors/SponsorList'
 export default {
     data() {
         return {
-            routes
+            routes,
         }
     },
 
@@ -203,6 +214,10 @@ export default {
 .list-item {
     display: block;
     margin-bottom: 10px;
+}
+
+.subnav {
+    margin-top: 10px;
 }
 
 .social-media img {
