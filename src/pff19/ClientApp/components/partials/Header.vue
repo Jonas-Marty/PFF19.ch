@@ -201,6 +201,11 @@ export default {
   padding: 8px;
 
 }
+
+.dropdown-toggle {
+  cursor: pointer;
+}
+
 @media (max-width: 768px) {
     .dropdown-menu {
         background-color: #ececec;

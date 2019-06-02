@@ -1,10 +1,7 @@
 <template>
   <div class="card question">
-    <div @click="showQuestion = !showQuestion" class="card-header nav">
-      <h3 class="nav-item">{{ questionTitle }}</h3>
-      <div class="nav-item pull-right">
-        <i class="fa fa-arrow-up fa-1x"></i>
-      </div>
+    <div @click="showQuestion = !showQuestion" class="card-header">
+      <h3 class=" dropdown-toggle">{{ questionTitle }}</h3>
     </div>
     <div v-if="showQuestion" class="card-body">
       <div class="text-content" v-html="questionAnswer"></div>
@@ -40,5 +37,9 @@ export default {
 .question {
     margin-top: 30px;
     word-break: break-all;
+}
+
+.card-header {
+  cursor: pointer;
 }
 </style>
