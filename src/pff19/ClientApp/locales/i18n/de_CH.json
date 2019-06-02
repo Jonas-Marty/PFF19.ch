@@ -67,6 +67,13 @@
 
 		"helper": {
 			"helper": "Wir brauchen dich!"
+		},
+		"bands": {
+			"title": "Bands",
+			"whole_weekend": "Ganzes Wochenende",
+			"friday": "Freitag",
+			"saturday": "Samstag",
+			"sunday": "Sonntags"
 		}
 
 	},

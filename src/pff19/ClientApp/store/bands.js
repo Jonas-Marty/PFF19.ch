@@ -10,7 +10,7 @@ export const bands = {
 
   getters: {
     all: state => {
-      return state.bands
+      return state.bands.sort((a, b) => a.order - b.order)
     },
 
     getCurrentBand: state => {

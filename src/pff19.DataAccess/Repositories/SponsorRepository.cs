@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using pff19.DataAccess.Models;
 
 namespace pff19.DataAccess.Repositories
@@ -14,7 +15,7 @@ namespace pff19.DataAccess.Repositories
 
         public IEnumerable<Sponsor> GetAll()
         {
-            return _context.Sponsors;
+            return _context.Sponsors.OrderBy(s => s.Name);
         }
 
         public Sponsor Get(int id)

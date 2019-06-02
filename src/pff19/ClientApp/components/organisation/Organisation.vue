@@ -1,39 +1,41 @@
 <template>
-  <div class="container">
-    <h1>{{ $t(`lang.components.organisation.organisation`) }}</h1>
-    <text-de v-if="language === 'de'"></text-de>
-    <text-fr v-if="language === 'fr'"></text-fr>
-    <div class="team">
-      <h2>{{ $t(`lang.components.organisation.team`) }}</h2>
-      <div class="row members">
-        <div class="member col-6 col-md-4 col-lg-3" v-for="image in images" :key="image.scoutName">
-          <div class="card">
-            <img
-              class="card-img-top"
-              :src="
+    <div class="container">
+        <h1>{{ $t(`lang.components.organisation.organisation`) }}</h1>
+        <text-de v-if="language === 'de'"></text-de>
+        <text-fr v-if="language === 'fr'"></text-fr>
+        <div class="team">
+            <h2>{{ $t(`lang.components.organisation.team`) }}</h2>
+            <div class="row members">
+                <div
+                    class="member col-6 col-md-4 col-lg-3"
+                    v-for="image in images"
+                    :key="image.scoutName"
+                >
+                    <div class="card">
+                        <img
+                            class="card-img-top"
+                            :src="
                                 require(`../../assets/images/portraits/${image.scoutName}-min.jpg`)
                             "
-              :alt="image.scoutName"
-            >
-            <div class="card-body">
-              <p class="card-text">
-                <b>{{ image.scoutName }}</b>
-                , {{ image.name }}
-                <br>
-                {{
-                $t(`lang.components.organisation.${image.ressort}`)
-                }}
-                <br>
-              </p>
-              <blockquote class="blockquote mb-0">
-                <footer class="blockquote-footer">{{ image.email }}</footer>
-              </blockquote>
+                            :alt="image.scoutName"
+                        />
+                        <div class="card-body">
+                            <p class="card-text">
+                                <b>{{ image.scoutName }}</b>
+                                , {{ image.name }}
+                                <br />
+                                {{ $t(`lang.components.organisation.${image.ressort}`) }}
+                                <br />
+                            </p>
+                            <blockquote class="blockquote mb-0">
+                                <footer class="blockquote-footer">{{ image.email }}</footer>
+                            </blockquote>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
         </div>
-      </div>
     </div>
-  </div>
 </template>
 
 <script>

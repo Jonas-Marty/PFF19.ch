@@ -1,56 +1,84 @@
 <template>
-  <div class="container">
-    <text-de v-if="language === 'de'"></text-de>
-    <text-fr v-if="language === 'fr'"></text-fr>
-    <div class="sponsors" v-if="mainSponsors && mainSponsors.length > 0">
-      <h2>{{ $t('lang.components.home.sponsors.main_sponsors') }}</h2>
-      <div class="row">
-        <app-sponsor v-for="sponsor in mainSponsors" :key="sponsor.id" :sponsor="sponsor"></app-sponsor>
-      </div>
-    </div>
+    <div class="container">
+        <text-de v-if="language === 'de'"></text-de>
+        <text-fr v-if="language === 'fr'"></text-fr>
+        <div class="sponsors" v-if="mainSponsors && mainSponsors.length > 0">
+            <h2>{{ $t('lang.components.home.sponsors.main_sponsors') }}</h2>
+            <div class="row">
+                <app-sponsor
+                    v-for="sponsor in mainSponsors"
+                    :key="sponsor.id"
+                    :sponsor="sponsor"
+                ></app-sponsor>
+            </div>
+        </div>
 
-    <div class="sponsors" v-if="coSponsors && coSponsors.length > 0">
-      <h2>{{ $t('lang.components.home.sponsors.co_sponsors') }}</h2>
-      <div class="row">
-        <app-sponsor v-for="sponsor in coSponsors" :key="sponsor.id" :sponsor="sponsor"></app-sponsor>
-      </div>
-    </div>
+        <div class="sponsors" v-if="coSponsors && coSponsors.length > 0">
+            <h2>{{ $t('lang.components.home.sponsors.co_sponsors') }}</h2>
+            <div class="row">
+                <app-sponsor
+                    v-for="sponsor in coSponsors"
+                    :key="sponsor.id"
+                    :sponsor="sponsor"
+                ></app-sponsor>
+            </div>
+        </div>
 
-    <div class="sponsors" v-if="partner && partner.length > 0">
-      <h2>{{ $t('lang.components.home.sponsors.partner') }}</h2>
-      <div class="row">
-        <app-sponsor v-for="sponsor in partner" :key="sponsor.id" :sponsor="sponsor"></app-sponsor>
-      </div>
-    </div>
+        <div class="sponsors" v-if="partner && partner.length > 0">
+            <h2>{{ $t('lang.components.home.sponsors.partner') }}</h2>
+            <div class="row">
+                <app-sponsor
+                    v-for="sponsor in partner"
+                    :key="sponsor.id"
+                    :sponsor="sponsor"
+                ></app-sponsor>
+            </div>
+        </div>
 
-    <div class="sponsors" v-if="infrapartner && infrapartner.length > 0">
-      <h2>{{ $t('lang.components.home.sponsors.infrapartner') }}</h2>
-      <div class="row">
-        <app-sponsor v-for="sponsor in infrapartner" :key="sponsor.id" :sponsor="sponsor"></app-sponsor>
-      </div>
-    </div>
+        <div class="sponsors" v-if="infrapartner && infrapartner.length > 0">
+            <h2>{{ $t('lang.components.home.sponsors.infrapartner') }}</h2>
+            <div class="row">
+                <app-sponsor
+                    v-for="sponsor in infrapartner"
+                    :key="sponsor.id"
+                    :sponsor="sponsor"
+                ></app-sponsor>
+            </div>
+        </div>
 
-    <div class="sponsors" v-if="scoutpartner && scoutpartner.length > 0">
-      <h2>{{ $t('lang.components.home.sponsors.scoutpartner') }}</h2>
-      <div class="row">
-        <app-sponsor v-for="sponsor in scoutpartner" :key="sponsor.id" :sponsor="sponsor"></app-sponsor>
-      </div>
-    </div>
+        <div class="sponsors" v-if="scoutpartner && scoutpartner.length > 0">
+            <h2>{{ $t('lang.components.home.sponsors.scoutpartner') }}</h2>
+            <div class="row">
+                <app-sponsor
+                    v-for="sponsor in scoutpartner"
+                    :key="sponsor.id"
+                    :sponsor="sponsor"
+                ></app-sponsor>
+            </div>
+        </div>
 
-    <div class="sponsors" v-if="patronCompany && patronCompany.length > 0">
-      <h2>{{ $t('lang.components.home.sponsors.patron_company') }}</h2>
-      <div class="row">
-        <goenner v-for="sponsor in patronCompanySorted" :key="sponsor.id" :sponsor="sponsor"></goenner>
-      </div>
-    </div>
+        <div class="sponsors" v-if="patronCompany && patronCompany.length > 0">
+            <h2>{{ $t('lang.components.home.sponsors.patron_company') }}</h2>
+            <div class="row">
+                <goenner
+                    v-for="sponsor in patronCompanySorted"
+                    :key="sponsor.id"
+                    :sponsor="sponsor"
+                ></goenner>
+            </div>
+        </div>
 
-    <div class="sponsors" v-if="patronPrivatePerson && patronPrivatePerson.length > 0">
-      <h2>{{ $t('lang.components.home.sponsors.patron_private_person') }}</h2>
-      <div class="row">
-        <goenner v-for="sponsor in patronPrivatePerson" :key="sponsor.id" :sponsor="sponsor"></goenner>
-      </div>
+        <div class="sponsors" v-if="patronPrivatePerson && patronPrivatePerson.length > 0">
+            <h2>{{ $t('lang.components.home.sponsors.patron_private_person') }}</h2>
+            <div class="row">
+                <goenner
+                    v-for="sponsor in patronPrivatePerson"
+                    :key="sponsor.id"
+                    :sponsor="sponsor"
+                ></goenner>
+            </div>
+        </div>
     </div>
-  </div>
 </template>
 
 <script>

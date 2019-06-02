@@ -1,73 +1,80 @@
 <template>
-  <div class="myContainer">
-    <slideshow
-      :images="this.getCurrentBand.imageLarge"
-      :imageMobile="this.getCurrentBand.imageMobile"
-    />
-    <div class="container">
-      <div class="row back">
-        <div class="col">
-          <router-link class="btn btn-outline-primary" :to="{ name: 'bandsOverview' }">Alle Bands</router-link>
-        </div>
-      </div>
-      <h1 class="title">{{ this.getCurrentBand.name }}</h1>
+    <div class="myContainer">
+        <slideshow
+            :images="this.getCurrentBand.imageLarge"
+            :imageMobile="this.getCurrentBand.imageMobile"
+        />
+        <div class="container">
+            <div class="row back">
+                <div class="col">
+                    <router-link class="btn btn-outline-primary" :to="{ name: 'bandsOverview' }"
+                        >Alle Bands</router-link
+                    >
+                </div>
+            </div>
+            <h1 class="title">{{ this.getCurrentBand.name }}</h1>
+            <h6 class="title-playtime">{{ this.getCurrentBand.playTime }}</h6>
 
-      <div class="row" v-if="this.getCurrentBand.spotifyPlaylist">
-        <div class="col-12 col-md-6 text-content" v-html="description"></div>
-        <div class="col-12 col-md-6">
-          <iframe
-            class="spotify"
-            :src="this.getCurrentBand.spotifyPlaylist"
-            frameborder="0"
-            allowtransparency="true"
-            allow="encrypted-media"
-          ></iframe>
-        </div>
-      </div>
+            <div class="row" v-if="this.getCurrentBand.spotifyPlaylist">
+                <div class="col-12 col-md-6 text-content" v-html="description"></div>
+                <div class="col-12 col-md-6">
+                    <iframe
+                        class="spotify"
+                        :src="this.getCurrentBand.spotifyPlaylist"
+                        frameborder="0"
+                        allowtransparency="true"
+                        allow="encrypted-media"
+                    ></iframe>
+                </div>
+            </div>
 
-      <div class="row" v-else>
-        <div class="col-12 text-content" v-html="description"></div>
-      </div>
+            <div class="row" v-else>
+                <div class="col-12 text-content" v-html="description"></div>
+            </div>
 
-      <div class="row" v-if="this.getCurrentBand.webSiteUrl">
-        <div class="col-12 band-website">
-          <a :href="this.getCurrentBand.webSiteUrl">Band Website</a>
-        </div>
-      </div>
+            <div class="row" v-if="this.getCurrentBand.webSiteUrl">
+                <div class="col-12 band-website">
+                    <a :href="this.getCurrentBand.webSiteUrl">Band Website</a>
+                </div>
+            </div>
 
-      <div class="row" v-if="this.getCurrentBand.facebook || this.getCurrentBand.instagram">
-        <div class="col-12 social-media-container">
-          <div class="social-media" v-if="this.getCurrentBand.facebook">
-            <a :href="this.getCurrentBand.facebook">
-              <img :src="require('assets/images/facebook.png')" alt="facebook" class="social-icon">
-            </a>
-          </div>
-          <div class="social-media" v-if="this.getCurrentBand.instagram">
-            <a :href="this.getCurrentBand.instagram">
-              <img
-                :src="require('assets/images/instagram.png')"
-                alt="instagram"
-                class="social-icon"
-              >
-            </a>
-          </div>
-        </div>
-      </div>
+            <div class="row" v-if="this.getCurrentBand.facebook || this.getCurrentBand.instagram">
+                <div class="col-12 social-media-container">
+                    <div class="social-media" v-if="this.getCurrentBand.facebook">
+                        <a :href="this.getCurrentBand.facebook">
+                            <img
+                                :src="require('assets/images/facebook.png')"
+                                alt="facebook"
+                                class="social-icon"
+                            />
+                        </a>
+                    </div>
+                    <div class="social-media" v-if="this.getCurrentBand.instagram">
+                        <a :href="this.getCurrentBand.instagram">
+                            <img
+                                :src="require('assets/images/instagram.png')"
+                                alt="instagram"
+                                class="social-icon"
+                            />
+                        </a>
+                    </div>
+                </div>
+            </div>
 
-      <div class="youtube-container row" v-if="videos">
-        <div v-for="video in videos" :key="video" class="col-12 col-md-6">
-          <div class="iframe-container">
-            <iframe
-              class="ytplayer"
-              type="text/html"
-              :src="`https://www.youtube.com/embed/${video}`"
-              frameborder="0"
-            />
-          </div>
+            <div class="youtube-container row" v-if="videos">
+                <div v-for="video in videos" :key="video" class="col-12 col-md-6">
+                    <div class="iframe-container">
+                        <iframe
+                            class="ytplayer"
+                            type="text/html"
+                            :src="`https://www.youtube.com/embed/${video}`"
+                            frameborder="0"
+                        />
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
     </div>
-  </div>
 </template>
 
 <script>
@@ -131,6 +138,12 @@ h1 {
 
 .title {
     margin-bottom: 40px;
+    margin-right: 20px;
+    display: inline-block;
+}
+
+.title-playtime {
+    display: inline-block;
 }
 
 .band-image {
