@@ -11,14 +11,10 @@ Vue.filter('shorten', (str, length) => {
     return str.substring(0, length)
 })
 
-Vue.filter('formateDate', str => {
-    const date = new Date(str)
-
-    const day = date.getDate()
-    const monthIndex = date.getMonth()
-    const year = date.getFullYear()
-
-    return day + '.' + monthIndex + '.' + year
+Vue.filter('formateDate', (str, locale) => {
+    moment.locale(locale)
+    const date = moment(str)
+    return date.format('LL')
 })
 
 Vue.filter('formateDateTime', (str, locale) => {

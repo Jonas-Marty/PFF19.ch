@@ -6,7 +6,7 @@
                 <div class="card-body">
                     <h5 class="card-title">{{ contact.firstName }}, {{ contact.lastName }}</h5>
                     <h6 class="card-subtitle mb-2 text-muted">
-                        {{ contact.mail }}, {{ contact.submitedAt | formateDate }}
+                        {{ contact.mail }}, {{ contact.submitedAt | formateDate(language) }}
                     </h6>
                     <p class="card-text">{{ contact.text }}</p>
                 </div>
@@ -25,6 +25,8 @@ export default {
 
     computed: {
         ...mapGetters('contact', ['all']),
+        ...mapGetters(['language']),
+
         orderedContacts() {
             console.log(this.all)
             return this.all.sort((a, b) => (new Date(a.submitedAt) - new Date(b.submitedAt)) * -1)

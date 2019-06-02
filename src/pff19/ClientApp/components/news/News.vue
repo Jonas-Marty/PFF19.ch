@@ -12,7 +12,7 @@
 
                 <h1>{{ newsTitle }}</h1>
                 <img class="img" :src="`/assets/news/images/${getFirstImage}`" :alt="newsTitle" />
-                <div class="date">{{ getCurrentNews.date | formateDate }}</div>
+                <div class="date">{{ getCurrentNews.date | formateDate(language) }}</div>
                 <br />
                 <br />
 
@@ -48,7 +48,7 @@ export default {
 
     computed: {
         ...mapGetters('news', ['getCurrentNews']),
-
+        ...mapGetters(['language']),
         newsTitle() {
             return this.$store.getters.language === 'de'
                 ? this.getCurrentNews.titleDe
