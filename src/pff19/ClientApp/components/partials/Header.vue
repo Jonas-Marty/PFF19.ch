@@ -39,7 +39,7 @@
             class="nav-item"
             :class="{'dropdown': route.children}"
             v-for="route in getDefaultRoutes"
-            :key="route.display"
+            :key="route.name"
           >
             <router-link
               v-if="route.important && !route.children"
@@ -55,17 +55,17 @@
               @click="infoDropdown = !infoDropdown"
               aria-haspopup="true"
               aria-expanded="false"
-            >Infos</div>
+            >{{ $t(`lang.navigation.${route.name}`) }}</div>
             <div
               v-if="route.children"
-              class="dropdown-menu"
+              class="dropdown-menu shadow-sm"
               :class="{'show': infoDropdown}"
               aria-labelledby="navbarDropdown"
             >
               <router-link
                 v-for="child in route.children"
                 :key="child.name"
-                :to="child.path"
+                :to="{name: child.name}"
                 class="nav-link"
               >{{ $t(`lang.navigation.${child.name}`) }}</router-link>
             </div>
@@ -130,6 +130,7 @@ export default {
                 (self.$el.contains(e.target) && e.target.tagName === 'A')
             ) {
                 self.collapse = false
+                self.infoDropdown = false
             }
         })
     },
@@ -158,6 +159,13 @@ export default {
     -o-transition: all 0.5s ease;
 }
 
+.navbar .shadow-sm {
+  transition: none;
+  -webkit-transition: none;
+  -moz-transition: none;
+  -o-transition: none;
+}
+
 .embedded {
     color: white;
     background: none;
@@ -172,6 +180,10 @@ export default {
     color: white;
 }
 
+.embedded .dropdown-menu .nav-link {
+    color: #007bff;
+}
+
 .language {
     cursor: pointer;
 }
@@ -182,5 +194,20 @@ export default {
 
 .nav-link {
     color: #007bff;
+}
+
+.dropdown-menu {
+  border: none;
+  padding: 8px;
+
+}
+@media (max-width: 768px) {
+    .dropdown-menu {
+        background-color: #ececec;
+        padding-left: 20px;
+    }
+    .navbar .shadow-sm {
+      box-shadow: none !important;
+    }
 }
 </style>

@@ -9,7 +9,8 @@
 		"news_overview": "News Übersicht",
 		"contact": "Kontakt",
 		"ticketing": "Tickets",
-		"bandsOverview": "Bands"
+		"bandsOverview": "Bands",
+		"info": "Info"
 	},
 	"components": {
 		"footer": {
