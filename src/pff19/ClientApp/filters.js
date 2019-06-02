@@ -1,4 +1,5 @@
 import Vue from 'vue'
+import moment from 'moment'
 
 Vue.filter('uppercase', value => {
     if (!value) return ''
@@ -10,7 +11,7 @@ Vue.filter('shorten', (str, length) => {
     return str.substring(0, length)
 })
 
-Vue.filter('formateDate', (str, lang) => {
+Vue.filter('formateDate', str => {
     const date = new Date(str)
 
     const day = date.getDate()
@@ -18,4 +19,10 @@ Vue.filter('formateDate', (str, lang) => {
     const year = date.getFullYear()
 
     return day + '.' + monthIndex + '.' + year
+})
+
+Vue.filter('formateDateTime', (str, locale) => {
+    moment.locale(locale)
+    const date = moment(str)
+    return date.format('dddd, HH:mm')
 })

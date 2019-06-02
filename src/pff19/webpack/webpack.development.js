@@ -2,8 +2,8 @@ module.exports = () => ({
     devtool: 'inline-source-map',
     stats: { modules: false },
     output: {
-        publicPath: "/dist/",
-      },
+        publicPath: '/dist/'
+    },
     resolve: {
         extensions: ['.js', '.vue'],
         alias: {

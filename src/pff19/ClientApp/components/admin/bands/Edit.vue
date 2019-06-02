@@ -63,27 +63,14 @@
             </div>
 
             <div class="form-group">
-                <label for="time">Aufrittszeit (wird so dargestellt wie du es schreibst)</label>
-                <input
-                    type="text"
-                    class="form-control"
-                    id="time"
-                    placeholder="20.00 Uhr Samstag"
-                    v-model="PlayTime"
-                />
-                <div class="error-messages"></div>
-            </div>
-
-            <div class="form-group">
-                <label for="time"
+                <label for="timeForSorting"
                     >Aufrittszeit (für die Sortierung und Gruppierung nach Tag in der TimeTable
-                    verwendet, yyyy-MM-ddTHH-mm-ss)</label
+                    verwendet, MM-dd-YYYY HH-mm)</label
                 >
                 <input
                     type="datetime-local"
                     class="form-control"
                     id="timeForSorting"
-                    placeholder=""
                     v-model="PlayTimeForSorting"
                 />
                 <div class="error-messages"></div>
@@ -263,7 +250,6 @@ export default {
         return {
             errors: [],
             isSubmitted: false,
-            PlayTime: '',
             PlayTimeForSorting: '',
             Name: '',
             DescriptionDe: '',
@@ -329,8 +315,6 @@ export default {
             if (!this.$v.$invalid) {
                 const formData = {
                     Name: this.Name,
-                    PlayTime: this.PlayTime,
-                    PlayTimeForSorting: this.PlayTimeForSorting,
                     TitleFr: this.TitleFr,
                     DescriptionDe: this.DescriptionDe,
                     DescriptionFr: this.DescriptionFr,
@@ -341,7 +325,8 @@ export default {
                     WebSiteUrl: this.WebSiteUrl,
                     ImageThumbnail: this.ImageThumbnail,
                     ImageLarge: this.ImageLarge,
-                    ImageMobile: this.ImageMobile
+                    ImageMobile: this.ImageMobile,
+                    PlayTimeForSorting: this.PlayTimeForSorting
                 }
 
                 auth.put(`Bands/${this.$route.params.id}`, convertToFormData(formData))
@@ -383,7 +368,7 @@ export default {
         auth.get(`Bands/${this.$route.params.id}`)
             .then(response => {
                 this.Name = response.data.name
-                this.PlayTime = response.data.playTime ? response.data.playTime : ''
+                // this.PlayTime = response.data.playTime ? response.data.playTime : ''
                 this.PlayTimeForSorting = response.data.playTimeForSorting
                     ? response.data.playTimeForSorting
                     : ''

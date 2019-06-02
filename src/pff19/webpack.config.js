@@ -22,7 +22,8 @@ module.exports = ({ mode, presets } = { mode: 'production', presets: [] }) => {
           utils: path.resolve(__dirname, './ClientApp/utils'),
           api: path.resolve(__dirname, './ClientApp/store/api'),
           assets: path.resolve(__dirname, './ClientApp/assets'),
-          mixins: path.resolve(__dirname, './ClientApp/mixins')
+          mixins: path.resolve(__dirname, './ClientApp/mixins'),
+          locales: path.resolve(__dirname, './ClientApp/locales')
         }
       },
       entry: { main: './ClientApp/boot-app.js' },
