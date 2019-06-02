@@ -10,14 +10,18 @@
         </div>
 
         <form @submit.prevent="submit" v-if="!isSubmitted">
-            <div class="form-group dropzone-wrapper"
-                 :class="{ 'invalid-form': $v.ImageThumbnail.$error }">
+            <div
+                class="form-group dropzone-wrapper"
+                :class="{ 'invalid-form': $v.ImageThumbnail.$error }"
+            >
                 <label for="thumpnailUpload">Thumpnail upload (440x330px)</label>
-                <vue-dropzone ref="thumpnailUpload"
-                              id="thumpnailUpload"
-                              :options="dropzoneOptions"
-                              v-on:vdropzone-file-added="sendingEventThumpnail"
-                              v-on:vdropzone-removed-file="removingThumpnail">
+                <vue-dropzone
+                    ref="thumpnailUpload"
+                    id="thumpnailUpload"
+                    :options="dropzoneOptions"
+                    v-on:vdropzone-file-added="sendingEventThumpnail"
+                    v-on:vdropzone-removed-file="removingThumpnail"
+                >
                 </vue-dropzone>
                 <div class="error-messages">
                     <p v-if="!$v.ImageThumbnail.required && $v.ImageThumbnail.$dirty">
@@ -26,14 +30,18 @@
                 </div>
             </div>
 
-            <div class="form-group dropzone-wrapper"
-                 :class="{ 'invalid-form': $v.ImageLarge.$error }">
+            <div
+                class="form-group dropzone-wrapper"
+                :class="{ 'invalid-form': $v.ImageLarge.$error }"
+            >
                 <label for="imageUpload">Image upload (1920x730px)</label>
-                <vue-dropzone ref="imageUpload"
-                              id="imageUpload"
-                              :options="dropzoneOptions"
-                              v-on:vdropzone-file-added="sendingEventImage"
-                              v-on:vdropzone-removed-file="removingImage">
+                <vue-dropzone
+                    ref="imageUpload"
+                    id="imageUpload"
+                    :options="dropzoneOptions"
+                    v-on:vdropzone-file-added="sendingEventImage"
+                    v-on:vdropzone-removed-file="removingImage"
+                >
                 </vue-dropzone>
                 <div class="error-messages">
                     <p v-if="!$v.ImageLarge.required && $v.ImageLarge.$dirty">
@@ -44,42 +52,53 @@
 
             <div class="form-group dropzone-wrapper">
                 <label for="mobileUpload">Smartphone Image upload (768x400)</label>
-                <vue-dropzone ref="mobileUpload"
-                              id="mobileUpload"
-                              :options="dropzoneOptions"
-                              v-on:vdropzone-file-added="sendingEventMobileImage"
-                              v-on:vdropzone-removed-file="removingMobileImage">
+                <vue-dropzone
+                    ref="mobileUpload"
+                    id="mobileUpload"
+                    :options="dropzoneOptions"
+                    v-on:vdropzone-file-added="sendingEventMobileImage"
+                    v-on:vdropzone-removed-file="removingMobileImage"
+                >
                 </vue-dropzone>
             </div>
 
             <div class="form-group">
                 <label for="time">Aufrittszeit (wird so dargestellt wie du es schreibst)</label>
-                <input type="text"
-                       class="form-control"
-                       id="time"
-                       placeholder="20.00 Uhr Samstag"
-                       v-model="PlayTime" />
+                <input
+                    type="text"
+                    class="form-control"
+                    id="time"
+                    placeholder="20.00 Uhr Samstag"
+                    v-model="PlayTime"
+                />
                 <div class="error-messages"></div>
             </div>
 
             <div class="form-group">
-                <label for="time">Aufrittszeit (für die Sortierung und Gruppierung nach Tag in der TimeTable verwendet, yyyy-MM-ddTHH-mm-ss)</label>
-                <input type="datetime-local"
-                       class="form-control"
-                       id="timeForSorting"
-                       placeholder=""
-                       v-model="PlayTimeForSorting" />
+                <label for="time"
+                    >Aufrittszeit (für die Sortierung und Gruppierung nach Tag in der TimeTable
+                    verwendet, yyyy-MM-ddTHH-mm-ss)</label
+                >
+                <input
+                    type="datetime-local"
+                    class="form-control"
+                    id="timeForSorting"
+                    placeholder=""
+                    v-model="PlayTimeForSorting"
+                />
                 <div class="error-messages"></div>
             </div>
 
             <div class="form-group" :class="{ 'invalid-form': $v.Name.$error }">
                 <label for="name">Name</label>
-                <input type="text"
-                       @blur="$v.Name.$touch()"
-                       class="form-control"
-                       id="name"
-                       placeholder="Name der Band"
-                       v-model="Name" />
+                <input
+                    type="text"
+                    @blur="$v.Name.$touch()"
+                    class="form-control"
+                    id="name"
+                    placeholder="Name der Band"
+                    v-model="Name"
+                />
                 <div class="error-messages">
                     <p v-if="!$v.Name.required && $v.Name.$dirty">Bitte ein Name eingeben</p>
                 </div>
@@ -87,12 +106,14 @@
 
             <div class="form-group" :class="{ 'invalid-form': $v.DescriptionDe.$error }">
                 <label for="description_de">Description Deutsch</label>
-                <vue-editor class="html-editor"
-                            @blur="$v.DescriptionDe.$touch()"
-                            id="description_de"
-                            :editorOptions="optionsEditor"
-                            :editorToolbar="customToolbar"
-                            v-model="DescriptionDe"></vue-editor>
+                <vue-editor
+                    class="html-editor"
+                    @blur="$v.DescriptionDe.$touch()"
+                    id="description_de"
+                    :editorOptions="optionsEditor"
+                    :editorToolbar="customToolbar"
+                    v-model="DescriptionDe"
+                ></vue-editor>
 
                 <div class="error-messages">
                     <p v-if="!$v.DescriptionDe.required && $v.DescriptionDe.$dirty">
@@ -106,12 +127,14 @@
 
             <div class="form-group" :class="{ 'invalid-form': $v.DescriptionFr.$error }">
                 <label for="description_fr">Description Französisch</label>
-                <vue-editor class="html-editor"
-                            @blur="$v.DescriptionFr.$touch()"
-                            id="description_fr"
-                            :editorOptions="optionsEditor"
-                            :editorToolbar="customToolbar"
-                            v-model="DescriptionFr"></vue-editor>
+                <vue-editor
+                    class="html-editor"
+                    @blur="$v.DescriptionFr.$touch()"
+                    id="description_fr"
+                    :editorOptions="optionsEditor"
+                    :editorToolbar="customToolbar"
+                    v-model="DescriptionFr"
+                ></vue-editor>
 
                 <div class="error-messages">
                     <p v-if="!$v.DescriptionFr.required && $v.DescriptionFr.$dirty">
@@ -124,55 +147,70 @@
             </div>
 
             <div class="form-group">
-                <label for="youtbe_url">Youtube codes separiert mit comma (Bsp: "Pun1Nxv9f3g, Oun1Nxv9f3a")</label>
-                <input type="text"
-                       class="form-control"
-                       id="youtbe_url"
-                       placeholder="code1, code2, usw."
-                       v-model="YoutubeUrls" />
+                <label for="youtbe_url"
+                    >Youtube codes separiert mit comma (Bsp: "Pun1Nxv9f3g, Oun1Nxv9f3a")</label
+                >
+                <input
+                    type="text"
+                    class="form-control"
+                    id="youtbe_url"
+                    placeholder="code1, code2, usw."
+                    v-model="YoutubeUrls"
+                />
                 <div class="error-messages"></div>
             </div>
 
             <div class="form-group">
                 <label for="website_url">Website Url</label>
-                <input type="text"
-                       class="form-control"
-                       id="website_url"
-                       placeholder="https://www.pff19.ch/"
-                       v-model="WebSiteUrl" />
+                <input
+                    type="text"
+                    class="form-control"
+                    id="website_url"
+                    placeholder="https://www.pff19.ch/"
+                    v-model="WebSiteUrl"
+                />
                 <div class="error-messages"></div>
             </div>
 
             <div class="form-group">
                 <label for="facebook">Facebook Page Url</label>
-                <input type="text"
-                       class="form-control"
-                       id="facebook"
-                       placeholder="https://www.facebook.com/pff19mosaik/"
-                       v-model="Facebook" />
+                <input
+                    type="text"
+                    class="form-control"
+                    id="facebook"
+                    placeholder="https://www.facebook.com/pff19mosaik/"
+                    v-model="Facebook"
+                />
                 <div class="error-messages"></div>
             </div>
 
             <div class="form-group">
                 <label for="instagram">Instagram Page Url</label>
-                <input type="text"
-                       class="form-control"
-                       id="instagram"
-                       placeholder="https://www.instagram.com/pff_19_mosaik/"
-                       v-model="Instagram" />
+                <input
+                    type="text"
+                    class="form-control"
+                    id="instagram"
+                    placeholder="https://www.instagram.com/pff_19_mosaik/"
+                    v-model="Instagram"
+                />
                 <div class="error-messages"></div>
             </div>
 
             <div class="form-group">
                 <label for="spotify">
                     Spotify Playlist code
-                    <a href="https://developer.spotify.com/documentation/widgets/generate/play-button/">hilfe</a>
+                    <a
+                        href="https://developer.spotify.com/documentation/widgets/generate/play-button/"
+                        >hilfe</a
+                    >
                 </label>
-                <input type="text"
-                       class="form-control"
-                       id="spotify"
-                       placeholder="https://open.spotify.com/embed/album/1DFixLWuPkv3KT3TnV35m3"
-                       v-model="SpotifyPlaylist" />
+                <input
+                    type="text"
+                    class="form-control"
+                    id="spotify"
+                    placeholder="https://open.spotify.com/embed/album/1DFixLWuPkv3KT3TnV35m3"
+                    v-model="SpotifyPlaylist"
+                />
                 <div class="error-messages"></div>
             </div>
 
@@ -346,7 +384,9 @@ export default {
             .then(response => {
                 this.Name = response.data.name
                 this.PlayTime = response.data.playTime ? response.data.playTime : ''
-                this.PlayTimeForSorting = response.data.playTimeForSorting ? response.data.playTimeForSorting : ''
+                this.PlayTimeForSorting = response.data.playTimeForSorting
+                    ? response.data.playTimeForSorting
+                    : ''
                 this.DescriptionDe = response.data.descriptionDe
                 this.DescriptionFr = response.data.descriptionFr
                 this.Facebook = response.data.facebook ? response.data.facebook : ''

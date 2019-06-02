@@ -109,8 +109,7 @@ namespace pff19
                 app.UseWebpackDevMiddleware(new WebpackDevMiddlewareOptions
                 {
                     HotModuleReplacement = true,
-                    EnvironmentVariables = new Dictionary<string, string> { ["env.mode"] = "development" },
-                    ConfigFile = "webpack.dev.js"
+                    EnvParam = new Dictionary<string, string>{["mode"] = "development"},
                 });
                 Console.WriteLine("!!!!!!!!!!!!!Started in Development mode!!!!!!!!!!!!!");
             }

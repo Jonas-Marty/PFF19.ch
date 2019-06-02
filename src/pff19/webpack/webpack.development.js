@@ -1,8 +1,9 @@
 module.exports = () => ({
-    mode: 'development',
     devtool: 'inline-source-map',
     stats: { modules: false },
-    entry: { main: './ClientApp/boot-app.js' },
+    output: {
+        publicPath: "/dist/",
+      },
     resolve: {
         extensions: ['.js', '.vue'],
         alias: {

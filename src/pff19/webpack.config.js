@@ -11,7 +11,7 @@ const presetConfig = require('./webpack/loadPresets');
 
 module.exports = ({ mode, presets } = { mode: 'production', presets: [] }) => {
   console.log('Building for \x1b[33m%s\x1b[0m', mode);
-
+  
   return webpackMerge(
     {
       mode,
@@ -25,9 +25,10 @@ module.exports = ({ mode, presets } = { mode: 'production', presets: [] }) => {
           mixins: path.resolve(__dirname, './ClientApp/mixins')
         }
       },
+      entry: { main: './ClientApp/boot-app.js' },
       output: {
         path: path.join(__dirname, bundleOutputDir),
-        filename: '[name].[chunkhash].bundle.js'
+        filename: '[name].[hash].bundle.js'
       },
       module: {
         rules: [

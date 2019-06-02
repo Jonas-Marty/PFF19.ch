@@ -2,10 +2,8 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const TerserPlugin = require('terser-webpack-plugin');
 
 module.exports = () => ({
-    mode: 'production',
     devtool: 'source-map',
     stats: { modules: false },
-    entry: { main: './ClientApp/boot-app.js' },
     optimization: {
         minimizer: [new TerserPlugin()],
         splitChunks: {
