@@ -6,9 +6,6 @@ module.exports = () => ({
     stats: { modules: false },
     optimization: {
         minimizer: [new TerserPlugin()],
-        splitChunks: {
-            chunks: 'all'
-        }
     },
 
     module: {

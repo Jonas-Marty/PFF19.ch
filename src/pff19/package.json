@@ -5,6 +5,7 @@
   "scripts": {
     "webpack": "webpack",
     "dev": "cross-env ASPNETCORE_ENVIRONMENT=Development dotnet run",
+    "prod": "cross-env ASPNETCORE_ENVIRONMENT=Production dotnet run",
     "analyze": "npm run webpack -- --env.mode production --env.presets analyze",
     "build:dev": "npm run webpack -- --env.mode development",
     "build:prod": "npm run webpack -- --env.mode production",
@@ -32,6 +33,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.1.2",
+    "@babel/plugin-syntax-dynamic-import": "^7.2.0",
     "@babel/polyfill": "^7.2.5",
     "@babel/preset-env": "^7.1.0",
     "aspnet-webpack": "^3.0.0",

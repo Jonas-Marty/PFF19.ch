@@ -1,38 +1,38 @@
-import Impressum from 'components/Impressum'
+const Impressum = () => import('components/Impressum')
 import HomePage from 'components/home/Home'
-import Sponsors from 'components/sponsors/SponsorList'
+const Sponsors = ()=> import( 'components/sponsors/SponsorList')
 import FAQ from 'components/faq/FAQ'
-import Organisation from 'components/organisation/Organisation'
-import Helfer from 'components/helper/Helfer'
-import NewsOverview from 'components/news/NewsOverview'
-import News from 'components/news/News'
-import Error404 from 'components/partials/404'
+const Organisation = () => import('components/organisation/Organisation')
+const Helfer = () => import('components/helper/Helfer')
+const NewsOverview = ()=> import('components/news/NewsOverview')
+const News = ()=> import('components/news/News')
+const Error404 = ()=> 'components/partials/404'
 import Contact from 'components/faq/Kontakt'
 import Ticketing from 'components/ticketing/Tickets'
-import Band from 'components/bands/Band'
-import BandsOverview from 'components/bands/BandsOverview'
+const Band = () => import('components/bands/Band')
+const BandsOverview = () => import('components/bands/BandsOverview')
 
 import DefaultLayout from './layouts/Default'
-import AdminLayout from './layouts/Admin'
+const AdminLayout = () => import(/* webpackChunkName: "admin" */'./layouts/Admin')
 import EmptyRouteView from './layouts/EmptyRouteView'
 
-import Dashboard from 'components/admin/Dashboard'
-import Login from 'components/admin/Login'
-import Sponsoring from 'components/admin/sponsoring/Sponsoring'
-import SponsoringAdd from 'components/admin/sponsoring/Add'
-import SponsoringEdit from 'components/admin/sponsoring/Edit'
-import AdminNews from 'components/admin/news/News'
-import AdminNewsAdd from 'components/admin/news/Add'
-import AdminNewsEdit from 'components/admin/news/Edit'
-import AdminFAQs from 'components/admin/faq/FAQs'
-import AdminFAQAdd from 'components/admin/faq/Add'
-import AdminFAQEdit from 'components/admin/faq/Edit'
-import AdminBands from 'components/admin/bands/Bands'
-import AdminBandsAdd from 'components/admin/bands/Add'
-import AdminBandsEdit from 'components/admin/bands/Edit'
+const Dashboard = () =>  import(/* webpackChunkName: "admin" */'components/admin/Dashboard')
+const Login = () => import(/* webpackChunkName: "admin" */'components/admin/Login')
+const Sponsoring = () => import(/* webpackChunkName: "admin" */'components/admin/sponsoring/Sponsoring')
+const SponsoringAdd = ()=> import(/* webpackChunkName: "admin" */'components/admin/sponsoring/Add')
+const SponsoringEdit = () =>import(/* webpackChunkName: "admin" */'components/admin/sponsoring/Edit')
+const AdminNews = ()=> import(/* webpackChunkName: "admin" */'components/admin/news/News')
+const AdminNewsAdd = ()=> import(/* webpackChunkName: "admin" */'components/admin/news/Add')
+const AdminNewsEdit = ()=> import(/* webpackChunkName: "admin" */'components/admin/news/Edit')
+const AdminFAQs= () => import(/* webpackChunkName: "admin" */'components/admin/faq/FAQs')
+const AdminFAQAdd = () => import(/* webpackChunkName: "admin" */'components/admin/faq/Add')
+const AdminFAQEdit = () => import(/* webpackChunkName: "admin" */'components/admin/faq/Edit')
+const AdminBands = () => import(/* webpackChunkName: "admin" */'components/admin/bands/Bands')
+const AdminBandsAdd = () => import(/* webpackChunkName: "admin" */'components/admin/bands/Add')
+const AdminBandsEdit = ()=> import(/* webpackChunkName: "admin" */'components/admin/bands/Edit')
 
-import AdminHelfer from 'components/admin/helper/Helfer'
-import AdminContact from 'components/admin/contact/Contact'
+const AdminHelfer = () => import(/* webpackChunkName: "admin" */'components/admin/helper/Helfer')
+const AdminContact = ()=> import(/* webpackChunkName: "admin" */'components/admin/contact/Contact')
 import { store } from './store/index'
 
 export const routes = [
