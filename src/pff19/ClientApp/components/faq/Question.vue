@@ -1,12 +1,12 @@
 <template>
-  <div class="card question">
-    <div @click="showQuestion = !showQuestion" class="card-header">
-      <h3 class=" dropdown-toggle">{{ questionTitle }}</h3>
+    <div class="card question">
+        <div @click="showQuestion = !showQuestion" class="card-header">
+            <h3 class=" dropdown-toggle">{{ questionTitle }}</h3>
+        </div>
+        <div v-if="showQuestion" class="card-body">
+            <div class="text-content" v-html="questionAnswer"></div>
+        </div>
     </div>
-    <div v-if="showQuestion" class="card-body">
-      <div class="text-content" v-html="questionAnswer"></div>
-    </div>
-  </div>
 </template>
 <script>
 export default {
@@ -40,6 +40,6 @@ export default {
 }
 
 .card-header {
-  cursor: pointer;
+    cursor: pointer;
 }
 </style>

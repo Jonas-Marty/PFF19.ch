@@ -1,27 +1,33 @@
 <template>
-  <div>
-    <h1>Alle FAQs</h1>
-    <router-link to="faqs/add">
-      <i class="fa fa-add fa-1x pull-right"></i>hinzufügen
-    </router-link>
-    <div class="list-group">
-      <div
-        class="list-group-item d-flex justify-content-between align-items-right"
-        v-for="faq in orderedFaqs"
-        :key="faq.id"
-      >
-        <div>{{ faq.questionDe }}</div>
-        <div>
-          <i class="fa fa-remove fa-1x pull-right" @click="remove(faq.id)"></i>
-          <router-link :to="{ name: 'adminFAQEdit', params: { id: faq.id } }">
-            <i class="fa fa-edit fa-1x pull-right"></i>
-          </router-link>
-          <i class="fa fa-arrow-up fa-1x pull-right" @click="toUpperElem(faq.id, faq.order)"></i>
-          <i class="fa fa-arrow-down fa-1x pull-right" @click="toLowerElem(faq.id, faq.order)"></i>
+    <div>
+        <h1>Alle FAQs</h1>
+        <router-link to="faqs/add">
+            <i class="fa fa-add fa-1x pull-right"></i>hinzufügen
+        </router-link>
+        <div class="list-group">
+            <div
+                class="list-group-item d-flex justify-content-between align-items-right"
+                v-for="faq in orderedFaqs"
+                :key="faq.id"
+            >
+                <div>{{ faq.questionDe }}</div>
+                <div>
+                    <i class="fa fa-remove fa-1x pull-right" @click="remove(faq.id)"></i>
+                    <router-link :to="{ name: 'adminFAQEdit', params: { id: faq.id } }">
+                        <i class="fa fa-edit fa-1x pull-right"></i>
+                    </router-link>
+                    <i
+                        class="fa fa-arrow-up fa-1x pull-right"
+                        @click="toUpperElem(faq.id, faq.order)"
+                    ></i>
+                    <i
+                        class="fa fa-arrow-down fa-1x pull-right"
+                        @click="toLowerElem(faq.id, faq.order)"
+                    ></i>
+                </div>
+            </div>
         </div>
-      </div>
     </div>
-  </div>
 </template>
 <script>
 import { mapActions, mapGetters } from 'vuex'

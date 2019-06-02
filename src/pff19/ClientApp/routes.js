@@ -68,6 +68,13 @@ export const routes = [
                         important: true
                     },
                     {
+                        name: 'bandsOverview',
+                        path: '/bands',
+                        component: BandsOverview,
+                        display: 'Bands',
+                        important: true
+                    },
+                    {
                         name: 'sponsors',
                         path: '/sponsors',
                         component: Sponsors,
@@ -80,13 +87,6 @@ export const routes = [
                         component: Organisation,
                         display: 'Organisation',
                         important: true
-                    },
-                    {
-                        name: 'contact',
-                        path: '/contact',
-                        component: Contact,
-                        display: 'Kontakt',
-                        important: true
                     }
                 ]
             },
@@ -98,12 +98,13 @@ export const routes = [
                 important: true
             },
             {
-                name: 'bandsOverview',
-                path: '/bands',
-                component: BandsOverview,
-                display: 'Bands',
+                name: 'contact',
+                path: '/contact',
+                component: Contact,
+                display: 'Kontakt',
                 important: true
             },
+
             {
                 name: 'impressum',
                 path: '/impressum',

@@ -1,79 +1,87 @@
 ﻿<template>
-  <transition name="bounce">
-    <nav
-      class="navbar navbar-expand-md navbar-inverse position-fixed shadow-sm"
-      :class="{ embedded: embedded && isHome && !collapse }"
-    >
-      <router-link class="navbar-brand" :to="{ name: 'home' }">
-        <img
-          :class="{}"
-          src="../../assets/images/black_green_small_logo.png"
-          height="40"
-          class="d-inline-block align-top"
-          alt="logo_pff19"
+    <transition name="bounce">
+        <nav
+            class="navbar navbar-expand-md navbar-inverse position-fixed shadow-sm"
+            :class="{ embedded: embedded && isHome && !collapse }"
         >
-      </router-link>
+            <router-link class="navbar-brand" :to="{ name: 'home' }">
+                <img
+                    :class="{}"
+                    src="../../assets/images/black_green_small_logo.png"
+                    height="40"
+                    class="d-inline-block align-top"
+                    alt="logo_pff19"
+                />
+            </router-link>
 
-      <div class="mr-auto nav-link">
-        <a class="nav-item language" @click="changeLang('de')">de</a>
-        <span class="nav-item">|</span>
-        <a class="nav-item language" @click="changeLang('fr')">fr</a>
-      </div>
-
-      <button
-        class="navbar-toggler"
-        @click="collapse = !collapse"
-        type="button"
-        data-toggle="collapse"
-        data-target="#navbarNavAltMarkup"
-        aria-controls="navbarNavAltMarkup"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-      >
-        <span class="fa fa-navicon"></span>
-      </button>
-
-      <div class="collapse navbar-collapse" :class="{ show: collapse }" id="navbarNavAltMarkup">
-        <div class="navbar-nav ml-auto">
-          <span
-            class="nav-item"
-            :class="{'dropdown': route.children}"
-            v-for="route in getDefaultRoutes"
-            :key="route.name"
-          >
-            <router-link
-              v-if="route.important && !route.children"
-              :to="route.path"
-              class="nav-link"
-            >{{ $t(`lang.navigation.${route.name}`) }}</router-link>
-
-            <div
-              v-if="route.children"
-              class="nav-link dropdown-toggle"
-              id="navbarDropdown"
-              role="button"
-              @click="infoDropdown = !infoDropdown"
-              aria-haspopup="true"
-              aria-expanded="false"
-            >{{ $t(`lang.navigation.${route.name}`) }}</div>
-            <div
-              v-if="route.children"
-              class="dropdown-menu shadow-sm"
-              :class="{'show': infoDropdown}"
-              aria-labelledby="navbarDropdown"
-            >
-              <router-link
-                v-for="child in route.children"
-                :key="child.name"
-                :to="{name: child.name}"
-                class="nav-link"
-              >{{ $t(`lang.navigation.${child.name}`) }}</router-link>
+            <div class="mr-auto nav-link">
+                <a class="nav-item language" @click="changeLang('de')">de</a>
+                <span class="nav-item">|</span>
+                <a class="nav-item language" @click="changeLang('fr')">fr</a>
             </div>
-          </span>
-        </div>
-      </div>
-    </nav>
-  </transition>
+
+            <button
+                class="navbar-toggler"
+                @click="collapse = !collapse"
+                type="button"
+                data-toggle="collapse"
+                data-target="#navbarNavAltMarkup"
+                aria-controls="navbarNavAltMarkup"
+                aria-expanded="false"
+                aria-label="Toggle navigation"
+            >
+                <span class="fa fa-navicon"></span>
+            </button>
+
+            <div
+                class="collapse navbar-collapse"
+                :class="{ show: collapse }"
+                id="navbarNavAltMarkup"
+            >
+                <div class="navbar-nav ml-auto">
+                    <span
+                        class="nav-item"
+                        :class="{ dropdown: route.children }"
+                        v-for="route in getDefaultRoutes"
+                        :key="route.name"
+                    >
+                        <router-link
+                            v-if="route.important && !route.children"
+                            :to="route.path"
+                            class="nav-link"
+                            >{{ $t(`lang.navigation.${route.name}`) }}</router-link
+                        >
+
+                        <div
+                            v-if="route.children"
+                            class="nav-link dropdown-toggle"
+                            id="navbarDropdown"
+                            role="button"
+                            @click="infoDropdown = !infoDropdown"
+                            aria-haspopup="true"
+                            aria-expanded="false"
+                        >
+                            {{ $t(`lang.navigation.${route.name}`) }}
+                        </div>
+                        <div
+                            v-if="route.children"
+                            class="dropdown-menu shadow-sm"
+                            :class="{ show: infoDropdown }"
+                            aria-labelledby="navbarDropdown"
+                        >
+                            <router-link
+                                v-for="child in route.children"
+                                :key="child.name"
+                                :to="{ name: child.name }"
+                                class="nav-link"
+                                >{{ $t(`lang.navigation.${child.name}`) }}</router-link
+                            >
+                        </div>
+                    </span>
+                </div>
+            </div>
+        </nav>
+    </transition>
 </template>
 
 <script>
@@ -160,10 +168,10 @@ export default {
 }
 
 .navbar .shadow-sm {
-  transition: none;
-  -webkit-transition: none;
-  -moz-transition: none;
-  -o-transition: none;
+    transition: none;
+    -webkit-transition: none;
+    -moz-transition: none;
+    -o-transition: none;
 }
 
 .embedded {
@@ -197,13 +205,12 @@ export default {
 }
 
 .dropdown-menu {
-  border: none;
-  padding: 8px;
-
+    border: none;
+    padding: 8px;
 }
 
 .dropdown-toggle {
-  cursor: pointer;
+    cursor: pointer;
 }
 
 @media (max-width: 768px) {
@@ -212,7 +219,7 @@ export default {
         padding-left: 20px;
     }
     .navbar .shadow-sm {
-      box-shadow: none !important;
+        box-shadow: none !important;
     }
 }
 </style>
