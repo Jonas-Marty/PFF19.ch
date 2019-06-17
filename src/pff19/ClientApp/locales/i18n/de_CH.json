@@ -12,7 +12,9 @@
 		"bandsOverview": "Bands",
 		"info": "Info",
 		"programm": "Programm",
-		"programmOverview": "Programm"
+		"programmOverview": "Programm",
+		"foodAndBars": "Food&Bars",
+		"foodAndBarsOverview": "Food&Bars"
 	},
 	"components": {
 		"footer": {

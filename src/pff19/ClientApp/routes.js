@@ -12,6 +12,7 @@ import Ticketing from 'components/ticketing/Tickets'
 const Band = () => import('components/bands/Band')
 const BandsOverview = () => import('components/bands/BandsOverview')
 const ProgrammOverview = () => import('components/programm/ProgrammOverview')
+const foodAndBarsOverview = () => import('components/foodAndBars/foodAndBarsOverview')
 
 import DefaultLayout from './layouts/Default'
 const AdminLayout = () => import(/* webpackChunkName: "admin" */'./layouts/Admin')
@@ -100,6 +101,13 @@ export const routes = [
                         path: '/programm',
                         component: ProgrammOverview,
                         display: 'Programm',
+                        important: true
+                    },
+                    {
+                        name: 'foodAndBarsOverview',
+                        path: '/foodandbars',
+                        component: foodAndBarsOverview,
+                        display: 'Food&Bars',
                         important: true
                     },
                 ]
