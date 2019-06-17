@@ -10,7 +10,9 @@
 		"contact": "Kontakt",
 		"ticketing": "Tickets",
 		"bandsOverview": "Bands",
-		"info": "Info"
+		"info": "Info",
+		"programm": "Programm",
+		"programmOverview": "Programm"
 	},
 	"components": {
 		"footer": {

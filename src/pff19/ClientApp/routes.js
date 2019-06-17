@@ -11,6 +11,7 @@ import Contact from 'components/faq/Kontakt'
 import Ticketing from 'components/ticketing/Tickets'
 const Band = () => import('components/bands/Band')
 const BandsOverview = () => import('components/bands/BandsOverview')
+const ProgrammOverview = () => import('components/programm/ProgrammOverview')
 
 import DefaultLayout from './layouts/Default'
 const AdminLayout = () => import(/* webpackChunkName: "admin" */'./layouts/Admin')
@@ -68,13 +69,6 @@ export const routes = [
                         important: true
                     },
                     {
-                        name: 'bandsOverview',
-                        path: '/bands',
-                        component: BandsOverview,
-                        display: 'Bands',
-                        important: true
-                    },
-                    {
                         name: 'sponsors',
                         path: '/sponsors',
                         component: Sponsors,
@@ -88,6 +82,26 @@ export const routes = [
                         display: 'Organisation',
                         important: true
                     }
+                ]
+            },{
+                name: 'programm',
+                path: '',
+                component: EmptyRouteView,
+                children: [
+                    {
+                        name: 'bandsOverview',
+                        path: '/bands',
+                        component: BandsOverview,
+                        display: 'Bands',
+                        important: true
+                    },
+                    {
+                        name: 'programmOverview',
+                        path: '/programm',
+                        component: ProgrammOverview,
+                        display: 'Programm',
+                        important: true
+                    },
                 ]
             },
             {
