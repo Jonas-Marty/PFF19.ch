@@ -57,7 +57,7 @@
                             class="nav-link dropdown-toggle"
                             id="navbarDropdown"
                             role="button"
-                            @click="infoDropdown = !infoDropdown"
+                            @click="openDropdown(route.name)"
                             aria-haspopup="true"
                             aria-expanded="false"
                         >
@@ -66,7 +66,7 @@
                         <div
                             v-if="route.children"
                             class="dropdown-menu shadow-sm"
-                            :class="{ show: infoDropdown }"
+                            :class="{ show: dropdown[route.name] }"
                             aria-labelledby="navbarDropdown"
                         >
                             <router-link
@@ -95,7 +95,7 @@ export default {
             routes,
             embedded: true,
             collapse: false,
-            infoDropdown: false
+            dropdown: {info: false, programm: false }
         }
     },
     computed: {
@@ -124,7 +124,16 @@ export default {
             if (this.$store.getters.language !== lang) {
                 this.switchI18n(lang)
             }
-        }
+        },
+        openDropdown(self){ 
+            if(self === "info") {
+                this.dropdown.info = !this.dropdown.info 
+                this.dropdown.programm = false
+            } else {
+                this.dropdown.info = false
+                this.dropdown.programm = !this.dropdown.programm
+            }
+        } 
     },
     created() {
         window.addEventListener('scroll', this.navbarBackgroundController)
@@ -138,7 +147,9 @@ export default {
                 (self.$el.contains(e.target) && e.target.tagName === 'A')
             ) {
                 self.collapse = false
-                self.infoDropdown = false
+                console.log(self.dropdown)
+                self.dropdown.info = false
+                self.dropdown.programm = false
             }
         })
     },
