@@ -8,6 +8,7 @@
         GönnerPrivat = 3,
         Infrastrukturpartner = 4,
         PfadiPartner = 5,
-        GönnerUnternehmen = 6
+        GönnerUnternehmen = 6,
+        MitUnterstützungVon = 7,
     }
 }
