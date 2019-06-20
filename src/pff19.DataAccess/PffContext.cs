@@ -18,5 +18,7 @@ namespace pff19.DataAccess
         public DbSet<Faq> Faqs { get; set; }
         public DbSet<ContactRequest> ContactRequests { get; set; }
         public DbSet<BandRequest> BandRequests { get; set; }
+        public DbSet<Bar> Bars { get; set; }
+        public DbSet<SocialProgram> SocialPrograms { get; set; }
     }
 }

@@ -86,6 +86,8 @@ namespace pff19
             services.AddScoped<FileUtility, FileUtility>();
             services.AddScoped<ContactRequestRepository, ContactRequestRepository>();
             services.AddScoped<BandRequestRepository, BandRequestRepository>();
+            services.AddScoped<BarsRepository, BarsRepository>();
+            services.AddScoped<SocialProgramsRepository, SocialProgramsRepository>();
             services.AddSingleton<IInformer, MailInformer>();
         }
 
