@@ -20,18 +20,27 @@ import EmptyRouteView from './layouts/EmptyRouteView'
 
 const Dashboard = () =>  import(/* webpackChunkName: "admin" */'components/admin/Dashboard')
 const Login = () => import(/* webpackChunkName: "admin" */'components/admin/Login')
+
 const Sponsoring = () => import(/* webpackChunkName: "admin" */'components/admin/sponsoring/Sponsoring')
 const SponsoringAdd = ()=> import(/* webpackChunkName: "admin" */'components/admin/sponsoring/Add')
 const SponsoringEdit = () =>import(/* webpackChunkName: "admin" */'components/admin/sponsoring/Edit')
+
 const AdminNews = ()=> import(/* webpackChunkName: "admin" */'components/admin/news/News')
 const AdminNewsAdd = ()=> import(/* webpackChunkName: "admin" */'components/admin/news/Add')
 const AdminNewsEdit = ()=> import(/* webpackChunkName: "admin" */'components/admin/news/Edit')
+
 const AdminFAQs= () => import(/* webpackChunkName: "admin" */'components/admin/faq/FAQs')
 const AdminFAQAdd = () => import(/* webpackChunkName: "admin" */'components/admin/faq/Add')
 const AdminFAQEdit = () => import(/* webpackChunkName: "admin" */'components/admin/faq/Edit')
+
 const AdminBands = () => import(/* webpackChunkName: "admin" */'components/admin/bands/Bands')
 const AdminBandsAdd = () => import(/* webpackChunkName: "admin" */'components/admin/bands/Add')
 const AdminBandsEdit = ()=> import(/* webpackChunkName: "admin" */'components/admin/bands/Edit')
+
+const AdminFoodAndBars = () => import(/* webpackChunkName: "admin" */'components/admin/foodAndBars/foodAndBars')
+const AdminFoodAndBarsAdd = () => import(/* webpackChunkName: "admin" */'components/admin/foodAndBars/Add')
+const AdminFoodAndBarsEdit = ()=> import(/* webpackChunkName: "admin" */'components/admin/foodAndBars/Edit')
+
 
 const AdminHelfer = () => import(/* webpackChunkName: "admin" */'components/admin/helper/Helfer')
 const AdminContact = ()=> import(/* webpackChunkName: "admin" */'components/admin/contact/Contact')
@@ -243,6 +252,25 @@ export const routes = [
                 display: 'EDIT'
             },
             {
+                name: 'adminFoodAndBars',
+                path: 'foodandbars',
+                component: AdminFoodAndBars,
+                display: 'Food&Bars',
+                important: true
+            },
+            {
+                name: 'adminFoodAndBarsAdd',
+                path: 'foodandbars/add',
+                component: AdminFoodAndBarsAdd,
+                display: 'ADD'
+            },
+            {
+                name: 'adminFoodAndBarsEdit',
+                path: 'foodandbars/:id/edit',
+                component: AdminFoodAndBarsEdit,
+                display: 'EDIT'
+            },
+            {
                 name: 'adminHelperList',
                 path: 'helper',
                 component: AdminHelfer,
@@ -262,7 +290,7 @@ export const routes = [
                 component: Dashboard,
                 display: 'Dashboard',
                 important: true
-            }
+            } 
         ]
     },
     { name: 'login', path: '/admin/login', component: Login, display: 'Login' },
