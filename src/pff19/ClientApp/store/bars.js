@@ -1,7 +1,7 @@
 import axios from 'axios'
 import auth from '../auth'
 
-export const foodAndBar = {
+export const bars = {
   namespaced: true,
   state: {
     bars: [],

@@ -17,10 +17,10 @@ export default {
     computed: {
         getImage() {
             if (this.isMobile && this.imageMobile) {
-                return `assets/bands/mobile/${this.imageMobile}`
+                return this.imageMobile
             } else {
                 if (this.images) {
-                    return `assets/bands/images/${this.images.split(';')[0]}`
+                    return this.images.split(';')[0]
                 }
             }
         }

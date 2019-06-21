@@ -1,8 +1,8 @@
 <template>
     <div class="myContainer">
         <slideshow
-            :images="this.getCurrentBand.imageLarge"
-            :imageMobile="this.getCurrentBand.imageMobile"
+            :images="`assets/bands/mobile/${this.getCurrentBand.imageLarge}`"
+            :imageMobile="`assets/bands/mobile/${this.getCurrentBand.imageMobile}`"
         />
         <div class="container">
             <div class="row back">

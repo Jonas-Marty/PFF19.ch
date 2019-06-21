@@ -13,6 +13,7 @@ const Band = () => import('components/bands/Band')
 const BandsOverview = () => import('components/bands/BandsOverview')
 const ProgrammOverview = () => import('components/programm/ProgrammOverview')
 const foodAndBarsOverview = () => import('components/foodAndBars/foodAndBarsOverview')
+const foodAndBars = () => import('components/foodAndBars/foodAndBars')
 
 import DefaultLayout from './layouts/Default'
 const AdminLayout = () => import(/* webpackChunkName: "admin" */'./layouts/Admin')
@@ -165,6 +166,12 @@ export const routes = [
                 path: '/band/:id',
                 component: Band,
                 display: 'Band'
+            },
+            {
+                name: 'foodAndBar',
+                path: '/foodandbar/:id/:name',
+                component: foodAndBars,
+                display: 'FoodAndBar'
             }
         ]
     },

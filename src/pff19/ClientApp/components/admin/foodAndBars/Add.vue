@@ -105,7 +105,7 @@
 
                 <div class="error-messages">
                     <p v-if="!$v.DescriptionDe.required && $v.DescriptionDe.$dirty">
-                        Es braucht eine Bescpreibung zur Band
+                        Es braucht eine Bescpreibung
                     </p>
                     <p v-if="!$v.DescriptionDe.minLength && $v.DescriptionDe.$dirty">
                         Deine Beschreibung ist zu kurz
@@ -126,7 +126,7 @@
 
                 <div class="error-messages">
                     <p v-if="!$v.DescriptionFr.required && $v.DescriptionFr.$dirty">
-                        Es braucht eine Bescpreibung zur Band
+                        Es braucht eine Bescpreibung 
                     </p>
                     <p v-if="!$v.DescriptionFr.minLength && $v.DescriptionFr.$dirty">
                         Deine Beschreibung ist zu kurz
