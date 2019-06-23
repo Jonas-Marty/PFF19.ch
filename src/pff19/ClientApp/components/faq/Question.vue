@@ -36,7 +36,7 @@ export default {
 <style lang="scss" scoped>
 .question {
     margin-top: 30px;
-    word-break: break-all;
+    word-break: break-word;
 }
 
 .card-header {
