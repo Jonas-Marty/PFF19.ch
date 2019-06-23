@@ -1,7 +1,7 @@
 <template>
     <div class="card question">
         <div @click="showQuestion = !showQuestion" class="card-header">
-            <h3 class=" dropdown-toggle">{{ questionTitle }}</h3>
+            <h3 class="dropdown-toggle text-wrap">{{ questionTitle }}</h3>
         </div>
         <div v-if="showQuestion" class="card-body">
             <div class="text-content" v-html="questionAnswer"></div>
