@@ -11,7 +11,8 @@ import Contact from 'components/faq/Kontakt'
 import Ticketing from 'components/ticketing/Tickets'
 const Band = () => import('components/bands/Band')
 const BandsOverview = () => import('components/bands/BandsOverview')
-const ProgrammOverview = () => import('components/programm/ProgrammOverview')
+const ProgramOverview = () => import('components/program/ProgramOverview')
+const Program = () => import('components/program/Program')
 const foodAndBarsOverview = () => import('components/foodAndBars/foodAndBarsOverview')
 const foodAndBars = () => import('components/foodAndBars/foodAndBars')
 
@@ -47,6 +48,13 @@ const AdminFoodAndBarsAdd = () =>
   import(/* webpackChunkName: "admin" */ 'components/admin/foodAndBars/Add')
 const AdminFoodAndBarsEdit = () =>
   import(/* webpackChunkName: "admin" */ 'components/admin/foodAndBars/Edit')
+
+const AdminProgram = () =>
+  import(/* webpackChunkName: "admin" */ 'components/admin/program/Program')
+const AdminProgramAdd = () =>
+  import(/* webpackChunkName: "admin" */ 'components/admin/program/Add')
+const AdminProgramEdit = () =>
+  import(/* webpackChunkName: "admin" */ 'components/admin/program/Edit')
 
 const AdminHelfer = () => import(/* webpackChunkName: "admin" */ 'components/admin/helper/Helfer')
 const AdminContact = () =>
@@ -102,7 +110,7 @@ export const routes = [
         ]
       },
       {
-        name: 'programm',
+        name: 'program',
         path: '',
         component: EmptyRouteView,
         children: [
@@ -114,10 +122,10 @@ export const routes = [
             important: true
           },
           {
-            name: 'programmOverview',
-            path: '/programm',
-            component: ProgrammOverview,
-            display: 'Programm',
+            name: 'programOverview',
+            path: '/program',
+            component: ProgramOverview,
+            display: 'Program',
             important: true
           },
           {
@@ -179,6 +187,12 @@ export const routes = [
         path: '/foodandbar/:id/:name',
         component: foodAndBars,
         display: 'FoodAndBar'
+      },
+      {
+        name: 'programDisplay',
+        path: '/program/:id/:name',
+        component: Program,
+        display: 'Program'
       },
     ]
   },
@@ -282,6 +296,25 @@ export const routes = [
         name: 'adminFoodAndBarsEdit',
         path: 'foodandbars/:id/edit',
         component: AdminFoodAndBarsEdit,
+        display: 'EDIT'
+      },
+      {
+        name: 'adminProgram',
+        path: 'program',
+        component: AdminProgram,
+        display: 'Programm',
+        important: true
+      },
+      {
+        name: 'adminProgramAdd',
+        path: 'program/add',
+        component: AdminProgramAdd,
+        display: 'ADD'
+      },
+      {
+        name: 'adminProgramEdit',
+        path: 'program/:id/edit',
+        component: AdminProgramEdit,
         display: 'EDIT'
       },
       {

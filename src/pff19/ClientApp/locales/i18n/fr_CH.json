@@ -11,10 +11,10 @@
 		"ticketing": "Tickets",
 		"bandsOverview": "Bands",
 		"info": "Info",
-		"programm": "Programme",
-		"programmOverview": "Programme",
 		"foodAndBars": "Food&Bars",
-		"foodAndBarsOverview": "Food&Bars"
+		"foodAndBarsOverview": "Food&Bars",
+		"program": "Programme",
+		"programOverview": "Programme"
 	},
 	"components": {
 		"footer": {
@@ -33,7 +33,7 @@
 				"ticket_btn": "Sécurisez vos billets maintenant!"
 			},
 			"news": {
-				"further_news" : "plus news"
+				"further_news": "plus news"
 			},
 			"sponsors": {
 				"sponsors": "Sponsoren",
@@ -43,14 +43,13 @@
 				"patron_private_person": "Patron personne",
 				"patron_company": "Patron entreprise",
 				"infrapartner": "Infrastructure Partenaire",
-				"scoutpartner": "Scout Partenaire" 
+				"scoutpartner": "Scout Partenaire"
 			},
-
 			"bands": {
 				"registration": "Bands inscription"
 			}
 		},
-		"organisation":{
+		"organisation": {
 			"organisation": "Organisation",
 			"team": "Direction",
 			"co_president": "Co-président",
@@ -79,34 +78,31 @@
 			"friday": "Vendredi",
 			"saturday": "Samdi",
 			"sunday": "Dimanche"
+		},
+		"program": {
+			"title": "Programme"
 		}
 	},
 	"forms": {
-			"firstname": "prénom",
-			"lastname": "nom de famille",
-			"scoutname": "nom de scout",
-			"email": "email",
-			"wishes": "vœux",
-			"message": "Votre message",
-			"submit": "envoyer",
-
-			"errors": {
-				"too-few-letters": "Zu wenig Zeichen.",
-				"too-many-letter": "Zu viel Zeichen.",
-				
-				"missing-email": "Veuillez entrer votre adresse e-mail.",
-				"incorrect-email": "Votre adresse email est incorrecte.",
-				"missing-firstname": "Veuillez entrer votre prénom.",
-				"missing-lastname": "Veuillez entrer votre nom de famille.",
-
-				"missing-message": "Veuillez entrer votre message"
-			},
-
-			"success": {
-				"thx-for-register": "Merci pour votre inscription!",
-				"contact-confirm": "Votre demande de contact a été envoyée."
-			}
-	
-	
+		"firstname": "prénom",
+		"lastname": "nom de famille",
+		"scoutname": "nom de scout",
+		"email": "email",
+		"wishes": "vœux",
+		"message": "Votre message",
+		"submit": "envoyer",
+		"errors": {
+			"too-few-letters": "Zu wenig Zeichen.",
+			"too-many-letter": "Zu viel Zeichen.",
+			"missing-email": "Veuillez entrer votre adresse e-mail.",
+			"incorrect-email": "Votre adresse email est incorrecte.",
+			"missing-firstname": "Veuillez entrer votre prénom.",
+			"missing-lastname": "Veuillez entrer votre nom de famille.",
+			"missing-message": "Veuillez entrer votre message"
+		},
+		"success": {
+			"thx-for-register": "Merci pour votre inscription!",
+			"contact-confirm": "Votre demande de contact a été envoyée."
+		}
 	}
 }

@@ -11,10 +11,10 @@
 		"ticketing": "Tickets",
 		"bandsOverview": "Bands",
 		"info": "Info",
-		"programm": "Programm",
-		"programmOverview": "Programm",
 		"foodAndBars": "Food&Bars",
-		"foodAndBarsOverview": "Food&Bars"
+		"foodAndBarsOverview": "Food&Bars",
+		"programOverview": "Programm",
+		"program": "Programm"
 	},
 	"components": {
 		"footer": {
@@ -33,7 +33,7 @@
 				"ticket_btn": "jetzt tickets sichern!"
 			},
 			"news": {
-				"further_news" : "weitere News"
+				"further_news": "weitere News"
 			},
 			"sponsors": {
 				"sponsors": "Sponsoren",
@@ -49,7 +49,7 @@
 				"registration": "Bands Anmeldung"
 			}
 		},
-		"organisation":{
+		"organisation": {
 			"organisation": "Organisation",
 			"team": "Hauptleitung",
 			"co_president": "Co-Präsident",
@@ -69,7 +69,6 @@
 			"contact-text": "Bei Fragen zu Tickets schreibe direkt an ticket@pff19.ch",
 			"account": "Unsere Kontoangaben"
 		},
-
 		"helper": {
 			"helper": "Wir brauchen dich!"
 		},
@@ -79,8 +78,10 @@
 			"friday": "Freitag",
 			"saturday": "Samstag",
 			"sunday": "Sonntags"
+		},
+		"program": {
+			"title": "Programm"
 		}
-
 	},
 	"forms": {
 		"firstname": "Vorname",
@@ -90,18 +91,15 @@
 		"wishes": "Wünsche",
 		"message": "Deine Nachricht",
 		"submit": "Absenden",
-
 		"errors": {
 			"too-few-letters": "Zu wenig Zeichen.",
 			"too-many-letter": "Zu viel Zeichen.",
-
 			"missing-email": "Bitte gebe deine Email Adresse an.",
 			"incorrect-email": "Deine Email Adresse ist nicht korrekt.",
 			"missing-firstname": "Bitte gebe deinen Vornamen an.",
 			"missing-lastname": "Bitte gebe deinen Nachnamen an.",
 			"missing-message": "Bitte gebe deine Nachricht ein."
 		},
-
 		"success": {
 			"thx-for-register": "Vielen Dank für die Anmeldung!",
 			"contact-confirm": "Ihre Kontaktanfrage wurde abgeschickt."

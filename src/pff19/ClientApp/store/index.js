@@ -9,6 +9,7 @@ import { contact } from './contact'
 import { faqs } from './faqs'
 import { bands } from './bands'
 import { bars } from './bars'
+import {program} from './program'
 
 Vue.use(Vuex)
 
@@ -63,6 +64,7 @@ export const store = new Vuex.Store({
     contact,
     faqs,
     bands,
-    bars
+    bars,
+    program
   }
 })

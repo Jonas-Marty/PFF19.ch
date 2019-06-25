@@ -1,10 +1,10 @@
 <template>
   <div>
-    <h2 class="title">Band hinzufügen</h2>
+    <h2 class="title">Programmpunkt hinzufügen</h2>
 
     <div v-if="isSubmitted">
-      <p>Deine Band wurde hinzugefügt!</p>
-      <router-link :to="{ name: 'adminBands' }">Zurück</router-link>
+      <p>Dein Programmpunkt wurde hinzugefügt!</p>
+      <router-link :to="{ name: 'adminProgram' }">Zurück</router-link>
     </div>
 
     <form @submit.prevent="submit" v-if="!isSubmitted">
@@ -23,7 +23,7 @@
         <div class="error-messages">
           <p
             v-if="!$v.ImageThumbnail.required && $v.ImageThumbnail.$dirty"
-          >Die Band braucht ein Bild</p>
+          >Es braucht ein Thumbnail Bild</p>
         </div>
       </div>
 
@@ -37,7 +37,7 @@
           v-on:vdropzone-removed-file="removingImage"
         ></vue-dropzone>
         <div class="error-messages">
-          <p v-if="!$v.ImageLarge.required && $v.ImageLarge.$dirty">Die Band braucht ein Bild</p>
+          <p v-if="!$v.ImageLarge.required && $v.ImageLarge.$dirty">Es braucht ein big Screen Bild</p>
         </div>
       </div>
 
@@ -52,27 +52,33 @@
         ></vue-dropzone>
       </div>
 
-      <div class="form-group">
-        <label for="timeForSorting">
-          Aufrittszeit (für die Sortierung und Gruppierung nach Tag in der TimeTable verwendet,
-          MM-dd-YYYY HH-mm)
-        </label>
-        <input type="datetime-local" class="form-control" id="time" v-model="PlayTimeForSorting">
-        <div class="error-messages"></div>
-      </div>
-
-      <div class="form-group" :class="{ 'invalid-form': $v.Name.$error }">
-        <label for="name">Name</label>
+      <div class="form-group" :class="{ 'invalid-form': $v.NameDe.$error }">
+        <label for="name_de">NameDe</label>
         <input
           type="text"
-          @blur="$v.Name.$touch()"
+          @blur="$v.NameDe.$touch()"
           class="form-control"
-          id="name"
-          placeholder="Name der Band"
-          v-model="Name"
+          id="name_de"
+          placeholder="Name Deutsch"
+          v-model="NameDe"
         >
         <div class="error-messages">
-          <p v-if="!$v.Name.required && $v.Name.$dirty">Bitte ein Name eingeben</p>
+          <p v-if="!$v.NameDe.required && $v.NameDe.$dirty">Bitte ein Name eingeben</p>
+        </div>
+      </div>
+
+      <div class="form-group" :class="{ 'invalid-form': $v.NameFr.$error }">
+        <label for="name_fr">NameFr</label>
+        <input
+          type="text"
+          @blur="$v.NameFr.$touch()"
+          class="form-control"
+          id="name_fr"
+          placeholder="Name Französisch"
+          v-model="NameFr"
+        >
+        <div class="error-messages">
+          <p v-if="!$v.NameFr.required && $v.NameFr.$dirty">Bitte ein Name eingeben</p>
         </div>
       </div>
 
@@ -90,7 +96,7 @@
         <div class="error-messages">
           <p
             v-if="!$v.DescriptionDe.required && $v.DescriptionDe.$dirty"
-          >Es braucht eine Bescpreibung zur Band</p>
+          >Es braucht eine Bescpreibung</p>
           <p
             v-if="!$v.DescriptionDe.minLength && $v.DescriptionDe.$dirty"
           >Deine Beschreibung ist zu kurz</p>
@@ -111,83 +117,18 @@
         <div class="error-messages">
           <p
             v-if="!$v.DescriptionFr.required && $v.DescriptionFr.$dirty"
-          >Es braucht eine Bescpreibung zur Band</p>
+          >Es braucht eine Bescpreibung</p>
           <p
             v-if="!$v.DescriptionFr.minLength && $v.DescriptionFr.$dirty"
           >Deine Beschreibung ist zu kurz</p>
         </div>
       </div>
 
-      <div class="form-group">
-        <label for="youtbe_url">Youtube codes separiert mit comma (Bsp: "Pun1Nxv9f3g, Oun1Nxv9f3a")</label>
-        <input
-          type="text"
-          class="form-control"
-          id="youtbe_url"
-          placeholder="code1, code2, usw."
-          v-model="YoutubeUrls"
-        >
-        <div class="error-messages"></div>
-      </div>
-
-      <div class="form-group">
-        <label for="website_url">Website Url</label>
-        <input
-          type="text"
-          class="form-control"
-          id="website_url"
-          placeholder="https://www.pff19.ch/"
-          v-model="WebSiteUrl"
-        >
-        <div class="error-messages"></div>
-      </div>
-
-      <div class="form-group">
-        <label for="facebook">Facebook Page Url</label>
-        <input
-          type="text"
-          class="form-control"
-          id="facebook"
-          placeholder="https://www.facebook.com/pff19mosaik/"
-          v-model="Facebook"
-        >
-        <div class="error-messages"></div>
-      </div>
-
-      <div class="form-group">
-        <label for="instagram">Instagram Page Url</label>
-        <input
-          type="text"
-          class="form-control"
-          id="instagram"
-          placeholder="https://www.instagram.com/pff_19_mosaik/"
-          v-model="Instagram"
-        >
-        <div class="error-messages"></div>
-      </div>
-
-      <div class="form-group">
-        <label for="spotify">
-          Spotify Playlist code
-          <a
-            href="https://developer.spotify.com/documentation/widgets/generate/play-button/"
-          >hilfe</a>
-        </label>
-        <input
-          type="text"
-          class="form-control"
-          id="spotify"
-          placeholder="https://open.spotify.com/embed/album/1DFixLWuPkv3KT3TnV35m3"
-          v-model="SpotifyPlaylist"
-        >
-        <div class="error-messages"></div>
-      </div>
-
       <button type="submit" class="btn btn-primary">Bestätigen</button>
     </form>
 
     <div class="help">
-      <h3>Hilfe für Bands upload</h3>
+      <h3>Hilfe für Programmpunkt upload</h3>
       <ul>
         <li>Unterstützte Bild Formate sind jpg/png</li>
         <li>
@@ -234,15 +175,10 @@ export default {
     return {
       errors: [],
       isSubmitted: false,
-      PlayTimeForSorting: '',
-      Name: '',
+      NameDe: '',
+      NameFr: '',
       DescriptionDe: '',
       DescriptionFr: '',
-      Facebook: '',
-      YoutubeUrls: '',
-      WebSiteUrl: '',
-      Instagram: '',
-      SpotifyPlaylist: '',
       ImageThumbnail: {},
       ImageLarge: {},
       optionsEditor: {
@@ -271,7 +207,12 @@ export default {
   },
 
   validations: {
-    Name: {
+    NameDe: {
+      required,
+      minLength: minLength(3),
+      maxLength: maxLength(255)
+    },
+    NameFr: {
       required,
       minLength: minLength(3),
       maxLength: maxLength(255)
@@ -297,20 +238,13 @@ export default {
       this.$v.$touch()
       if (!this.$v.$invalid) {
         const formData = {
-          Name: this.Name,
-          PlayTime: this.PlayTime,
-          TitleFr: this.TitleFr,
+          NameDe: this.NameDe,
+          NameFr: this.NameFr,
           DescriptionDe: this.DescriptionDe,
           DescriptionFr: this.DescriptionFr,
-          Facebook: this.Facebook,
-          YoutubeUrls: this.YoutubeUrls,
-          Instagram: this.Instagram,
-          WebSiteUrl: this.WebSiteUrl,
-          SpotifyPlaylist: this.SpotifyPlaylist,
           ImageThumbnail: this.ImageThumbnail,
           ImageLarge: this.ImageLarge,
-          ImageMobile: this.ImageMobile,
-          PlayTimeForSorting: this.PlayTimeForSorting
+          ImageMobile: this.ImageMobile
         }
 
         let form_data = new FormData()
@@ -320,7 +254,7 @@ export default {
         }
 
         auth
-          .post('Bands', form_data)
+          .post('socialprograms', form_data)
           .then(response => {
             this.isSubmitted = true
           })

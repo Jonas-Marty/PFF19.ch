@@ -87,7 +87,7 @@ export default {
       routes,
       embedded: true,
       collapse: false,
-      dropdown: { info: false, programm: false }
+      dropdown: { info: false, program: false }
     }
   },
   computed: {
@@ -120,10 +120,10 @@ export default {
     openDropdown(self) {
       if (self === 'info') {
         this.dropdown.info = !this.dropdown.info
-        this.dropdown.programm = false
+        this.dropdown.program = false
       } else {
         this.dropdown.info = false
-        this.dropdown.programm = !this.dropdown.programm
+        this.dropdown.program = !this.dropdown.program
       }
     }
   },
@@ -140,7 +140,7 @@ export default {
       ) {
         self.collapse = false
         self.dropdown.info = false
-        self.dropdown.programm = false
+        self.dropdown.program = false
       }
     })
   },
