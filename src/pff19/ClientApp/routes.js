@@ -179,7 +179,7 @@ export const routes = [
         path: '/foodandbar/:id/:name',
         component: foodAndBars,
         display: 'FoodAndBar'
-      }
+      },
     ]
   },
 

@@ -14,7 +14,10 @@
         <div class="card-body p-5">
           <h5 class="card-title">{{ bar.nameDe }}</h5>
           <p class="card-text">{{ bar.descriptionDe | shorten(150) }}</p>
-          <router-link class="card-link" :to="{ name: 'bar', params: { id: bar.id } }">View</router-link>
+          <router-link
+            class="card-link"
+            :to="{ name: 'foodAndBar', params: { id: bar.id, name: bar.nameDe } }"
+          >View</router-link>
           <router-link
             class="card-link"
             :to="{ name: 'adminFoodAndBarsEdit', params: { id: bar.id } }"
