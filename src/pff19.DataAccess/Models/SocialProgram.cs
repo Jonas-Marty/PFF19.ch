@@ -11,8 +11,7 @@ namespace pff19.DataAccess.Models
         public string NameFr { get; set; }
         public string DescriptionDe { get; set; }
         public string DescriptionFr { get; set; }
-        public DateTime StartTime { get; set; }
-        public DateTime EndTime { get; set; }
+        public DateTime? StartTime { get; set; }
         public int Order { get; set; }
         public string ImageThumbnail { get; set; }
         public string ImageLarge { get; set; }

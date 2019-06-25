@@ -51,7 +51,8 @@ namespace pff19.Controllers
                 DescriptionDe =  model.DescriptionDe,
                 DescriptionFr =  model.DescriptionFr,
                 NameDe = model.NameDe,
-                NameFr = model.NameFr
+                NameFr = model.NameFr,
+                StartTime = model.StartTime
             };
             socialProgram.Order = _socialProgramsRepository.GetAll().Select(b => b.Order).DefaultIfEmpty(0).Max() + 1;
             _socialProgramsRepository.Add(socialProgram);
@@ -74,6 +75,7 @@ namespace pff19.Controllers
             existingSocialProgram.NameFr = model.NameFr;
             existingSocialProgram.DescriptionDe = model.DescriptionDe;
             existingSocialProgram.DescriptionFr = model.DescriptionFr;
+            existingSocialProgram.StartTime = model.StartTime;
             existingSocialProgram.Order = model.Order ?? existingSocialProgram.Order;
 
             SafeSocialProgramImages(model, existingSocialProgram);
