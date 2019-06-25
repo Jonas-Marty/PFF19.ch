@@ -28,7 +28,6 @@ export default {
     ...mapGetters(['language']),
 
     orderedContacts() {
-      console.log(this.all)
       return this.all.sort((a, b) => (new Date(a.submitedAt) - new Date(b.submitedAt)) * -1)
     }
   },

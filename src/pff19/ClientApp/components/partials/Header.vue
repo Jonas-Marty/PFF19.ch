@@ -11,7 +11,7 @@
           height="40"
           class="d-inline-block align-top"
           alt="logo_pff19"
-        />
+        >
       </router-link>
 
       <div class="mr-auto nav-link">
@@ -45,8 +45,7 @@
               v-if="route.important && !route.children"
               :to="route.path"
               class="nav-link"
-              >{{ $t(`lang.navigation.${route.name}`) }}</router-link
-            >
+            >{{ $t(`lang.navigation.${route.name}`) }}</router-link>
 
             <div
               v-if="route.children"
@@ -56,9 +55,7 @@
               @click="openDropdown(route.name)"
               aria-haspopup="true"
               aria-expanded="false"
-            >
-              {{ $t(`lang.navigation.${route.name}`) }}
-            </div>
+            >{{ $t(`lang.navigation.${route.name}`) }}</div>
             <div
               v-if="route.children"
               class="dropdown-menu shadow-sm"
@@ -70,8 +67,7 @@
                 :key="child.name"
                 :to="{ name: child.name }"
                 class="nav-link"
-                >{{ $t(`lang.navigation.${child.name}`) }}</router-link
-              >
+              >{{ $t(`lang.navigation.${child.name}`) }}</router-link>
             </div>
           </span>
         </div>
@@ -143,7 +139,6 @@ export default {
         (self.$el.contains(e.target) && e.target.tagName === 'A')
       ) {
         self.collapse = false
-        console.log(self.dropdown)
         self.dropdown.info = false
         self.dropdown.programm = false
       }
