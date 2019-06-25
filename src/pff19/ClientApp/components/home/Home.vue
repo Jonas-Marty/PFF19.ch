@@ -2,21 +2,9 @@
     <div>
         <app-slideshow></app-slideshow>
         <app-news-list></app-news-list>
-        <div class="container">
-            <div class="row">
-                <div class="col-12 offset-md-2 col-md-8 offset-lg-2 col-lg-8">
-                    <div class="iframe-container text-center">
-                        <iframe class="ytplayer"
-                                type="text/html"
-                                src="https://www.youtube-nocookie.com/embed/jJDrwRzCLac"
-                                frameborder="0"
-                                allowfullscreen />
-                    </div>
-                </div>
-            </div>
-        </div>
         <description-fr v-if="language === 'fr'"></description-fr>
         <description-de v-else></description-de>
+        <ytvideo></ytvideo>
     </div>
 </template>
 
@@ -29,6 +17,7 @@ import SocialMedia from './SocialMedia'
 import Bands from './BandsRegistration'
 import descriptionFr from './DescriptionFr'
 import descriptionDe from './DescriptionDe'
+import ytVideo from './YoutubeVideo'
 
 import { mapActions, mapGetters } from 'vuex'
 
@@ -64,26 +53,8 @@ export default {
         'app-social-media': SocialMedia,
         'app-bands': Bands,
         descriptionFr,
-        descriptionDe
+        descriptionDe,
+        'ytvideo': ytVideo
     }
 }
 </script>
-
-<style>
-    .ytplayer {
-        width: 100%;
-        height: 250px;
-    }
-    @media (min-width: 768px) { 
-        .ytplayer {
-            height: 300px;
-        }
-    }
-
-    @media (min-width: 992px) { 
-        .ytplayer {
-            height: 400px;
-        }
-    }
-
-</style>
