@@ -37,36 +37,40 @@ export const news = {
   },
 
   actions: {
-    load: ({commit}) => {
-      axios.get('/api/news')
+    load: ({ commit }) => {
+      axios
+        .get('/api/news')
         .then(response => {
           commit('load', response.data)
-        }).catch(e => {
         })
+        .catch(() => {})
     },
 
-    loadTopThree: ({commit}) => {
-      axios.get('/api/news/top')
+    loadTopThree: ({ commit }) => {
+      axios
+        .get('/api/news/top')
         .then(response => {
           commit('load', response.data)
-        }).catch(e => {
         })
+        .catch(() => {})
     },
 
-    loadCurrentNews: ({commit}, payload) => {
-      axios.get(`/api/news/${payload}`)
+    loadCurrentNews: ({ commit }, payload) => {
+      axios
+        .get(`/api/news/${payload}`)
         .then(response => {
           commit('loadCurrentNews', response.data)
-        }).catch(e => {
         })
+        .catch(() => {})
     },
 
-    remove: ({commit}, payload) => {
-      auth.delete(`/news/${payload}`)
-        .then(response => {
+    remove: ({ commit }, payload) => {
+      auth
+        .delete(`/news/${payload}`)
+        .then(() => {
           commit('remove', payload)
-        }).catch(e => {
         })
+        .catch(() => {})
     }
   }
 }

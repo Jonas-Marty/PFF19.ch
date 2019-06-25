@@ -19,14 +19,14 @@ Vue.use(VueI18n)
  * Export
  */
 export default new VueI18n({
-	locale: 'de',
-	fallbackLocale: 'de',
-	messages: {
-		de: {
-			lang: de
-		},
-		fr: {
-			lang: fr
-		}
-	}
+  locale: 'de',
+  fallbackLocale: 'de',
+  messages: {
+    de: {
+      lang: de
+    },
+    fr: {
+      lang: fr
+    }
+  }
 })

@@ -9,7 +9,7 @@
     "analyze": "npm run webpack -- --env.mode production --env.presets analyze",
     "build:dev": "npm run webpack -- --env.mode development",
     "build:prod": "npm run webpack -- --env.mode production",
-    "lint": "npm run eslint ClientApp/**"
+    "lint": "eslint ClientApp/"
   },
   "dependencies": {
     "axios": "^0.15.3",
@@ -52,6 +52,7 @@
     "cross-env": "^5.2.0",
     "css-loader": "^1.0.0",
     "eslint": "^5.16.0",
+    "eslint-config-prettier": "^6.0.0",
     "eslint-config-standard": "^12.0.0",
     "eslint-plugin-import": "^2.18.0",
     "eslint-plugin-node": "^9.1.0",
@@ -70,6 +71,7 @@
     "sass-loader": "^7.1.0",
     "style-loader": "^0.23.1",
     "url-loader": "^0.5.9",
+    "vue-eslint-parser": "^6.0.4",
     "vue-loader": "^15.4.2",
     "webpack": "^4.20.2",
     "webpack-bundle-analyzer": "^3.0.3",

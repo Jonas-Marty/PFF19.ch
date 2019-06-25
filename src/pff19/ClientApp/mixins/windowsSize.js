@@ -1,4 +1,4 @@
-import { MOBILE, TABLET } from '../constants/devices';
+import { MOBILE, TABLET } from '../constants/devices'
 
 const windowSize = {
   data() {
@@ -7,29 +7,29 @@ const windowSize = {
         width: 0,
         height: 0
       }
-    };
+    }
   },
   created() {
-    window.addEventListener('resize', this.handleResize);
-    this.handleResize();
+    window.addEventListener('resize', this.handleResize)
+    this.handleResize()
   },
   destroyed() {
-    window.removeEventListener('resize', this.handleResize);
+    window.removeEventListener('resize', this.handleResize)
   },
   methods: {
     handleResize() {
-      this.window.width = window.innerWidth;
-      this.window.height = window.innerHeight;
+      this.window.width = window.innerWidth
+      this.window.height = window.innerHeight
     }
   },
   computed: {
     isMobile() {
-      return this.window.width <= MOBILE;
+      return this.window.width <= MOBILE
     },
     isTablet() {
-      return this.window.width > MOBILE && this.width <= TABLET;
+      return this.window.width > MOBILE && this.width <= TABLET
     }
   }
-};
+}
 
-export default windowSize;
+export default windowSize

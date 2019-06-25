@@ -1,49 +1,51 @@
 <template>
   <div class="myContainer">
     <slideshow
-      :images="`assets/bands/mobile/${this.getCurrentBand.imageLarge}`"
-      :imageMobile="`assets/bands/mobile/${this.getCurrentBand.imageMobile}`"
+      :images="`assets/bands/mobile/${getCurrentBand.imageLarge}`"
+      :image-mobile="`assets/bands/mobile/${getCurrentBand.imageMobile}`"
     />
     <div class="container">
       <div class="row back">
         <div class="col">
-          <router-link class="btn btn-outline-primary" :to="{ name: 'bandsOverview' }"
-            >Alle Bands</router-link
-          >
+          <router-link class="btn btn-outline-primary" :to="{ name: 'bandsOverview' }">
+            Alle Bands
+          </router-link>
         </div>
       </div>
-      <h1 class="title">{{ this.getCurrentBand.name }}</h1>
+      <h1 class="title">
+        {{ getCurrentBand.name }}
+      </h1>
       <h6 class="title-playtime">
-        {{ this.getCurrentBand.playTimeForSorting | formateDateTime(language) }}
+        {{ getCurrentBand.playTimeForSorting | formateDateTime(language) }}
       </h6>
 
-      <div class="row" v-if="this.getCurrentBand.spotifyPlaylist">
-        <div class="col-12 col-md-6 text-content" v-html="description"></div>
+      <div v-if="getCurrentBand.spotifyPlaylist" class="row">
+        <div class="col-12 col-md-6 text-content" v-html="description" />
         <div class="col-12 col-md-6">
           <iframe
             class="spotify"
-            :src="this.getCurrentBand.spotifyPlaylist"
+            :src="getCurrentBand.spotifyPlaylist"
             frameborder="0"
             allowtransparency="true"
             allow="encrypted-media"
-          ></iframe>
+          />
         </div>
       </div>
 
-      <div class="row" v-else>
-        <div class="col-12 text-content" v-html="description"></div>
+      <div v-else class="row">
+        <div class="col-12 text-content" v-html="description" />
       </div>
 
-      <div class="row" v-if="this.getCurrentBand.webSiteUrl">
+      <div v-if="getCurrentBand.webSiteUrl" class="row">
         <div class="col-12 band-website">
-          <a :href="this.getCurrentBand.webSiteUrl">Band Website</a>
+          <a :href="getCurrentBand.webSiteUrl">Band Website</a>
         </div>
       </div>
 
-      <div class="row" v-if="this.getCurrentBand.facebook || this.getCurrentBand.instagram">
+      <div v-if="getCurrentBand.facebook || getCurrentBand.instagram" class="row">
         <div class="col-12 social-media-container">
-          <div class="social-media" v-if="this.getCurrentBand.facebook">
-            <a :href="this.getCurrentBand.facebook">
+          <div v-if="getCurrentBand.facebook" class="social-media">
+            <a :href="getCurrentBand.facebook">
               <img
                 :src="require('assets/images/facebook.png')"
                 alt="facebook"
@@ -51,8 +53,8 @@
               />
             </a>
           </div>
-          <div class="social-media" v-if="this.getCurrentBand.instagram">
-            <a :href="this.getCurrentBand.instagram">
+          <div v-if="getCurrentBand.instagram" class="social-media">
+            <a :href="getCurrentBand.instagram">
               <img
                 :src="require('assets/images/instagram.png')"
                 alt="instagram"
@@ -63,7 +65,7 @@
         </div>
       </div>
 
-      <div class="youtube-container row" v-if="videos">
+      <div v-if="videos" class="youtube-container row">
         <div v-for="video in videos" :key="video" class="col-12 col-md-6">
           <div class="iframe-container">
             <iframe
@@ -80,7 +82,6 @@
 </template>
 
 <script>
-import axios from 'axios'
 import { mapGetters, mapActions } from 'vuex'
 
 import Slideshow from 'components/partials/Slideshow'
@@ -90,24 +91,14 @@ export default {
       title: `| ${this.getCurrentBand.name}`
     }
   },
+  components: {
+    Slideshow
+  },
   data() {
     return {
       bands: {}
     }
   },
-
-  components: {
-    Slideshow
-  },
-
-  methods: {
-    ...mapActions('bands', ['loadCurrentBand'])
-  },
-
-  mounted() {
-    this.loadCurrentBand(this.$route.params.id)
-  },
-
   computed: {
     ...mapGetters('bands', ['getCurrentBand']),
     ...mapGetters(['language']),
@@ -121,7 +112,16 @@ export default {
       if (this.getCurrentBand.youtubeUrls) {
         return this.getCurrentBand.youtubeUrls.replace(/\s/g, '').split(',')
       }
+      return ''
     }
+  },
+
+  mounted() {
+    this.loadCurrentBand(this.$route.params.id)
+  },
+
+  methods: {
+    ...mapActions('bands', ['loadCurrentBand'])
   }
 }
 </script>

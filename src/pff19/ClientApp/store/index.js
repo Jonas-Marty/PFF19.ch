@@ -9,7 +9,7 @@ import { contact } from './contact'
 import { faqs } from './faqs'
 import { bands } from './bands'
 import { bars } from './bars'
-import {program} from './program'
+import { program } from './program'
 
 Vue.use(Vuex)
 
@@ -40,20 +40,18 @@ export const store = new Vuex.Store({
       state.language = data
       window.localStorage.setItem('language', data)
     }
-
   },
 
   actions: {
-    enterHome: ({commit}) => {
+    enterHome: ({ commit }) => {
       commit('enterHome')
     },
-    leaveHome: ({commit}) => {
+    leaveHome: ({ commit }) => {
       commit('leaveHome')
     },
-    switchI18n ({ commit }, context) {
+    switchI18n({ commit }, context) {
       commit('changeLang', context)
     }
-
   },
 
   modules: {

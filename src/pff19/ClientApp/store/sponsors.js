@@ -1,5 +1,5 @@
-import axios from "axios";
-import auth from "utils/auth";
+import axios from 'axios'
+import auth from 'utils/auth'
 
 export const sponsors = {
   namespaced: true,
@@ -9,64 +9,64 @@ export const sponsors = {
 
   getters: {
     all: state => {
-      return state.sponsors;
+      return state.sponsors
     },
     mainSponsors: state => {
-      return state.sponsors.filter(el => el.status === 0);
+      return state.sponsors.filter(el => el.status === 0)
     },
     coSponsors: state => {
-      return state.sponsors.filter(el => el.status === 1);
+      return state.sponsors.filter(el => el.status === 1)
     },
     partner: state => {
-      return state.sponsors.filter(el => el.status === 2);
+      return state.sponsors.filter(el => el.status === 2)
     },
     patronPrivatePerson: state => {
-      return state.sponsors.filter(el => el.status === 3);
+      return state.sponsors.filter(el => el.status === 3)
     },
     infrapartner: state => {
-      return state.sponsors.filter(el => el.status === 4);
+      return state.sponsors.filter(el => el.status === 4)
     },
     scoutpartner: state => {
-      return state.sponsors.filter(el => el.status === 5);
+      return state.sponsors.filter(el => el.status === 5)
     },
     patronCompany: state => {
-      return state.sponsors.filter(el => el.status === 6);
+      return state.sponsors.filter(el => el.status === 6)
     },
     get: state => {
       return id =>
         state.sponsors.find(elem => {
-          return elem.id === id;
-        });
+          return elem.id === id
+        })
     }
   },
 
   mutations: {
     load: (state, payload) => {
-      state.sponsors = payload;
+      state.sponsors = payload
     },
 
     remove: (state, id) => {
-      state.sponsors = state.sponsors.filter(el => el.id !== id);
+      state.sponsors = state.sponsors.filter(el => el.id !== id)
     }
   },
 
   actions: {
     load: ({ commit }) => {
       axios
-        .get("/api/sponsors")
+        .get('/api/sponsors')
         .then(response => {
-          commit("load", response.data);
+          commit('load', response.data)
         })
-        .catch(e => console.log(e));
+        .catch(() => {})
     },
 
     remove: ({ commit }, payload) => {
       auth
         .delete(`sponsors/${payload}`)
-        .then(r => {
-          commit("remove", payload);
+        .then(() => {
+          commit('remove', payload)
         })
-        .catch(e => console.log(e));
+        .catch(() => {})
     }
   }
-};
+}

@@ -1,5 +1,5 @@
-import axios from "axios";
-import auth from "utils/auth";
+import axios from 'axios'
+import auth from 'utils/auth'
 
 export const faqs = {
   namespaced: true,
@@ -9,40 +9,40 @@ export const faqs = {
 
   getters: {
     all: state => {
-      return state.faqs;
+      return state.faqs
     }
   },
 
   mutations: {
     load: (state, payload) => {
-      state.faqs = payload;
+      state.faqs = payload
     },
 
     remove: (state, id) => {
-      state.faqs = state.faqs.filter(el => el.id !== id);
+      state.faqs = state.faqs.filter(el => el.id !== id)
     }
   },
 
   actions: {
     load: ({ commit }) => {
       axios
-        .get("/api/faq")
+        .get('/api/faq')
         .then(response => {
-          commit("load", response.data);
+          commit('load', response.data)
         })
-        .catch(e => {});
+        .catch(() => {})
     },
 
     remove: ({ commit }, payload) => {
       auth
         .delete(`/faq/${payload}`)
-        .then(response => {
-          commit("remove", payload);
+        .then(() => {
+          commit('remove', payload)
         })
-        .catch(e => {});
+        .catch(() => {})
     },
-    swap: ({ commit }, { first, second }) => {
-      auth.put(`/faq/${first}/${second}`);
+    swap: ({ first, second }) => {
+      auth.put(`/faq/${first}/${second}`)
     }
   }
-};
+}

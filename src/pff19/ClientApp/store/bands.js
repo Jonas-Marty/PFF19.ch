@@ -34,28 +34,30 @@ export const bands = {
 
   actions: {
     load: ({ commit }) => {
-      axios.get('/api/bands')
+      axios
+        .get('/api/bands')
         .then(response => {
           commit('load', response.data)
-        }).catch(() => {
         })
+        .catch(() => {})
     },
 
     loadCurrentBand: ({ commit }, payload) => {
-      axios.get(`/api/bands/${payload}`)
+      axios
+        .get(`/api/bands/${payload}`)
         .then(response => {
           commit('loadCurrentBand', response.data)
-        }).catch(() => {
-
         })
+        .catch(() => {})
     },
 
     remove: ({ commit }, payload) => {
-      auth.delete(`/bands/${payload}`)
+      auth
+        .delete(`/bands/${payload}`)
         .then(() => {
           commit('remove', payload)
-        }).catch(() => {
         })
+        .catch(() => {})
     },
     swap: ({ first, second }) => {
       auth.put(`/bands/${first}/${second}`)

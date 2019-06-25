@@ -33,30 +33,33 @@ export const bars = {
   },
 
   actions: {
-    load: ({commit}) => {
-      axios.get('/api/bars')
+    load: ({ commit }) => {
+      axios
+        .get('/api/bars')
         .then(response => {
           commit('load', response.data)
-        }).catch(e => {
         })
+        .catch(() => {})
     },
 
-    loadCurrentBar: ({commit}, payload) => {
-      axios.get(`/api/bars/${payload}`)
+    loadCurrentBar: ({ commit }, payload) => {
+      axios
+        .get(`/api/bars/${payload}`)
         .then(response => {
           commit('loadCurrentBar', response.data)
-        }).catch(e => {
         })
+        .catch(() => {})
     },
 
-    remove: ({commit}, payload) => {
-      auth.delete(`/bars/${payload}`)
-        .then(response => {
+    remove: ({ commit }, payload) => {
+      auth
+        .delete(`/bars/${payload}`)
+        .then(() => {
           commit('remove', payload)
-        }).catch(e => {
         })
+        .catch(() => {})
     },
-    swap: ({ commit }, { first, second }) => {
+    swap: ({ first, second }) => {
       auth.put(`/bars/${first}/${second}`)
     }
   }

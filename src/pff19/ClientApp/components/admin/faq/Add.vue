@@ -5,17 +5,17 @@
       <p>Die FAQ wurde hinzugefügt!</p>
       <router-link :to="{ name: 'adminFAQs' }">Zurück</router-link>
     </div>
-    <form @submit.prevent="submit" v-if="!isSubmitted">
+    <form v-if="!isSubmitted" @submit.prevent="submit">
       <div class="form-group" :class="{ 'invalid-form': $v.QuestionDe.$error }">
         <label for="question_de">Frage in Deutsch</label>
         <input
-          type="text"
-          @blur="$v.QuestionDe.$touch()"
-          class="form-control"
           id="question_de"
-          placeholder="Deine Frage in Deutsch"
           v-model="QuestionDe"
-        >
+          type="text"
+          class="form-control"
+          placeholder="Deine Frage in Deutsch"
+          @blur="$v.QuestionDe.$touch()"
+        />
         <div class="error-messages">
           <p v-if="!$v.QuestionDe.required && $v.QuestionDe.$dirty">Bitte eine Frage eingeben</p>
         </div>
@@ -24,13 +24,13 @@
       <div class="form-group" :class="{ 'invalid-form': $v.QuestionFr.$error }">
         <label for="question_fr">Frage in Französisch</label>
         <input
-          type="text"
-          @blur="$v.QuestionFr.$touch()"
-          class="form-control"
           id="question_fr"
-          placeholder="Deine Frage in Französisch"
           v-model="QuestionFr"
-        >
+          type="text"
+          class="form-control"
+          placeholder="Deine Frage in Französisch"
+          @blur="$v.QuestionFr.$touch()"
+        />
         <div class="error-messages">
           <p v-if="!$v.QuestionFr.required && $v.QuestionFr.$dirty">Bitte eine Frage eingeben</p>
         </div>
@@ -39,32 +39,36 @@
       <div class="form-group" :class="{ 'invalid-form': $v.AnswerDe.$error }">
         <label for="answer_de">Antwort Deutsch</label>
         <vue-editor
-          class="html-editor"
-          @blur="$v.AnswerDe.$touch()"
           id="answer_de"
-          :editorOptions="optionsEditor"
-          :editorToolbar="customToolbar"
           v-model="AnswerDe"
+          class="html-editor"
+          :editor-options="optionsEditor"
+          :editor-toolbar="customToolbar"
+          @blur="$v.AnswerDe.$touch()"
         ></vue-editor>
 
         <div class="error-messages">
-          <p v-if="!$v.AnswerDe.required && $v.AnswerDe.$dirty">Es brauch eine Antwort auf die Frage</p>
+          <p v-if="!$v.AnswerDe.required && $v.AnswerDe.$dirty">
+            Es brauch eine Antwort auf die Frage
+          </p>
         </div>
       </div>
 
       <div class="form-group" :class="{ 'invalid-form': $v.AnswerFr.$error }">
         <label for="answer_fr">Antwort Französisch</label>
         <vue-editor
-          class="html-editor"
-          @blur="$v.AnswerFr.$touch()"
           id="answer_fr"
-          :editorOptions="optionsEditor"
-          :editorToolbar="customToolbar"
           v-model="AnswerFr"
+          class="html-editor"
+          :editor-options="optionsEditor"
+          :editor-toolbar="customToolbar"
+          @blur="$v.AnswerFr.$touch()"
         ></vue-editor>
 
         <div class="error-messages">
-          <p v-if="!$v.AnswerFr.required && $v.AnswerFr.$dirty">Es brauch eine Antwort auf die Frage</p>
+          <p v-if="!$v.AnswerFr.required && $v.AnswerFr.$dirty">
+            Es brauch eine Antwort auf die Frage
+          </p>
         </div>
       </div>
 
@@ -76,9 +80,12 @@
 <script>
 import auth from 'utils/auth'
 import { VueEditor } from 'vue2-editor'
-import { required, maxLength, minLength } from 'vuelidate/lib/validators'
+import { required } from 'vuelidate/lib/validators'
 
 export default {
+  components: {
+    VueEditor
+  },
   data() {
     return {
       errors: [],
@@ -96,10 +103,6 @@ export default {
         [{ list: 'ordered' }, { list: 'bullet' }, { header: ['3', '4'] }]
       ]
     }
-  },
-
-  components: {
-    VueEditor
   },
 
   validations: {
@@ -137,7 +140,7 @@ export default {
 
         auth
           .post('faq', form_data)
-          .then(response => {
+          .then(() => {
             this.isSubmitted = true
           })
           .catch(e => {

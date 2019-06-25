@@ -33,30 +33,33 @@ export const program = {
   },
 
   actions: {
-    load: ({commit}) => {
-      axios.get('/api/socialprograms')
+    load: ({ commit }) => {
+      axios
+        .get('/api/socialprograms')
         .then(response => {
           commit('load', response.data)
-        }).catch(e => {
         })
+        .catch(() => {})
     },
 
-    loadCurrentProgram: ({commit}, payload) => {
-      axios.get(`/api/socialprograms/${payload}`)
+    loadCurrentProgram: ({ commit }, payload) => {
+      axios
+        .get(`/api/socialprograms/${payload}`)
         .then(response => {
           commit('loadCurrentProgram', response.data)
-        }).catch(e => {
         })
+        .catch(() => {})
     },
 
-    remove: ({commit}, payload) => {
-      auth.delete(`/socialprograms/${payload}`)
-        .then(response => {
+    remove: ({ commit }, payload) => {
+      auth
+        .delete(`/socialprograms/${payload}`)
+        .then(() => {
           commit('remove', payload)
-        }).catch(e => {
         })
+        .catch(() => {})
     },
-    swap: ({ commit }, { first, second }) => {
+    swap: ({ first, second }) => {
       auth.put(`/socialprograms/${first}/${second}`)
     }
   }

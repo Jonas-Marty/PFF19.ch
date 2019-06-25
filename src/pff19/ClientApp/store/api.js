@@ -11,33 +11,34 @@ export const api = {
     error: ''
   },
   mutations: {
-    authUser (state, userData) {
+    authUser(state, userData) {
       state.idToken = userData.token
       state.userId = userData.userId
     },
-    storeUser (state, user) {
+    storeUser(state, user) {
       state.user = user
     },
-    clearAuthData (state) {
+    clearAuthData(state) {
       state.idToken = null
       state.userId = null
     },
-    setError (state, error) {
+    setError(state, error) {
       state.error = error
     }
   },
   actions: {
-    setLogoutTimer ({commit}, expirationTime) {
+    setLogoutTimer({ commit }, expirationTime) {
       setTimeout(() => {
         commit('clearAuthData')
       }, expirationTime)
     },
-    login ({commit, dispatch}, authData) {
-      axios.post('/api/token', {
-        Mail: authData.email,
-        password: authData.password,
-        returnSecureToken: true
-      })
+    login({ commit, dispatch }, authData) {
+      axios
+        .post('/api/token', {
+          Mail: authData.email,
+          password: authData.password,
+          returnSecureToken: true
+        })
         .then(res => {
           const token = jwtDecode(res.data.token)
           const expirationDate = new Date(token.exp * 1000)
@@ -57,7 +58,7 @@ export const api = {
           commit('setError', error.response.statusText)
         })
     },
-    tryAutoLogin ({commit}) {
+    tryAutoLogin({ commit }) {
       const token = window.localStorage.getItem('token')
       if (!token) {
         return
@@ -73,24 +74,24 @@ export const api = {
         userId: userId
       })
     },
-    logout ({commit}) {
+    logout({ commit }) {
       commit('clearAuthData')
       window.localStorage.removeItem('expirationDate')
       window.localStorage.removeItem('token')
       window.localStorage.removeItem('userId')
     },
-    storeUser ({commit, state}, userData) {
+    storeUser({ state }, userData) {
       if (!state.idToken) {
         return
       }
-      window.globalAxios.post('/users.json' + '?auth=' + state.idToken, userData)
-        .catch(error => console.log(error))
+      window.globalAxios.post('/users.json' + '?auth=' + state.idToken, userData).catch(() => {})
     },
-    fetchUser ({commit, state}) {
+    fetchUser({ commit, state }) {
       if (!state.idToken) {
         return
       }
-      window.globalAxios.get('/users.json' + '?auth=' + state.idToken)
+      window.globalAxios
+        .get('/users.json' + '?auth=' + state.idToken)
         .then(res => {
           const data = res.data
           const users = []
@@ -101,20 +102,20 @@ export const api = {
           }
           commit('storeUser', users[0])
         })
-        .catch(error => console.log(error))
+        .catch(() => {})
     }
   },
   getters: {
-    user (state) {
+    user(state) {
       return state.user
     },
-    isAuthenticated (state) {
+    isAuthenticated(state) {
       return state.idToken !== null
     },
-    getToken (state) {
+    getToken(state) {
       return state.idToken
     },
-    getError (state) {
+    getError(state) {
       return state.error
     }
   }

@@ -11,9 +11,10 @@ export const contact = {
       return state.contact
     },
     get: state => {
-      return id => state.contact.find(elem => {
-        return elem.id === id
-      })
+      return id =>
+        state.contact.find(elem => {
+          return elem.id === id
+        })
     }
   },
 
@@ -28,11 +29,13 @@ export const contact = {
   },
 
   actions: {
-    load: ({commit}) => {
-      auth.get('ContactRequests')
+    load: ({ commit }) => {
+      auth
+        .get('ContactRequests')
         .then(response => {
           commit('load', response.data)
-        }).catch(e => console.log(e))
+        })
+        .catch(e => console.log(e))
     }
   }
 }

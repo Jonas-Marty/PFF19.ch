@@ -11,10 +11,7 @@
       </router-link>
     </div>
 
-    <form
-      v-if="!isSubmitted"
-      @submit.prevent="submit"
-    >
+    <form v-if="!isSubmitted" @submit.prevent="submit">
       <div
         class="form-group dropzone-wrapper"
         :class="{ 'invalid-form': $v.ImageThumbnail.$error }"
@@ -34,10 +31,7 @@
         </div>
       </div>
 
-      <div
-        class="form-group dropzone-wrapper"
-        :class="{ 'invalid-form': $v.ImageLarge.$error }"
-      >
+      <div class="form-group dropzone-wrapper" :class="{ 'invalid-form': $v.ImageLarge.$error }">
         <label for="imageUpload">Image upload (1920x730px)</label>
         <vue-dropzone
           id="imageUpload"
@@ -74,14 +68,11 @@
           v-model="PlayTimeForSorting"
           type="datetime-local"
           class="form-control"
-        >
+        />
         <div class="error-messages" />
       </div>
 
-      <div
-        class="form-group"
-        :class="{ 'invalid-form': $v.Name.$error }"
-      >
+      <div class="form-group" :class="{ 'invalid-form': $v.Name.$error }">
         <label for="name">Name</label>
         <input
           id="name"
@@ -90,7 +81,7 @@
           class="form-control"
           placeholder="Name der Band"
           @blur="$v.Name.$touch()"
-        >
+        />
         <div class="error-messages">
           <p v-if="!$v.Name.required && $v.Name.$dirty">
             Bitte ein Name eingeben
@@ -98,10 +89,7 @@
         </div>
       </div>
 
-      <div
-        class="form-group"
-        :class="{ 'invalid-form': $v.DescriptionDe.$error }"
-      >
+      <div class="form-group" :class="{ 'invalid-form': $v.DescriptionDe.$error }">
         <label for="description_de">Description Deutsch</label>
         <vue-editor
           id="description_de"
@@ -122,10 +110,7 @@
         </div>
       </div>
 
-      <div
-        class="form-group"
-        :class="{ 'invalid-form': $v.DescriptionFr.$error }"
-      >
+      <div class="form-group" :class="{ 'invalid-form': $v.DescriptionFr.$error }">
         <label for="description_fr">Description Französisch</label>
         <vue-editor
           id="description_fr"
@@ -147,16 +132,16 @@
       </div>
 
       <div class="form-group">
-        <label
-          for="youtbe_url"
-        >Youtube codes separiert mit comma (Bsp: "Pun1Nxv9f3g, Oun1Nxv9f3a")</label>
+        <label for="youtbe_url"
+          >Youtube codes separiert mit comma (Bsp: "Pun1Nxv9f3g, Oun1Nxv9f3a")</label
+        >
         <input
           id="youtbe_url"
           v-model="YoutubeUrls"
           type="text"
           class="form-control"
           placeholder="code1, code2, usw."
-        >
+        />
         <div class="error-messages" />
       </div>
 
@@ -168,7 +153,7 @@
           type="text"
           class="form-control"
           placeholder="https://www.pff19.ch/"
-        >
+        />
         <div class="error-messages" />
       </div>
 
@@ -180,7 +165,7 @@
           type="text"
           class="form-control"
           placeholder="https://www.facebook.com/pff19mosaik/"
-        >
+        />
         <div class="error-messages" />
       </div>
 
@@ -192,16 +177,16 @@
           type="text"
           class="form-control"
           placeholder="https://www.instagram.com/pff_19_mosaik/"
-        >
+        />
         <div class="error-messages" />
       </div>
 
       <div class="form-group">
         <label for="spotify">
           Spotify Playlist code
-          <a
-            href="https://developer.spotify.com/documentation/widgets/generate/play-button/"
-          >hilfe</a>
+          <a href="https://developer.spotify.com/documentation/widgets/generate/play-button/"
+            >hilfe</a
+          >
         </label>
         <input
           id="spotify"
@@ -209,14 +194,11 @@
           type="text"
           class="form-control"
           placeholder="https://open.spotify.com/embed/album/1DFixLWuPkv3KT3TnV35m3"
-        >
+        />
         <div class="error-messages" />
       </div>
 
-      <button
-        type="submit"
-        class="btn btn-primary"
-      >
+      <button type="submit" class="btn btn-primary">
         Bestätigen
       </button>
     </form>
@@ -249,11 +231,7 @@ import { convertToFormData } from 'utils/helpers'
 import vue2Dropzone from 'vue2-dropzone'
 import { VueEditor } from 'vue2-editor'
 import 'vue2-dropzone/dist/vue2Dropzone.min.css'
-import {
-  required,
-  maxLength,
-  minLength,
-} from 'vuelidate/lib/validators'
+import { required, maxLength, minLength } from 'vuelidate/lib/validators'
 
 export default {
   components: {

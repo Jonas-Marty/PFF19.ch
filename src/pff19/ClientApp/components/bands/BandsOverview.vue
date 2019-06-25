@@ -7,26 +7,27 @@
       <div class="col-md-4 col-lg-3">
         <form>
           <div class="form-group">
-            <select id="days" class="form-control" v-model="selectedDay">
+            <select id="days" v-model="selectedDay" class="form-control">
               <option
                 v-for="day in days"
                 :key="day.name"
                 :value="day.name"
                 :selected="day.name === selectedDay"
-              >{{ $t(`lang.components.bands.${day.name}`) }}</option>
+                >{{ $t(`lang.components.bands.${day.name}`) }}</option
+              >
             </select>
           </div>
         </form>
       </div>
     </div>
     <div class="card-columns">
-      <div class="card" v-for="band in filteredBands" :key="band.id">
+      <div v-for="band in filteredBands" :key="band.id" class="card">
         <router-link :to="{ name: 'band', params: { id: band.id, name: band.name } }">
           <img
             class="card-img-top"
             :src="`/assets/bands/thumbnail/${band.imageThumbnail}`"
             :alt="band.name"
-          >
+          />
         </router-link>
         <div class="card-body">
           <router-link :to="{ name: 'band', params: { id: band.id, name: band.name } }">
@@ -41,8 +42,6 @@
 </template>
 <script>
 import { mapActions, mapGetters } from 'vuex'
-import axios from 'axios'
-import i18n from 'locales'
 import moment from 'moment'
 
 export default {
@@ -80,10 +79,6 @@ export default {
     }
   },
 
-  methods: {
-    ...mapActions('bands', ['load', 'loadCurrentBand'])
-  },
-
   computed: {
     ...mapGetters('bands', ['all']),
     ...mapGetters(['language']),
@@ -109,6 +104,10 @@ export default {
 
   created() {
     this.load()
+  },
+
+  methods: {
+    ...mapActions('bands', ['load', 'loadCurrentBand'])
   }
 }
 </script>

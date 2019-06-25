@@ -11,10 +11,7 @@
       </router-link>
     </div>
 
-    <form
-      v-if="!isSubmitted"
-      @submit.prevent="submit"
-    >
+    <form v-if="!isSubmitted" @submit.prevent="submit">
       <div
         class="form-group dropzone-wrapper"
         :class="{ 'invalid-form': $v.ImageThumbnail.$error }"
@@ -28,18 +25,13 @@
           @vdropzone-removed-file="removingThumpnail"
         />
         <div class="error-messages">
-          <p
-            v-if="!$v.ImageThumbnail.required && $v.ImageThumbnail.$dirty"
-          >
+          <p v-if="!$v.ImageThumbnail.required && $v.ImageThumbnail.$dirty">
             Die Band braucht ein Bild
           </p>
         </div>
       </div>
 
-      <div
-        class="form-group dropzone-wrapper"
-        :class="{ 'invalid-form': $v.ImageLarge.$error }"
-      >
+      <div class="form-group dropzone-wrapper" :class="{ 'invalid-form': $v.ImageLarge.$error }">
         <label for="image_upload">Image upload (1920x730px)</label>
         <vue-dropzone
           id="image_upload"
@@ -71,19 +63,11 @@
           Aufrittszeit (für die Sortierung und Gruppierung nach Tag in der TimeTable verwendet,
           MM-dd-YYYY HH-mm)
         </label>
-        <input
-          id="time"
-          v-model="PlayTimeForSorting"
-          type="datetime-local"
-          class="form-control"
-        >
+        <input id="time" v-model="PlayTimeForSorting" type="datetime-local" class="form-control" />
         <div class="error-messages" />
       </div>
 
-      <div
-        class="form-group"
-        :class="{ 'invalid-form': $v.Name.$error }"
-      >
+      <div class="form-group" :class="{ 'invalid-form': $v.Name.$error }">
         <label for="name">Name</label>
         <input
           id="name"
@@ -92,7 +76,7 @@
           class="form-control"
           placeholder="Name der Band"
           @blur="$v.Name.$touch()"
-        >
+        />
         <div class="error-messages">
           <p v-if="!$v.Name.required && $v.Name.$dirty">
             Bitte ein Name eingeben
@@ -100,10 +84,7 @@
         </div>
       </div>
 
-      <div
-        class="form-group"
-        :class="{ 'invalid-form': $v.DescriptionDe.$error }"
-      >
+      <div class="form-group" :class="{ 'invalid-form': $v.DescriptionDe.$error }">
         <label for="description_de">Description Deutsch</label>
         <vue-editor
           id="description_de"
@@ -115,23 +96,16 @@
         />
 
         <div class="error-messages">
-          <p
-            v-if="!$v.DescriptionDe.required && $v.DescriptionDe.$dirty"
-          >
+          <p v-if="!$v.DescriptionDe.required && $v.DescriptionDe.$dirty">
             Es braucht eine Bescpreibung zur Band
           </p>
-          <p
-            v-if="!$v.DescriptionDe.minLength && $v.DescriptionDe.$dirty"
-          >
+          <p v-if="!$v.DescriptionDe.minLength && $v.DescriptionDe.$dirty">
             Deine Beschreibung ist zu kurz
           </p>
         </div>
       </div>
 
-      <div
-        class="form-group"
-        :class="{ 'invalid-form': $v.DescriptionFr.$error }"
-      >
+      <div class="form-group" :class="{ 'invalid-form': $v.DescriptionFr.$error }">
         <label for="description_fr">Description Französisch</label>
         <vue-editor
           id="description_fr"
@@ -143,28 +117,26 @@
         />
 
         <div class="error-messages">
-          <p
-            v-if="!$v.DescriptionFr.required && $v.DescriptionFr.$dirty"
-          >
+          <p v-if="!$v.DescriptionFr.required && $v.DescriptionFr.$dirty">
             Es braucht eine Bescpreibung zur Band
           </p>
-          <p
-            v-if="!$v.DescriptionFr.minLength && $v.DescriptionFr.$dirty"
-          >
+          <p v-if="!$v.DescriptionFr.minLength && $v.DescriptionFr.$dirty">
             Deine Beschreibung ist zu kurz
           </p>
         </div>
       </div>
 
       <div class="form-group">
-        <label for="youtbe_url">Youtube codes separiert mit comma (Bsp: "Pun1Nxv9f3g, Oun1Nxv9f3a")</label>
+        <label for="youtbe_url"
+          >Youtube codes separiert mit comma (Bsp: "Pun1Nxv9f3g, Oun1Nxv9f3a")</label
+        >
         <input
           id="youtbe_url"
           v-model="YoutubeUrls"
           type="text"
           class="form-control"
           placeholder="code1, code2, usw."
-        >
+        />
         <div class="error-messages" />
       </div>
 
@@ -176,7 +148,7 @@
           type="text"
           class="form-control"
           placeholder="https://www.pff19.ch/"
-        >
+        />
         <div class="error-messages" />
       </div>
 
@@ -188,7 +160,7 @@
           type="text"
           class="form-control"
           placeholder="https://www.facebook.com/pff19mosaik/"
-        >
+        />
         <div class="error-messages" />
       </div>
 
@@ -200,16 +172,16 @@
           type="text"
           class="form-control"
           placeholder="https://www.instagram.com/pff_19_mosaik/"
-        >
+        />
         <div class="error-messages" />
       </div>
 
       <div class="form-group">
         <label for="spotify">
           Spotify Playlist code
-          <a
-            href="https://developer.spotify.com/documentation/widgets/generate/play-button/"
-          >hilfe</a>
+          <a href="https://developer.spotify.com/documentation/widgets/generate/play-button/"
+            >hilfe</a
+          >
         </label>
         <input
           id="spotify"
@@ -217,14 +189,11 @@
           type="text"
           class="form-control"
           placeholder="https://open.spotify.com/embed/album/1DFixLWuPkv3KT3TnV35m3"
-        >
+        />
         <div class="error-messages" />
       </div>
 
-      <button
-        type="submit"
-        class="btn btn-primary"
-      >
+      <button type="submit" class="btn btn-primary">
         Bestätigen
       </button>
     </form>
@@ -240,9 +209,7 @@
         <li>
           Trage deinen Beitrag zur eine schnelle Webseite und lasse deine Bilder vor dem Upload
           komprimieren unter
-          <a
-            href="https://tinyjpg.com/"
-          >https://tinyjpg.com/</a>
+          <a href="https://tinyjpg.com/">https://tinyjpg.com/</a>
         </li>
         <li>
           Falls beim Editieren trotzdem noch das alte Bild angezeigt wird, mache einen hard reload
@@ -258,14 +225,9 @@ import auth from 'utils/auth'
 import vue2Dropzone from 'vue2-dropzone'
 import { VueEditor } from 'vue2-editor'
 import 'vue2-dropzone/dist/vue2Dropzone.min.css'
-import {
-  required,
-  maxLength,
-  minLength,
-} from 'vuelidate/lib/validators'
+import { required, maxLength, minLength } from 'vuelidate/lib/validators'
 
 export default {
-
   components: {
     vueDropzone: vue2Dropzone,
     VueEditor

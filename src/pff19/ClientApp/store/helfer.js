@@ -11,9 +11,10 @@ export const helfer = {
       return state.helfer
     },
     get: state => {
-      return id => state.helfer.find(elem => {
-        return elem.id === id
-      })
+      return id =>
+        state.helfer.find(elem => {
+          return elem.id === id
+        })
     }
   },
 
@@ -28,18 +29,22 @@ export const helfer = {
   },
 
   actions: {
-    load: ({commit}) => {
-      auth.get('Assistants')
+    load: ({ commit }) => {
+      auth
+        .get('Assistants')
         .then(response => {
           commit('load', response.data)
-        }).catch(e => console.log(e))
+        })
+        .catch(() => {})
     },
 
-    remove: ({commit}, payload) => {
-      auth.delete(`/Assistants/${payload}`)
-        .then(response => {
+    remove: ({ commit }, payload) => {
+      auth
+        .delete(`/Assistants/${payload}`)
+        .then(() => {
           commit('remove', payload)
-        }).catch(e => console.log(e))
+        })
+        .catch(() => {})
     }
   }
 }

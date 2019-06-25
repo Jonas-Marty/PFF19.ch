@@ -1,20 +1,14 @@
 <template>
   <div>
     <h1>Bands</h1>
-    <router-link to="bands/add">
-      <i class="fa fa-add fa-1x pull-right" />hinzufügen
-    </router-link>
+    <router-link to="bands/add"> <i class="fa fa-add fa-1x pull-right" />hinzufügen </router-link>
     <div class="list-group">
-      <div
-        v-for="band in orderedBands"
-        :key="band.id"
-        class="list-group-item d-flex"
-      >
+      <div v-for="band in orderedBands" :key="band.id" class="list-group-item d-flex">
         <img
           class="list-img p-1"
           :src="`/assets/bands/thumbnail/${band.imageThumbnail}`"
           alt="Card image cap"
-        >
+        />
         <div class="card-body p-5">
           <h5 class="card-title">
             {{ band.name }}
@@ -22,31 +16,16 @@
           <p class="card-text">
             {{ band.descriptionDe | shorten(150) }}
           </p>
-          <router-link
-            class="card-link"
-            :to="{ name: 'band', params: { id: band.id } }"
-          >
+          <router-link class="card-link" :to="{ name: 'band', params: { id: band.id } }">
             View
           </router-link>
-          <router-link
-            class="card-link"
-            :to="{ name: 'adminBandsEdit', params: { id: band.id } }"
-          >
+          <router-link class="card-link" :to="{ name: 'adminBandsEdit', params: { id: band.id } }">
             Edit
           </router-link>
 
-          <i
-            class="fa fa-remove fa-1x pull-right"
-            @click="remove(band.id)"
-          />
-          <i
-            class="fa fa-arrow-up fa-1x pull-right"
-            @click="toUpperElem(band.id, band.order)"
-          />
-          <i
-            class="fa fa-arrow-down fa-1x pull-right"
-            @click="toLowerElem(band.id, band.order)" 
-          />
+          <i class="fa fa-remove fa-1x pull-right" @click="remove(band.id)" />
+          <i class="fa fa-arrow-up fa-1x pull-right" @click="toUpperElem(band.id, band.order)" />
+          <i class="fa fa-arrow-down fa-1x pull-right" @click="toLowerElem(band.id, band.order)" />
         </div>
         <div />
       </div>
@@ -106,7 +85,7 @@ export default {
         window.location.reload() //fucking ugly way to do it but i dont have time to do it better
       }
     }
-  },
+  }
 }
 </script>
 

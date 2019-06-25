@@ -51,8 +51,7 @@ const AdminFoodAndBarsEdit = () =>
 
 const AdminProgram = () =>
   import(/* webpackChunkName: "admin" */ 'components/admin/program/Program')
-const AdminProgramAdd = () =>
-  import(/* webpackChunkName: "admin" */ 'components/admin/program/Add')
+const AdminProgramAdd = () => import(/* webpackChunkName: "admin" */ 'components/admin/program/Add')
 const AdminProgramEdit = () =>
   import(/* webpackChunkName: "admin" */ 'components/admin/program/Edit')
 
@@ -193,7 +192,7 @@ export const routes = [
         path: '/program/:id/:name',
         component: Program,
         display: 'Program'
-      },
+      }
     ]
   },
 

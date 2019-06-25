@@ -1,14 +1,12 @@
 <template>
   <div>
     <h1>Alle FAQs</h1>
-    <router-link to="faqs/add">
-      <i class="fa fa-add fa-1x pull-right"></i>hinzufügen
-    </router-link>
+    <router-link to="faqs/add"> <i class="fa fa-add fa-1x pull-right"></i>hinzufügen </router-link>
     <div class="list-group">
       <div
-        class="list-group-item d-flex justify-content-between align-items-right"
         v-for="faq in orderedFaqs"
         :key="faq.id"
+        class="list-group-item d-flex justify-content-between align-items-right"
       >
         <div>{{ faq.questionDe }}</div>
         <div>
@@ -27,6 +25,18 @@
 import { mapActions, mapGetters } from 'vuex'
 
 export default {
+  computed: {
+    ...mapGetters('faqs', ['all']),
+    orderedFaqs() {
+      // eslint-disable-next-line vue/no-side-effects-in-computed-properties
+      return this.all.sort((a, b) => a.order - b.order)
+    }
+  },
+
+  created() {
+    this.load()
+  },
+
   methods: {
     ...mapActions('faqs', ['load', 'remove', 'swap']),
 
@@ -64,17 +74,6 @@ export default {
         window.location.reload() //fucking ugly way to do it but i dont have time to do it better
       }
     }
-  },
-
-  computed: {
-    ...mapGetters('faqs', ['all']),
-    orderedFaqs() {
-      return this.all.sort((a, b) => a.order - b.order)
-    }
-  },
-
-  created() {
-    this.load()
   }
 }
 </script>
