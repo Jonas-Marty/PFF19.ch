@@ -13,8 +13,7 @@ namespace pff19.Models
         public string NameFr { get; set; }
         public string DescriptionDe { get; set; }
         public string DescriptionFr { get; set; }
-        public DateTime StartTime { get; set; }
-        public DateTime EndTime { get; set; }
+        public DateTime? StartTime { get; set; }
         public int? Order { get; set; }
         public IFormFile ImageThumbnail { get; set; }
         public IFormFile ImageLarge { get; set; }
