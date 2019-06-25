@@ -9,88 +9,88 @@
           <p>{{ $t('lang.components.faq.contact-text') }}</p>
 
           <form @submit.prevent="submit" v-if="!isSubmitted">
-            <div class="form-group" :class="{ 'invalid-form': $v.firstname.$error }">
+            <div :class="{ 'invalid-form': $v.firstname.$error }" class="form-group">
               <label for="firstname">{{ $t('lang.forms.firstname') }}*</label>
               <input
-                type="text"
-                @blur="$v.firstname.$touch()"
-                class="form-control"
                 id="firstname"
-                placeholder="Max"
+                @blur="$v.firstname.$touch()"
                 v-model="firstname"
-              >
+                type="text"
+                class="form-control"
+                placeholder="Max"
+              />
               <div class="error-messages">
-                <p
-                  v-if="!$v.firstname.required && $v.firstname.$dirty"
-                >{{ $t('lang.forms.errors.missing-firstname') }}</p>
-                <p
-                  v-if="!$v.firstname.minLength && $v.firstname.$dirty"
-                >{{ $t('lang.forms.errors.too-few-letters') }}</p>
-                <p
-                  v-if="!$v.firstname.maxLength && $v.firstname.$dirty"
-                >{{ $t('lang.forms.errors.too-many-letters') }}</p>
+                <p v-if="!$v.firstname.required && $v.firstname.$dirty">
+                  {{ $t('lang.forms.errors.missing-firstname') }}
+                </p>
+                <p v-if="!$v.firstname.minLength && $v.firstname.$dirty">
+                  {{ $t('lang.forms.errors.too-few-letters') }}
+                </p>
+                <p v-if="!$v.firstname.maxLength && $v.firstname.$dirty">
+                  {{ $t('lang.forms.errors.too-many-letters') }}
+                </p>
               </div>
             </div>
 
-            <div class="form-group" :class="{ 'invalid-form': $v.lastname.$error }">
+            <div :class="{ 'invalid-form': $v.lastname.$error }" class="form-group">
               <label for="lastname">{{ $t('lang.forms.lastname') }}*</label>
               <input
-                type="text"
+                id="lastname"
                 @blur="$v.lastname.$touch()"
+                v-model="lastname"
+                type="text"
                 name="lastname"
                 class="form-control"
-                id="lastname"
                 placeholder="Musterman"
-                v-model="lastname"
-              >
+              />
               <div class="error-messages">
-                <p
-                  v-if="!$v.lastname.required && $v.lastname.$dirty"
-                >{{ $t('lang.forms.errors.missing-lastname') }}</p>
-                <p
-                  v-if="!$v.lastname.minLength && $v.lastname.$dirty"
-                >{{ $t('lang.forms.errors.too-few-letters') }}</p>
-                <p
-                  v-if="!$v.lastname.maxLength && $v.lastname.$dirty"
-                >{{ $t('lang.forms.errors.too-many-letters') }}</p>
+                <p v-if="!$v.lastname.required && $v.lastname.$dirty">
+                  {{ $t('lang.forms.errors.missing-lastname') }}
+                </p>
+                <p v-if="!$v.lastname.minLength && $v.lastname.$dirty">
+                  {{ $t('lang.forms.errors.too-few-letters') }}
+                </p>
+                <p v-if="!$v.lastname.maxLength && $v.lastname.$dirty">
+                  {{ $t('lang.forms.errors.too-many-letters') }}
+                </p>
               </div>
             </div>
 
-            <div class="form-group" :class="{ 'invalid-form': $v.email.$error }">
+            <div :class="{ 'invalid-form': $v.email.$error }" class="form-group">
               <label for="email">{{ $t('lang.forms.email') }}*</label>
               <input
+                id="email"
+                @blur="$v.email.$touch()"
+                v-model="email"
                 type="email"
                 class="form-control"
-                @blur="$v.email.$touch()"
-                id="email"
                 placeholder="max.musterman@mail.com"
-                v-model="email"
-              >
+              />
               <div class="error-messages">
-                <p
-                  v-if="!$v.email.required && $v.email.$dirty"
-                >{{ $t('lang.forms.errors.missing-email') }}</p>
-                <p
-                  v-if="!$v.email.email && $v.email.$dirty"
-                >{{ $t('lang.forms.errors.incorrect-email') }}</p>
+                <p v-if="!$v.email.required && $v.email.$dirty">
+                  {{ $t('lang.forms.errors.missing-email') }}
+                </p>
+                <p v-if="!$v.email.email && $v.email.$dirty">
+                  {{ $t('lang.forms.errors.incorrect-email') }}
+                </p>
               </div>
             </div>
 
-            <div class="form-group" :class="{ 'invalid-form': $v.contactText.$error }">
+            <div :class="{ 'invalid-form': $v.contactText.$error }" class="form-group">
               <label for="contact-text">{{ $t('lang.forms.message') }}</label>
               <textarea
+                id="contact-text"
+                @blur="$v.contactText.$touch()"
+                v-model="contactText"
                 rows="4"
                 cols="50"
-                @blur="$v.contactText.$touch()"
                 class="form-control"
-                id="contact-text"
-                v-model="contactText"
               ></textarea>
 
               <div class="error-messages">
-                <p
-                  v-if="!$v.contactText.required && $v.contactText.$dirty"
-                >{{ $t('lang.forms.errors.missing-message') }}</p>
+                <p v-if="!$v.contactText.required && $v.contactText.$dirty">
+                  {{ $t('lang.forms.errors.missing-message') }}
+                </p>
               </div>
             </div>
 
@@ -104,8 +104,7 @@
             {{ $t('lang.components.faq.account') }}:
             <p>
               CH98 0070 0110 0062 5243 7
-              <br>PFF Stäfa 2019
-              <br>8712 Stäfa
+              <br />PFF Stäfa 2019 <br />8712 Stäfa
             </p>
           </div>
         </div>
@@ -115,20 +114,9 @@
 </template>
 
 <script>
-import i18n from '../../locales'
 import axios from 'axios'
 
-import {
-  required,
-  email,
-  between,
-  numeric,
-  minValue,
-  maxLength,
-  minLength,
-  sameAs,
-  requiredUnless
-} from 'vuelidate/lib/validators'
+import { required, email, maxLength, minLength } from 'vuelidate/lib/validators'
 
 export default {
   metaInfo() {
@@ -179,7 +167,7 @@ export default {
 
         axios
           .post('/api/ContactRequests', formData)
-          .then(response => {
+          .then(() => {
             this.isSubmitted = true
           })
           .catch(e => {

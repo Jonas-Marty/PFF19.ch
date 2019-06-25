@@ -1,30 +1,29 @@
 <template>
   <div class="myContainer">
     <slideshow
-      :images="`assets/bars/images/${this.getCurrentBar.imageLarge}`"
-      :imageMobile="`assets/bars/mobile/${this.getCurrentBar.imageMobile}`"
+      :images="`assets/bars/images/${getCurrentBar.imageLarge}`"
+      :imageMobile="`assets/bars/mobile/${getCurrentBar.imageMobile}`"
     />
     <div class="container">
       <div class="row back">
         <div class="col">
-          <router-link class="btn btn-outline-primary" :to="{ name: 'foodAndBarsOverview' }"
+          <router-link :to="{ name: 'foodAndBarsOverview' }" class="btn btn-outline-primary"
             >All Food&Bars</router-link
           >
         </div>
       </div>
       <h1 class="title">
-        {{ language === 'de' ? this.getCurrentBar.nameDe : this.getCurrentBar.nameFr }}
+        {{ language === 'de' ? getCurrentBar.nameDe : getCurrentBar.nameFr }}
       </h1>
 
       <div class="row">
-        <div class="col-12 text-content" v-html="description"></div>
+        <div v-html="description" class="col-12 text-content"></div>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import axios from 'axios'
 import { mapGetters, mapActions } from 'vuex'
 
 import Slideshow from 'components/partials/Slideshow'
@@ -34,22 +33,14 @@ export default {
       title: `| ${this.language === 'de' ? this.getCurrentBar.nameDe : this.getCurrentBar.nameFr}`
     }
   },
-  data() {
-    return {
-      bars: {}
-    }
-  },
 
   components: {
     Slideshow
   },
-
-  methods: {
-    ...mapActions('bars', ['loadCurrentBar'])
-  },
-
-  mounted() {
-    this.loadCurrentBar(this.$route.params.id)
+  data() {
+    return {
+      bars: {}
+    }
   },
 
   computed: {
@@ -61,6 +52,14 @@ export default {
         ? this.getCurrentBar.descriptionDe
         : this.getCurrentBar.descriptionFr
     }
+  },
+
+  mounted() {
+    this.loadCurrentBar(this.$route.params.id)
+  },
+
+  methods: {
+    ...mapActions('bars', ['loadCurrentBar'])
   }
 }
 </script>

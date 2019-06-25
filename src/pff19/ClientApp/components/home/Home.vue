@@ -9,12 +9,8 @@
 </template>
 
 <script>
-import Vue from 'vue'
-
 import Slideshow from './slideshow/Slideshow'
 import NewsList from './news/NewsList'
-import SocialMedia from './SocialMedia'
-import Bands from './BandsRegistration'
 import descriptionFr from './DescriptionFr'
 import descriptionDe from './DescriptionDe'
 import ytVideo from './YoutubeVideo'
@@ -28,14 +24,17 @@ export default {
     }
   },
 
+  components: {
+    'app-slideshow': Slideshow,
+    'app-news-list': NewsList,
+    descriptionFr,
+    descriptionDe,
+    ytvideo: ytVideo
+  },
+
   data() {
     return {}
   },
-
-  methods: {
-    ...mapActions(['enterHome', 'leaveHome'])
-  },
-
   computed: {
     ...mapGetters(['language'])
   },
@@ -47,14 +46,8 @@ export default {
     this.leaveHome()
   },
 
-  components: {
-    'app-slideshow': Slideshow,
-    'app-news-list': NewsList,
-    'app-social-media': SocialMedia,
-    'app-bands': Bands,
-    descriptionFr,
-    descriptionDe,
-    ytvideo: ytVideo
+  methods: {
+    ...mapActions(['enterHome', 'leaveHome'])
   }
 }
 </script>

@@ -9,19 +9,18 @@
         </div>
 
         <h1>{{ newsTitle }}</h1>
-        <img class="img" :src="`/assets/news/images/${getFirstImage}`" :alt="newsTitle" />
+        <img :src="`/assets/news/images/${getFirstImage}`" :alt="newsTitle" class="img" />
         <div class="date">{{ getCurrentNews.date | formateDate(language) }}</div>
         <br />
         <br />
 
-        <div class="text-content" v-html="newsContent"></div>
+        <div v-html="newsContent" class="text-content"></div>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import axios from 'axios'
 import { mapGetters, mapActions } from 'vuex'
 
 export default {
@@ -34,14 +33,6 @@ export default {
     return {
       news: {}
     }
-  },
-
-  methods: {
-    ...mapActions('news', ['loadCurrentNews'])
-  },
-
-  mounted() {
-    this.loadCurrentNews(this.$route.params.id)
   },
 
   computed: {
@@ -57,11 +48,20 @@ export default {
         ? this.getCurrentNews.contentDe
         : this.getCurrentNews.contentFr
     },
+    // eslint-disable-next-line vue/return-in-computed-property
     getFirstImage() {
       if (this.getCurrentNews.images) {
         return this.getCurrentNews.images.split(';')[0]
       }
     }
+  },
+
+  mounted() {
+    this.loadCurrentNews(this.$route.params.id)
+  },
+
+  methods: {
+    ...mapActions('news', ['loadCurrentNews'])
   }
 }
 </script>

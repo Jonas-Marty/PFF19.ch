@@ -28,16 +28,16 @@ export default {
     ...mapGetters(['language']),
     ...mapGetters('faqs', ['all']),
     orderedFaqs() {
+      // eslint-disable-next-line vue/no-side-effects-in-computed-properties
       return this.all.sort((a, b) => a.order - b.order)
     }
+  },
+  created() {
+    this.load()
   },
 
   methods: {
     ...mapActions('faqs', ['load'])
-  },
-
-  created() {
-    this.load()
   }
 }
 </script>

@@ -9,8 +9,8 @@
       <div class="form-group">
         <label for="dropzone">Logo upload (für Gönner braucht es kein Bild) 400x150px</label>
         <vue-dropzone
-          ref="myVueDropzone"
           id="dropzone"
+          ref="myVueDropzone"
           :options="dropzoneOptions"
           v-on:vdropzone-file-added="sendingEvent"
         >
@@ -21,16 +21,16 @@
         </vue-dropzone>
       </div>
 
-      <div class="form-group" :class="{ 'invalid-form': $v.name.$error }">
+      <div :class="{ 'invalid-form': $v.name.$error }" class="form-group">
         <label for="name">Name*</label>
         <input
-          type="text"
-          @blur="$v.name.$touch()"
-          class="form-control"
           id="name"
-          placeholder="Name der Firma"
+          @blur="$v.name.$touch()"
           v-model="name"
-        >
+          type="text"
+          class="form-control"
+          placeholder="Name der Firma"
+        />
         <div class="error-messages">
           <p v-if="!$v.name.required && $v.name.$dirty">Bitte einen Namen eingeben</p>
           <p v-if="!$v.name.minLength && $v.name.$dirty">Dein Name ist zu kurz</p>
@@ -38,16 +38,16 @@
         </div>
       </div>
 
-      <div class="form-group" :class="{ 'invalid-form': $v.link.$error }">
+      <div :class="{ 'invalid-form': $v.link.$error }" class="form-group">
         <label for="link">Link zur Firma Webseite</label>
         <input
-          type="text"
-          @blur="$v.link.$touch()"
-          class="form-control"
           id="link"
-          placeholder="Der Link zur Firma"
+          @blur="$v.link.$touch()"
           v-model="link"
-        >
+          type="text"
+          class="form-control"
+          placeholder="Der Link zur Firma"
+        />
         <div class="error-messages">
           <p v-if="!$v.link.minLength && $v.link.$dirty">Dein Link ist zu kurz</p>
         </div>
@@ -55,7 +55,7 @@
 
       <div class="form-group">
         <label for="typ_of_sponsor">Sponsor Typ*</label>
-        <select id="typ_of_sponsor" @blur="$v.link.$touch()" class="form-control" v-model="typ">
+        <select id="typ_of_sponsor" @blur="$v.link.$touch()" v-model="typ" class="form-control">
           <option value="6">Gönner (Unternehmen)</option>
           <option value="5">Pfadi-Partner</option>
           <option value="4">Infrastruktur Partner</option>
@@ -75,19 +75,12 @@
 import auth from 'utils/auth'
 import vue2Dropzone from 'vue2-dropzone'
 import 'vue2-dropzone/dist/vue2Dropzone.min.css'
-import {
-  required,
-  email,
-  between,
-  numeric,
-  minValue,
-  maxLength,
-  minLength,
-  sameAs,
-  requiredUnless
-} from 'vuelidate/lib/validators'
+import { required, maxLength, minLength } from 'vuelidate/lib/validators'
 
 export default {
+  components: {
+    vueDropzone: vue2Dropzone
+  },
   data() {
     return {
       errors: [],
@@ -107,10 +100,6 @@ export default {
         addRemoveLinks: true
       }
     }
-  },
-
-  components: {
-    vueDropzone: vue2Dropzone
   },
 
   validations: {
@@ -146,7 +135,7 @@ export default {
 
         auth
           .post('Sponsors', form_data)
-          .then(response => {
+          .then(() => {
             this.isSubmitted = true
           })
           .catch(e => {
@@ -155,7 +144,7 @@ export default {
       }
     },
 
-    sendingEvent(file, xhr) {
+    sendingEvent(file) {
       this.Logo = file
     },
 

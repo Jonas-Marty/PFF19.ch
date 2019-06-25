@@ -9,10 +9,8 @@
 </template>
 
 <script>
-import axios from 'axios'
-import { mapActions, mapGetters } from 'vuex'
-
 export default {
+  // eslint-disable-next-line vue/require-prop-types
   props: ['sponsor']
 }
 </script>

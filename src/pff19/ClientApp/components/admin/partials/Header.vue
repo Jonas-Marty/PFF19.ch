@@ -1,7 +1,7 @@
 <template>
   <transition name="bounce">
     <nav class="navbar navbar-expand-md navbar-inverse position-fixed shadow-sm">
-      <router-link class="navbar-brand" :to="{ name: 'adminDashboard' }">
+      <router-link :to="{ name: 'adminDashboard' }" class="navbar-brand">
         <img
           :class="{}"
           src="../../../assets/images/black_red_small_logo.png"
@@ -12,8 +12,8 @@
       </router-link>
 
       <button
-        class="navbar-toggler"
         @click="collapse = !collapse"
+        class="navbar-toggler"
         type="button"
         data-toggle="collapse"
         data-target="#navbarNavAltMarkup"
@@ -24,7 +24,7 @@
         <span class="fa fa-navicon"></span>
       </button>
 
-      <div class="collapse navbar-collapse" :class="{ show: collapse }" id="navbarNavAltMarkup">
+      <div id="navbarNavAltMarkup" :class="{ show: collapse }" class="collapse navbar-collapse">
         <div class="navbar-nav ml-auto">
           <router-link
             v-for="route in getAdminRoutes"
@@ -35,7 +35,7 @@
           >
             {{ route.display }}
           </router-link>
-          <a href="/admin/login" class="nav-item nav-link" @click="logout">
+          <a @click="logout" href="/admin/login" class="nav-item nav-link">
             Log out
           </a>
         </div>
@@ -55,6 +55,7 @@ export default {
       collapse: false
     }
   },
+
   computed: {
     getAdminRoutes() {
       return routes.find(route => route.name === 'admin').children
@@ -63,13 +64,7 @@ export default {
       return this.$store.getters.isHome
     }
   },
-  methods: {
-    ...mapActions('api', ['logout']),
 
-    toggleCollapsed(event) {
-      this.collapsed = !this.collapsed
-    }
-  },
   created() {
     let self = this
 
@@ -82,6 +77,14 @@ export default {
         self.collapse = false
       }
     })
+  },
+
+  methods: {
+    ...mapActions('api', ['logout']),
+
+    toggleCollapsed() {
+      this.collapsed = !this.collapsed
+    }
   }
 }
 </script>

@@ -6,11 +6,13 @@
       <router-link :to="{ name: 'adminNews' }">Zurück</router-link>
     </div>
     <form @submit.prevent="submit" v-if="!isSubmitted">
-      <div class="form-group dropzone-wrapper" :class="{ 'invalid-form': $v.Images.$error }">
-        <label for="image_upload">Image upload (Max 3 Bilder, 1st Bild ist Thumpnail) 740x555px</label>
+      <div :class="{ 'invalid-form': $v.Images.$error }" class="form-group dropzone-wrapper">
+        <label for="image_upload"
+          >Image upload (Max 3 Bilder, 1st Bild ist Thumpnail) 740x555px</label
+        >
         <vue-dropzone
-          ref="myVueDropzone"
           id="dropzone"
+          ref="myVueDropzone"
           :options="dropzoneOptions"
           v-on:vdropzone-file-added="sendingEvent"
           v-on:vdropzone-removed-file="removingFile"
@@ -25,16 +27,16 @@
         <datepicker @selected="updateDate" :value="date" bootstrap-styling></datepicker>
       </div>
 
-      <div class="form-group" :class="{ 'invalid-form': $v.TitleDe.$error }">
+      <div :class="{ 'invalid-form': $v.TitleDe.$error }" class="form-group">
         <label for="title_de">Titel in Deutsch</label>
         <input
-          type="text"
-          @blur="$v.TitleDe.$touch()"
-          class="form-control"
           id="title_de"
-          placeholder="Dein Title in Deutsch"
+          @blur="$v.TitleDe.$touch()"
           v-model="TitleDe"
-        >
+          type="text"
+          class="form-control"
+          placeholder="Dein Title in Deutsch"
+        />
         <div class="error-messages">
           <p v-if="!$v.TitleDe.required && $v.TitleDe.$dirty">Bitte ein Titel eingeben</p>
           <p v-if="!$v.TitleDe.minLength && $v.TitleDe.$dirty">Dein Titel ist zu kurz</p>
@@ -42,16 +44,16 @@
         </div>
       </div>
 
-      <div class="form-group" :class="{ 'invalid-form': $v.TitleFr.$error }">
+      <div :class="{ 'invalid-form': $v.TitleFr.$error }" class="form-group">
         <label for="title_fr">Titel Französisch</label>
         <input
-          type="text"
-          @blur="$v.TitleFr.$touch()"
-          class="form-control"
           id="title_fr"
-          placeholder="Dein Title in Französisch"
+          @blur="$v.TitleFr.$touch()"
           v-model="TitleFr"
-        >
+          type="text"
+          class="form-control"
+          placeholder="Dein Title in Französisch"
+        />
         <div class="error-messages">
           <p v-if="!$v.TitleFr.required && $v.TitleFr.$dirty">Bitte ein Titel eingeben</p>
           <p v-if="!$v.TitleFr.minLength && $v.TitleFr.$dirty">Dein Titel ist zu kurz</p>
@@ -59,15 +61,15 @@
         </div>
       </div>
 
-      <div class="form-group" :class="{ 'invalid-form': $v.PreviewDe.$error }">
+      <div :class="{ 'invalid-form': $v.PreviewDe.$error }" class="form-group">
         <label for="preview_de">Preview Deutsch</label>
         <textarea
-          type="text"
-          @blur="$v.PreviewDe.$touch()"
-          class="form-control"
           id="preview_de"
-          placeholder="Deine Preview"
+          @blur="$v.PreviewDe.$touch()"
           v-model="PreviewDe"
+          type="text"
+          class="form-control"
+          placeholder="Deine Preview"
         ></textarea>
         <div class="error-messages">
           <p v-if="!$v.PreviewDe.required && $v.PreviewDe.$dirty">Bitte eine Preview eingeben</p>
@@ -76,15 +78,15 @@
         </div>
       </div>
 
-      <div class="form-group" :class="{ 'invalid-form': $v.PreviewFr.$error }">
+      <div :class="{ 'invalid-form': $v.PreviewFr.$error }" class="form-group">
         <label for="preview_fr">Preview Französisch</label>
         <textarea
-          type="text"
-          @blur="$v.PreviewFr.$touch()"
-          class="form-control"
           id="preview_fr"
-          placeholder="Deine Preview in Französisch"
+          @blur="$v.PreviewFr.$touch()"
           v-model="PreviewFr"
+          type="text"
+          class="form-control"
+          placeholder="Deine Preview in Französisch"
         ></textarea>
         <div class="error-messages">
           <p v-if="!$v.PreviewFr.required && $v.PreviewFr.$dirty">Bitte eine Preview eingeben</p>
@@ -93,39 +95,39 @@
         </div>
       </div>
 
-      <div class="form-group" :class="{ 'invalid-form': $v.ContentDe.$error }">
+      <div :class="{ 'invalid-form': $v.ContentDe.$error }" class="form-group">
         <label for="content_de">Inhalt Deutsch</label>
         <vue-editor
-          class="html-editor"
-          @blur="$v.ContentDe.$touch()"
           id="contentd_de"
+          @blur="$v.ContentDe.$touch()"
           :editorOptions="optionsEditor"
           :editorToolbar="customToolbar"
           v-model="ContentDe"
+          class="html-editor"
         ></vue-editor>
 
         <div class="error-messages">
-          <p
-            v-if="!$v.ContentDe.required && $v.ContentDe.$dirty"
-          >Es brauch einen Inhalt für deine News</p>
+          <p v-if="!$v.ContentDe.required && $v.ContentDe.$dirty">
+            Es brauch einen Inhalt für deine News
+          </p>
         </div>
       </div>
 
-      <div class="form-group" :class="{ 'invalid-form': $v.ContentFr.$error }">
+      <div :class="{ 'invalid-form': $v.ContentFr.$error }" class="form-group">
         <label for="content_fr">Inhalt Französisch</label>
         <vue-editor
-          class="html-editor"
-          @blur="$v.ContentFr.$touch()"
           id="contentd_fr"
+          @blur="$v.ContentFr.$touch()"
           :editorOptions="optionsEditor"
           :editorToolbar="customToolbar"
           v-model="ContentFr"
+          class="html-editor"
         ></vue-editor>
 
         <div class="error-messages">
-          <p
-            v-if="!$v.ContentFr.required && $v.ContentFr.$dirty"
-          >Es brauch einen Inhalt für deine News</p>
+          <p v-if="!$v.ContentFr.required && $v.ContentFr.$dirty">
+            Es brauch einen Inhalt für deine News
+          </p>
         </div>
       </div>
 
@@ -145,9 +147,7 @@
         <li>
           Trage deinen Beitrag zur eine schnelle Webseite und lasse deine Bilder vor dem Upload
           komprimieren unter
-          <a
-            href="https://tinyjpg.com/"
-          >https://tinyjpg.com/</a>
+          <a href="https://tinyjpg.com/">https://tinyjpg.com/</a>
         </li>
         <li>
           Falls beim Editieren trotzdem noch das alte Bild angezeigt wird, mache einen hard reload
@@ -165,19 +165,14 @@ import vue2Dropzone from 'vue2-dropzone'
 import { VueEditor } from 'vue2-editor'
 import Datepicker from 'vuejs-datepicker'
 import 'vue2-dropzone/dist/vue2Dropzone.min.css'
-import {
-  required,
-  email,
-  between,
-  numeric,
-  minValue,
-  maxLength,
-  minLength,
-  sameAs,
-  requiredUnless
-} from 'vuelidate/lib/validators'
+import { required, maxLength, minLength } from 'vuelidate/lib/validators'
 
 export default {
+  components: {
+    vueDropzone: vue2Dropzone,
+    VueEditor,
+    Datepicker
+  },
   data() {
     return {
       errors: [],
@@ -208,12 +203,6 @@ export default {
         addRemoveLinks: true
       }
     }
-  },
-
-  components: {
-    vueDropzone: vue2Dropzone,
-    VueEditor,
-    Datepicker
   },
 
   validations: {
@@ -248,6 +237,29 @@ export default {
     }
   },
 
+  mounted() {
+    auth
+      .get(`News/${this.$route.params.id}`)
+      .then(response => {
+        this.date = convertStrintToDate(response.data.date)
+        this.TitleDe = response.data.titleDe
+        this.TitleFr = response.data.titleFr
+        this.PreviewDe = response.data.previewDe
+        this.PreviewFr = response.data.previewFr
+        this.ContentDe = response.data.contentDe
+        this.ContentFr = response.data.contentFr
+        response.data.images.split(';').forEach(image => {
+          this.$refs.myVueDropzone.manuallyAddFile(
+            { size: 123, name: image, type: 'image/jpg' },
+            `/assets/news/thumbnail/${image}`
+          )
+        })
+      })
+      .catch(e => {
+        this.errors.push(e)
+      })
+  },
+
   methods: {
     submit() {
       this.$v.$touch()
@@ -274,7 +286,7 @@ export default {
 
         auth
           .put(`News/${this.$route.params.id}`, form_data)
-          .then(response => {
+          .then(() => {
             this.isSubmitted = true
           })
           .catch(e => {
@@ -294,29 +306,6 @@ export default {
     removingFile(file) {
       this.Images = this.Images.filter(image => image.name != file.name)
     }
-  },
-
-  mounted() {
-    auth
-      .get(`News/${this.$route.params.id}`)
-      .then(response => {
-        this.date = convertStrintToDate(response.data.date)
-        this.TitleDe = response.data.titleDe
-        this.TitleFr = response.data.titleFr
-        this.PreviewDe = response.data.previewDe
-        this.PreviewFr = response.data.previewFr
-        this.ContentDe = response.data.contentDe
-        this.ContentFr = response.data.contentFr
-        response.data.images.split(';').forEach(image => {
-          this.$refs.myVueDropzone.manuallyAddFile(
-            { size: 123, name: image, type: 'image/jpg' },
-            `/assets/news/thumbnail/${image}`
-          )
-        })
-      })
-      .catch(e => {
-        this.errors.push(e)
-      })
   }
 }
 </script>

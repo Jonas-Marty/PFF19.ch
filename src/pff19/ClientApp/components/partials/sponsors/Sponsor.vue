@@ -9,15 +9,11 @@
 </template>
 
 <script>
-import axios from 'axios'
 import { mapActions, mapGetters } from 'vuex'
 
 export default {
+  // eslint-disable-next-line vue/require-prop-types
   props: ['sponsor'],
-
-  methods: {
-    ...mapActions('sponsors', ['load'])
-  },
 
   computed: {
     ...mapGetters('sponsors', ['mainSponsors']),
@@ -29,6 +25,10 @@ export default {
 
   created() {
     this.load()
+  },
+
+  methods: {
+    ...mapActions('sponsors', ['load'])
   }
 }
 </script>

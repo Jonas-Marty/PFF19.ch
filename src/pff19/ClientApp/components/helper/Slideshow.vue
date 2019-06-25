@@ -3,7 +3,7 @@
     <div class="container">
       <div class="content-block">
         <picture>
-          <source media="(max-width: 768px)" :srcset="HelperImgMQ12" alt="slidshow-img" />
+          <source :srcset="HelperImgMQ12" media="(max-width: 768px)" alt="slidshow-img" />
           <img :src="HelperImg" alt="slideshow-img" />
         </picture>
       </div>

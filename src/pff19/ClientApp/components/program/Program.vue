@@ -1,28 +1,29 @@
 <template>
   <div class="myContainer">
     <slideshow
-      :images="`assets/socialPrograms/images/${this.getCurrentProgram.imageLarge}`"
-      :imageMobile="`assets/socialPrograms/mobile/${this.getCurrentProgram.imageMobile}`"
+      :images="`assets/socialPrograms/images/${getCurrentProgram.imageLarge}`"
+      :imageMobile="`assets/socialPrograms/mobile/${getCurrentProgram.imageMobile}`"
     />
     <div class="container">
       <div class="row back">
         <div class="col">
-          <router-link class="btn btn-outline-primary" :to="{ name: 'programOverview' }">Program</router-link>
+          <router-link :to="{ name: 'programOverview' }" class="btn btn-outline-primary"
+            >Program</router-link
+          >
         </div>
       </div>
-      <h1
-        class="title"
-      >{{ language === 'de' ? this.getCurrentProgram.nameDe : this.getCurrentProgram.nameFr }}</h1>
+      <h1 class="title">
+        {{ language === 'de' ? getCurrentProgram.nameDe : getCurrentProgram.nameFr }}
+      </h1>
 
       <div class="row">
-        <div class="col-12 text-content" v-html="description"></div>
+        <div v-html="description" class="col-12 text-content"></div>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import axios from 'axios'
 import { mapGetters, mapActions } from 'vuex'
 
 import Slideshow from 'components/partials/Slideshow'
@@ -38,15 +39,6 @@ export default {
   components: {
     Slideshow
   },
-
-  methods: {
-    ...mapActions('program', ['loadCurrentProgram'])
-  },
-
-  mounted() {
-    this.loadCurrentProgram(this.$route.params.id)
-  },
-
   computed: {
     ...mapGetters('program', ['getCurrentProgram']),
     ...mapGetters(['language']),
@@ -56,6 +48,14 @@ export default {
         ? this.getCurrentProgram.descriptionDe
         : this.getCurrentProgram.descriptionFr
     }
+  },
+
+  mounted() {
+    this.loadCurrentProgram(this.$route.params.id)
+  },
+
+  methods: {
+    ...mapActions('program', ['loadCurrentProgram'])
   }
 }
 </script>

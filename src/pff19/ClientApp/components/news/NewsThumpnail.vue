@@ -1,7 +1,7 @@
 <template>
   <div class="news col-md-4">
     <div class="card">
-      <img class="card-img-top" :src="`/assets/news/thumbnail/${getFirstImage}`" />
+      <img :src="`/assets/news/thumbnail/${getFirstImage}`" class="card-img-top" />
       <div class="card-body">
         <div class="card-title">
           <router-link :to="{ name: 'news', params: { id: news.id } }">
@@ -18,6 +18,7 @@
 
 <script>
 export default {
+  // eslint-disable-next-line vue/require-prop-types
   props: ['news'],
 
   computed: {

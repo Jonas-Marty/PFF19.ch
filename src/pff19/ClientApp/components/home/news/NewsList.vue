@@ -12,22 +12,20 @@
 </template>
 
 <script>
-import Vue from 'vue'
-import axios from 'axios'
 import { mapActions, mapGetters } from 'vuex'
 
 import News from '../../news/NewsThumpnail'
 import NUMBER_OF_NEWS_ON_HOMEPAGE from '../../../constants/main'
 
 export default {
+  components: {
+    'app-news': News
+  },
+
   data() {
     return {
       newsList: []
     }
-  },
-
-  methods: {
-    ...mapActions('news', ['loadTopThree'])
   },
 
   computed: {
@@ -40,12 +38,12 @@ export default {
     }
   },
 
-  components: {
-    'app-news': News
-  },
-
   beforeUpdate() {
     return this.newsList[this.$store.getters.language]
+  },
+
+  methods: {
+    ...mapActions('news', ['loadTopThree'])
   }
 }
 </script>

@@ -5,8 +5,8 @@
     <div class="list-group">
       <div v-for="band in orderedBands" :key="band.id" class="list-group-item d-flex">
         <img
-          class="list-img p-1"
           :src="`/assets/bands/thumbnail/${band.imageThumbnail}`"
+          class="list-img p-1"
           alt="Card image cap"
         />
         <div class="card-body p-5">
@@ -16,16 +16,16 @@
           <p class="card-text">
             {{ band.descriptionDe | shorten(150) }}
           </p>
-          <router-link class="card-link" :to="{ name: 'band', params: { id: band.id } }">
+          <router-link :to="{ name: 'band', params: { id: band.id } }" class="card-link">
             View
           </router-link>
-          <router-link class="card-link" :to="{ name: 'adminBandsEdit', params: { id: band.id } }">
+          <router-link :to="{ name: 'adminBandsEdit', params: { id: band.id } }" class="card-link">
             Edit
           </router-link>
 
-          <i class="fa fa-remove fa-1x pull-right" @click="remove(band.id)" />
-          <i class="fa fa-arrow-up fa-1x pull-right" @click="toUpperElem(band.id, band.order)" />
-          <i class="fa fa-arrow-down fa-1x pull-right" @click="toLowerElem(band.id, band.order)" />
+          <i @click="remove(band.id)" class="fa fa-remove fa-1x pull-right" />
+          <i @click="toUpperElem(band.id, band.order)" class="fa fa-arrow-up fa-1x pull-right" />
+          <i @click="toLowerElem(band.id, band.order)" class="fa fa-arrow-down fa-1x pull-right" />
         </div>
         <div />
       </div>

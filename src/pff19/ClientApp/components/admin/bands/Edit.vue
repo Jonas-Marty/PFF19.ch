@@ -13,8 +13,8 @@
 
     <form v-if="!isSubmitted" @submit.prevent="submit">
       <div
-        class="form-group dropzone-wrapper"
         :class="{ 'invalid-form': $v.ImageThumbnail.$error }"
+        class="form-group dropzone-wrapper"
       >
         <label for="thumpnailUpload">Thumpnail upload (440x330px)</label>
         <vue-dropzone
@@ -31,7 +31,7 @@
         </div>
       </div>
 
-      <div class="form-group dropzone-wrapper" :class="{ 'invalid-form': $v.ImageLarge.$error }">
+      <div :class="{ 'invalid-form': $v.ImageLarge.$error }" class="form-group dropzone-wrapper">
         <label for="imageUpload">Image upload (1920x730px)</label>
         <vue-dropzone
           id="imageUpload"
@@ -72,15 +72,15 @@
         <div class="error-messages" />
       </div>
 
-      <div class="form-group" :class="{ 'invalid-form': $v.Name.$error }">
+      <div :class="{ 'invalid-form': $v.Name.$error }" class="form-group">
         <label for="name">Name</label>
         <input
           id="name"
           v-model="Name"
+          @blur="$v.Name.$touch()"
           type="text"
           class="form-control"
           placeholder="Name der Band"
-          @blur="$v.Name.$touch()"
         />
         <div class="error-messages">
           <p v-if="!$v.Name.required && $v.Name.$dirty">
@@ -89,15 +89,15 @@
         </div>
       </div>
 
-      <div class="form-group" :class="{ 'invalid-form': $v.DescriptionDe.$error }">
+      <div :class="{ 'invalid-form': $v.DescriptionDe.$error }" class="form-group">
         <label for="description_de">Description Deutsch</label>
         <vue-editor
           id="description_de"
           v-model="DescriptionDe"
-          class="html-editor"
           :editor-options="optionsEditor"
           :editor-toolbar="customToolbar"
           @blur="$v.DescriptionDe.$touch()"
+          class="html-editor"
         />
 
         <div class="error-messages">
@@ -110,15 +110,15 @@
         </div>
       </div>
 
-      <div class="form-group" :class="{ 'invalid-form': $v.DescriptionFr.$error }">
+      <div :class="{ 'invalid-form': $v.DescriptionFr.$error }" class="form-group">
         <label for="description_fr">Description Französisch</label>
         <vue-editor
           id="description_fr"
           v-model="DescriptionFr"
-          class="html-editor"
           :editor-options="optionsEditor"
           :editor-toolbar="customToolbar"
           @blur="$v.DescriptionFr.$touch()"
+          class="html-editor"
         />
 
         <div class="error-messages">

@@ -6,16 +6,16 @@
     </router-link>
     <div class="list-group">
       <div
-        class="list-group-item d-flex justify-content-between"
         v-for="sponsor in all"
         :key="sponsor.id"
+        class="list-group-item d-flex justify-content-between"
       >
         <div>
           {{ status[sponsor.status] }}
           <b>{{ sponsor.name }}</b>
         </div>
         <div>
-          <i class="fa fa-remove fa-1x pull-right" @click="remove(sponsor.id)"></i>
+          <i @click="remove(sponsor.id)" class="fa fa-remove fa-1x pull-right"></i>
           <router-link :to="{ name: 'adminSponsoringEdit', params: { id: sponsor.id } }">
             <i class="fa fa-edit fa-1x pull-right"></i>
           </router-link>
@@ -26,7 +26,6 @@
 </template>
 <script>
 import { mapActions, mapGetters } from 'vuex'
-import axios from 'axios'
 
 export default {
   data() {
@@ -43,16 +42,16 @@ export default {
     }
   },
 
-  methods: {
-    ...mapActions('sponsors', ['load', 'remove'])
-  },
-
   computed: {
     ...mapGetters('sponsors', ['all', 'mainSponsors'])
   },
 
   created() {
     this.load()
+  },
+
+  methods: {
+    ...mapActions('sponsors', ['load', 'remove'])
   }
 }
 </script>

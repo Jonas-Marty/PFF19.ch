@@ -7,13 +7,11 @@
 </template>
 
 <script>
-import Vue from 'vue'
-
 import Slideshow from './Slideshow'
 import descriptionDe from './DescriptionDe'
 import descriptionFr from './DescriptionFr'
 
-import { mapActions, mapGetters } from 'vuex'
+import { mapGetters } from 'vuex'
 
 export default {
   metaInfo() {
@@ -21,14 +19,13 @@ export default {
       title: `| ${this.$i18n.t('lang.navigation.ticketing')}`
     }
   },
-  computed: {
-    ...mapGetters(['language'])
-  },
-
   components: {
     'app-slideshow': Slideshow,
     descriptionFr,
     descriptionDe
+  },
+  computed: {
+    ...mapGetters(['language'])
   }
 }
 </script>

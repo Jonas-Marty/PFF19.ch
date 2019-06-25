@@ -3,7 +3,7 @@
     <div class="row">
       <div class="days col-md-12 col-12">
         <div class="row justify-content-md-end justify-content-center">
-          <div class="day" v-for="(day, index) in time.days" :key="index">
+          <div v-for="(day, index) in time.days" :key="index" class="day">
             {{ day }}
           </div>
         </div>
@@ -13,7 +13,7 @@
       </div>
       <div class="hours col-md-12 col-12">
         <div class="row justify-content-md-end justify-content-center">
-          <div class="hour" v-for="(hour, index) in time.hours" :key="index">
+          <div v-for="(hour, index) in time.hours" :key="index" class="hour">
             {{ hour }}
           </div>
         </div>

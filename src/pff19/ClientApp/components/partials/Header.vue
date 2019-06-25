@@ -1,28 +1,28 @@
 ﻿<template>
   <transition name="bounce">
     <nav
-      class="navbar navbar-expand-md navbar-inverse position-fixed shadow-sm"
       :class="{ embedded: embedded && isHome && !collapse }"
+      class="navbar navbar-expand-md navbar-inverse position-fixed shadow-sm"
     >
-      <router-link class="navbar-brand" :to="{ name: 'home' }">
+      <router-link :to="{ name: 'home' }" class="navbar-brand">
         <img
           :class="{}"
           src="../../assets/images/black_green_small_logo.png"
           height="40"
           class="d-inline-block align-top"
           alt="logo_pff19"
-        >
+        />
       </router-link>
 
       <div class="mr-auto nav-link">
-        <a class="nav-item language" @click="changeLang('de')">de</a>
+        <a @click="changeLang('de')" class="nav-item language">de</a>
         <span class="nav-item">|</span>
-        <a class="nav-item language" @click="changeLang('fr')">fr</a>
+        <a @click="changeLang('fr')" class="nav-item language">fr</a>
       </div>
 
       <button
-        class="navbar-toggler"
         @click="collapse = !collapse"
+        class="navbar-toggler"
         type="button"
         data-toggle="collapse"
         data-target="#navbarNavAltMarkup"
@@ -33,33 +33,36 @@
         <span class="fa fa-navicon"></span>
       </button>
 
-      <div class="collapse navbar-collapse" :class="{ show: collapse }" id="navbarNavAltMarkup">
+      <div id="navbarNavAltMarkup" :class="{ show: collapse }" class="collapse navbar-collapse">
         <div class="navbar-nav ml-auto">
           <span
-            class="nav-item"
             :class="{ dropdown: route.children }"
             v-for="route in getDefaultRoutes"
             :key="route.name"
+            class="nav-item"
           >
             <router-link
               v-if="route.important && !route.children"
               :to="route.path"
               class="nav-link"
-            >{{ $t(`lang.navigation.${route.name}`) }}</router-link>
+              >{{ $t(`lang.navigation.${route.name}`) }}</router-link
+            >
 
             <div
-              v-if="route.children"
-              class="nav-link dropdown-toggle"
               id="navbarDropdown"
-              role="button"
+              v-if="route.children"
               @click="openDropdown(route.name)"
+              class="nav-link dropdown-toggle"
+              role="button"
               aria-haspopup="true"
               aria-expanded="false"
-            >{{ $t(`lang.navigation.${route.name}`) }}</div>
+            >
+              {{ $t(`lang.navigation.${route.name}`) }}
+            </div>
             <div
               v-if="route.children"
-              class="dropdown-menu shadow-sm"
               :class="{ show: dropdown[route.name] }"
+              class="dropdown-menu shadow-sm"
               aria-labelledby="navbarDropdown"
             >
               <router-link
@@ -67,7 +70,8 @@
                 :key="child.name"
                 :to="{ name: child.name }"
                 class="nav-link"
-              >{{ $t(`lang.navigation.${child.name}`) }}</router-link>
+                >{{ $t(`lang.navigation.${child.name}`) }}</router-link
+              >
             </div>
           </span>
         </div>
@@ -78,7 +82,6 @@
 
 <script>
 import { routes } from '../../routes'
-import i18n from '../../locales'
 import { mapActions } from 'vuex'
 
 export default {
@@ -90,6 +93,7 @@ export default {
       dropdown: { info: false, program: false }
     }
   },
+
   computed: {
     isHome() {
       return this.$store.getters.isHome
@@ -99,10 +103,33 @@ export default {
       return this.routes.find(route => route.name === 'default').children
     }
   },
+
+  created() {
+    window.addEventListener('scroll', this.navbarBackgroundController)
+
+    let self = this
+
+    window.addEventListener('click', function(e) {
+      // close dropdown when clicked outside
+      if (
+        !self.$el.contains(e.target) ||
+        (self.$el.contains(e.target) && e.target.tagName === 'A')
+      ) {
+        self.collapse = false
+        self.dropdown.info = false
+        self.dropdown.program = false
+      }
+    })
+  },
+
+  destroyed() {
+    window.removeEventListener('scroll', this.navbarBackgroundController)
+  },
+
   methods: {
     ...mapActions(['switchI18n']),
 
-    toggleCollapsed(event) {
+    toggleCollapsed() {
       this.collapsed = !this.collapsed
     },
     navbarBackgroundController() {
@@ -126,27 +153,6 @@ export default {
         this.dropdown.program = !this.dropdown.program
       }
     }
-  },
-  created() {
-    window.addEventListener('scroll', this.navbarBackgroundController)
-
-    let self = this
-
-    window.addEventListener('click', function(e) {
-      // close dropdown when clicked outside
-      if (
-        !self.$el.contains(e.target) ||
-        (self.$el.contains(e.target) && e.target.tagName === 'A')
-      ) {
-        self.collapse = false
-        self.dropdown.info = false
-        self.dropdown.program = false
-      }
-    })
-  },
-
-  destroyed() {
-    window.removeEventListener('scroll', this.navbarBackgroundController)
   }
 }
 </script>

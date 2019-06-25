@@ -3,15 +3,15 @@
     <div class="row justify-content-md-center">
       <div class="col-md-8">
         <form @submit.prevent="submit" v-if="!isSubmitted">
-          <div class="form-group" :class="{ 'invalid-form': $v.firstname.$error }">
+          <div :class="{ 'invalid-form': $v.firstname.$error }" class="form-group">
             <label for="firstname">{{ $t('lang.forms.firstname') }}*</label>
             <input
-              type="text"
-              @blur="$v.firstname.$touch()"
-              class="form-control"
               id="firstname"
-              placeholder="Max"
+              @blur="$v.firstname.$touch()"
               v-model="firstname"
+              type="text"
+              class="form-control"
+              placeholder="Max"
             />
             <div class="error-messages">
               <p v-if="!$v.firstname.required && $v.firstname.$dirty">
@@ -26,16 +26,16 @@
             </div>
           </div>
 
-          <div class="form-group" :class="{ 'invalid-form': $v.lastname.$error }">
+          <div :class="{ 'invalid-form': $v.lastname.$error }" class="form-group">
             <label for="lastname">{{ $t('lang.forms.lastname') }}*</label>
             <input
-              type="text"
+              id="lastname"
               @blur="$v.lastname.$touch()"
+              v-model="lastname"
+              type="text"
               name="lastname"
               class="form-control"
-              id="lastname"
               placeholder="Musterman"
-              v-model="lastname"
             />
             <div class="error-messages">
               <p v-if="!$v.lastname.required && $v.lastname.$dirty">
@@ -50,15 +50,15 @@
             </div>
           </div>
 
-          <div class="form-group" :class="{ 'invalid-form': $v.scoutname.$error }">
+          <div :class="{ 'invalid-form': $v.scoutname.$error }" class="form-group">
             <label for="scoutname">{{ $t('lang.forms.scoutname') }}</label>
             <input
-              type="text"
-              @blur="$v.scoutname.$touch()"
-              class="form-control"
               id="scoutname"
-              placeholder="Nüssli"
+              @blur="$v.scoutname.$touch()"
               v-model="scoutname"
+              type="text"
+              class="form-control"
+              placeholder="Nüssli"
             />
             <div class="error-messages">
               <p v-if="!$v.scoutname.minLength && $v.scoutname.$dirty">
@@ -70,15 +70,15 @@
             </div>
           </div>
 
-          <div class="form-group" :class="{ 'invalid-form': $v.email.$error }">
+          <div :class="{ 'invalid-form': $v.email.$error }" class="form-group">
             <label for="email">{{ $t('lang.forms.email') }}*</label>
             <input
+              id="email"
+              @blur="$v.email.$touch()"
+              v-model="email"
               type="email"
               class="form-control"
-              @blur="$v.email.$touch()"
-              id="email"
               placeholder="max.musterman@mail.com"
-              v-model="email"
             />
             <div class="error-messages">
               <p v-if="!$v.email.required && $v.email.$dirty">
@@ -93,12 +93,12 @@
           <div class="form-group">
             <label for="wishes">{{ $t('lang.forms.wishes') }}</label>
             <textarea
+              id="wishes"
+              v-model="wishes"
               rows="4"
               cols="50"
               class="form-control"
-              id="wishes"
               placeholder="bar, catering ..."
-              v-model="wishes"
             ></textarea>
           </div>
 
@@ -116,23 +116,9 @@
 </template>
 
 <script>
-import i18n from '../../locales'
 import axios from 'axios'
 import { mapGetters } from 'vuex'
-import textDe from './TextDe'
-import textFr from './TextFr'
-
-import {
-  required,
-  email,
-  between,
-  numeric,
-  minValue,
-  maxLength,
-  minLength,
-  sameAs,
-  requiredUnless
-} from 'vuelidate/lib/validators'
+import { required, email, maxLength, minLength } from 'vuelidate/lib/validators'
 
 export default {
   data() {
@@ -167,6 +153,10 @@ export default {
     }
   },
 
+  computed: {
+    ...mapGetters(['language'])
+  },
+
   methods: {
     submit() {
       this.$v.$touch()
@@ -181,7 +171,7 @@ export default {
 
         axios
           .post('/api/Assistants', formData)
-          .then(response => {
+          .then(() => {
             this.isSubmitted = true
           })
           .catch(e => {
@@ -189,15 +179,6 @@ export default {
           })
       }
     }
-  },
-
-  computed: {
-    ...mapGetters(['language'])
-  },
-
-  components: {
-    textDe,
-    textFr
   }
 }
 </script>

@@ -13,9 +13,7 @@
       <li>Bevor du Bilder uploadest, schneide diese in die passenden Formate</li>
       <li>
         Leiste deinen Beitrag für eine schnelle Webseite und
-        <a
-          href="https://tinyjpg.com/"
-        >komprimiert</a> die Bilder zuvor.
+        <a href="https://tinyjpg.com/">komprimiert</a> die Bilder zuvor.
       </li>
       <li>Wenn Möglich lade auch gleich die Französische Übersetztung hoch.</li>
       <li>
@@ -25,6 +23,3 @@
     </ul>
   </div>
 </template>
-<script>
-export default {}
-</script>

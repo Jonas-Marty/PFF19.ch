@@ -1,9 +1,9 @@
 <template>
-  <div class="polygon" :class="position">
+  <div :class="position" class="polygon">
     <picture>
       <source
-        media="(min-width: 1199px)"
         :srcset="require(`../../assets/images/polygon_${color}.svg`)"
+        media="(min-width: 1199px)"
       />
       <img
         src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="
@@ -13,6 +13,7 @@
 </template>
 <script>
 export default {
+  // eslint-disable-next-line vue/require-prop-types
   props: ['color', 'position']
 }
 </script>

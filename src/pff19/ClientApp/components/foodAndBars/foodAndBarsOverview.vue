@@ -6,7 +6,7 @@
       </div>
     </div>
     <div class="card-columns">
-      <div class="card" v-for="bar in all" :key="bar.id">
+      <div v-for="bar in all" :key="bar.id" class="card">
         <router-link
           :to="{
             name: 'foodAndBar',
@@ -14,9 +14,9 @@
           }"
         >
           <img
-            class="card-img-top"
             :src="`/assets/bars/thumbnail/${bar.imageThumbnail}`"
             :alt="bar.nameDe"
+            class="card-img-top"
           />
         </router-link>
         <div class="card-body">
@@ -40,19 +40,12 @@
 </template>
 <script>
 import { mapActions, mapGetters } from 'vuex'
-import axios from 'axios'
-import i18n from 'locales'
-import moment from 'moment'
 
 export default {
   metaInfo() {
     return {
       title: `| ${this.$i18n.t('lang.navigation.foodAndBarsOverview')}`
     }
-  },
-
-  methods: {
-    ...mapActions('bars', ['load', 'loadCurrentBar'])
   },
 
   computed: {
@@ -62,6 +55,10 @@ export default {
 
   created() {
     this.load()
+  },
+
+  methods: {
+    ...mapActions('bars', ['load', 'loadCurrentBar'])
   }
 }
 </script>

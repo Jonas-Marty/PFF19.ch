@@ -7,7 +7,7 @@
     <div class="container">
       <div class="row back">
         <div class="col">
-          <router-link class="btn btn-outline-primary" :to="{ name: 'bandsOverview' }">
+          <router-link :to="{ name: 'bandsOverview' }" class="btn btn-outline-primary">
             Alle Bands
           </router-link>
         </div>
@@ -20,11 +20,11 @@
       </h6>
 
       <div v-if="getCurrentBand.spotifyPlaylist" class="row">
-        <div class="col-12 col-md-6 text-content" v-html="description" />
+        <div v-html="description" class="col-12 col-md-6 text-content" />
         <div class="col-12 col-md-6">
           <iframe
-            class="spotify"
             :src="getCurrentBand.spotifyPlaylist"
+            class="spotify"
             frameborder="0"
             allowtransparency="true"
             allow="encrypted-media"
@@ -33,7 +33,7 @@
       </div>
 
       <div v-else class="row">
-        <div class="col-12 text-content" v-html="description" />
+        <div v-html="description" class="col-12 text-content" />
       </div>
 
       <div v-if="getCurrentBand.webSiteUrl" class="row">
@@ -69,9 +69,9 @@
         <div v-for="video in videos" :key="video" class="col-12 col-md-6">
           <div class="iframe-container">
             <iframe
+              :src="`https://www.youtube.com/embed/${video}`"
               class="ytplayer"
               type="text/html"
-              :src="`https://www.youtube.com/embed/${video}`"
               frameborder="0"
             />
           </div>

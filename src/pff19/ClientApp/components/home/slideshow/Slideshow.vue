@@ -3,7 +3,7 @@
     <div class="container">
       <div class="content-block">
         <picture>
-          <source media="(max-width: 768px)" :srcset="HomeImgMQ123" alt="slidshow-img" />
+          <source :srcset="HomeImgMQ123" media="(max-width: 768px)" alt="slidshow-img" />
           <img :src="HomeImgMQ45" alt="slideshow-img" />
         </picture>
       </div>
@@ -39,17 +39,15 @@ import Countdown from './Countdown'
 import HomeImgMQ45 from '../../../assets/images/home_img_mq5.jpg'
 import HomeImgMQ123 from '../../../assets/images/home_img_mq12.jpg'
 
-import i18n from '../../../locales'
-
 export default {
+  components: {
+    'app-countdown': Countdown
+  },
   data() {
     return {
       HomeImgMQ45,
       HomeImgMQ123
     }
-  },
-  components: {
-    'app-countdown': Countdown
   }
 }
 </script>

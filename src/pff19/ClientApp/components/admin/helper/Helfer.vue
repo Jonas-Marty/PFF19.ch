@@ -4,15 +4,15 @@
 
     <div class="list-group">
       <div
-        class="list-group-item d-flex justify-content-between align-items-right"
         v-for="helfer in all"
         :key="helfer.id"
+        class="list-group-item d-flex justify-content-between align-items-right"
       >
         <div>{{ helfer.name }}, {{ helfer.vorname }}, {{ helfer.pfadiname }}</div>
         <div>{{ helfer.email }}</div>
         <div>{{ helfer.wishes }}</div>
         <div>
-          <i class="fa fa-remove fa-1x pull-right" @click="remove(helfer.id)"></i>
+          <i @click="remove(helfer.id)" class="fa fa-remove fa-1x pull-right"></i>
         </div>
       </div>
     </div>
@@ -20,19 +20,18 @@
 </template>
 <script>
 import { mapActions, mapGetters } from 'vuex'
-import axios from 'axios'
 
 export default {
-  methods: {
-    ...mapActions('helfer', ['load', 'remove'])
-  },
-
   computed: {
     ...mapGetters('helfer', ['all'])
   },
 
   created() {
     this.load()
+  },
+
+  methods: {
+    ...mapActions('helfer', ['load', 'remove'])
   }
 }
 </script>

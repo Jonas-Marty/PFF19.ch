@@ -4,7 +4,7 @@
       <div class="container">
         <div class="row">
           <div class="col-md-3 col-sm-6 links footer-block">
-            <span class="list-item" v-for="route in getDefaultRoutes" :key="route.name">
+            <span v-for="route in getDefaultRoutes" :key="route.name" class="list-item">
               <router-link
                 v-if="route.important && !route.children"
                 :to="route.path"
@@ -28,9 +28,9 @@
             <!-- Begin MailChimp Signup Form -->
             <div class="newsletter">
               <form
+                id="mc-embedded-subscribe-form"
                 action="https://pff2019.us12.list-manage.com/subscribe/post?u=49efe2269ccc4a7227ef08f59&amp;id=067179a941"
                 method="post"
-                id="mc-embedded-subscribe-form"
                 name="mc-embedded-subscribe-form"
                 class="validate"
                 target="_blank"
@@ -42,17 +42,17 @@
                 <div class="footer-content">
                   <div class="form-group">
                     <input
+                      id="mce-EMAIL"
+                      :placeholder="$t('lang.components.footer.example') + '@mail.com'"
                       type="email"
                       value=""
                       name="EMAIL"
-                      :placeholder="$t('lang.components.footer.example') + '@mail.com'"
                       class="form-control"
-                      id="mce-EMAIL"
                     />
                   </div>
                   <div id="mce-responses" class="clear">
-                    <div class="response" id="mce-error-response" style="display:none"></div>
-                    <div class="response" id="mce-success-response" style="display:none"></div>
+                    <div id="mce-error-response" class="response" style="display:none"></div>
+                    <div id="mce-success-response" class="response" style="display:none"></div>
                   </div>
                   <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
                   <div style="position: absolute; left: -5000px;" aria-hidden="true">
@@ -66,8 +66,8 @@
                   <div class="clear">
                     <div class="form-group ">
                       <input
-                        type="submit"
                         :value="$t('lang.components.footer.register_newsletter') | uppercase"
+                        type="submit"
                         name="subscribe"
                         class="btn btn-danger "
                       />
@@ -101,8 +101,8 @@
 
           <div class="col-10 col-md-3 col-sm-6 footer-block">
             <img
-              class="footer-logo"
               :src="require('assets/images/logo_yellow_with_text.png')"
+              class="footer-logo"
               alt="pff Logo"
             />
           </div>
@@ -120,7 +120,7 @@
           <div class="row">
             <div class="offset-1 col-10 col-md-4">
               <a href="https://www.scout.ch/de" target="_blank">
-                <img class="pbs-logo" :src="require('assets/images/logo_pbs.png')" alt="PBS Logo" />
+                <img :src="require('assets/images/logo_pbs.png')" class="pbs-logo" alt="PBS Logo" />
               </a>
             </div>
           </div>
@@ -134,7 +134,7 @@
             <a href="mailto:info@pff19.ch">info@pff19.ch</a>
           </div>
           <div class="col-6">
-            <router-link class="float-right" :to="{ name: 'impressum' }">
+            <router-link :to="{ name: 'impressum' }" class="float-right">
               {{ $t('lang.navigation.impressum') }}</router-link
             >
           </div>
@@ -149,6 +149,9 @@ import { routes } from '../../routes'
 import Sponsor from './sponsors/SponsorList'
 
 export default {
+  components: {
+    'app-sponsors': Sponsor
+  },
   data() {
     return {
       routes
@@ -159,10 +162,6 @@ export default {
     getDefaultRoutes() {
       return this.routes.find(route => route.name === 'default').children
     }
-  },
-
-  components: {
-    'app-sponsors': Sponsor
   }
 }
 </script>

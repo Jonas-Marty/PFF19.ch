@@ -9,7 +9,6 @@
 
 <script>
 import { mapActions, mapGetters } from 'vuex'
-import axios from 'axios'
 
 import News from './NewsThumpnail'
 import NUMBER_OF_NEWS_ON_HOMEPAGE from '../../constants/main'
@@ -20,13 +19,15 @@ export default {
       title: `| ${this.$i18n.t('lang.navigation.news_overview')}`
     }
   },
+
+  components: {
+    'app-news': News
+  },
+
   data() {
     return {
       newsList: []
     }
-  },
-  methods: {
-    ...mapActions('news', ['load'])
   },
 
   computed: {
@@ -39,8 +40,8 @@ export default {
     }
   },
 
-  components: {
-    'app-news': News
+  methods: {
+    ...mapActions('news', ['load'])
   }
 }
 </script>

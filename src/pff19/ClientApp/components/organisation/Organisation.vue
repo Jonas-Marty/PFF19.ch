@@ -6,12 +6,12 @@
     <div class="team">
       <h2>{{ $t(`lang.components.organisation.team`) }}</h2>
       <div class="row members">
-        <div class="member col-6 col-md-4 col-lg-3" v-for="image in images" :key="image.scoutName">
+        <div v-for="image in images" :key="image.scoutName" class="member col-6 col-md-4 col-lg-3">
           <div class="card">
             <img
-              class="card-img-top"
               :src="require(`../../assets/images/portraits/${image.scoutName}-min.jpg`)"
               :alt="image.scoutName"
+              class="card-img-top"
             />
             <div class="card-body">
               <p class="card-text">
@@ -34,7 +34,6 @@
 
 <script>
 import { mapGetters } from 'vuex'
-import i18n from '../../locales'
 import textDe from './TextDe'
 import textFr from './TextFr'
 export default {
@@ -43,6 +42,12 @@ export default {
       title: `| ${this.$i18n.t('lang.navigation.organisation')}`
     }
   },
+
+  components: {
+    textFr,
+    textDe
+  },
+
   data() {
     return {
       images: [
@@ -160,11 +165,6 @@ export default {
 
   computed: {
     ...mapGetters(['language'])
-  },
-
-  components: {
-    textFr,
-    textDe
   }
 }
 </script>

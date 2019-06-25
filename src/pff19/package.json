@@ -9,7 +9,7 @@
     "analyze": "npm run webpack -- --env.mode production --env.presets analyze",
     "build:dev": "npm run webpack -- --env.mode development",
     "build:prod": "npm run webpack -- --env.mode production",
-    "lint": "eslint ClientApp/"
+    "lint": "eslint 'ClientApp/**/*.{js,vue}'"
   },
   "dependencies": {
     "axios": "^0.15.3",

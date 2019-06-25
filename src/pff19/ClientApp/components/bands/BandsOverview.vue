@@ -24,9 +24,9 @@
       <div v-for="band in filteredBands" :key="band.id" class="card">
         <router-link :to="{ name: 'band', params: { id: band.id, name: band.name } }">
           <img
-            class="card-img-top"
             :src="`/assets/bands/thumbnail/${band.imageThumbnail}`"
             :alt="band.name"
+            class="card-img-top"
           />
         </router-link>
         <div class="card-body">

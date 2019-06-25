@@ -2,7 +2,7 @@
   <div class="container">
     <text-de v-if="language === 'de'"></text-de>
     <text-fr v-if="language === 'fr'"></text-fr>
-    <div class="sponsors" v-if="mainSponsors && mainSponsors.length > 0">
+    <div v-if="mainSponsors && mainSponsors.length > 0" class="sponsors">
       <h2>{{ $t('lang.components.home.sponsors.main_sponsors') }}</h2>
       <div class="row">
         <app-sponsor
@@ -13,7 +13,7 @@
       </div>
     </div>
 
-    <div class="sponsors" v-if="coSponsors && coSponsors.length > 0">
+    <div v-if="coSponsors && coSponsors.length > 0" class="sponsors">
       <h2>{{ $t('lang.components.home.sponsors.co_sponsors') }}</h2>
       <div class="row">
         <app-sponsor
@@ -24,14 +24,14 @@
       </div>
     </div>
 
-    <div class="sponsors" v-if="partner && partner.length > 0">
+    <div v-if="partner && partner.length > 0" class="sponsors">
       <h2>{{ $t('lang.components.home.sponsors.partner') }}</h2>
       <div class="row">
         <app-sponsor v-for="sponsor in partner" :key="sponsor.id" :sponsor="sponsor"></app-sponsor>
       </div>
     </div>
 
-    <div class="sponsors" v-if="infrapartner && infrapartner.length > 0">
+    <div v-if="infrapartner && infrapartner.length > 0" class="sponsors">
       <h2>{{ $t('lang.components.home.sponsors.infrapartner') }}</h2>
       <div class="row">
         <app-sponsor
@@ -42,7 +42,7 @@
       </div>
     </div>
 
-    <div class="sponsors" v-if="scoutpartner && scoutpartner.length > 0">
+    <div v-if="scoutpartner && scoutpartner.length > 0" class="sponsors">
       <h2>{{ $t('lang.components.home.sponsors.scoutpartner') }}</h2>
       <div class="row">
         <app-sponsor
@@ -53,7 +53,7 @@
       </div>
     </div>
 
-    <div class="sponsors" v-if="patronCompany && patronCompany.length > 0">
+    <div v-if="patronCompany && patronCompany.length > 0" class="sponsors">
       <h2>{{ $t('lang.components.home.sponsors.patron_company') }}</h2>
       <div class="row">
         <goenner
@@ -64,7 +64,7 @@
       </div>
     </div>
 
-    <div class="sponsors" v-if="patronPrivatePerson && patronPrivatePerson.length > 0">
+    <div v-if="patronPrivatePerson && patronPrivatePerson.length > 0" class="sponsors">
       <h2>{{ $t('lang.components.home.sponsors.patron_private_person') }}</h2>
       <div class="row">
         <goenner
@@ -78,7 +78,6 @@
 </template>
 
 <script>
-import axios from 'axios'
 import { mapActions, mapGetters } from 'vuex'
 import Sponsor from './Sponsor'
 import Goenner from './Goenner'
@@ -91,10 +90,13 @@ export default {
       title: `| ${this.$i18n.t('lang.navigation.sponsors')}`
     }
   },
-  methods: {
-    ...mapActions('sponsors', ['load'])
-  },
 
+  components: {
+    'app-sponsor': Sponsor,
+    Goenner,
+    textFr,
+    textDe
+  },
   computed: {
     ...mapGetters('sponsors', [
       'mainSponsors',
@@ -109,10 +111,12 @@ export default {
     ...mapGetters(['language']),
 
     patronCompanySorted() {
+      // eslint-disable-next-line vue/no-side-effects-in-computed-properties
       return this.patronCompany.sort((a, b) => a.name.localeCompare(b.name))
     },
 
     patronPrivatePersonSorted() {
+      // eslint-disable-next-line vue/no-side-effects-in-computed-properties
       return this.patronPrivatePerson.sort((a, b) => a.name.localeCompare(b.name))
     }
   },
@@ -120,12 +124,8 @@ export default {
   created() {
     this.load()
   },
-
-  components: {
-    'app-sponsor': Sponsor,
-    Goenner,
-    textFr,
-    textDe
+  methods: {
+    ...mapActions('sponsors', ['load'])
   }
 }
 </script>

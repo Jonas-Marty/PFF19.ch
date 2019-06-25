@@ -5,11 +5,11 @@
       <form @submit.prevent="onSubmit">
         <div class="form-group">
           <label for="email">Mail</label>
-          <input type="email" id="email" class="form-control" v-model="email">
+          <input id="email" v-model="email" type="email" class="form-control" />
         </div>
         <div class="form-group">
           <label for="password">Password</label>
-          <input type="password" id="password" v-model="password" class="form-control">
+          <input id="password" v-model="password" type="password" class="form-control" />
         </div>
         <div class="submit">
           <button type="submit" class="btn btn-primary">Submit</button>

@@ -1,5 +1,5 @@
 <template>
-  <div class="slideshow" :style="`background-image: url(${getImage})`">
+  <div :style="`background-image: url(${getImage})`" class="slideshow">
     <div class="container">
       <div class="row">
         <div class="image-container col-md col-sm-12"></div>
@@ -12,9 +12,11 @@
 import windowsSize from 'mixins/windowsSize'
 export default {
   mixins: [windowsSize],
+  // eslint-disable-next-line vue/require-prop-types
   props: ['images', 'imageMobile'],
 
   computed: {
+    // eslint-disable-next-line vue/return-in-computed-property
     getImage() {
       if (this.isMobile && this.imageMobile) {
         return this.imageMobile

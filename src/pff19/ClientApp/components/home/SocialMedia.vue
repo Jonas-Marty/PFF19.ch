@@ -1,9 +1,9 @@
 <template>
   <div class="social-media">
-    <img class="top-overlay" :src="require('assets/images/social_media_top_overlay.svg')" />
+    <img :src="require('assets/images/social_media_top_overlay.svg')" class="top-overlay" />
     <img
-      class="right-overlay d-none d-xl-block"
       :src="require('assets/images/pattern_red_right.svg')"
+      class="right-overlay d-none d-xl-block"
     />
     <div class="container">
       <div class="row flex-md-row-reverse">
@@ -24,7 +24,7 @@
         </div>
       </div>
     </div>
-    <img class="bottom-overlay" :src="require('assets/images/social_media_bottom_overlay.svg')" />
+    <img :src="require('assets/images/social_media_bottom_overlay.svg')" class="bottom-overlay" />
   </div>
 </template>
 

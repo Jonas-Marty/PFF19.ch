@@ -14,30 +14,24 @@
 </template>
 
 <script>
-import i18n from '../../locales'
 import axios from 'axios'
 import { mapGetters } from 'vuex'
 import textDe from './TextDe'
 import textFr from './TextFr'
 import Slideshow from './Slideshow'
 
-import {
-  required,
-  email,
-  between,
-  numeric,
-  minValue,
-  maxLength,
-  minLength,
-  sameAs,
-  requiredUnless
-} from 'vuelidate/lib/validators'
+import { required, email, maxLength, minLength } from 'vuelidate/lib/validators'
 
 export default {
   metaInfo() {
     return {
       title: `| ${this.$i18n.t('lang.navigation.helper')}`
     }
+  },
+  components: {
+    textDe,
+    textFr,
+    Slideshow
   },
   data() {
     return {
@@ -71,6 +65,10 @@ export default {
     }
   },
 
+  computed: {
+    ...mapGetters(['language'])
+  },
+
   methods: {
     submit() {
       this.$v.$touch()
@@ -85,7 +83,7 @@ export default {
 
         axios
           .post('/api/Assistants', formData)
-          .then(response => {
+          .then(() => {
             this.isSubmitted = true
           })
           .catch(e => {
@@ -93,16 +91,6 @@ export default {
           })
       }
     }
-  },
-
-  computed: {
-    ...mapGetters(['language'])
-  },
-
-  components: {
-    textDe,
-    textFr,
-    Slideshow
   }
 }
 </script>

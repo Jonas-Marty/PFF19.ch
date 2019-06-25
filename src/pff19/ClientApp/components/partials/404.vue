@@ -6,16 +6,6 @@
   </div>
 </template>
 
-<script>
-export default {
-  data() {
-    return {
-      image: require('../../assets/images/404.png')
-    }
-  }
-}
-</script>
-
 <style scoped>
 .container {
   padding-top: 100px;

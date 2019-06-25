@@ -4,12 +4,13 @@
       <h3 class="dropdown-toggle text-wrap">{{ questionTitle }}</h3>
     </div>
     <div v-if="showQuestion" class="card-body">
-      <div class="text-content" v-html="questionAnswer"></div>
+      <div v-html="questionAnswer" class="text-content"></div>
     </div>
   </div>
 </template>
 <script>
 export default {
+  // eslint-disable-next-line vue/require-prop-types
   props: ['question'],
   data() {
     return {

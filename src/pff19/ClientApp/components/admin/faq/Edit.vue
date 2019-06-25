@@ -6,45 +6,45 @@
       <router-link :to="{ name: 'adminFAQs' }">Zurück</router-link>
     </div>
     <form v-if="!isSubmitted" @submit.prevent="submit">
-      <div class="form-group" :class="{ 'invalid-form': $v.QuestionDe.$error }">
+      <div :class="{ 'invalid-form': $v.QuestionDe.$error }" class="form-group">
         <label for="question_de">Frage in Deutsch</label>
         <input
           id="question_de"
           v-model="QuestionDe"
+          @blur="$v.QuestionDe.$touch()"
           type="text"
           class="form-control"
           placeholder="Deine Frage in Deutsch"
-          @blur="$v.QuestionDe.$touch()"
         />
         <div class="error-messages">
           <p v-if="!$v.QuestionDe.required && $v.QuestionDe.$dirty">Bitte eine Frage eingeben</p>
         </div>
       </div>
 
-      <div class="form-group" :class="{ 'invalid-form': $v.QuestionFr.$error }">
+      <div :class="{ 'invalid-form': $v.QuestionFr.$error }" class="form-group">
         <label for="question_fr">Frage in Französisch</label>
         <input
           id="question_fr"
           v-model="QuestionFr"
+          @blur="$v.QuestionFr.$touch()"
           type="text"
           class="form-control"
           placeholder="Deine Frage in Französisch"
-          @blur="$v.QuestionFr.$touch()"
         />
         <div class="error-messages">
           <p v-if="!$v.QuestionFr.required && $v.QuestionFr.$dirty">Bitte eine Frage eingeben</p>
         </div>
       </div>
 
-      <div class="form-group" :class="{ 'invalid-form': $v.AnswerDe.$error }">
+      <div :class="{ 'invalid-form': $v.AnswerDe.$error }" class="form-group">
         <label for="answer_de">Antwort Deutsch</label>
         <vue-editor
           id="answer_de"
           v-model="AnswerDe"
-          class="html-editor"
           :editor-options="optionsEditor"
           :editor-toolbar="customToolbar"
           @blur="$v.AnswerDe.$touch()"
+          class="html-editor"
         ></vue-editor>
 
         <div class="error-messages">
@@ -54,15 +54,15 @@
         </div>
       </div>
 
-      <div class="form-group" :class="{ 'invalid-form': $v.AnswerFr.$error }">
+      <div :class="{ 'invalid-form': $v.AnswerFr.$error }" class="form-group">
         <label for="answer_fr">Antwort Französisch</label>
         <vue-editor
           id="answer_fr"
           v-model="AnswerFr"
-          class="html-editor"
           :editor-options="optionsEditor"
           :editor-toolbar="customToolbar"
           @blur="$v.AnswerFr.$touch()"
+          class="html-editor"
         ></vue-editor>
 
         <div class="error-messages">

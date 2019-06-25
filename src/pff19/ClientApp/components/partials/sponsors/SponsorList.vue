@@ -1,5 +1,5 @@
 <template>
-  <div class="sponsors container" v-if="mainSponsors && mainSponsors.length > 0">
+  <div v-if="mainSponsors && mainSponsors.length > 0" class="sponsors container">
     <h2>{{ $t('lang.components.home.sponsors.main_sponsors') }}</h2>
     <div class="row">
       <app-sponsor v-for="sponsor in mainSponsors" :key="sponsor.id" :sponsor="sponsor">
@@ -9,13 +9,12 @@
 </template>
 
 <script>
-import axios from 'axios'
 import { mapActions, mapGetters } from 'vuex'
 import Sponsor from './Sponsor.vue'
 
 export default {
-  methods: {
-    ...mapActions('sponsors', ['load'])
+  components: {
+    'app-sponsor': Sponsor
   },
 
   computed: {
@@ -26,8 +25,8 @@ export default {
     this.load()
   },
 
-  components: {
-    'app-sponsor': Sponsor
+  methods: {
+    ...mapActions('sponsors', ['load'])
   }
 }
 </script>
