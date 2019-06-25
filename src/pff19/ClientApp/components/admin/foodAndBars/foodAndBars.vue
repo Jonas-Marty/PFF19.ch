@@ -10,21 +10,15 @@
           class="list-img p-1"
           :src="`/assets/bars/thumbnail/${bar.imageThumbnail}`"
           alt="Card image cap"
-        />
+        >
         <div class="card-body p-5">
           <h5 class="card-title">{{ bar.nameDe }}</h5>
-          <p class="card-text">
-            {{ bar.descriptionDe | shorten(150) }}
-          </p>
-          <router-link class="card-link" :to="{ name: 'bar', params: { id: bar.id } }">
-            View
-          </router-link>
+          <p class="card-text">{{ bar.descriptionDe | shorten(150) }}</p>
+          <router-link class="card-link" :to="{ name: 'bar', params: { id: bar.id } }">View</router-link>
           <router-link
             class="card-link"
             :to="{ name: 'adminFoodAndBarsEdit', params: { id: bar.id } }"
-          >
-            Edit
-          </router-link>
+          >Edit</router-link>
 
           <i class="fa fa-remove fa-1x pull-right" @click="remove(bar.id)"></i>
           <i class="fa fa-arrow-up fa-1x pull-right" @click="toUpperElem(bar.id, bar.order)"></i>

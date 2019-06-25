@@ -1,32 +1,28 @@
 <template>
   <div>
     <h1>Bands</h1>
-    <router-link to="bands/add"> <i class="fa fa-add fa-1x pull-right"></i>hinzufügen </router-link>
+    <router-link to="bands/add">
+      <i class="fa fa-add fa-1x pull-right"></i>hinzufügen
+    </router-link>
     <div class="list-group">
       <div class="list-group-item d-flex" v-for="band in orderedBands" :key="band.id">
         <img
           class="list-img p-1"
           :src="`/assets/bands/thumbnail/${band.imageThumbnail}`"
           alt="Card image cap"
-        />
+        >
         <div class="card-body p-5">
           <h5 class="card-title">{{ band.name }}</h5>
-          <p class="card-text">
-            {{ band.descriptionDe | shorten(150) }}
-          </p>
-          <router-link class="card-link" :to="{ name: 'band', params: { id: band.id } }">
-            View
-          </router-link>
-          <router-link class="card-link" :to="{ name: 'adminBandsEdit', params: { id: band.id } }">
-            Edit
-          </router-link>
+          <p class="card-text">{{ band.descriptionDe | shorten(150) }}</p>
+          <router-link class="card-link" :to="{ name: 'band', params: { id: band.id } }">View</router-link>
+          <router-link
+            class="card-link"
+            :to="{ name: 'adminBandsEdit', params: { id: band.id } }"
+          >Edit</router-link>
 
           <i class="fa fa-remove fa-1x pull-right" @click="remove(band.id)"></i>
           <i class="fa fa-arrow-up fa-1x pull-right" @click="toUpperElem(band.id, band.order)"></i>
-          <i
-            class="fa fa-arrow-down fa-1x pull-right"
-            @click="toLowerElem(band.id, band.order)"
-          ></i>
+          <i class="fa fa-arrow-down fa-1x pull-right" @click="toLowerElem(band.id, band.order)"></i>
         </div>
         <div></div>
       </div>

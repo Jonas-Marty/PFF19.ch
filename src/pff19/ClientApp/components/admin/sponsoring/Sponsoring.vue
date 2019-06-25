@@ -6,7 +6,7 @@
     </router-link>
     <div class="list-group">
       <div
-        class="list-group-item d-flex justify-content-between "
+        class="list-group-item d-flex justify-content-between"
         v-for="sponsor in all"
         :key="sponsor.id"
       >
@@ -16,9 +16,9 @@
         </div>
         <div>
           <i class="fa fa-remove fa-1x pull-right" @click="remove(sponsor.id)"></i>
-          <router-link :to="{ name: 'adminSponsoringEdit', params: { id: sponsor.id } }"
-            ><i class="fa fa-edit fa-1x pull-right"></i
-          ></router-link>
+          <router-link :to="{ name: 'adminSponsoringEdit', params: { id: sponsor.id } }">
+            <i class="fa fa-edit fa-1x pull-right"></i>
+          </router-link>
         </div>
       </div>
     </div>

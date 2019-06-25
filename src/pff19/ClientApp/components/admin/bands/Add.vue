@@ -4,9 +4,7 @@
 
     <div v-if="isSubmitted">
       <p>Deine Band wurde hinzugefügt!</p>
-      <router-link :to="{ name: 'adminBands' }">
-        Zurück
-      </router-link>
+      <router-link :to="{ name: 'adminBands' }">Zurück</router-link>
     </div>
 
     <form @submit.prevent="submit" v-if="!isSubmitted">
@@ -21,12 +19,11 @@
           :options="dropzoneOptions"
           v-on:vdropzone-file-added="sendingEventThumpnail"
           v-on:vdropzone-removed-file="removingThumpnail"
-        >
-        </vue-dropzone>
+        ></vue-dropzone>
         <div class="error-messages">
-          <p v-if="!$v.ImageThumbnail.required && $v.ImageThumbnail.$dirty">
-            Die Band braucht ein Bild
-          </p>
+          <p
+            v-if="!$v.ImageThumbnail.required && $v.ImageThumbnail.$dirty"
+          >Die Band braucht ein Bild</p>
         </div>
       </div>
 
@@ -38,12 +35,9 @@
           :options="dropzoneOptions"
           v-on:vdropzone-file-added="sendingEventImage"
           v-on:vdropzone-removed-file="removingImage"
-        >
-        </vue-dropzone>
+        ></vue-dropzone>
         <div class="error-messages">
-          <p v-if="!$v.ImageLarge.required && $v.ImageLarge.$dirty">
-            Die Band braucht ein Bild
-          </p>
+          <p v-if="!$v.ImageLarge.required && $v.ImageLarge.$dirty">Die Band braucht ein Bild</p>
         </div>
       </div>
 
@@ -55,16 +49,15 @@
           :options="dropzoneOptions"
           v-on:vdropzone-file-added="sendingEventMobileImage"
           v-on:vdropzone-removed-file="removingMobileImage"
-        >
-        </vue-dropzone>
+        ></vue-dropzone>
       </div>
 
       <div class="form-group">
-        <label for="timeForSorting"
-          >Aufrittszeit (für die Sortierung und Gruppierung nach Tag in der TimeTable verwendet,
-          MM-dd-YYYY HH-mm)</label
-        >
-        <input type="datetime-local" class="form-control" id="time" v-model="PlayTimeForSorting" />
+        <label for="timeForSorting">
+          Aufrittszeit (für die Sortierung und Gruppierung nach Tag in der TimeTable verwendet,
+          MM-dd-YYYY HH-mm)
+        </label>
+        <input type="datetime-local" class="form-control" id="time" v-model="PlayTimeForSorting">
         <div class="error-messages"></div>
       </div>
 
@@ -77,7 +70,7 @@
           id="name"
           placeholder="Name der Band"
           v-model="Name"
-        />
+        >
         <div class="error-messages">
           <p v-if="!$v.Name.required && $v.Name.$dirty">Bitte ein Name eingeben</p>
         </div>
@@ -95,12 +88,12 @@
         ></vue-editor>
 
         <div class="error-messages">
-          <p v-if="!$v.DescriptionDe.required && $v.DescriptionDe.$dirty">
-            Es braucht eine Bescpreibung zur Band
-          </p>
-          <p v-if="!$v.DescriptionDe.minLength && $v.DescriptionDe.$dirty">
-            Deine Beschreibung ist zu kurz
-          </p>
+          <p
+            v-if="!$v.DescriptionDe.required && $v.DescriptionDe.$dirty"
+          >Es braucht eine Bescpreibung zur Band</p>
+          <p
+            v-if="!$v.DescriptionDe.minLength && $v.DescriptionDe.$dirty"
+          >Deine Beschreibung ist zu kurz</p>
         </div>
       </div>
 
@@ -116,26 +109,24 @@
         ></vue-editor>
 
         <div class="error-messages">
-          <p v-if="!$v.DescriptionFr.required && $v.DescriptionFr.$dirty">
-            Es braucht eine Bescpreibung zur Band
-          </p>
-          <p v-if="!$v.DescriptionFr.minLength && $v.DescriptionFr.$dirty">
-            Deine Beschreibung ist zu kurz
-          </p>
+          <p
+            v-if="!$v.DescriptionFr.required && $v.DescriptionFr.$dirty"
+          >Es braucht eine Bescpreibung zur Band</p>
+          <p
+            v-if="!$v.DescriptionFr.minLength && $v.DescriptionFr.$dirty"
+          >Deine Beschreibung ist zu kurz</p>
         </div>
       </div>
 
       <div class="form-group">
-        <label for="youtbe_url"
-          >Youtube codes separiert mit comma (Bsp: "Pun1Nxv9f3g, Oun1Nxv9f3a")</label
-        >
+        <label for="youtbe_url">Youtube codes separiert mit comma (Bsp: "Pun1Nxv9f3g, Oun1Nxv9f3a")</label>
         <input
           type="text"
           class="form-control"
           id="youtbe_url"
           placeholder="code1, code2, usw."
           v-model="YoutubeUrls"
-        />
+        >
         <div class="error-messages"></div>
       </div>
 
@@ -147,7 +138,7 @@
           id="website_url"
           placeholder="https://www.pff19.ch/"
           v-model="WebSiteUrl"
-        />
+        >
         <div class="error-messages"></div>
       </div>
 
@@ -159,7 +150,7 @@
           id="facebook"
           placeholder="https://www.facebook.com/pff19mosaik/"
           v-model="Facebook"
-        />
+        >
         <div class="error-messages"></div>
       </div>
 
@@ -171,16 +162,16 @@
           id="instagram"
           placeholder="https://www.instagram.com/pff_19_mosaik/"
           v-model="Instagram"
-        />
+        >
         <div class="error-messages"></div>
       </div>
 
       <div class="form-group">
-        <label for="spotify"
-          >Spotify Playlist code
-          <a href="https://developer.spotify.com/documentation/widgets/generate/play-button/"
-            >hilfe</a
-          >
+        <label for="spotify">
+          Spotify Playlist code
+          <a
+            href="https://developer.spotify.com/documentation/widgets/generate/play-button/"
+          >hilfe</a>
         </label>
         <input
           type="text"
@@ -188,7 +179,7 @@
           id="spotify"
           placeholder="https://open.spotify.com/embed/album/1DFixLWuPkv3KT3TnV35m3"
           v-model="SpotifyPlaylist"
-        />
+        >
         <div class="error-messages"></div>
       </div>
 
@@ -206,7 +197,9 @@
         <li>
           Trage deinen Beitrag zur eine schnelle Webseite und lasse deine Bilder vor dem Upload
           komprimieren unter
-          <a href="https://tinyjpg.com/">https://tinyjpg.com/</a>
+          <a
+            href="https://tinyjpg.com/"
+          >https://tinyjpg.com/</a>
         </li>
         <li>
           Falls beim Editieren trotzdem noch das alte Bild angezeigt wird, mache einen hard reload

@@ -9,7 +9,9 @@
         <p>
           Das PFF FFS 19 MOSAIK ist die Fortführung einer langjährigen, schweizweiten Tradition –
           dem Pfadi Folk Fest. Nach der
-          <a href="https://www.pff18.ch/">Ausgabe im Sommer 2018 in Liestal</a> findet das PFF im
+          <a
+            href="https://www.pff18.ch/"
+          >Ausgabe im Sommer 2018 in Liestal</a> findet das PFF im
           Sommer 2019 im Kanton Zürich statt. Vom 30. August – 01. September 2019 versammeln sich in
           Stäfa zahlreiche Pfadis und ihre Freunde unter dem Motto «MOSAIK», um ein unvergessliches
           Festival der etwas anderen Art zu geniessen.
@@ -32,15 +34,14 @@
           erhöhe deine Chance auf ein heissbegehrtes und limitiertes Early-Bird-Ticket: Jetzt in
           <a
             href="https://pff2019.us12.list-manage.com/subscribe/post?u=49efe2269ccc4a7227ef08f59&id=067179a941"
-            >Newsletter</a
-          >
+          >Newsletter</a>
           eintragen
         </p>
 
         <h3>Helfer</h3>
         <p>
           Nicht genügend Geld für´s Ticket? Komm doch als Helfer ans PFF! Schreibe dich jetzt
-          <router-link :to="{ name: 'helper' }">hier</router-link> als Helfer ein, um als Erste/r
+          <router-link :to="{ name: 'helper' }">hier</router-link>als Helfer ein, um als Erste/r
           aus den Schichten auswählen zu können, sobald diese aufgeschaltet werden.
         </p>
 
@@ -50,7 +51,9 @@
           finanzielle Unterstützung aus. Falls Du uns unterstützen, eine Partnerschaft mit uns
           eingehen möchtest oder ein Angebot für ein «Sachsponsoring» hast, melde Dich mit Deiner
           Anfrage direkt bei
-          <a href="mailto:sponsoring@pff19.ch">sponsoring@pff19.ch</a>
+          <a
+            href="mailto:sponsoring@pff19.ch"
+          >sponsoring@pff19.ch</a>
         </p>
 
         <p>
@@ -64,15 +67,17 @@
           Neuigkeiten haben, werden wir sie via
           <a
             href="https://pff2019.us12.list-manage.com/subscribe/post?u=49efe2269ccc4a7227ef08f59&id=067179a941"
-            >Newsletter</a
-          >, auf <a href="https://www.facebook.com/pff19mosaik/">Facebook</a> und
+          >Newsletter</a>, auf
+          <a href="https://www.facebook.com/pff19mosaik/">Facebook</a> und
           <a href="https://www.instagram.com/pff_19_mosaik/">Instagram</a> bekanntgeben.
         </p>
 
         <p>
           Das PFF bietet die optimale Bühne für kleine, aber feine Bands. Falls du dich mit deiner
           Band als «Pfadiband» bewerben möchtest, melde dich direkt bei
-          <a href="mailto:bands@pff19.ch">bands@pff19.ch</a>
+          <a
+            href="mailto:bands@pff19.ch"
+          >bands@pff19.ch</a>
         </p>
 
         <div class="col">

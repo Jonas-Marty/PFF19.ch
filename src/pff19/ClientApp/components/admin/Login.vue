@@ -1,17 +1,15 @@
 <template>
   <div id="signin">
-    <div v-if="getError" class="alert alert-danger">
-      {{ getError }}
-    </div>
+    <div v-if="getError" class="alert alert-danger">{{ getError }}</div>
     <div class="signin-form">
       <form @submit.prevent="onSubmit">
         <div class="form-group">
           <label for="email">Mail</label>
-          <input type="email" id="email" class="form-control" v-model="email" />
+          <input type="email" id="email" class="form-control" v-model="email">
         </div>
         <div class="form-group">
           <label for="password">Password</label>
-          <input type="password" id="password" v-model="password" class="form-control" />
+          <input type="password" id="password" v-model="password" class="form-control">
         </div>
         <div class="submit">
           <button type="submit" class="btn btn-primary">Submit</button>

@@ -15,11 +15,9 @@
           id="question_de"
           placeholder="Deine Frage in Deutsch"
           v-model="QuestionDe"
-        />
+        >
         <div class="error-messages">
-          <p v-if="!$v.QuestionDe.required && $v.QuestionDe.$dirty">
-            Bitte eine Frage eingeben
-          </p>
+          <p v-if="!$v.QuestionDe.required && $v.QuestionDe.$dirty">Bitte eine Frage eingeben</p>
         </div>
       </div>
 
@@ -32,11 +30,9 @@
           id="question_fr"
           placeholder="Deine Frage in Französisch"
           v-model="QuestionFr"
-        />
+        >
         <div class="error-messages">
-          <p v-if="!$v.QuestionFr.required && $v.QuestionFr.$dirty">
-            Bitte eine Frage eingeben
-          </p>
+          <p v-if="!$v.QuestionFr.required && $v.QuestionFr.$dirty">Bitte eine Frage eingeben</p>
         </div>
       </div>
 
@@ -52,9 +48,7 @@
         ></vue-editor>
 
         <div class="error-messages">
-          <p v-if="!$v.AnswerDe.required && $v.AnswerDe.$dirty">
-            Es brauch eine Antwort auf die Frage
-          </p>
+          <p v-if="!$v.AnswerDe.required && $v.AnswerDe.$dirty">Es brauch eine Antwort auf die Frage</p>
         </div>
       </div>
 
@@ -70,9 +64,7 @@
         ></vue-editor>
 
         <div class="error-messages">
-          <p v-if="!$v.AnswerFr.required && $v.AnswerFr.$dirty">
-            Es brauch eine Antwort auf die Frage
-          </p>
+          <p v-if="!$v.AnswerFr.required && $v.AnswerFr.$dirty">Es brauch eine Antwort auf die Frage</p>
         </div>
       </div>
 

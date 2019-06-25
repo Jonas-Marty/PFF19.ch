@@ -30,7 +30,7 @@
           id="name"
           placeholder="Name der Firma"
           v-model="name"
-        />
+        >
         <div class="error-messages">
           <p v-if="!$v.name.required && $v.name.$dirty">Bitte einen Namen eingeben</p>
           <p v-if="!$v.name.minLength && $v.name.$dirty">Dein Name ist zu kurz</p>
@@ -47,7 +47,7 @@
           id="link"
           placeholder="Der Link zur Firma"
           v-model="link"
-        />
+        >
         <div class="error-messages">
           <p v-if="!$v.link.minLength && $v.link.$dirty">Dein Link ist zu kurz</p>
         </div>

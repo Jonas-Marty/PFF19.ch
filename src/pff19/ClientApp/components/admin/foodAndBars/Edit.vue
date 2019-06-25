@@ -4,9 +4,7 @@
 
     <div v-if="isSubmitted">
       <p>Deine Bar wurde upgedated!</p>
-      <router-link :to="{ name: 'adminFoodAndBars' }">
-        Zurück
-      </router-link>
+      <router-link :to="{ name: 'adminFoodAndBars' }">Zurück</router-link>
     </div>
 
     <form @submit.prevent="submit" v-if="!isSubmitted">
@@ -21,12 +19,11 @@
           :options="dropzoneOptions"
           v-on:vdropzone-file-added="sendingEventThumpnail"
           v-on:vdropzone-removed-file="removingThumpnail"
-        >
-        </vue-dropzone>
+        ></vue-dropzone>
         <div class="error-messages">
-          <p v-if="!$v.ImageThumbnail.required && $v.ImageThumbnail.$dirty">
-            Es braucht ein Thumbnail Bild
-          </p>
+          <p
+            v-if="!$v.ImageThumbnail.required && $v.ImageThumbnail.$dirty"
+          >Es braucht ein Thumbnail Bild</p>
         </div>
       </div>
 
@@ -38,12 +35,9 @@
           :options="dropzoneOptions"
           v-on:vdropzone-file-added="sendingEventImage"
           v-on:vdropzone-removed-file="removingImage"
-        >
-        </vue-dropzone>
+        ></vue-dropzone>
         <div class="error-messages">
-          <p v-if="!$v.ImageLarge.required && $v.ImageLarge.$dirty">
-            Es braucht ein big Screen Bild
-          </p>
+          <p v-if="!$v.ImageLarge.required && $v.ImageLarge.$dirty">Es braucht ein big Screen Bild</p>
         </div>
       </div>
 
@@ -55,8 +49,7 @@
           :options="dropzoneOptions"
           v-on:vdropzone-file-added="sendingEventMobileImage"
           v-on:vdropzone-removed-file="removingMobileImage"
-        >
-        </vue-dropzone>
+        ></vue-dropzone>
       </div>
 
       <div class="form-group" :class="{ 'invalid-form': $v.NameDe.$error }">
@@ -68,7 +61,7 @@
           id="name_de"
           placeholder="Name Deutsch"
           v-model="NameDe"
-        />
+        >
         <div class="error-messages">
           <p v-if="!$v.NameDe.required && $v.NameDe.$dirty">Bitte ein Name eingeben</p>
         </div>
@@ -83,7 +76,7 @@
           id="name_fr"
           placeholder="Name Französisch"
           v-model="NameFr"
-        />
+        >
         <div class="error-messages">
           <p v-if="!$v.NameFr.required && $v.NameFr.$dirty">Bitte ein Name eingeben</p>
         </div>
@@ -101,12 +94,12 @@
         ></vue-editor>
 
         <div class="error-messages">
-          <p v-if="!$v.DescriptionDe.required && $v.DescriptionDe.$dirty">
-            Es braucht eine Bescpreibung
-          </p>
-          <p v-if="!$v.DescriptionDe.minLength && $v.DescriptionDe.$dirty">
-            Deine Beschreibung ist zu kurz
-          </p>
+          <p
+            v-if="!$v.DescriptionDe.required && $v.DescriptionDe.$dirty"
+          >Es braucht eine Bescpreibung</p>
+          <p
+            v-if="!$v.DescriptionDe.minLength && $v.DescriptionDe.$dirty"
+          >Deine Beschreibung ist zu kurz</p>
         </div>
       </div>
 
@@ -122,12 +115,12 @@
         ></vue-editor>
 
         <div class="error-messages">
-          <p v-if="!$v.DescriptionFr.required && $v.DescriptionFr.$dirty">
-            Es braucht eine Bescpreibung
-          </p>
-          <p v-if="!$v.DescriptionFr.minLength && $v.DescriptionFr.$dirty">
-            Deine Beschreibung ist zu kurz
-          </p>
+          <p
+            v-if="!$v.DescriptionFr.required && $v.DescriptionFr.$dirty"
+          >Es braucht eine Bescpreibung</p>
+          <p
+            v-if="!$v.DescriptionFr.minLength && $v.DescriptionFr.$dirty"
+          >Deine Beschreibung ist zu kurz</p>
         </div>
       </div>
 
@@ -145,7 +138,9 @@
         <li>
           Trage deinen Beitrag zur eine schnelle Webseite und lasse deine Bilder vor dem Upload
           komprimieren unter
-          <a href="https://tinyjpg.com/">https://tinyjpg.com/</a>
+          <a
+            href="https://tinyjpg.com/"
+          >https://tinyjpg.com/</a>
         </li>
         <li>
           Falls beim Editieren trotzdem noch das alte Bild angezeigt wird, mache einen hard reload

@@ -9,12 +9,8 @@
         :key="helfer.id"
       >
         <div>{{ helfer.name }}, {{ helfer.vorname }}, {{ helfer.pfadiname }}</div>
-        <div>
-          {{ helfer.email }}
-        </div>
-        <div>
-          {{ helfer.wishes }}
-        </div>
+        <div>{{ helfer.email }}</div>
+        <div>{{ helfer.wishes }}</div>
         <div>
           <i class="fa fa-remove fa-1x pull-right" @click="remove(helfer.id)"></i>
         </div>

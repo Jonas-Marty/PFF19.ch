@@ -18,17 +18,17 @@
                 id="firstname"
                 placeholder="Max"
                 v-model="firstname"
-              />
+              >
               <div class="error-messages">
-                <p v-if="!$v.firstname.required && $v.firstname.$dirty">
-                  {{ $t('lang.forms.errors.missing-firstname') }}
-                </p>
-                <p v-if="!$v.firstname.minLength && $v.firstname.$dirty">
-                  {{ $t('lang.forms.errors.too-few-letters') }}
-                </p>
-                <p v-if="!$v.firstname.maxLength && $v.firstname.$dirty">
-                  {{ $t('lang.forms.errors.too-many-letters') }}
-                </p>
+                <p
+                  v-if="!$v.firstname.required && $v.firstname.$dirty"
+                >{{ $t('lang.forms.errors.missing-firstname') }}</p>
+                <p
+                  v-if="!$v.firstname.minLength && $v.firstname.$dirty"
+                >{{ $t('lang.forms.errors.too-few-letters') }}</p>
+                <p
+                  v-if="!$v.firstname.maxLength && $v.firstname.$dirty"
+                >{{ $t('lang.forms.errors.too-many-letters') }}</p>
               </div>
             </div>
 
@@ -42,17 +42,17 @@
                 id="lastname"
                 placeholder="Musterman"
                 v-model="lastname"
-              />
+              >
               <div class="error-messages">
-                <p v-if="!$v.lastname.required && $v.lastname.$dirty">
-                  {{ $t('lang.forms.errors.missing-lastname') }}
-                </p>
-                <p v-if="!$v.lastname.minLength && $v.lastname.$dirty">
-                  {{ $t('lang.forms.errors.too-few-letters') }}
-                </p>
-                <p v-if="!$v.lastname.maxLength && $v.lastname.$dirty">
-                  {{ $t('lang.forms.errors.too-many-letters') }}
-                </p>
+                <p
+                  v-if="!$v.lastname.required && $v.lastname.$dirty"
+                >{{ $t('lang.forms.errors.missing-lastname') }}</p>
+                <p
+                  v-if="!$v.lastname.minLength && $v.lastname.$dirty"
+                >{{ $t('lang.forms.errors.too-few-letters') }}</p>
+                <p
+                  v-if="!$v.lastname.maxLength && $v.lastname.$dirty"
+                >{{ $t('lang.forms.errors.too-many-letters') }}</p>
               </div>
             </div>
 
@@ -65,14 +65,14 @@
                 id="email"
                 placeholder="max.musterman@mail.com"
                 v-model="email"
-              />
+              >
               <div class="error-messages">
-                <p v-if="!$v.email.required && $v.email.$dirty">
-                  {{ $t('lang.forms.errors.missing-email') }}
-                </p>
-                <p v-if="!$v.email.email && $v.email.$dirty">
-                  {{ $t('lang.forms.errors.incorrect-email') }}
-                </p>
+                <p
+                  v-if="!$v.email.required && $v.email.$dirty"
+                >{{ $t('lang.forms.errors.missing-email') }}</p>
+                <p
+                  v-if="!$v.email.email && $v.email.$dirty"
+                >{{ $t('lang.forms.errors.incorrect-email') }}</p>
               </div>
             </div>
 
@@ -88,27 +88,24 @@
               ></textarea>
 
               <div class="error-messages">
-                <p v-if="!$v.contactText.required && $v.contactText.$dirty">
-                  {{ $t('lang.forms.errors.missing-message') }}
-                </p>
+                <p
+                  v-if="!$v.contactText.required && $v.contactText.$dirty"
+                >{{ $t('lang.forms.errors.missing-message') }}</p>
               </div>
             </div>
 
-            <button type="submit" class="btn btn-primary">
-              {{ $t('lang.forms.submit') }}
-            </button>
+            <button type="submit" class="btn btn-primary">{{ $t('lang.forms.submit') }}</button>
           </form>
 
           <div v-if="isSubmitted">
-            <span class="success-message">
-              {{ $t('lang.forms.success.contact-confirm') }}
-            </span>
+            <span class="success-message">{{ $t('lang.forms.success.contact-confirm') }}</span>
           </div>
           <div class="account-infos">
             {{ $t('lang.components.faq.account') }}:
             <p>
               CH98 0070 0110 0062 5243 7
-              <br />PFF Stäfa 2019 <br />8712 Stäfa
+              <br>PFF Stäfa 2019
+              <br>8712 Stäfa
             </p>
           </div>
         </div>

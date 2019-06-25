@@ -1,7 +1,9 @@
 <template>
   <div>
     <h1>Alle FAQs</h1>
-    <router-link to="faqs/add"> <i class="fa fa-add fa-1x pull-right"></i>hinzufügen </router-link>
+    <router-link to="faqs/add">
+      <i class="fa fa-add fa-1x pull-right"></i>hinzufügen
+    </router-link>
     <div class="list-group">
       <div
         class="list-group-item d-flex justify-content-between align-items-right"

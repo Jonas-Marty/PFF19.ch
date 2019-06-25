@@ -7,17 +7,14 @@
     </div>
     <form @submit.prevent="submit" v-if="!isSubmitted">
       <div class="form-group dropzone-wrapper" :class="{ 'invalid-form': $v.Images.$error }">
-        <label for="image_upload"
-          >Image upload (Max 3 Bilder, 1st Bild ist Thumpnail) 740x555px</label
-        >
+        <label for="image_upload">Image upload (Max 3 Bilder, 1st Bild ist Thumpnail) 740x555px</label>
         <vue-dropzone
           ref="myVueDropzone"
           id="dropzone"
           :options="dropzoneOptions"
           v-on:vdropzone-file-added="sendingEvent"
           v-on:vdropzone-removed-file="removingFile"
-        >
-        </vue-dropzone>
+        ></vue-dropzone>
         <div class="error-messages">
           <p v-if="!$v.Images.required && $v.Images.$dirty">Die News braucht ein Bild</p>
         </div>
@@ -37,7 +34,7 @@
           id="title_de"
           placeholder="Dein Title in Deutsch"
           v-model="TitleDe"
-        />
+        >
         <div class="error-messages">
           <p v-if="!$v.TitleDe.required && $v.TitleDe.$dirty">Bitte ein Titel eingeben</p>
           <p v-if="!$v.TitleDe.minLength && $v.TitleDe.$dirty">Dein Titel ist zu kurz</p>
@@ -54,7 +51,7 @@
           id="title_fr"
           placeholder="Dein Title in Französisch"
           v-model="TitleFr"
-        />
+        >
         <div class="error-messages">
           <p v-if="!$v.TitleFr.required && $v.TitleFr.$dirty">Bitte ein Titel eingeben</p>
           <p v-if="!$v.TitleFr.minLength && $v.TitleFr.$dirty">Dein Titel ist zu kurz</p>
@@ -71,18 +68,11 @@
           id="preview_de"
           placeholder="Deine Preview"
           v-model="PreviewDe"
-        >
-        </textarea>
+        ></textarea>
         <div class="error-messages">
-          <p v-if="!$v.PreviewDe.required && $v.PreviewDe.$dirty">
-            Bitte eine Preview eingeben
-          </p>
-          <p v-if="!$v.PreviewDe.minLength && $v.PreviewDe.$dirty">
-            Deine Preview ist zu kurz
-          </p>
-          <p v-if="!$v.PreviewDe.maxLength && $v.PreviewDe.$dirty">
-            Deine Preview ist zu lang
-          </p>
+          <p v-if="!$v.PreviewDe.required && $v.PreviewDe.$dirty">Bitte eine Preview eingeben</p>
+          <p v-if="!$v.PreviewDe.minLength && $v.PreviewDe.$dirty">Deine Preview ist zu kurz</p>
+          <p v-if="!$v.PreviewDe.maxLength && $v.PreviewDe.$dirty">Deine Preview ist zu lang</p>
         </div>
       </div>
 
@@ -95,18 +85,11 @@
           id="preview_fr"
           placeholder="Deine Preview in Französisch"
           v-model="PreviewFr"
-        >
-        </textarea>
+        ></textarea>
         <div class="error-messages">
-          <p v-if="!$v.PreviewFr.required && $v.PreviewFr.$dirty">
-            Bitte eine Preview eingeben
-          </p>
-          <p v-if="!$v.PreviewFr.minLength && $v.PreviewFr.$dirty">
-            Deine Preview ist zu kurz
-          </p>
-          <p v-if="!$v.PreviewFr.maxLength && $v.PreviewFr.$dirty">
-            Deine Preview ist zu lang
-          </p>
+          <p v-if="!$v.PreviewFr.required && $v.PreviewFr.$dirty">Bitte eine Preview eingeben</p>
+          <p v-if="!$v.PreviewFr.minLength && $v.PreviewFr.$dirty">Deine Preview ist zu kurz</p>
+          <p v-if="!$v.PreviewFr.maxLength && $v.PreviewFr.$dirty">Deine Preview ist zu lang</p>
         </div>
       </div>
 
@@ -122,9 +105,9 @@
         ></vue-editor>
 
         <div class="error-messages">
-          <p v-if="!$v.ContentDe.required && $v.ContentDe.$dirty">
-            Es brauch einen Inhalt für deine News
-          </p>
+          <p
+            v-if="!$v.ContentDe.required && $v.ContentDe.$dirty"
+          >Es brauch einen Inhalt für deine News</p>
         </div>
       </div>
 
@@ -140,9 +123,9 @@
         ></vue-editor>
 
         <div class="error-messages">
-          <p v-if="!$v.ContentFr.required && $v.ContentFr.$dirty">
-            Es brauch einen Inhalt für deine News
-          </p>
+          <p
+            v-if="!$v.ContentFr.required && $v.ContentFr.$dirty"
+          >Es brauch einen Inhalt für deine News</p>
         </div>
       </div>
 
@@ -162,7 +145,9 @@
         <li>
           Trage deinen Beitrag zur eine schnelle Webseite und lasse deine Bilder vor dem Upload
           komprimieren unter
-          <a href="https://tinyjpg.com/">https://tinyjpg.com/</a>
+          <a
+            href="https://tinyjpg.com/"
+          >https://tinyjpg.com/</a>
         </li>
         <li>
           Falls beim Editieren trotzdem noch das alte Bild angezeigt wird, mache einen hard reload

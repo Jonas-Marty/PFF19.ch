@@ -5,9 +5,9 @@
       <div class="list-group-item" v-for="contact in orderedContacts" :key="contact.id">
         <div class="card-body">
           <h5 class="card-title">{{ contact.firstName }}, {{ contact.lastName }}</h5>
-          <h6 class="card-subtitle mb-2 text-muted">
-            {{ contact.mail }}, {{ contact.submitedAt | formateDate(language) }}
-          </h6>
+          <h6
+            class="card-subtitle mb-2 text-muted"
+          >{{ contact.mail }}, {{ contact.submitedAt | formateDate(language) }}</h6>
           <p class="card-text">{{ contact.text }}</p>
         </div>
       </div>
