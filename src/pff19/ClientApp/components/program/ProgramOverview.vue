@@ -13,8 +13,7 @@
                 :key="day.name"
                 :value="day.name"
                 :selected="day.name === selectedDay"
-                >{{ $t(`lang.components.bands.${day.name}`) }}</option
-              >
+              >{{ $t(`lang.components.bands.${day.name}`) }}</option>
             </select>
           </div>
         </form>
@@ -27,7 +26,7 @@
             class="card-img-top"
             :src="`/assets/bands/thumbnail/${band.imageThumbnail}`"
             :alt="band.name"
-          />
+          >
         </router-link>
         <div class="card-body">
           <router-link :to="{ name: 'band', params: { id: band.id, name: band.name } }">
