@@ -2,38 +2,73 @@
   <div>
     <h1>Bands</h1>
     <router-link to="bands/add">
-      <i class="fa fa-add fa-1x pull-right"></i>hinzufügen
+      <i class="fa fa-add fa-1x pull-right" />hinzufügen
     </router-link>
     <div class="list-group">
-      <div class="list-group-item d-flex" v-for="band in orderedBands" :key="band.id">
+      <div
+        v-for="band in orderedBands"
+        :key="band.id"
+        class="list-group-item d-flex"
+      >
         <img
           class="list-img p-1"
           :src="`/assets/bands/thumbnail/${band.imageThumbnail}`"
           alt="Card image cap"
         >
         <div class="card-body p-5">
-          <h5 class="card-title">{{ band.name }}</h5>
-          <p class="card-text">{{ band.descriptionDe | shorten(150) }}</p>
-          <router-link class="card-link" :to="{ name: 'band', params: { id: band.id } }">View</router-link>
+          <h5 class="card-title">
+            {{ band.name }}
+          </h5>
+          <p class="card-text">
+            {{ band.descriptionDe | shorten(150) }}
+          </p>
+          <router-link
+            class="card-link"
+            :to="{ name: 'band', params: { id: band.id } }"
+          >
+            View
+          </router-link>
           <router-link
             class="card-link"
             :to="{ name: 'adminBandsEdit', params: { id: band.id } }"
-          >Edit</router-link>
+          >
+            Edit
+          </router-link>
 
-          <i class="fa fa-remove fa-1x pull-right" @click="remove(band.id)"></i>
-          <i class="fa fa-arrow-up fa-1x pull-right" @click="toUpperElem(band.id, band.order)"></i>
-          <i class="fa fa-arrow-down fa-1x pull-right" @click="toLowerElem(band.id, band.order)"></i>
+          <i
+            class="fa fa-remove fa-1x pull-right"
+            @click="remove(band.id)"
+          />
+          <i
+            class="fa fa-arrow-up fa-1x pull-right"
+            @click="toUpperElem(band.id, band.order)"
+          />
+          <i
+            class="fa fa-arrow-down fa-1x pull-right"
+            @click="toLowerElem(band.id, band.order)" 
+          />
         </div>
-        <div></div>
+        <div />
       </div>
     </div>
   </div>
 </template>
 <script>
 import { mapActions, mapGetters } from 'vuex'
-import axios from 'axios'
 
 export default {
+  computed: {
+    ...mapGetters('bands', ['all']),
+    orderedBands() {
+      // eslint-disable-next-line vue/no-side-effects-in-computed-properties
+      return this.all.sort((a, b) => a.order - b.order)
+    }
+  },
+
+  created() {
+    this.load()
+  },
+
   methods: {
     ...mapActions('bands', ['load', 'remove', 'swap']),
 
@@ -72,17 +107,6 @@ export default {
       }
     }
   },
-
-  computed: {
-    ...mapGetters('bands', ['all']),
-    orderedBands() {
-      return this.all.sort((a, b) => a.order - b.order)
-    }
-  },
-
-  created() {
-    this.load()
-  }
 }
 </script>
 

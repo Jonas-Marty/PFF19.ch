@@ -1,55 +1,67 @@
 <template>
   <div>
-    <h2 class="title">Band Editiern</h2>
+    <h2 class="title">
+      Band Editiern
+    </h2>
 
     <div v-if="isSubmitted">
       <p>Deine Band wurde upgedated!</p>
-      <router-link :to="{ name: 'adminBands' }">Zurück</router-link>
+      <router-link :to="{ name: 'adminBands' }">
+        Zurück
+      </router-link>
     </div>
 
-    <form @submit.prevent="submit" v-if="!isSubmitted">
+    <form
+      v-if="!isSubmitted"
+      @submit.prevent="submit"
+    >
       <div
         class="form-group dropzone-wrapper"
         :class="{ 'invalid-form': $v.ImageThumbnail.$error }"
       >
         <label for="thumpnailUpload">Thumpnail upload (440x330px)</label>
         <vue-dropzone
-          ref="thumpnailUpload"
           id="thumpnailUpload"
+          ref="thumpnailUpload"
           :options="dropzoneOptions"
-          v-on:vdropzone-file-added="sendingEventThumpnail"
-          v-on:vdropzone-removed-file="removingThumpnail"
-        ></vue-dropzone>
+          @vdropzone-file-added="sendingEventThumpnail"
+          @vdropzone-removed-file="removingThumpnail"
+        />
         <div class="error-messages">
-          <p
-            v-if="!$v.ImageThumbnail.required && $v.ImageThumbnail.$dirty"
-          >Die Band braucht ein Bild</p>
+          <p v-if="!$v.ImageThumbnail.required && $v.ImageThumbnail.$dirty">
+            Die Band braucht ein Bild
+          </p>
         </div>
       </div>
 
-      <div class="form-group dropzone-wrapper" :class="{ 'invalid-form': $v.ImageLarge.$error }">
+      <div
+        class="form-group dropzone-wrapper"
+        :class="{ 'invalid-form': $v.ImageLarge.$error }"
+      >
         <label for="imageUpload">Image upload (1920x730px)</label>
         <vue-dropzone
-          ref="imageUpload"
           id="imageUpload"
+          ref="imageUpload"
           :options="dropzoneOptions"
-          v-on:vdropzone-file-added="sendingEventImage"
-          v-on:vdropzone-removed-file="removingImage"
-        ></vue-dropzone>
+          @vdropzone-file-added="sendingEventImage"
+          @vdropzone-removed-file="removingImage"
+        />
         <div class="error-messages">
-          <p v-if="!$v.ImageLarge.required && $v.ImageLarge.$dirty">Die Band braucht ein Bild</p>
+          <p v-if="!$v.ImageLarge.required && $v.ImageLarge.$dirty">
+            Die Band braucht ein Bild
+          </p>
         </div>
       </div>
 
       <div class="form-group dropzone-wrapper">
         <label for="mobileUpload">Smartphone Image upload (768x400)</label>
         <vue-dropzone
-          ref="mobileUpload"
           id="mobileUpload"
+          ref="mobileUpload"
           :options="dropzoneOptions"
-          v-on:vdropzone-file-added="sendingEventMobileImage"
-          v-on:vdropzone-removed-file="removingMobileImage"
-        ></vue-dropzone>
+          @vdropzone-file-added="sendingEventMobileImage"
+          @vdropzone-removed-file="removingMobileImage"
+        />
       </div>
 
       <div class="form-group">
@@ -58,117 +70,130 @@
           MM-dd-YYYY HH-mm)
         </label>
         <input
-          type="datetime-local"
-          class="form-control"
           id="timeForSorting"
           v-model="PlayTimeForSorting"
+          type="datetime-local"
+          class="form-control"
         >
-        <div class="error-messages"></div>
+        <div class="error-messages" />
       </div>
 
-      <div class="form-group" :class="{ 'invalid-form': $v.Name.$error }">
+      <div
+        class="form-group"
+        :class="{ 'invalid-form': $v.Name.$error }"
+      >
         <label for="name">Name</label>
         <input
-          type="text"
-          @blur="$v.Name.$touch()"
-          class="form-control"
           id="name"
-          placeholder="Name der Band"
           v-model="Name"
+          type="text"
+          class="form-control"
+          placeholder="Name der Band"
+          @blur="$v.Name.$touch()"
         >
         <div class="error-messages">
-          <p v-if="!$v.Name.required && $v.Name.$dirty">Bitte ein Name eingeben</p>
+          <p v-if="!$v.Name.required && $v.Name.$dirty">
+            Bitte ein Name eingeben
+          </p>
         </div>
       </div>
 
-      <div class="form-group" :class="{ 'invalid-form': $v.DescriptionDe.$error }">
+      <div
+        class="form-group"
+        :class="{ 'invalid-form': $v.DescriptionDe.$error }"
+      >
         <label for="description_de">Description Deutsch</label>
         <vue-editor
-          class="html-editor"
-          @blur="$v.DescriptionDe.$touch()"
           id="description_de"
-          :editorOptions="optionsEditor"
-          :editorToolbar="customToolbar"
           v-model="DescriptionDe"
-        ></vue-editor>
+          class="html-editor"
+          :editor-options="optionsEditor"
+          :editor-toolbar="customToolbar"
+          @blur="$v.DescriptionDe.$touch()"
+        />
 
         <div class="error-messages">
-          <p
-            v-if="!$v.DescriptionDe.required && $v.DescriptionDe.$dirty"
-          >Es braucht eine Bescpreibung zur Band</p>
-          <p
-            v-if="!$v.DescriptionDe.minLength && $v.DescriptionDe.$dirty"
-          >Deine Beschreibung ist zu kurz</p>
+          <p v-if="!$v.DescriptionDe.required && $v.DescriptionDe.$dirty">
+            Es braucht eine Bescpreibung zur Band
+          </p>
+          <p v-if="!$v.DescriptionDe.minLength && $v.DescriptionDe.$dirty">
+            Deine Beschreibung ist zu kurz
+          </p>
         </div>
       </div>
 
-      <div class="form-group" :class="{ 'invalid-form': $v.DescriptionFr.$error }">
+      <div
+        class="form-group"
+        :class="{ 'invalid-form': $v.DescriptionFr.$error }"
+      >
         <label for="description_fr">Description Französisch</label>
         <vue-editor
-          class="html-editor"
-          @blur="$v.DescriptionFr.$touch()"
           id="description_fr"
-          :editorOptions="optionsEditor"
-          :editorToolbar="customToolbar"
           v-model="DescriptionFr"
-        ></vue-editor>
+          class="html-editor"
+          :editor-options="optionsEditor"
+          :editor-toolbar="customToolbar"
+          @blur="$v.DescriptionFr.$touch()"
+        />
 
         <div class="error-messages">
-          <p
-            v-if="!$v.DescriptionFr.required && $v.DescriptionFr.$dirty"
-          >Es braucht eine Bescpreibung zur Band</p>
-          <p
-            v-if="!$v.DescriptionFr.minLength && $v.DescriptionFr.$dirty"
-          >Deine Beschreibung ist zu kurz</p>
+          <p v-if="!$v.DescriptionFr.required && $v.DescriptionFr.$dirty">
+            Es braucht eine Bescpreibung zur Band
+          </p>
+          <p v-if="!$v.DescriptionFr.minLength && $v.DescriptionFr.$dirty">
+            Deine Beschreibung ist zu kurz
+          </p>
         </div>
       </div>
 
       <div class="form-group">
-        <label for="youtbe_url">Youtube codes separiert mit comma (Bsp: "Pun1Nxv9f3g, Oun1Nxv9f3a")</label>
+        <label
+          for="youtbe_url"
+        >Youtube codes separiert mit comma (Bsp: "Pun1Nxv9f3g, Oun1Nxv9f3a")</label>
         <input
+          id="youtbe_url"
+          v-model="YoutubeUrls"
           type="text"
           class="form-control"
-          id="youtbe_url"
           placeholder="code1, code2, usw."
-          v-model="YoutubeUrls"
         >
-        <div class="error-messages"></div>
+        <div class="error-messages" />
       </div>
 
       <div class="form-group">
         <label for="website_url">Website Url</label>
         <input
+          id="website_url"
+          v-model="WebSiteUrl"
           type="text"
           class="form-control"
-          id="website_url"
           placeholder="https://www.pff19.ch/"
-          v-model="WebSiteUrl"
         >
-        <div class="error-messages"></div>
+        <div class="error-messages" />
       </div>
 
       <div class="form-group">
         <label for="facebook">Facebook Page Url</label>
         <input
+          id="facebook"
+          v-model="Facebook"
           type="text"
           class="form-control"
-          id="facebook"
           placeholder="https://www.facebook.com/pff19mosaik/"
-          v-model="Facebook"
         >
-        <div class="error-messages"></div>
+        <div class="error-messages" />
       </div>
 
       <div class="form-group">
         <label for="instagram">Instagram Page Url</label>
         <input
+          id="instagram"
+          v-model="Instagram"
           type="text"
           class="form-control"
-          id="instagram"
           placeholder="https://www.instagram.com/pff_19_mosaik/"
-          v-model="Instagram"
         >
-        <div class="error-messages"></div>
+        <div class="error-messages" />
       </div>
 
       <div class="form-group">
@@ -179,16 +204,21 @@
           >hilfe</a>
         </label>
         <input
+          id="spotify"
+          v-model="SpotifyPlaylist"
           type="text"
           class="form-control"
-          id="spotify"
           placeholder="https://open.spotify.com/embed/album/1DFixLWuPkv3KT3TnV35m3"
-          v-model="SpotifyPlaylist"
         >
-        <div class="error-messages"></div>
+        <div class="error-messages" />
       </div>
 
-      <button type="submit" class="btn btn-primary">Bestätigen</button>
+      <button
+        type="submit"
+        class="btn btn-primary"
+      >
+        Bestätigen
+      </button>
     </form>
 
     <div class="help">
@@ -202,9 +232,7 @@
         <li>
           Trage deinen Beitrag zur eine schnelle Webseite und lasse deine Bilder vor dem Upload
           komprimieren unter
-          <a
-            href="https://tinyjpg.com/"
-          >https://tinyjpg.com/</a>
+          <a href="https://tinyjpg.com/">https://tinyjpg.com/</a>
         </li>
         <li>
           Falls beim Editieren trotzdem noch das alte Bild angezeigt wird, mache einen hard reload
@@ -220,21 +248,18 @@ import auth from 'utils/auth'
 import { convertToFormData } from 'utils/helpers'
 import vue2Dropzone from 'vue2-dropzone'
 import { VueEditor } from 'vue2-editor'
-import Datepicker from 'vuejs-datepicker'
 import 'vue2-dropzone/dist/vue2Dropzone.min.css'
 import {
   required,
-  email,
-  between,
-  numeric,
-  minValue,
   maxLength,
   minLength,
-  sameAs,
-  requiredUnless
 } from 'vuelidate/lib/validators'
 
 export default {
+  components: {
+    vueDropzone: vue2Dropzone,
+    VueEditor
+  },
   data() {
     return {
       errors: [],
@@ -271,11 +296,6 @@ export default {
     }
   },
 
-  components: {
-    vueDropzone: vue2Dropzone,
-    VueEditor
-  },
-
   validations: {
     Name: {
       required,
@@ -295,62 +315,6 @@ export default {
     },
     ImageLarge: {
       required
-    }
-  },
-
-  methods: {
-    submit() {
-      this.$v.$touch()
-      if (!this.$v.$invalid) {
-        const formData = {
-          Name: this.Name,
-          TitleFr: this.TitleFr,
-          DescriptionDe: this.DescriptionDe,
-          DescriptionFr: this.DescriptionFr,
-          Facebook: this.Facebook,
-          YoutubeUrls: this.YoutubeUrls,
-          Instagram: this.Instagram,
-          SpotifyPlaylist: this.SpotifyPlaylist,
-          WebSiteUrl: this.WebSiteUrl,
-          ImageThumbnail: this.ImageThumbnail,
-          ImageLarge: this.ImageLarge,
-          ImageMobile: this.ImageMobile,
-          PlayTimeForSorting: this.PlayTimeForSorting
-        }
-
-        auth
-          .put(`Bands/${this.$route.params.id}`, convertToFormData(formData))
-          .then(response => {
-            this.isSubmitted = true
-          })
-          .catch(e => {
-            this.errors.push(e)
-          })
-      }
-    },
-
-    sendingEventThumpnail(file, xhr) {
-      this.ImageThumbnail = file
-    },
-
-    sendingEventImage(file, xhr) {
-      this.ImageLarge = file
-    },
-
-    sendingEventMobileImage(file, xhr) {
-      this.ImageMobile = file
-    },
-
-    removingThumpnail(file) {
-      this.ImageThumbnail = {}
-    },
-
-    removingImage(file) {
-      this.ImageLarge = {}
-    },
-
-    removingMobileImage(file) {
-      this.ImageMobile = {}
     }
   },
 
@@ -386,6 +350,62 @@ export default {
       .catch(e => {
         this.errors.push(e)
       })
+  },
+
+  methods: {
+    submit() {
+      this.$v.$touch()
+      if (!this.$v.$invalid) {
+        const formData = {
+          Name: this.Name,
+          TitleFr: this.TitleFr,
+          DescriptionDe: this.DescriptionDe,
+          DescriptionFr: this.DescriptionFr,
+          Facebook: this.Facebook,
+          YoutubeUrls: this.YoutubeUrls,
+          Instagram: this.Instagram,
+          SpotifyPlaylist: this.SpotifyPlaylist,
+          WebSiteUrl: this.WebSiteUrl,
+          ImageThumbnail: this.ImageThumbnail,
+          ImageLarge: this.ImageLarge,
+          ImageMobile: this.ImageMobile,
+          PlayTimeForSorting: this.PlayTimeForSorting
+        }
+
+        auth
+          .put(`Bands/${this.$route.params.id}`, convertToFormData(formData))
+          .then(() => {
+            this.isSubmitted = true
+          })
+          .catch(e => {
+            this.errors.push(e)
+          })
+      }
+    },
+
+    sendingEventThumpnail(file) {
+      this.ImageThumbnail = file
+    },
+
+    sendingEventImage(file) {
+      this.ImageLarge = file
+    },
+
+    sendingEventMobileImage(file) {
+      this.ImageMobile = file
+    },
+
+    removingThumpnail() {
+      this.ImageThumbnail = {}
+    },
+
+    removingImage() {
+      this.ImageLarge = {}
+    },
+
+    removingMobileImage() {
+      this.ImageMobile = {}
+    }
   }
 }
 </script>

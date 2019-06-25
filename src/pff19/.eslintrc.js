@@ -1,7 +1,10 @@
 module.exports = {
-  extends: ["airbnb", "prettier"],
-  plugins: ["prettier"],
-  rules: {
-    "prettier/prettier": ["error"]
-  }
+  extends: [
+    "eslint:recommended",
+    "plugin:vue/recommended",
+  ],
+  // plugins: ["prettier"],
+  // rules: {
+  //   "prettier/prettier": ["error"]
+  // }
 };

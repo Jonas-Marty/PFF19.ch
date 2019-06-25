@@ -8,7 +8,8 @@
     "prod": "cross-env ASPNETCORE_ENVIRONMENT=Production dotnet run",
     "analyze": "npm run webpack -- --env.mode production --env.presets analyze",
     "build:dev": "npm run webpack -- --env.mode development",
-    "build:prod": "npm run webpack -- --env.mode production"
+    "build:prod": "npm run webpack -- --env.mode production",
+    "lint": "npm run eslint ClientApp/**"
   },
   "dependencies": {
     "axios": "^0.15.3",
@@ -50,7 +51,14 @@
     "bootstrap": "^4.0.0",
     "cross-env": "^5.2.0",
     "css-loader": "^1.0.0",
-    "eslint": "^5.7.0",
+    "eslint": "^5.16.0",
+    "eslint-config-standard": "^12.0.0",
+    "eslint-plugin-import": "^2.18.0",
+    "eslint-plugin-node": "^9.1.0",
+    "eslint-plugin-prettier": "^3.1.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-standard": "^4.0.0",
+    "eslint-plugin-vue": "^5.2.3",
     "event-source-polyfill": "0.0.7",
     "file-loader": "^2.0.0",
     "font-awesome": "^4.7.0",
