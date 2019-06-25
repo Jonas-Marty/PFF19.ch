@@ -1,32 +1,32 @@
 <template>
-    <div class="sponsors container">
-        <h2>{{ $t('lang.components.home.bands.registration') }}</h2>
-    </div>
+  <div class="sponsors container">
+    <h2>{{ $t('lang.components.home.bands.registration') }}</h2>
+  </div>
 </template>
 
 <script>
 export default {
-    data() {
-        return {
-            sponsors: []
-        }
-    },
+  data() {
+    return {
+      sponsors: []
+    }
+  },
 
-    methods: {}
+  methods: {}
 }
 </script>
 
 <style lang="scss" scoped>
 .sponsors {
-    width: 100%;
-    margin-top: 20px;
+  width: 100%;
+  margin-top: 20px;
 }
 
 .sponsor {
-    margin-bottom: 20px;
+  margin-bottom: 20px;
 }
 
 .sponsors img {
-    width: 100%;
+  width: 100%;
 }
 </style>

@@ -14,8 +14,8 @@ import VueMeta from 'vue-meta'
 Vue.use(VueMeta)
 
 Vue.use(VueAnalytics, {
-    id: 'UA-123742823-1',
-    router
+  id: 'UA-123742823-1',
+  router
 })
 
 Vue.use(Vuelidate)
@@ -27,7 +27,7 @@ sync(store, router)
 const lang = store.state.language
 
 if (lang) {
-    i18n.locale = lang
+  i18n.locale = lang
 }
 
 axios.defaults.headers.get['Accepts'] = 'application/json'
@@ -35,10 +35,10 @@ axios.defaults.headers.get['Accepts'] = 'application/json'
 Vue.component('app-polygon', Polygon) // component name should be in camel-case
 
 const app = new Vue({
-    store,
-    router,
-    i18n,
-    ...App
+  store,
+  router,
+  i18n,
+  ...App
 })
 
 export { app, router, store, i18n }
