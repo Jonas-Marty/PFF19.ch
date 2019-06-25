@@ -74,7 +74,7 @@
 </template>
 
 <script>
-import auth from '../../../auth.js'
+import auth from 'utils/auth'
 import { VueEditor } from 'vue2-editor'
 import { required, maxLength, minLength } from 'vuelidate/lib/validators'
 

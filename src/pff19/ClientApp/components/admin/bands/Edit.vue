@@ -216,8 +216,8 @@
 </template>
 
 <script>
-import auth from '../../../auth.js'
-import { convertToFormData } from '../../../helpers.js'
+import auth from 'utils/auth'
+import { convertToFormData } from 'utils/helpers'
 import vue2Dropzone from 'vue2-dropzone'
 import { VueEditor } from 'vue2-editor'
 import Datepicker from 'vuejs-datepicker'

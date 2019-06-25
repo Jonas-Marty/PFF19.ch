@@ -72,7 +72,7 @@
 </template>
 
 <script>
-import auth from '../../../auth.js'
+import auth from 'utils/auth'
 import vue2Dropzone from 'vue2-dropzone'
 import 'vue2-dropzone/dist/vue2Dropzone.min.css'
 import {

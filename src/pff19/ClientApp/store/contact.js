@@ -1,4 +1,4 @@
-import auth from '../auth'
+import auth from 'utils/auth'
 
 export const contact = {
   namespaced: true,

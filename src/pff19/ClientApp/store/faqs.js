@@ -1,5 +1,5 @@
 import axios from "axios";
-import auth from "../auth";
+import auth from "utils/auth";
 
 export const faqs = {
   namespaced: true,

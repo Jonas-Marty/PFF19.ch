@@ -14,8 +14,7 @@
           :options="dropzoneOptions"
           v-on:vdropzone-file-added="sendingImage"
           v-on:vdropzone-removed-file="removingImage"
-        >
-        </vue-dropzone>
+        ></vue-dropzone>
       </div>
 
       <div class="form-group" :class="{ 'invalid-form': $v.name.$error }">
@@ -27,7 +26,7 @@
           id="name"
           placeholder="Name der Firma"
           v-model="name"
-        />
+        >
         <div class="error-messages">
           <p v-if="!$v.name.required && $v.name.$dirty">Bitte einen Namen eingeben</p>
           <p v-if="!$v.name.minLength && $v.name.$dirty">Dein Name ist zu kurz</p>
@@ -44,7 +43,7 @@
           id="link"
           placeholder="Der Link zur Firma"
           v-model="link"
-        />
+        >
         <div class="error-messages">
           <p v-if="!$v.link.minLength && $v.link.$dirty">Dein Link ist zu kurz</p>
         </div>
@@ -69,8 +68,8 @@
 </template>
 
 <script>
-import auth from '../../../auth.js'
-import { convertToFormData } from '../../../helpers.js'
+import auth from 'utils/auth'
+import { convertToFormData } from 'utils/helpers'
 import vue2Dropzone from 'vue2-dropzone'
 import 'vue2-dropzone/dist/vue2Dropzone.min.css'
 import {
