@@ -12,10 +12,10 @@
         class="form-group dropzone-wrapper"
         :class="{ 'invalid-form': $v.ImageThumbnail.$error }"
       >
-        <label for="thumpnail_upload">Thumpnail upload (440x330px)</label>
+        <label for="thumpnailUpload">Thumpnail upload (440x330px)</label>
         <vue-dropzone
-          ref="thumpnail_upload"
-          id="thumpnail_upload"
+          ref="thumpnailUpload"
+          id="thumpnailUpload"
           :options="dropzoneOptions"
           v-on:vdropzone-file-added="sendingEventThumpnail"
           v-on:vdropzone-removed-file="removingThumpnail"
@@ -28,10 +28,10 @@
       </div>
 
       <div class="form-group dropzone-wrapper" :class="{ 'invalid-form': $v.ImageLarge.$error }">
-        <label for="image_upload">Image upload (1920x730px)</label>
+        <label for="imageUpload">Image upload (1920x730px)</label>
         <vue-dropzone
-          ref="image_upload"
-          id="image_upload"
+          ref="imageUpload"
+          id="imageUpload"
           :options="dropzoneOptions"
           v-on:vdropzone-file-added="sendingEventImage"
           v-on:vdropzone-removed-file="removingImage"
@@ -42,10 +42,10 @@
       </div>
 
       <div class="form-group dropzone-wrapper">
-        <label for="smartphone_image_upload">Smartphone Image upload (768x400)</label>
+        <label for="mobileUpload">Smartphone Image upload (768x400)</label>
         <vue-dropzone
-          ref="smartphone_image_upload"
-          id="smartphone_image_upload"
+          ref="mobileUpload"
+          id="mobileUpload"
           :options="dropzoneOptions"
           v-on:vdropzone-file-added="sendingEventMobileImage"
           v-on:vdropzone-removed-file="removingMobileImage"
@@ -288,7 +288,6 @@ export default {
     auth
       .get(`bars/${this.$route.params.id}`)
       .then(response => {
-        console.log(response)
         this.NameDe = response.data.nameDe
         this.NameFr = response.data.nameFr
         this.DescriptionDe = response.data.descriptionDe
