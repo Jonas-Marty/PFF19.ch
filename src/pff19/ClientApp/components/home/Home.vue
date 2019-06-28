@@ -2,9 +2,9 @@
   <div>
     <app-slideshow></app-slideshow>
     <app-news-list></app-news-list>
+    <ytvideo></ytvideo>
     <description-fr v-if="language === 'fr'"></description-fr>
     <description-de v-else></description-de>
-    <ytvideo></ytvideo>
   </div>
 </template>
 

@@ -18,12 +18,12 @@
 
 <style lang="scss" scoped>
 .ytvideo {
-  margin: 50px auto;
+  margin: 80px auto;
 }
 .ytplayer {
-  max-width: 750px;
+  max-width: 780px;
   height: 400px;
-  width: 80%;
+  width: 100%;
 }
 
 @media (max-width: 767px) {
