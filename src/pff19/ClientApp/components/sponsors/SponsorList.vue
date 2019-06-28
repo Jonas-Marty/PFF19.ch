@@ -53,6 +53,17 @@
       </div>
     </div>
 
+    <div v-if="withHelpFrom && withHelpFrom.length > 0" class="sponsors">
+      <h2>{{ $t('lang.components.home.sponsors.withHelpFrom') }}</h2>
+      <div class="row">
+        <app-sponsor
+          v-for="helper in withHelpFrom"
+          :key="helper.id"
+          :sponsor="helper"
+        ></app-sponsor>
+      </div>
+    </div>
+
     <div v-if="patronCompany && patronCompany.length > 0" class="sponsors">
       <h2>{{ $t('lang.components.home.sponsors.patron_company') }}</h2>
       <div class="row">
@@ -105,7 +116,8 @@ export default {
       'patronCompany',
       'patronPrivatePerson',
       'infrapartner',
-      'scoutpartner'
+      'scoutpartner',
+      'withHelpFrom'
     ]),
 
     ...mapGetters(['language']),

@@ -43,7 +43,8 @@
 				"patron_private_person": "Gönner Privatperson",
 				"patron_company": "Gönner Unternehmen",
 				"infrapartner": "Infrastruktur Partner",
-				"scoutpartner": "Pfadi Partner"
+				"scoutpartner": "Pfadi Partner",
+				"withHelpFrom": "Mit Unterstützung von"
 			},
 			"bands": {
 				"registration": "Bands Anmeldung"

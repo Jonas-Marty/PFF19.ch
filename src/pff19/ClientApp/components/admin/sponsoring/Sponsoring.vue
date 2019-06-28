@@ -37,7 +37,8 @@ export default {
         3: 'Gönner (Privatperson)',
         4: 'Infrastrukturpartner',
         5: 'Pfadi-Partner',
-        6: 'Gönner (Unternehmen)'
+        6: 'Gönner (Unternehmen)',
+        7: 'Mit Unterstützung von'
       }
     }
   },

@@ -52,6 +52,7 @@
       <div class="form-group">
         <label for="typ_of_sponsor">Sponsor Typ*</label>
         <select id="typ_of_sponsor" @blur="$v.link.$touch()" v-model="typ" class="form-control">
+          <option value="7">Mit Unterstützung von</option>
           <option value="6">Gönner (Unternehmen)</option>
           <option value="5">Pfadi-Partner</option>
           <option value="4">Infrastruktur Partner</option>

@@ -43,7 +43,8 @@
 				"patron_private_person": "Patron personne",
 				"patron_company": "Patron entreprise",
 				"infrapartner": "Infrastructure Partenaire",
-				"scoutpartner": "Scout Partenaire"
+				"scoutpartner": "Scout Partenaire",
+				"withHelpFrom": "Avec le soutien de"
 			},
 			"bands": {
 				"registration": "Bands inscription"

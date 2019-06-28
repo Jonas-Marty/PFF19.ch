@@ -8,36 +8,16 @@ export const sponsors = {
   },
 
   getters: {
-    all: state => {
-      return state.sponsors
-    },
-    mainSponsors: state => {
-      return state.sponsors.filter(el => el.status === 0)
-    },
-    coSponsors: state => {
-      return state.sponsors.filter(el => el.status === 1)
-    },
-    partner: state => {
-      return state.sponsors.filter(el => el.status === 2)
-    },
-    patronPrivatePerson: state => {
-      return state.sponsors.filter(el => el.status === 3)
-    },
-    infrapartner: state => {
-      return state.sponsors.filter(el => el.status === 4)
-    },
-    scoutpartner: state => {
-      return state.sponsors.filter(el => el.status === 5)
-    },
-    patronCompany: state => {
-      return state.sponsors.filter(el => el.status === 6)
-    },
-    get: state => {
-      return id =>
-        state.sponsors.find(elem => {
-          return elem.id === id
-        })
-    }
+    all: state => state.sponsors,
+    mainSponsors: state => state.sponsors.filter(el => el.status === 0),
+    coSponsors: state => state.sponsors.filter(el => el.status === 1),
+    partner: state => state.sponsors.filter(el => el.status === 2),
+    patronPrivatePerson: state => state.sponsors.filter(el => el.status === 3),
+    infrapartner: state => state.sponsors.filter(el => el.status === 4),
+    scoutpartner: state => state.sponsors.filter(el => el.status === 5),
+    patronCompany: state => state.sponsors.filter(el => el.status === 6),
+    withHelpFrom: state => state.sponsors.filter(el => el.status === 7),
+    get: state => id => state.sponsors.find(elem => elem.id === id)
   },
 
   mutations: {
