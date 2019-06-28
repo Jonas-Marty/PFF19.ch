@@ -30,5 +30,8 @@
   .ytplayer {
     height: 300px;
   }
+  .ytvideo {
+    margin-bottom: 0;
+  }
 }
 </style>

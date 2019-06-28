@@ -96,6 +96,9 @@
               >
                 <img :src="require('assets/images/spotify.png')" alt="spotify" />
               </a>
+              <a href="https://www.youtube.com/channel/UC0hE3YX9s2xLrf-dy5qk1XQ" target="_blank">
+                <img :src="require('assets/images/youtube.png')" alt="youtube" />
+              </a>
             </div>
           </div>
 
