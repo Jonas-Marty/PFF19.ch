@@ -54,6 +54,13 @@
         ></vue-dropzone>
       </div>
 
+      <div class="form-group">
+        <label for="timeForSorting">
+          Durchführ Startzeit
+        </label>
+        <input id="time" v-model="StartTime" type="datetime-local" class="form-control" />
+      </div>
+
       <div :class="{ 'invalid-form': $v.NameDe.$error }" class="form-group">
         <label for="name_de">NameDe</label>
         <input
@@ -170,6 +177,7 @@ export default {
       isSubmitted: false,
       NameDe: '',
       NameFr: '',
+      StartTime: '',
       DescriptionDe: '',
       DescriptionFr: '',
       ImageThumbnail: {},
@@ -228,6 +236,7 @@ export default {
       .then(response => {
         this.NameDe = response.data.nameDe
         this.NameFr = response.data.nameFr
+        this.StartTime = response.data.startTime ? response.data.startTime : ''
         this.DescriptionDe = response.data.descriptionDe
         this.DescriptionFr = response.data.descriptionFr
         this.$refs.thumpnailUpload.manuallyAddFile(
@@ -255,6 +264,7 @@ export default {
         const formData = {
           NameDe: this.NameDe,
           NameFr: this.NameFr,
+          StartTime: this.StartTime,
           DescriptionDe: this.DescriptionDe,
           DescriptionFr: this.DescriptionFr,
           ImageThumbnail: this.ImageThumbnail,

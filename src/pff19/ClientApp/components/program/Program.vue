@@ -15,7 +15,9 @@
       <h1 class="title">
         {{ language === 'de' ? getCurrentProgram.nameDe : getCurrentProgram.nameFr }}
       </h1>
-
+      <h6 v-if="getCurrentProgram.startTime !== '0001-01-01T00:00:00'" class="title-playtime">
+        {{ getCurrentProgram.startTime | formateDateTime(language) }}
+      </h6>
       <div class="row">
         <div v-html="description" class="col-12 text-content"></div>
       </div>

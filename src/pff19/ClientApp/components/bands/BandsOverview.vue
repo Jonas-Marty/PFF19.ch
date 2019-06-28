@@ -34,7 +34,6 @@
             <h5 class="card-title">{{ band.name }}</h5>
           </router-link>
           <h6>{{ band.playTimeForSorting | formateDateTime(language) }}</h6>
-          <p class="card-text"></p>
         </div>
       </div>
     </div>

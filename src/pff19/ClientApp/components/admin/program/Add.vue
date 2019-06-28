@@ -54,6 +54,13 @@
         ></vue-dropzone>
       </div>
 
+      <div class="form-group">
+        <label for="timeForSorting">
+          Durchführ Startzeit
+        </label>
+        <input id="time" v-model="StartTime" type="datetime-local" class="form-control" />
+      </div>
+
       <div :class="{ 'invalid-form': $v.NameDe.$error }" class="form-group">
         <label for="name_de">NameDe</label>
         <input
@@ -167,6 +174,7 @@ export default {
     return {
       errors: [],
       isSubmitted: false,
+      StartTime: '',
       NameDe: '',
       NameFr: '',
       DescriptionDe: '',
@@ -227,6 +235,7 @@ export default {
         const formData = {
           NameDe: this.NameDe,
           NameFr: this.NameFr,
+          StartTime: this.StartTime,
           DescriptionDe: this.DescriptionDe,
           DescriptionFr: this.DescriptionFr,
           ImageThumbnail: this.ImageThumbnail,
