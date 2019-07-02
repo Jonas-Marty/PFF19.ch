@@ -21,7 +21,6 @@ namespace pff19.DataAccess.Models
         [Required]
         public string AnswerFr { get; set; }
 
-        [Required]
         public string Category { get; set; }
         
         public int Order { get; set; }
