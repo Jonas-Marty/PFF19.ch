@@ -25,7 +25,7 @@
           >
             <h5 class="card-title">{{ language === 'de' ? program.nameDe : program.nameFr }}</h5>
           </router-link>
-          <h6 v-if="program.startTime !== '0001-01-01T00:00:00'">
+          <h6 v-if="program.startTime && program.startTime !== '0001-01-01T00:00:00'">
             {{ program.startTime | formateDateTime(language) }}
           </h6>
         </div>
