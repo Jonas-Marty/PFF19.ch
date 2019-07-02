@@ -56,7 +56,7 @@
 
       <div class="form-group">
         <label for="timeForSorting">
-          Durchführ Startzeit
+          Durchführ Startzeit (optional, Format: MM-dd-YYYY HH-mm)
         </label>
         <input id="time" v-model="StartTime" type="datetime-local" class="form-control" />
       </div>
