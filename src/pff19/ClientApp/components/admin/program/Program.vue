@@ -42,6 +42,7 @@
 </template>
 <script>
 import { mapActions, mapGetters } from 'vuex'
+import auth from 'utils/auth'
 
 export default {
   computed: {
@@ -70,8 +71,10 @@ export default {
         }
       })
       if (Object.keys(otherElem).length !== 0) {
-        this.swap({ first: id, second: otherElem.id })
+        auth.put(`socialprograms/${id}/${otherElem.id}`).then(() =>
+        //this.swap({ first: id, second: otherElem.id })
         window.location.reload() //fucking ugly way to do it but i dont have time to do it better
+        )
       }
     },
 
@@ -88,8 +91,10 @@ export default {
       })
 
       if (Object.keys(otherElem).length !== 0) {
-        this.swap({ first: id, second: otherElem.id }).then(this.load())
+        auth.put(`socialprograms/${id}/${otherElem.id}`).then(() =>
+        //this.swap({ first: id, second: otherElem.id })
         window.location.reload() //fucking ugly way to do it but i dont have time to do it better
+        )
       }
     }
   }
