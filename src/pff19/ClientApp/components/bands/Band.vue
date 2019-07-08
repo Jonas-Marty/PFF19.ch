@@ -1,7 +1,7 @@
 <template>
   <div class="myContainer">
     <slideshow
-      :images="`assets/bands/mobile/${getCurrentBand.imageLarge}`"
+      :images="`assets/bands/images/${getCurrentBand.imageLarge}`"
       :image-mobile="`assets/bands/mobile/${getCurrentBand.imageMobile}`"
     />
     <div class="container">
