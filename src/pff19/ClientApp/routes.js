@@ -55,6 +55,11 @@ const AdminProgramAdd = () => import(/* webpackChunkName: "admin" */ 'components
 const AdminProgramEdit = () =>
   import(/* webpackChunkName: "admin" */ 'components/admin/program/Edit')
 
+const AdminFileUpload = () =>
+  import(/* webpackChunkName: "admin" */ 'components/admin/fileUpload/Files')
+const AdminFileUploadAdd = () =>
+  import(/* webpackChunkName: "admin" */ 'components/admin/fileUpload/Add')
+
 const AdminHelfer = () => import(/* webpackChunkName: "admin" */ 'components/admin/helper/Helfer')
 const AdminContact = () =>
   import(/* webpackChunkName: "admin" */ 'components/admin/contact/Contact')
@@ -315,6 +320,19 @@ export const routes = [
         path: 'program/:id/edit',
         component: AdminProgramEdit,
         display: 'EDIT'
+      },
+      {
+        name: 'adminFileUpload',
+        path: 'fileupload',
+        component: AdminFileUpload,
+        display: 'FileUpload',
+        important: true
+      },
+      {
+        name: 'adminFileUploadAdd',
+        path: 'fileupload/add',
+        component: AdminFileUploadAdd,
+        display: 'ADD'
       },
       {
         name: 'adminHelperList',

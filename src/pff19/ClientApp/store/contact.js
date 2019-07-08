@@ -35,7 +35,7 @@ export const contact = {
         .then(response => {
           commit('load', response.data)
         })
-        .catch(e => console.log(e))
+        .catch(() => {})
     }
   }
 }

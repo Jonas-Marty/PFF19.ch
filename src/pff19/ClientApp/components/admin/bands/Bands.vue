@@ -64,9 +64,10 @@ export default {
         }
       })
       if (Object.keys(otherElem).length !== 0) {
-        auth.put(`bands/${id}/${otherElem.id}`).then(() =>
-        //this.swap({ first: id, second: otherElem.id })
-        window.location.reload() //fucking ugly way to do it but i dont have time to do it better
+        auth.put(`bands/${id}/${otherElem.id}`).then(
+          () =>
+            //this.swap({ first: id, second: otherElem.id })
+            window.location.reload() //fucking ugly way to do it but i dont have time to do it better
         )
       }
     },
@@ -84,9 +85,10 @@ export default {
       })
 
       if (Object.keys(otherElem).length !== 0) {
-        auth.put(`bands/${id}/${otherElem.id}`).then(() =>
-        //this.swap({ first: id, second: otherElem.id })
-        window.location.reload() //fucking ugly way to do it but i dont have time to do it better
+        auth.put(`bands/${id}/${otherElem.id}`).then(
+          () =>
+            //this.swap({ first: id, second: otherElem.id })
+            window.location.reload() //fucking ugly way to do it but i dont have time to do it better
         )
       }
     }
