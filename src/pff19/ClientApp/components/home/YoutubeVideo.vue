@@ -1,12 +1,23 @@
 <template>
   <div class="container ytvideo">
     <div class="row">
-      <div class="col-12 offset-md-2 col-md-8 offset-lg-2 col-lg-8">
+      <div class="col-12 col-md-12 col-lg-6">
         <div class="iframe-container text-center">
           <iframe
             class="ytplayer"
             type="text/html"
             src="https://www.youtube-nocookie.com/embed/jJDrwRzCLac"
+            frameborder="0"
+            allowfullscreen
+          />
+        </div>
+      </div>
+        <div class="col-12 col-md-12 col-lg-6">
+        <div class="iframe-container text-center">
+          <iframe
+            class="ytplayer"
+            type="text/html"
+            src="https://www.youtube-nocookie.com/embed/bolKNT1PuSQ"
             frameborder="0"
             allowfullscreen
           />
