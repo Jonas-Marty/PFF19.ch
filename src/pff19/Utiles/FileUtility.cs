@@ -33,11 +33,26 @@ namespace pff19.Utiles
             }
         }
 
-        public void SaveFile(Stream fileStream, string name)
+        public string SaveFile(Stream fileStream, string name)
         {
-            var basePath = Path.Combine(_environment.WebRootPath, "assets", "files");
-            Directory.CreateDirectory(basePath);
-            var filePath = Path.Combine(basePath, name);
+            var subPath = Path.Combine("assets", "files");
+            var basePath = Path.Combine(_environment.WebRootPath, subPath);
+            SaveFileInternal(fileStream, basePath, name);
+            return Path.Combine(subPath, name);
+        }
+
+        public string SaveFile(Stream fileStream, string subfolder, string name)
+        {
+            var subPath = Path.Combine("assets", "files", subfolder);
+            var basePath = Path.Combine(_environment.WebRootPath, subPath);
+            SaveFileInternal(fileStream, basePath, name);
+            return Path.Combine(subPath, name);
+        }
+
+        private void SaveFileInternal(Stream fileStream, string path, string name)
+        {   
+            Directory.CreateDirectory(path);
+            var filePath = Path.Combine(path, name);
             using (var fs = new FileStream(filePath, FileMode.Create))
             {
                 fileStream.CopyTo(fs);

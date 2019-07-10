@@ -34,8 +34,16 @@ namespace pff19.Controllers
         [HttpPost, Authorize]
         public IActionResult Post([FromForm] UploadedFileViewModel uploadedFile)
         {
-            _fileUtility.SaveFile(uploadedFile.File.OpenReadStream(), uploadedFile.File.FileName);
-            return NoContent();
+            var uploadPath = _fileUtility.SaveFile(uploadedFile.File.OpenReadStream(), uploadedFile.File.FileName);
+            return Ok("/" + uploadPath.Replace("\\", "/"));
+        }
+
+        // POST: api/file/inline
+        [HttpPost("{subPath}"), Authorize]
+        public IActionResult PostInline(string subPath, [FromForm] UploadedFileViewModel uploadedFile)
+        {
+            var uploadPath = _fileUtility.SaveFile(uploadedFile.File.OpenReadStream(), subPath, uploadedFile.File.FileName);
+            return Ok("/" + uploadPath.Replace("\\", "/"));
         }
 
         // DELETE: api/file/<name>
