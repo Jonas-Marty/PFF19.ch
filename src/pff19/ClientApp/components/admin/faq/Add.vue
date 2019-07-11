@@ -44,7 +44,9 @@
           :editor-options="optionsEditor"
           :editor-toolbar="customToolbar"
           @blur="$v.AnswerDe.$touch()"
+          @imageAdded="handleImageAdded"
           class="html-editor"
+          use-custom-image-handler
         ></vue-editor>
 
         <div class="error-messages">
@@ -62,7 +64,9 @@
           :editor-options="optionsEditor"
           :editor-toolbar="customToolbar"
           @blur="$v.AnswerFr.$touch()"
+          @imageAdded="handleImageAdded"
           class="html-editor"
+          use-custom-image-handler
         ></vue-editor>
 
         <div class="error-messages">
@@ -79,8 +83,11 @@
 
 <script>
 import auth from 'utils/auth'
-import { VueEditor } from 'vue2-editor'
+import ImageResize from 'quill-image-resize-module-mended'
+import { VueEditor, Quill } from 'vue2-editor'
 import { required } from 'vuelidate/lib/validators'
+
+Quill.register('modules/imageResize', ImageResize)
 
 export default {
   components: {
@@ -96,11 +103,15 @@ export default {
       AnswerFr: '',
       Category: 'default',
       optionsEditor: {
-        formats: ['bold', 'underline', 'italic', 'list', 'link', 'header']
+        formats: ['bold', 'underline', 'italic', 'list', 'link', 'header', 'image'],
+        modules: {
+          imageResize: {}
+        }
       },
       customToolbar: [
         ['bold', 'italic', 'underline', 'link'],
-        [{ list: 'ordered' }, { list: 'bullet' }, { header: ['3', '4'] }]
+        [{ list: 'ordered' }, { list: 'bullet' }, { header: ['3', '4'] }],
+        ['image']
       ]
     }
   },
@@ -147,6 +158,20 @@ export default {
             this.errors.push(e)
           })
       }
+    },
+    handleImageAdded: function(file, Editor, cursorLocation, resetUploader) {
+      let formData = new FormData()
+      formData.append('File', file)
+
+      auth
+        .post('file/faq', formData)
+        .then(result => {
+          const url = result.data
+          window.console.log(url)
+          Editor.insertEmbed(cursorLocation, 'image', url)
+          resetUploader()
+        })
+        .catch(() => {})
     }
   }
 }

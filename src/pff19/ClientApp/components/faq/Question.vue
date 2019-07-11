@@ -32,6 +32,12 @@ export default {
 }
 </script>
 
+<style lang="scss">
+.text-content img {
+  max-width: 100%;
+}
+</style>
+
 <style lang="scss" scoped>
 .question {
   margin-top: 30px;
