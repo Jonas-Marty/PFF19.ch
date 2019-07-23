@@ -78,7 +78,8 @@
 			"whole_weekend": "Week-end entier",
 			"friday": "Vendredi",
 			"saturday": "Samdi",
-			"sunday": "Dimanche"
+			"sunday": "Dimanche",
+			"timeTable": "Time Table"
 		},
 		"program": {
 			"title": "Programme"

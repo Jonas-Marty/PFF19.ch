@@ -1,11 +1,22 @@
 <template>
   <div class="container">
-    <div class="row">
-      <div class="col-md-8 col-lg-9">
+    <div class="header row">
+      <div class="col-md-4 col-lg-4">
         <h1>{{ $t(`lang.components.bands.title`) }}</h1>
       </div>
-      <div class="col-md-4 col-lg-3">
-        <form>
+      <div class="col-md-8 col-lg-8">
+        <div class="pull-right">
+          <button
+            v-for="opt in btnOptions"
+            :key="opt"
+            @click="selectedOpt = opt"
+            :class="{ active: selectedOpt == opt }"
+            class="btn btn-outline-primary"
+          >
+            {{ $t(`lang.components.bands.${opt}`) }}
+          </button>
+        </div>
+        <!-- <form>
           <div class="form-group">
             <select id="days" v-model="selectedDay" class="form-control">
               <option
@@ -17,33 +28,24 @@
               >
             </select>
           </div>
-        </form>
+        </form> -->
       </div>
     </div>
-    <div class="card-columns">
-      <div v-for="band in filteredBands" :key="band.id" class="card">
-        <router-link :to="{ name: 'band', params: { id: band.id, name: band.name } }">
-          <img
-            :src="`/assets/bands/thumbnail/${band.imageThumbnail}`"
-            :alt="band.name"
-            class="card-img-top"
-          />
-        </router-link>
-        <div class="card-body">
-          <router-link :to="{ name: 'band', params: { id: band.id, name: band.name } }">
-            <h5 class="card-title">{{ band.name }}</h5>
-          </router-link>
-          <h6>{{ band.playTimeForSorting | formateDateTime(language) }}</h6>
-        </div>
-      </div>
-    </div>
+    <time-table v-if="selectedOpt == 'timeTable'" />
+    <thumpnail-listing v-else :selectedDay="selectedOpt" />
   </div>
 </template>
 <script>
-import { mapActions, mapGetters } from 'vuex'
-import moment from 'moment'
+import { mapActions } from 'vuex'
+
+import BandsThumpnailListing from './BandThumpnailListing'
+import BandsTimeTable from './BandsTimeTable'
 
 export default {
+  components: {
+    'thumpnail-listing': BandsThumpnailListing,
+    'time-table': BandsTimeTable
+  },
   metaInfo() {
     return {
       title: `| ${this.$i18n.t('lang.navigation.bandsOverview')}`
@@ -52,61 +54,16 @@ export default {
 
   data() {
     return {
-      selectedDay: 'whole_weekend',
-      days: [
-        {
-          name: 'whole_weekend',
-          start: new moment('2019-08-30T00:00:00'),
-          end: new moment('2019-09-02T00:00:00')
-        },
-        {
-          name: 'friday',
-          start: new moment('2019-08-30T00:00:00'),
-          end: new moment('2019-08-31T05:00:00')
-        },
-        {
-          name: 'saturday',
-          start: new moment('2019-08-31T05:00:01'),
-          end: new moment('2019-09-01T05:00:00')
-        },
-        {
-          name: 'sunday',
-          start: new moment('2019-09-01T05:00:01'),
-          end: new moment('2019-09-02T00:00:00')
-        }
-      ]
+      selectedOpt: 'whole_weekend',
+      btnOptions: ['whole_weekend', 'friday', 'saturday', 'sunday', 'timeTable']
     }
   },
-
-  computed: {
-    ...mapGetters('bands', ['all']),
-    ...mapGetters(['language']),
-    filteredBands() {
-      return this.all.filter(band => {
-        const bandTime = new moment(band.playTimeForSorting)
-        if (this.selectedDay === 'whole_weekend') {
-          return true
-        }
-
-        if (
-          bandTime.isBetween(
-            this.days.find(d => d.name === this.selectedDay).start,
-            this.days.find(d => d.name === this.selectedDay).end
-          )
-        ) {
-          return true
-        }
-        return false
-      })
-    }
-  },
-
   created() {
     this.load()
   },
 
   methods: {
-    ...mapActions('bands', ['load', 'loadCurrentBand'])
+    ...mapActions('bands', ['load'])
   }
 }
 </script>
@@ -114,5 +71,13 @@ export default {
 <style lang="scss" scoped>
 .container {
   padding-top: 100px;
+}
+
+.header {
+  margin-bottom: 30px;
+}
+
+.btn {
+  margin: 5px;
 }
 </style>

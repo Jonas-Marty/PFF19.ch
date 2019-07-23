@@ -11,6 +11,7 @@ import Contact from 'components/faq/Kontakt'
 import Ticketing from 'components/ticketing/Tickets'
 const Band = () => import('components/bands/Band')
 const BandsOverview = () => import('components/bands/BandsOverview')
+const BandsTimeTable = () => import('components/bands/BandsTimeTable')
 const ProgramOverview = () => import('components/program/ProgramOverview')
 const Program = () => import('components/program/Program')
 const foodAndBarsOverview = () => import('components/foodAndBars/foodAndBarsOverview')
@@ -185,6 +186,12 @@ export const routes = [
         path: '/band/:id',
         component: Band,
         display: 'Band'
+      },
+      {
+        name: 'bandTimeTable',
+        path: '/bands/timetable',
+        component: BandsTimeTable,
+        display: 'BandTimeTable'
       },
       {
         name: 'foodAndBar',

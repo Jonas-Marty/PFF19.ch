@@ -22,3 +22,9 @@ Vue.filter('formateDateTime', (str, locale) => {
   const date = moment(str)
   return date.format('dddd, HH:mm')
 })
+
+Vue.filter('formateTime', (str, locale) => {
+  moment.locale(locale)
+  const date = moment(str)
+  return date.format('HH:mm')
+})

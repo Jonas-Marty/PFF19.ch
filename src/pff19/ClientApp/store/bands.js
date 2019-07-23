@@ -1,4 +1,5 @@
 import axios from 'axios'
+import moment from 'moment'
 import auth from 'utils/auth'
 
 export const bands = {
@@ -9,13 +10,9 @@ export const bands = {
   },
 
   getters: {
-    all: state => {
-      return state.bands.sort((a, b) => a.order - b.order)
-    },
+    all: state => state.bands.sort((a, b) => a.order - b.order),
 
-    getCurrentBand: state => {
-      return state.currentBand
-    }
+    getCurrentBand: state => state.currentBand
   },
 
   mutations: {
