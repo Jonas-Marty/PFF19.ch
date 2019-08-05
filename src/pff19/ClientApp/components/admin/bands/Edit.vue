@@ -1,14 +1,10 @@
 <template>
   <div>
-    <h2 class="title">
-      Band Editiern
-    </h2>
+    <h2 class="title">Band Editiern</h2>
 
     <div v-if="isSubmitted">
       <p>Deine Band wurde upgedated!</p>
-      <router-link :to="{ name: 'adminBands' }">
-        Zurück
-      </router-link>
+      <router-link :to="{ name: 'adminBands' }">Zurück</router-link>
     </div>
 
     <form v-if="!isSubmitted" @submit.prevent="submit">
@@ -25,9 +21,9 @@
           @vdropzone-removed-file="removingThumpnail"
         />
         <div class="error-messages">
-          <p v-if="!$v.ImageThumbnail.required && $v.ImageThumbnail.$dirty">
-            Die Band braucht ein Bild
-          </p>
+          <p
+            v-if="!$v.ImageThumbnail.required && $v.ImageThumbnail.$dirty"
+          >Die Band braucht ein Bild</p>
         </div>
       </div>
 
@@ -41,9 +37,7 @@
           @vdropzone-removed-file="removingImage"
         />
         <div class="error-messages">
-          <p v-if="!$v.ImageLarge.required && $v.ImageLarge.$dirty">
-            Die Band braucht ein Bild
-          </p>
+          <p v-if="!$v.ImageLarge.required && $v.ImageLarge.$dirty">Die Band braucht ein Bild</p>
         </div>
       </div>
 
@@ -83,9 +77,7 @@
           placeholder="Name der Band"
         />
         <div class="error-messages">
-          <p v-if="!$v.Name.required && $v.Name.$dirty">
-            Bitte ein Name eingeben
-          </p>
+          <p v-if="!$v.Name.required && $v.Name.$dirty">Bitte ein Name eingeben</p>
         </div>
       </div>
 
@@ -101,12 +93,12 @@
         />
 
         <div class="error-messages">
-          <p v-if="!$v.DescriptionDe.required && $v.DescriptionDe.$dirty">
-            Es braucht eine Bescpreibung zur Band
-          </p>
-          <p v-if="!$v.DescriptionDe.minLength && $v.DescriptionDe.$dirty">
-            Deine Beschreibung ist zu kurz
-          </p>
+          <p
+            v-if="!$v.DescriptionDe.required && $v.DescriptionDe.$dirty"
+          >Es braucht eine Bescpreibung zur Band</p>
+          <p
+            v-if="!$v.DescriptionDe.minLength && $v.DescriptionDe.$dirty"
+          >Deine Beschreibung ist zu kurz</p>
         </div>
       </div>
 
@@ -122,19 +114,23 @@
         />
 
         <div class="error-messages">
-          <p v-if="!$v.DescriptionFr.required && $v.DescriptionFr.$dirty">
-            Es braucht eine Bescpreibung zur Band
-          </p>
-          <p v-if="!$v.DescriptionFr.minLength && $v.DescriptionFr.$dirty">
-            Deine Beschreibung ist zu kurz
-          </p>
+          <p
+            v-if="!$v.DescriptionFr.required && $v.DescriptionFr.$dirty"
+          >Es braucht eine Bescpreibung zur Band</p>
+          <p
+            v-if="!$v.DescriptionFr.minLength && $v.DescriptionFr.$dirty"
+          >Deine Beschreibung ist zu kurz</p>
         </div>
       </div>
 
       <div class="form-group">
-        <label for="youtbe_url"
-          >Youtube codes separiert mit comma (Bsp: "Pun1Nxv9f3g, Oun1Nxv9f3a")</label
-        >
+        <label for="stage">Bühne (optional)</label>
+        <input id="stage" v-model="Stage" type="text" class="form-control" placeholder="stage" />
+        <div class="error-messages" />
+      </div>
+
+      <div class="form-group">
+        <label for="youtbe_url">Youtube codes separiert mit comma (Bsp: "Pun1Nxv9f3g, Oun1Nxv9f3a")</label>
         <input
           id="youtbe_url"
           v-model="YoutubeUrls"
@@ -184,9 +180,9 @@
       <div class="form-group">
         <label for="spotify">
           Spotify Playlist code
-          <a href="https://developer.spotify.com/documentation/widgets/generate/play-button/"
-            >hilfe</a
-          >
+          <a
+            href="https://developer.spotify.com/documentation/widgets/generate/play-button/"
+          >hilfe</a>
         </label>
         <input
           id="spotify"
@@ -198,9 +194,7 @@
         <div class="error-messages" />
       </div>
 
-      <button type="submit" class="btn btn-primary">
-        Bestätigen
-      </button>
+      <button type="submit" class="btn btn-primary">Bestätigen</button>
     </form>
 
     <div class="help">
@@ -214,7 +208,9 @@
         <li>
           Trage deinen Beitrag zur eine schnelle Webseite und lasse deine Bilder vor dem Upload
           komprimieren unter
-          <a href="https://tinyjpg.com/">https://tinyjpg.com/</a>
+          <a
+            href="https://tinyjpg.com/"
+          >https://tinyjpg.com/</a>
         </li>
         <li>
           Falls beim Editieren trotzdem noch das alte Bild angezeigt wird, mache einen hard reload
@@ -247,6 +243,7 @@ export default {
       DescriptionDe: '',
       DescriptionFr: '',
       Facebook: '',
+      Stage: '',
       YoutubeUrls: '',
       WebSiteUrl: '',
       Instagram: '',
@@ -307,6 +304,7 @@ export default {
           : ''
         this.DescriptionDe = response.data.descriptionDe
         this.DescriptionFr = response.data.descriptionFr
+        this.Stage = response.data.stage ? response.data.stage : ''
         this.Facebook = response.data.facebook ? response.data.facebook : ''
         this.YoutubeUrls = response.data.youtubeUrls ? response.data.youtubeUrls : ''
         this.Instagram = response.data.instagram ? response.data.instagram : ''
@@ -344,6 +342,7 @@ export default {
           Instagram: this.Instagram,
           SpotifyPlaylist: this.SpotifyPlaylist,
           WebSiteUrl: this.WebSiteUrl,
+          Stage: this.Stage,
           ImageThumbnail: this.ImageThumbnail,
           ImageLarge: this.ImageLarge,
           ImageMobile: this.ImageMobile,

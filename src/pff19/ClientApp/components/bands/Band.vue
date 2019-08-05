@@ -7,16 +7,13 @@
     <div class="container">
       <div class="row back">
         <div class="col">
-          <router-link :to="{ name: 'bandsOverview' }" class="btn btn-outline-primary">
-            Alle Bands
-          </router-link>
+          <router-link :to="{ name: 'bandsOverview' }" class="btn btn-outline-primary">Alle Bands</router-link>
         </div>
       </div>
-      <h1 class="title">
-        {{ getCurrentBand.name }}
-      </h1>
+      <h1 class="title">{{ getCurrentBand.name }}</h1>
       <h6 class="title-playtime">
         {{ getCurrentBand.playTimeForSorting | formateDateTime(language) }}
+        {{ getCurrentBand.stage ? `| ${getCurrentBand.stage}` : '' }}
       </h6>
 
       <div v-if="getCurrentBand.spotifyPlaylist" class="row">
@@ -46,11 +43,7 @@
         <div class="col-12 social-media-container">
           <div v-if="getCurrentBand.facebook" class="social-media">
             <a :href="getCurrentBand.facebook">
-              <img
-                :src="require('assets/images/facebook.png')"
-                alt="facebook"
-                class="social-icon"
-              />
+              <img :src="require('assets/images/facebook.png')" alt="facebook" class="social-icon" />
             </a>
           </div>
           <div v-if="getCurrentBand.instagram" class="social-media">

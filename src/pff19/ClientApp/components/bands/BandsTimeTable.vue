@@ -4,9 +4,7 @@
       <table class="table">
         <thead class="dark">
           <tr>
-            <th scope="col" colspan="2">
-              {{ $t(`lang.components.bands.${day.name}`) }}
-            </th>
+            <th scope="col" colspan="3">{{ $t(`lang.components.bands.${day.name}`) }}</th>
           </tr>
         </thead>
         <tbody>
@@ -16,11 +14,9 @@
             <td>
               <router-link
                 :to="{ name: 'band', params: { id: band.id, name: band.name } }"
-                class="pull-left"
-              >
-                {{ band.name }}
-              </router-link>
+              >{{ band.name }}</router-link>
             </td>
+            <td class="place">{{band.stage ? band.stage: ''}}</td>
           </tr>
         </tbody>
       </table>
@@ -99,5 +95,8 @@ export default {
 }
 .time {
   width: 100px;
+}
+.place {
+  width: 120px;
 }
 </style>
