@@ -35,7 +35,7 @@
           <b>31. mai</b>, tu reçois une réduction
           de
           <b>50%</b> pour ton ticket de CFF pour aller et retour en train (
-          <a href="https://sbb.pff19.ch/">
+          <a href="https://sbb.pff19.ch/" target="_blank">
             CFF code de
             réduction
           </a> ).

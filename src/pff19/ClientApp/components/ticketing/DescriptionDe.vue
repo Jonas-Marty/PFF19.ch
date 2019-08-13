@@ -34,7 +34,7 @@
           Beim Kauf eines 3-Tagespasses bis zum
           <b>31. Mai 2019</b> erhält man
           <b>50% Vergünstigung</b> auf das Ticket für die Hin- und Rückfahrt (
-          <a
+          <a target="_blank"
             href="https://sbb.pff19.ch/"
           >SBB Rabatt Code</a> ).
         </li>
