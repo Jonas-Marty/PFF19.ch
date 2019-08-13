@@ -52,6 +52,7 @@ namespace pff19.Controllers
                 DescriptionFr =  model.DescriptionFr,
                 Name = model.Name,
                 SpotifyPlaylist = model.SpotifyPlaylist,
+                Stage = model.Stage,
                 YoutubeUrls = model.YoutubeUrls,
                 Facebook =  model.Facebook,
                 Instagram = model.Instagram,
@@ -86,6 +87,7 @@ namespace pff19.Controllers
             existingBand.Facebook = model.Facebook;
             existingBand.Instagram = model.Instagram;
             existingBand.PlayTime = model.PlayTime;
+            existingBand.Stage = model.Stage;
             existingBand.PlayTimeForSorting = model.PlayTimeForSorting;
             existingBand.WebSiteUrl = model.WebSiteUrl;
 
