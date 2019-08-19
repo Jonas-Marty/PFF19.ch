@@ -40,6 +40,12 @@
         </li>
 
         <li>
+            Alle Tickets können auch vor Ort bezogen werden. 
+            Der Vorverkauf ist bis Freitag 30.08.2019 um 10:00 Uhr offen.
+            Eine Abendkasse kann jedoch nicht garantiert werden.
+        </li>
+
+        <li>
           <b>Vor Ort</b> können am Sonntag Einzeltickets gekauft werden
         </li>
 

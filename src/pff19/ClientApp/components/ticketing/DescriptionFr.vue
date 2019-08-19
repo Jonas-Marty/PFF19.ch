@@ -41,6 +41,12 @@
           </a> ).
         </li>
 
+        <li>
+            Tous les billets peuvent également être achetés à la caisse sur place. 
+            La prévente est ouverte jusqu'au vendredi 30 août 2019 à 10h00. 
+            Toutefois, on ne peut pas garantir qu’il y aura des billets disponibles à la caisse.
+        </li>
+
         <li>Il est possible d’acheter un ticket (pour une personne) le dimanche à la caisse.</li>
 
         <li>
