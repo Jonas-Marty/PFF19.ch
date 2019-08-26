@@ -1,5 +1,5 @@
 <template>
-  <div class="app-countdown">
+  <div class="app-countdown" v-if="time.distance > 0">
     <div class="row">
       <div class="days col-md-12 col-12">
         <div class="row justify-content-md-end justify-content-center">
@@ -32,7 +32,7 @@ export default {
       const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))
         .toString()
         .split('')
-      return { days, hours }
+      return { days, hours, distance }
     }
   }
 }
