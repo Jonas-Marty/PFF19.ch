@@ -3,9 +3,7 @@
     <div class="row">
       <div class="days col-md-12 col-12">
         <div class="row justify-content-md-end justify-content-center">
-          <div v-for="(day, index) in time.days" :key="index" class="day">
-            {{ day }}
-          </div>
+          <div v-for="(day, index) in time.days" :key="index" class="day">{{ day }}</div>
         </div>
         <div class="countdown-text">
           <strong>{{ $t('lang.components.home.slideshow.countdown.days') | uppercase }}</strong>
@@ -13,9 +11,7 @@
       </div>
       <div class="hours col-md-12 col-12">
         <div class="row justify-content-md-end justify-content-center">
-          <div v-for="(hour, index) in time.hours" :key="index" class="hour">
-            {{ hour }}
-          </div>
+          <div v-for="(hour, index) in time.hours" :key="index" class="hour">{{ hour }}</div>
         </div>
         <div class="countdown-text justify-content-md-end justify-content-center">
           <strong>{{ $t('lang.components.home.slideshow.countdown.hours') | uppercase }}</strong>

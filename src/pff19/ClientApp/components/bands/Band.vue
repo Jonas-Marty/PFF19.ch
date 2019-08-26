@@ -11,7 +11,7 @@
         </div>
       </div>
       <h1 class="title">{{ getCurrentBand.name }}</h1>
-      <h6 class="title-playtime">
+      <h6 class="title-playtime" v-if="getCurrentBand.playTimeForSorting">
         {{ getCurrentBand.playTimeForSorting | formateDateTime(language) }}
         {{ getCurrentBand.stage ? `| ${getCurrentBand.stage}` : '' }}
       </h6>

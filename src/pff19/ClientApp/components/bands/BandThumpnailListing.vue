@@ -12,7 +12,9 @@
         <router-link :to="{ name: 'band', params: { id: band.id, name: band.name } }">
           <h5 class="card-title">{{ band.name }}</h5>
         </router-link>
-        <h6>{{ band.playTimeForSorting | formateDateTime(language) }} | {{band.stage}}</h6>
+        <h6
+          v-if="band.playTimeForSorting"
+        >{{ band.playTimeForSorting | formateDateTime(language) }} | {{band.stage}}</h6>
       </div>
     </div>
   </div>
