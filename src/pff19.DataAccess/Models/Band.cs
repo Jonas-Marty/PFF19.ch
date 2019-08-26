@@ -13,7 +13,7 @@ namespace pff19.DataAccess.Models
         public string DescriptionFr { get; set; }
         public string SpotifyPlaylist { get; set; }
         public string PlayTime { get; set; }
-        public DateTime PlayTimeForSorting { get; set; }
+        public DateTime? PlayTimeForSorting { get; set; }
         public string Stage { get; set; }
         public string ImageLarge { get; set; }
         public string ImageThumbnail { get; set; }
