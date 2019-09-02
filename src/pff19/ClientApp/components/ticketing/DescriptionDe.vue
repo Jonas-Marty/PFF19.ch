@@ -3,27 +3,12 @@
     <div class="ticket-buying card row">
       <h1 class="title">Werde mit Deinem Ticket Teil unseres Mosaiks!</h1>
 
-      <div class="alert alert-info helfer">
-        <h3>Helfer</h3>
-        <p>
-          Möchtest Du das PFF als Helfer unterstützen und Dir dadurch einen Rabatt auf Dein Ticket
-          sichern?
-          <a
-            href="https://pff19.ukula.ch/"
-            target="_blank"
-          >Werde Helfer!</a>
-          (Helfer beziehen ihr vergünstigtes Ticket direkt an der Kasse vor Ort und müssen kein
-          Ticket im Vorverkauf kaufen!)
-        </p>
-      </div>
-
-      <div class="col-md-6 offset-md-3 iframe-wrapper">
-        <iframe
-          class="iframe"
-          data-src="https://www.ticketino.com/de/Event/Embed/80740"
-          frameborder="0"
-          src="https://www.ticketino.com/de/Event/Embed/80740"
-        ></iframe>
+      <div class="alert alert-danger helfer">
+          <h3>Achtung!</h3>
+          <p>
+              Es sind nur noch 1-Tagespässe für den Sonntag direkt vor Ort erhältlich.
+              Alle anderen Ticketkategorien sind leider ausverkauft.
+          </p>
       </div>
     </div>
 

@@ -19,13 +19,7 @@
             sizes="400px"
             src="../../../assets/images/logo_yellow_with_text.png"
             alt="pff-logo"
-          />
-
-          <router-link :to="{ name: 'ticketing' }">
-            <div class="btn btn-danger ticket-btn btn-lg font-weight-bold">
-              {{ $t(`lang.components.home.slideshow.ticket_btn`) | uppercase }}
-            </div>
-          </router-link>
+          />          
         </div>
 
         <app-countdown class="col-md col-sm-12"></app-countdown>

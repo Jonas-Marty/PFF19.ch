@@ -3,27 +3,12 @@
     <div class="ticket-buying card row">
       <h1 class="title">Deviens part de notre mosaïque avec ton ticket!</h1>
 
-      <div class="alert alert-info helfer">
-        <h3>Bénévoles</h3>
-        <p>
-          Est-ce que tu voudrais soutenir le FFS comme bénévole et ainsi profiter d’un avantage sur
-          ton ticket?
-          <a
-            href="https://pff19.ukula.ch/"
-            target="_blank"
-          >Deviens bénévole!</a> (Les bénévoles
-          reçoivent leurs tickets réduits directement à la caisse quand ils arrivent et ils ne
-          doivent pas acheter un ticket en prévente!)
-        </p>
-      </div>
-
-      <div class="col-md-6 offset-md-3 iframe-wrapper">
-        <iframe
-          class="iframe"
-          data-src="https://www.ticketino.com/fr/Event/Embed/80740"
-          frameborder="0"
-          src="https://www.ticketino.com/fr/Event/Embed/80740"
-        ></iframe>
+      <div class="alert alert-danger helfer">
+          <h3>Attention!</h3>
+          <p>
+              Il y a seulement des tickets 1 jour disponibles pour le dimanche directement sur place.
+              Toutes les autres catégories de billets sont épuisées.
+          </p>
       </div>
     </div>
 
