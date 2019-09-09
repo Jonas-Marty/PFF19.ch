@@ -80,10 +80,10 @@ export const routes = [
         important: true
       },
       {
-        name: 'ticketing',
-        path: '/tickets',
-        component: Ticketing,
-        display: 'Tickets',
+        name: 'fotos',
+        path: '/fotos',
+        display: 'Fotos',
+        beforeEnter() { location.href = 'https://www.flickr.com/photos/pff19mosaik/' },
         important: true
       },
       {
