@@ -142,21 +142,13 @@ export const routes = [
           }
         ]
       },
-      {
-        name: 'helper',
-        path: '/helfer',
-        component: Helfer,
-        display: 'Helfer',
-        important: true
-      },
-      {
+        {
         name: 'contact',
         path: '/contact',
         component: Contact,
         display: 'Kontakt',
         important: true
       },
-
       {
         name: 'impressum',
         path: '/impressum',
