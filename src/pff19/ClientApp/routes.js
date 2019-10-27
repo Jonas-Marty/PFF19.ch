@@ -83,7 +83,7 @@ export const routes = [
         name: 'fotos',
         path: '/fotos',
         display: 'Fotos',
-        beforeEnter() { location.href = 'https://www.flickr.com/photos/pff19mosaik/' },
+        beforeEnter() { location.href = 'https://www.flickr.com/photos/pff19mosaik/albums' },
         important: true
       },
       {

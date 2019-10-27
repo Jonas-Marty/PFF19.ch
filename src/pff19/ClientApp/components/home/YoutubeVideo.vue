@@ -6,7 +6,7 @@
           <iframe
             class="ytplayer"
             type="text/html"
-            src="https://www.youtube-nocookie.com/embed/jJDrwRzCLac"
+            src="https://www.youtube.com/embed/kniePtth694"
             frameborder="0"
             allowfullscreen
           />
