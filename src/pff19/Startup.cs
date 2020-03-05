@@ -4,6 +4,7 @@ using System.Text;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.HttpOverrides;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.SpaServices.Webpack;
 using Microsoft.EntityFrameworkCore;
@@ -99,12 +100,17 @@ namespace pff19
 
             Console.WriteLine("Environment name for ASP.NET CORE is: " + env.EnvironmentName);
 
-            using (var serviceScope = app.ApplicationServices.GetRequiredService<IServiceScopeFactory>().CreateScope())
-            {
-                var context = serviceScope.ServiceProvider.GetService<PffContext>();
-                context.Database.Migrate();
-            }
+            // using (var serviceScope = app.ApplicationServices.GetRequiredService<IServiceScopeFactory>().CreateScope())
+            // {
+            //     var context = serviceScope.ServiceProvider.GetService<PffContext>();
+            //     context.Database.Migrate();
+            // }
 
+            if (Environment.GetEnvironmentVariable("IS_DOCKER").Equals("true", StringComparison.OrdinalIgnoreCase))
+            {
+                app.UseForwardedHeaders(new ForwardedHeadersOptions { ForwardedHeaders = ForwardedHeaders.XForwardedFor | ForwardedHeaders.XForwardedProto });
+            }
+            
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
